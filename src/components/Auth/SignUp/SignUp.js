@@ -1,14 +1,11 @@
-// import Logo from "../../assets/images/logo.png";
 import "./SignUp.css";
-import LabelAndInput from "../../../themes/LabelAndInput/LabelAndInput";
 import axios from "axios";
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
-import {NavLink} from "react-router-dom";
 import Auth from "../Auth/Auth";
 import * as links from '../../../utils/links'
 import signup_1 from "../../../assets/images/signup_1.png";
-import signup_2 from "../../../assets/images/signup_2.png";
+// import signup_2 from "../../../assets/images/signup_2.png";
 import {CANAL, REACT_APP_API_BASE_URL} from "../../../utils/constants";
 
 const initialDataSignUp = {

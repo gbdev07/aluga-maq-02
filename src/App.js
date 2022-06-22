@@ -36,16 +36,16 @@ const App = (props) => {
     return (
         <Routes>
             {/*<Route path='*' element={<Dashboard />} />*/}
-            <Route
-                path='/'
-                element={
-                    <PrivateRoute>
-                        <Main>
-                            <Dashboard />
-                        </Main>
-                    </PrivateRoute>
-                }
-            />
+            {/*<Route*/}
+            {/*    path='/'*/}
+            {/*    element={*/}
+            {/*        <PrivateRoute>*/}
+            {/*            <Main>*/}
+            {/*                <Dashboard />*/}
+            {/*            </Main>*/}
+            {/*        </PrivateRoute>*/}
+            {/*    }*/}
+            {/*/>*/}
             <Route
                 path='/signup-canal'
                 element={

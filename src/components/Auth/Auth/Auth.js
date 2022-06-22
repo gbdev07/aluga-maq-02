@@ -2,7 +2,7 @@ import React from "react";
 import "./Auth.css"
 import {Button, Checkbox, Col, Input, Row} from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
 import {FiLogIn} from "react-icons/fi"
 const Auth = (props) => {
     const {
