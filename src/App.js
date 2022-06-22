@@ -33,63 +33,58 @@ const App = (props) => {
     //     </div>
     // )
     return (
-        <div>
-            Test 1.8
-            <Routes>
-                {/*<Route path='*' element={<Dashboard />} />*/}
-                <Route
-                    path={links.DASHBOARD}
-                    element={
-                        <PrivateRoute>
-                            <Main>
-                                <Dashboard />
-                            </Main>
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path={links.SIGNUP_CANAL}
-                    element={
-                        <PublicRoute>
-                            <SignUp
-                                type={CANAL}
-                            />
-                        </PublicRoute>
-                    }
-                />
-                <Route
-                    path={links.SIGNUP_FORNECEDOR}
-                    element={
-                        <PublicRoute>
-                            <SignUp
-                                type={FORNECEDOR}
-                            />
-                        </PublicRoute>
-                    }
-                />
-                {/*<Route*/}
-                {/*    path={links.SIGNIN_CANAL}*/}
-                {/*    element={*/}
-                {/*        <PublicRoute>*/}
-                {/*            <SignIn*/}
-                {/*                type={CANAL}*/}
-                {/*            />*/}
-                {/*        </PublicRoute>*/}
-                {/*    }*/}
-                {/*/>*/}
-                {/*<Route*/}
-                {/*    path={links.SIGNIN_FORNECEDOR}*/}
-                {/*    element={*/}
-                {/*        <PublicRoute>*/}
-                {/*            <SignIn*/}
-                {/*                type={FORNECEDOR}*/}
-                {/*            />*/}
-                {/*        </PublicRoute>*/}
-                {/*    }*/}
-                {/*/>*/}
-                <Route path='*' element={<NotFound />} />
-            </Routes>
-        </div>
+        <Routes>
+            {/*<Route path='*' element={<Dashboard />} />*/}
+            <Route
+                path={links.DASHBOARD}
+                element={
+                    <PrivateRoute>
+                        <Dashboard />
+                    </PrivateRoute>
+                }
+            />
+            <Route
+                path={links.SIGNUP_CANAL}
+                element={
+                    <PublicRoute>
+                        <SignUp
+                            type={CANAL}
+                        />
+                    </PublicRoute>
+                }
+            />
+            <Route
+                path={links.SIGNUP_FORNECEDOR}
+                element={
+                    <PublicRoute>
+                        <SignUp
+                            type={FORNECEDOR}
+                        />
+                    </PublicRoute>
+                }
+            />
+            {/*<Route*/}
+            {/*    path={links.SIGNIN_CANAL}*/}
+            {/*    element={*/}
+            {/*        <PublicRoute>*/}
+            {/*            <SignIn*/}
+            {/*                type={CANAL}*/}
+            {/*            />*/}
+            {/*        </PublicRoute>*/}
+            {/*    }*/}
+            {/*/>*/}
+            {/*<Route*/}
+            {/*    path={links.SIGNIN_FORNECEDOR}*/}
+            {/*    element={*/}
+            {/*        <PublicRoute>*/}
+            {/*            <SignIn*/}
+            {/*                type={FORNECEDOR}*/}
+            {/*            />*/}
+            {/*        </PublicRoute>*/}
+            {/*    }*/}
+            {/*/>*/}
+            <Route path='*' element={<NotFound />} />
+        </Routes>
     );
 }
 export default App;
