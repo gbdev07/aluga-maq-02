@@ -1,6 +1,6 @@
 import './App.css';
 // import PrivateRoute from "./routes/PrivateRoute";
-// import {Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import NotFound from  "./components/NotFound/NotFound";
 // import {AuthContext} from "./contexts/AuthContext";
 // import {useContext} from "react";
@@ -24,66 +24,69 @@ const App = (props) => {
     //     loading
     // } = useContext(AuthContext)
     // console.log(authInfo)
+    // return (
+    //     <div>
+    //         Test 1.4
+    //         <NotFound />
+    //     </div>
+    // )
     return (
         <div>
-            Test 1.3
-            <NotFound />
+            Test 1.4
+            <Routes>
+                {/*<Route*/}
+                {/*    path={links.DASHBOARD}*/}
+                {/*    element={*/}
+                {/*        <PrivateRoute>*/}
+                {/*            <Main>*/}
+                {/*                <Dashboard />*/}
+                {/*            </Main>*/}
+                {/*        </PrivateRoute>*/}
+                {/*    }*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*    path={links.SIGNUP_CANAL}*/}
+                {/*    element={*/}
+                {/*        <PublicRoute>*/}
+                {/*            <SignUp*/}
+                {/*                type={CANAL}*/}
+                {/*            />*/}
+                {/*        </PublicRoute>*/}
+                {/*    }*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*    path={links.SIGNUP_FORNECEDOR}*/}
+                {/*    element={*/}
+                {/*        <PublicRoute>*/}
+                {/*            <SignUp*/}
+                {/*                type={FORNECEDOR}*/}
+                {/*            />*/}
+                {/*        </PublicRoute>*/}
+                {/*    }*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*    path={links.SIGNIN_CANAL}*/}
+                {/*    element={*/}
+                {/*        <PublicRoute>*/}
+                {/*            <SignIn*/}
+                {/*                type={CANAL}*/}
+                {/*            />*/}
+                {/*        </PublicRoute>*/}
+                {/*    }*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*    path={links.SIGNIN_FORNECEDOR}*/}
+                {/*    element={*/}
+                {/*        <PublicRoute>*/}
+                {/*            <SignIn*/}
+                {/*                type={FORNECEDOR}*/}
+                {/*            />*/}
+                {/*        </PublicRoute>*/}
+                {/*    }*/}
+                {/*/>*/}
+                <Route path='*' element={<NotFound />} />
+            </Routes>
         </div>
-    )
-    // return (
-    //     <Routes>
-    //         {/*<Route*/}
-    //         {/*    path={links.DASHBOARD}*/}
-    //         {/*    element={*/}
-    //         {/*        <PrivateRoute>*/}
-    //         {/*            <Main>*/}
-    //         {/*                <Dashboard />*/}
-    //         {/*            </Main>*/}
-    //         {/*        </PrivateRoute>*/}
-    //         {/*    }*/}
-    //         {/*/>*/}
-    //         {/*<Route*/}
-    //         {/*    path={links.SIGNUP_CANAL}*/}
-    //         {/*    element={*/}
-    //         {/*        <PublicRoute>*/}
-    //         {/*            <SignUp*/}
-    //         {/*                type={CANAL}*/}
-    //         {/*            />*/}
-    //         {/*        </PublicRoute>*/}
-    //         {/*    }*/}
-    //         {/*/>*/}
-    //         {/*<Route*/}
-    //         {/*    path={links.SIGNUP_FORNECEDOR}*/}
-    //         {/*    element={*/}
-    //         {/*        <PublicRoute>*/}
-    //         {/*            <SignUp*/}
-    //         {/*                type={FORNECEDOR}*/}
-    //         {/*            />*/}
-    //         {/*        </PublicRoute>*/}
-    //         {/*    }*/}
-    //         {/*/>*/}
-    //         {/*<Route*/}
-    //         {/*    path={links.SIGNIN_CANAL}*/}
-    //         {/*    element={*/}
-    //         {/*        <PublicRoute>*/}
-    //         {/*            <SignIn*/}
-    //         {/*                type={CANAL}*/}
-    //         {/*            />*/}
-    //         {/*        </PublicRoute>*/}
-    //         {/*    }*/}
-    //         {/*/>*/}
-    //         {/*<Route*/}
-    //         {/*    path={links.SIGNIN_FORNECEDOR}*/}
-    //         {/*    element={*/}
-    //         {/*        <PublicRoute>*/}
-    //         {/*            <SignIn*/}
-    //         {/*                type={FORNECEDOR}*/}
-    //         {/*            />*/}
-    //         {/*        </PublicRoute>*/}
-    //         {/*    }*/}
-    //         {/*/>*/}
-    //         <Route path='*' element={<NotFound />} />
-    //     </Routes>
-    // );
+    );
 }
 export default App;
