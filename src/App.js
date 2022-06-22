@@ -1,17 +1,18 @@
 import './App.css';
 import React from 'react';
-// import PrivateRoute from "./routes/PrivateRoute";
+import PrivateRoute from "./routes/PrivateRoute";
 import {Route, Routes} from "react-router-dom";
 // import NotFound from  "./components/NotFound/NotFound";
 import {useContext} from "react";
 import {AuthContext} from "./contexts/AuthContext";
-// import SignUp from "./components/Auth/SignUp/SignUp";
+import SignUp from "./components/Auth/SignUp/SignUp";
 // import SignIn from "./components/Auth/SignIn/SignIn";
-// import PublicRoute from "./routes/PublicRoute";
+import PublicRoute from "./routes/PublicRoute";
 // import Main from "./components/Layout/Main/Main";
 import Dashboard from "./components/Main/Dashboard/Dashboard";
-// import * as links from "./utils/links"
-// import {CANAL, FORNECEDOR} from "./utils/constants";
+import * as links from "./utils/links"
+import {CANAL, FORNECEDOR} from "./utils/constants";
+import Main from "./components/Layout/Main/Main";
 // const App = (props) => {
 //     return (
 //         <div>
@@ -33,29 +34,39 @@ const App = (props) => {
     // )
     return (
         <div>
-            Test 1.7
+            Test 1.8
             <Routes>
-                <Route path='*' element={<Dashboard />} />
-                {/*<Route*/}
-                {/*    path={links.SIGNUP_CANAL}*/}
-                {/*    element={*/}
-                {/*        <PublicRoute>*/}
-                {/*            <SignUp*/}
-                {/*                type={CANAL}*/}
-                {/*            />*/}
-                {/*        </PublicRoute>*/}
-                {/*    }*/}
-                {/*/>*/}
-                {/*<Route*/}
-                {/*    path={links.SIGNUP_FORNECEDOR}*/}
-                {/*    element={*/}
-                {/*        <PublicRoute>*/}
-                {/*            <SignUp*/}
-                {/*                type={FORNECEDOR}*/}
-                {/*            />*/}
-                {/*        </PublicRoute>*/}
-                {/*    }*/}
-                {/*/>*/}
+                {/*<Route path='*' element={<Dashboard />} />*/}
+                <Route
+                    path={links.DASHBOARD}
+                    element={
+                        <PrivateRoute>
+                            <Main>
+                                <Dashboard />
+                            </Main>
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path={links.SIGNUP_CANAL}
+                    element={
+                        <PublicRoute>
+                            <SignUp
+                                type={CANAL}
+                            />
+                        </PublicRoute>
+                    }
+                />
+                <Route
+                    path={links.SIGNUP_FORNECEDOR}
+                    element={
+                        <PublicRoute>
+                            <SignUp
+                                type={FORNECEDOR}
+                            />
+                        </PublicRoute>
+                    }
+                />
                 {/*<Route*/}
                 {/*    path={links.SIGNIN_CANAL}*/}
                 {/*    element={*/}
@@ -76,7 +87,7 @@ const App = (props) => {
                 {/*        </PublicRoute>*/}
                 {/*    }*/}
                 {/*/>*/}
-                {/*<Route path='*' element={<NotFound />} />*/}
+                <Route path='*' element={<NotFound />} />
             </Routes>
         </div>
     );
