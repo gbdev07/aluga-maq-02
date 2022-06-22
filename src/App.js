@@ -13,7 +13,7 @@ import Dashboard from "./components/Main/Dashboard/Dashboard";
 // import Dashboard from "./components/Main/Dashboard/Dashboard";
 // import * as links from "./utils/links"
 // import {CANAL, FORNECEDOR} from "./utils/constants";
-// import Main from "./components/Layout/Main/Main";
+import Main from "./components/Layout/Main/Main";
 // const App = (props) => {
 //     return (
 //         <div>
@@ -40,7 +40,9 @@ const App = (props) => {
                 path='/'
                 element={
                     <PrivateRoute>
-                        <Dashboard />
+                        <Main>
+                            <Dashboard />
+                        </Main>
                     </PrivateRoute>
                 }
             />
