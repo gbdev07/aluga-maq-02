@@ -12,7 +12,7 @@ import {CANAL, FORNECEDOR} from "./utils/constants";
 const App = (props) => {
     return (
         <div>
-            App 1.1
+            App 1.2
         </div>
     )
 }
