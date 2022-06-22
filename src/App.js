@@ -2,6 +2,7 @@ import './App.css';
 // import PrivateRoute from "./routes/PrivateRoute";
 import {Route, Routes} from "react-router-dom";
 import NotFound from  "./components/NotFound/NotFound";
+import {useContext} from "react";
 // import {AuthContext} from "./contexts/AuthContext";
 // import {useContext} from "react";
 // import SignUp from "./components/Auth/SignUp/SignUp";
@@ -19,11 +20,11 @@ import NotFound from  "./components/NotFound/NotFound";
 //     )
 // }
 const App = (props) => {
-    // const {
-    //     authInfo,
-    //     loading
-    // } = useContext(AuthContext)
-    // console.log(authInfo)
+    const {
+        authInfo,
+        // loading
+    } = useContext(AuthContext)
+    console.log(authInfo)
     // return (
     //     <div>
     //         Test 1.4
@@ -32,7 +33,7 @@ const App = (props) => {
     // )
     return (
         <div>
-            Test 1.4
+            Test 1.5
             <Routes>
                 {/*<Route*/}
                 {/*    path={links.DASHBOARD}*/}
