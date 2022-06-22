@@ -18,7 +18,7 @@ function PrivateRoute({ children, ...rest }) {
     if (isAuthenticated) {
         return children;
     }
-    return <Navigate to={links.SIGNIN_CANAL} />
+    return <Navigate to={links.SIGNUP_CANAL} />
 }
 
 export default PrivateRoute;
