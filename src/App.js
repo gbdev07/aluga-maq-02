@@ -8,9 +8,9 @@ import {AuthContext} from "./contexts/AuthContext";
 // import SignUp from "./components/Auth/SignUp/SignUp";
 // import SignIn from "./components/Auth/SignIn/SignIn";
 // import PublicRoute from "./routes/PublicRoute";
-import Main from "./components/Layout/Main/Main";
+// import Main from "./components/Layout/Main/Main";
 import Dashboard from "./components/Main/Dashboard/Dashboard";
-import * as links from "./utils/links"
+// import * as links from "./utils/links"
 import {CANAL, FORNECEDOR} from "./utils/constants";
 // const App = (props) => {
 //     return (
@@ -36,7 +36,7 @@ const App = (props) => {
             Test 1.7
             <Routes>
                 <Route
-                    path={links.DASHBOARD}
+                    path='*'
                     element={
                         // <PrivateRoute>
                         //     <Main>
