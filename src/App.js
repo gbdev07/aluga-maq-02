@@ -2,6 +2,8 @@ import './App.css';
 // import PrivateRoute from "./routes/PrivateRoute";
 import {Route, Routes} from "react-router-dom";
 import NotFound from  "./components/NotFound/NotFound";
+import {useContext} from "@types/react";
+import {AuthContext} from "./contexts/AuthContext";
 // import SignUp from "./components/Auth/SignUp/SignUp";
 // import SignIn from "./components/Auth/SignIn/SignIn";
 // import PublicRoute from "./routes/PublicRoute";
@@ -17,9 +19,14 @@ import NotFound from  "./components/NotFound/NotFound";
 //     )
 // }
 const App = (props) => {
+    const {
+        authInfo,
+        loading
+    } = useContext(AuthContext)
+    console.log(authInfo)
     return (
         <div>
-            Test 1.1
+            Test 1.2
             <NotFound />
         </div>
     )
