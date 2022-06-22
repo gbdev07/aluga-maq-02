@@ -1,6 +1,6 @@
 import './App.css';
 import PrivateRoute from "./routes/PrivateRoute";
-import {Route, Routes} from "react-router-dom";
+// import {Route, Routes} from "react-router-dom";
 import NotFound from  "./components/NotFound/NotFound";
 // import SignUp from "./components/Auth/SignUp/SignUp";
 // import SignIn from "./components/Auth/SignIn/SignIn";
@@ -19,7 +19,7 @@ import NotFound from  "./components/NotFound/NotFound";
 const App = (props) => {
     return (
         <div>
-            Test 1.0
+            Test 1.1
             <NotFound />
         </div>
     )
