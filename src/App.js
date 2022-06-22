@@ -5,6 +5,7 @@ import {Route, Routes} from "react-router-dom";
 import NotFound from  "./components/NotFound/NotFound";
 import {useContext} from "react";
 import {AuthContext} from "./contexts/AuthContext";
+import Dashboard from "./components/Main/Dashboard/Dashboard";
 // import SignUp from "./components/Auth/SignUp/SignUp";
 // import SignIn from "./components/Auth/SignIn/SignIn";
 // import PublicRoute from "./routes/PublicRoute";
@@ -35,12 +36,12 @@ const App = (props) => {
     return (
         <Routes>
             {/*<Route path='*' element={<Dashboard />} />*/}
-            {/*<Route*/}
-            {/*    path='/'*/}
-            {/*    element={*/}
-            {/*        <Dashboard />*/}
-            {/*    }*/}
-            {/*/>*/}
+            <Route
+                path='/'
+                element={
+                    <Dashboard />
+                }
+            />
             {/*<Route*/}
             {/*    path='/signup-canal'*/}
             {/*    element={*/}
