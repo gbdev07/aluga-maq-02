@@ -9,7 +9,7 @@ import Auth from "../Auth/Auth";
 import * as links from '../../../utils/links'
 import signup_1 from "../../../assets/images/signup_1.png";
 import signup_2 from "../../../assets/images/signup_2.png";
-import {CANAL} from "../../../utils/constants";
+import {CANAL, REACT_APP_API_BASE_URL} from "../../../utils/constants";
 
 const initialDataSignUp = {
     email: '',
@@ -88,7 +88,7 @@ const SignUp = (props) => {
         if (Object.keys(dataErrorField).length === 0) {
             setIsLoading(true)
             setError(null)
-            axios.post(`${process.env.REACT_APP_API_BASE_URL}/usuario`, {
+            axios.post(`${REACT_APP_API_BASE_URL}/usuario`, {
                 name: dataAuth.name,
                 password: dataAuth.password,
                 email: dataAuth.email.trim(),
