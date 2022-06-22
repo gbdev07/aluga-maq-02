@@ -11,59 +11,66 @@ import * as links from "./utils/links"
 import {CANAL, FORNECEDOR} from "./utils/constants";
 const App = (props) => {
     return (
-        <Routes>
-            <Route
-                path={links.DASHBOARD}
-                element={
-                    <PrivateRoute>
-                        <Main>
-                            <Dashboard />
-                        </Main>
-                    </PrivateRoute>
-                }
-            />
-            <Route
-                path={links.SIGNUP_CANAL}
-                element={
-                    <PublicRoute>
-                        <SignUp
-                            type={CANAL}
-                        />
-                    </PublicRoute>
-                }
-            />
-            <Route
-                path={links.SIGNUP_FORNECEDOR}
-                element={
-                    <PublicRoute>
-                        <SignUp
-                            type={FORNECEDOR}
-                        />
-                    </PublicRoute>
-                }
-            />
-            <Route
-                path={links.SIGNIN_CANAL}
-                element={
-                    <PublicRoute>
-                        <SignIn
-                            type={CANAL}
-                        />
-                    </PublicRoute>
-                }
-            />
-            <Route
-                path={links.SIGNIN_FORNECEDOR}
-                element={
-                    <PublicRoute>
-                        <SignIn
-                            type={FORNECEDOR}
-                        />
-                    </PublicRoute>
-                }
-            />
-            <Route path='*' element={<NotFound />} />
-        </Routes>
-    );
+        <div>
+            App 1.1
+        </div>
+    )
 }
+// const App = (props) => {
+//     return (
+//         <Routes>
+//             <Route
+//                 path={links.DASHBOARD}
+//                 element={
+//                     <PrivateRoute>
+//                         <Main>
+//                             <Dashboard />
+//                         </Main>
+//                     </PrivateRoute>
+//                 }
+//             />
+//             <Route
+//                 path={links.SIGNUP_CANAL}
+//                 element={
+//                     <PublicRoute>
+//                         <SignUp
+//                             type={CANAL}
+//                         />
+//                     </PublicRoute>
+//                 }
+//             />
+//             <Route
+//                 path={links.SIGNUP_FORNECEDOR}
+//                 element={
+//                     <PublicRoute>
+//                         <SignUp
+//                             type={FORNECEDOR}
+//                         />
+//                     </PublicRoute>
+//                 }
+//             />
+//             <Route
+//                 path={links.SIGNIN_CANAL}
+//                 element={
+//                     <PublicRoute>
+//                         <SignIn
+//                             type={CANAL}
+//                         />
+//                     </PublicRoute>
+//                 }
+//             />
+//             <Route
+//                 path={links.SIGNIN_FORNECEDOR}
+//                 element={
+//                     <PublicRoute>
+//                         <SignIn
+//                             type={FORNECEDOR}
+//                         />
+//                     </PublicRoute>
+//                 }
+//             />
+//             <Route path='*' element={<NotFound />} />
+//         </Routes>
+//     );
+// }
 export default App;
