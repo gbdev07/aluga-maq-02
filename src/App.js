@@ -1,6 +1,6 @@
 import './App.css';
 // import PrivateRoute from "./routes/PrivateRoute";
-import {Route, Routes} from "react-router-dom";
+// import {Route, Routes} from "react-router-dom";
 import NotFound from "./components/NotFound/NotFound";
 // import SignUp from "./components/Auth/SignUp/SignUp";
 // import SignIn from "./components/Auth/SignIn/SignIn";
@@ -8,7 +8,7 @@ import NotFound from "./components/NotFound/NotFound";
 // import Main from "./components/Layout/Main/Main";
 // import Dashboard from "./components/Main/Dashboard/Dashboard";
 // import * as links from "./utils/links"
-import {CANAL, FORNECEDOR} from "./utils/constants";
+// import {CANAL, FORNECEDOR} from "./utils/constants";
 // const App = (props) => {
 //     return (
 //         <div>
@@ -17,6 +17,9 @@ import {CANAL, FORNECEDOR} from "./utils/constants";
 //     )
 // }
 const App = (props) => {
+    return (
+        <NotFound />
+    )
     return (
         <Routes>
             {/*<Route*/}
