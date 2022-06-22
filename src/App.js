@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import PrivateRoute from "./routes/PrivateRoute";
+// import PrivateRoute from "./routes/PrivateRoute";
 import {Route, Routes} from "react-router-dom";
 import NotFound from  "./components/NotFound/NotFound";
 import {useContext} from "react";
@@ -35,17 +35,7 @@ const App = (props) => {
         <div>
             Test 1.7
             <Routes>
-                <Route
-                    path='*'
-                    element={
-                        // <PrivateRoute>
-                        //     <Main>
-                        //         <Dashboard />
-                        //     </Main>
-                        // </PrivateRoute>
-                        <Dashboard />
-                    }
-                />
+                <Route path='*' element={<NotFound />
                 {/*<Route*/}
                 {/*    path={links.SIGNUP_CANAL}*/}
                 {/*    element={*/}
