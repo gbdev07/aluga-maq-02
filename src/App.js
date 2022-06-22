@@ -35,7 +35,7 @@ const App = (props) => {
         <div>
             Test 1.7
             <Routes>
-                <Route path='*' element={<NotFound />
+                <Route path='*' element={<NotFound />} />
                 {/*<Route*/}
                 {/*    path={links.SIGNUP_CANAL}*/}
                 {/*    element={*/}
