@@ -10,9 +10,9 @@ import SignUp from "./components/Auth/SignUp/SignUp";
 import PublicRoute from "./routes/PublicRoute";
 // import Main from "./components/Layout/Main/Main";
 import Dashboard from "./components/Main/Dashboard/Dashboard";
-import * as links from "./utils/links"
+// import * as links from "./utils/links"
 import {CANAL, FORNECEDOR} from "./utils/constants";
-import Main from "./components/Layout/Main/Main";
+// import Main from "./components/Layout/Main/Main";
 // const App = (props) => {
 //     return (
 //         <div>
@@ -36,7 +36,7 @@ const App = (props) => {
         <Routes>
             {/*<Route path='*' element={<Dashboard />} />*/}
             <Route
-                path={links.DASHBOARD}
+                path='/'
                 element={
                     <PrivateRoute>
                         <Dashboard />
@@ -44,7 +44,7 @@ const App = (props) => {
                 }
             />
             <Route
-                path={links.SIGNUP_CANAL}
+                path='/signup-canal'
                 element={
                     <PublicRoute>
                         <SignUp
@@ -53,16 +53,16 @@ const App = (props) => {
                     </PublicRoute>
                 }
             />
-            <Route
-                path={links.SIGNUP_FORNECEDOR}
-                element={
-                    <PublicRoute>
-                        <SignUp
-                            type={FORNECEDOR}
-                        />
-                    </PublicRoute>
-                }
-            />
+            {/*<Route*/}
+            {/*    path={links.SIGNUP_FORNECEDOR}*/}
+            {/*    element={*/}
+            {/*        <PublicRoute>*/}
+            {/*            <SignUp*/}
+            {/*                type={FORNECEDOR}*/}
+            {/*            />*/}
+            {/*        </PublicRoute>*/}
+            {/*    }*/}
+            {/*/>*/}
             {/*<Route*/}
             {/*    path={links.SIGNIN_CANAL}*/}
             {/*    element={*/}
