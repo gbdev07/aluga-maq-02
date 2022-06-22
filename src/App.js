@@ -1,18 +1,18 @@
 import './App.css';
-import PrivateRoute from "./routes/PrivateRoute";
-import {Route, Routes} from "react-router-dom";
-import NotFound from "./components/NotFound/NotFound";
-import SignUp from "./components/Auth/SignUp/SignUp";
-import SignIn from "./components/Auth/SignIn/SignIn";
-import PublicRoute from "./routes/PublicRoute";
-import Main from "./components/Layout/Main/Main";
-import Dashboard from "./components/Main/Dashboard/Dashboard";
-import * as links from "./utils/links"
-import {CANAL, FORNECEDOR} from "./utils/constants";
+// import PrivateRoute from "./routes/PrivateRoute";
+// import {Route, Routes} from "react-router-dom";
+// import NotFound from "./components/NotFound/NotFound";
+// import SignUp from "./components/Auth/SignUp/SignUp";
+// import SignIn from "./components/Auth/SignIn/SignIn";
+// import PublicRoute from "./routes/PublicRoute";
+// import Main from "./components/Layout/Main/Main";
+// import Dashboard from "./components/Main/Dashboard/Dashboard";
+// import * as links from "./utils/links"
+// import {CANAL, FORNECEDOR} from "./utils/constants";
 const App = (props) => {
     return (
         <div>
-            App 1.2
+            App 1.3
         </div>
     )
 }
