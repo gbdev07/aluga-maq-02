@@ -9,7 +9,7 @@ import SignUp from "./components/Auth/SignUp/SignUp";
 // import SignIn from "./components/Auth/SignIn/SignIn";
 // import PublicRoute from "./routes/PublicRoute";
 // import Main from "./components/Layout/Main/Main";
-import Dashboard from "./components/Main/Dashboard/Dashboard";
+// import Dashboard from "./components/Main/Dashboard/Dashboard";
 // import * as links from "./utils/links"
 // import {CANAL, FORNECEDOR} from "./utils/constants";
 // import Main from "./components/Layout/Main/Main";
@@ -35,20 +35,20 @@ const App = (props) => {
     return (
         <Routes>
             {/*<Route path='*' element={<Dashboard />} />*/}
-            <Route
-                path='/'
-                element={
-                    <Dashboard />
-                }
-            />
-            <Route
-                path='/signup-canal'
-                element={
-                    <SignUp
-                        type={'CANAL'}
-                    />
-                }
-            />
+            {/*<Route*/}
+            {/*    path='/'*/}
+            {/*    element={*/}
+            {/*        <Dashboard />*/}
+            {/*    }*/}
+            {/*/>*/}
+            {/*<Route*/}
+            {/*    path='/signup-canal'*/}
+            {/*    element={*/}
+            {/*        <SignUp*/}
+            {/*            type={'CANAL'}*/}
+            {/*        />*/}
+            {/*    }*/}
+            {/*/>*/}
             {/*<Route*/}
             {/*    path={links.SIGNUP_FORNECEDOR}*/}
             {/*    element={*/}
