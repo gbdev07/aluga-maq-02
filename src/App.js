@@ -9,9 +9,9 @@ import {AuthContext} from "./contexts/AuthContext";
 // import SignIn from "./components/Auth/SignIn/SignIn";
 // import PublicRoute from "./routes/PublicRoute";
 // import Main from "./components/Layout/Main/Main";
-import Dashboard from "./components/Main/Dashboard/Dashboard";
+// import Dashboard from "./components/Main/Dashboard/Dashboard";
 // import * as links from "./utils/links"
-import {CANAL, FORNECEDOR} from "./utils/constants";
+// import {CANAL, FORNECEDOR} from "./utils/constants";
 // const App = (props) => {
 //     return (
 //         <div>
