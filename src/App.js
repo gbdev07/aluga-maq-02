@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 import PrivateRoute from "./routes/PrivateRoute";
 import {Route, Routes} from "react-router-dom";
 import NotFound from  "./components/NotFound/NotFound";
@@ -32,58 +33,61 @@ const App = (props) => {
     // )
     return (
         <div>
-            Test 1.6
+            Test 1.7
             <Routes>
                 <Route
                     path={links.DASHBOARD}
                     element={
-                        <PrivateRoute>
-                            <Main>
-                                <Dashboard />
-                            </Main>
-                        </PrivateRoute>
+                        // <PrivateRoute>
+                        //     <Main>
+                        //         <Dashboard />
+                        //     </Main>
+                        // </PrivateRoute>
+                        <Main>
+                            <Dashboard />
+                        </Main>
                     }
                 />
-                <Route
-                    path={links.SIGNUP_CANAL}
-                    element={
-                        <PublicRoute>
-                            <SignUp
-                                type={CANAL}
-                            />
-                        </PublicRoute>
-                    }
-                />
-                <Route
-                    path={links.SIGNUP_FORNECEDOR}
-                    element={
-                        <PublicRoute>
-                            <SignUp
-                                type={FORNECEDOR}
-                            />
-                        </PublicRoute>
-                    }
-                />
-                <Route
-                    path={links.SIGNIN_CANAL}
-                    element={
-                        <PublicRoute>
-                            <SignIn
-                                type={CANAL}
-                            />
-                        </PublicRoute>
-                    }
-                />
-                <Route
-                    path={links.SIGNIN_FORNECEDOR}
-                    element={
-                        <PublicRoute>
-                            <SignIn
-                                type={FORNECEDOR}
-                            />
-                        </PublicRoute>
-                    }
-                />
+                {/*<Route*/}
+                {/*    path={links.SIGNUP_CANAL}*/}
+                {/*    element={*/}
+                {/*        <PublicRoute>*/}
+                {/*            <SignUp*/}
+                {/*                type={CANAL}*/}
+                {/*            />*/}
+                {/*        </PublicRoute>*/}
+                {/*    }*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*    path={links.SIGNUP_FORNECEDOR}*/}
+                {/*    element={*/}
+                {/*        <PublicRoute>*/}
+                {/*            <SignUp*/}
+                {/*                type={FORNECEDOR}*/}
+                {/*            />*/}
+                {/*        </PublicRoute>*/}
+                {/*    }*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*    path={links.SIGNIN_CANAL}*/}
+                {/*    element={*/}
+                {/*        <PublicRoute>*/}
+                {/*            <SignIn*/}
+                {/*                type={CANAL}*/}
+                {/*            />*/}
+                {/*        </PublicRoute>*/}
+                {/*    }*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*    path={links.SIGNIN_FORNECEDOR}*/}
+                {/*    element={*/}
+                {/*        <PublicRoute>*/}
+                {/*            <SignIn*/}
+                {/*                type={FORNECEDOR}*/}
+                {/*            />*/}
+                {/*        </PublicRoute>*/}
+                {/*    }*/}
+                {/*/>*/}
                 <Route path='*' element={<NotFound />} />
             </Routes>
         </div>
