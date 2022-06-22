@@ -1,6 +1,6 @@
 import './App.css';
 // import PrivateRoute from "./routes/PrivateRoute";
-import {Route, Routes} from "react-router-dom";
+// import {Route, Routes} from "react-router-dom";
 import NotFound from  "./components/NotFound/NotFound";
 // import {AuthContext} from "./contexts/AuthContext";
 // import {useContext} from "react";
@@ -26,7 +26,7 @@ const App = (props) => {
     // console.log(authInfo)
     return (
         <div>
-            Test 1.2
+            Test 1.3
             <NotFound />
         </div>
     )
