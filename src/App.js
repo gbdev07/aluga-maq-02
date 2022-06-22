@@ -12,7 +12,7 @@ import {CANAL, FORNECEDOR} from "./utils/constants";
 function App() {
     return (
         <div>
-            Test Deploy
+            Test Deploy 2
         </div>
     )
     return (
