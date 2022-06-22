@@ -1,10 +1,10 @@
 import React, {useContext} from "react";
 import {AuthContext} from "../contexts/AuthContext";
-import {Redirect, Route} from "react-router-dom";
+import {Navigate} from "react-router-dom";
 import LoadingAction from "../themes/LoadingAction/LoadingAction";
 import * as links from "../utils/links";
 
-function PrivateRoute({...rest}) {
+function PrivateRoute({ children, ...rest }) {
     const {
         authInfo,
         loading
@@ -12,17 +12,13 @@ function PrivateRoute({...rest}) {
     const {
         isAuthenticated
     } = authInfo;
-
-    console.log(isAuthenticated)
     if (loading) {
         return <LoadingAction />
     }
     if (isAuthenticated) {
-        return <Route {...rest} />
+        return children;
     }
-    return <Redirect
-        to={links.SIGNIN_CANAL}
-    />
+    return <Navigate to={links.SIGNUP_CANAL} />
 }
 
 export default PrivateRoute;

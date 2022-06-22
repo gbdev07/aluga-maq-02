@@ -1,4 +1,4 @@
-import {createContext, ReactNode, SetStateAction, useEffect, useState} from 'react'
+import {createContext, useEffect, useState} from 'react'
 
 
 const authDefault = {
@@ -9,7 +9,7 @@ const authDefault = {
 
 export const AuthContext = createContext({
     authInfo: authDefault,
-    setDataUser: () => {
+    setDataUser: (dataUser) => {
     },
     loading: false,
 })
@@ -69,9 +69,6 @@ const AuthContextProvider = ({children}) => {
         loading,
         setDataUser,
     }
-
-    console.log(authInfo)
-
 
     return (
         <AuthContext.Provider value={authContextData}>
