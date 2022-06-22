@@ -5,9 +5,9 @@ import {Route, Routes} from "react-router-dom";
 import NotFound from  "./components/NotFound/NotFound";
 import {useContext} from "react";
 import {AuthContext} from "./contexts/AuthContext";
-import SignUp from "./components/Auth/SignUp/SignUp";
-import SignIn from "./components/Auth/SignIn/SignIn";
-import PublicRoute from "./routes/PublicRoute";
+// import SignUp from "./components/Auth/SignUp/SignUp";
+// import SignIn from "./components/Auth/SignIn/SignIn";
+// import PublicRoute from "./routes/PublicRoute";
 import Main from "./components/Layout/Main/Main";
 import Dashboard from "./components/Main/Dashboard/Dashboard";
 import * as links from "./utils/links"
@@ -88,7 +88,7 @@ const App = (props) => {
                 {/*        </PublicRoute>*/}
                 {/*    }*/}
                 {/*/>*/}
-                <Route path='*' element={<NotFound />} />
+                {/*<Route path='*' element={<NotFound />} />*/}
             </Routes>
         </div>
     );
