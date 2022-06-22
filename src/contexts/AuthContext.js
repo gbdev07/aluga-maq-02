@@ -9,7 +9,7 @@ const authDefault = {
 
 export const AuthContext = createContext({
     authInfo: authDefault,
-    setDataUser: () => {
+    setDataUser: (dataUser) => {
     },
     loading: false,
 })
