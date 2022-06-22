@@ -7,10 +7,14 @@ import SignIn from "./components/Auth/SignIn/SignIn";
 import PublicRoute from "./routes/PublicRoute";
 import Main from "./components/Layout/Main/Main";
 import Dashboard from "./components/Main/Dashboard/Dashboard";
-import {DASHBOARD} from "./utils/links";
 import * as links from "./utils/links"
 import {CANAL, FORNECEDOR} from "./utils/constants";
 function App() {
+    return (
+        <div>
+            Test Deploy
+        </div>
+    )
     return (
         <Routes>
             <Route
