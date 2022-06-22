@@ -84,7 +84,7 @@ const App = (props) => {
             {/*        </PublicRoute>*/}
             {/*    }*/}
             {/*/>*/}
-            {/*<Route path='*' element={<NotFound />} />*/}
+            <Route path='*' element={<NotFound />} />
         </Routes>
     );
 }
