@@ -4,6 +4,7 @@ import {Button, Checkbox, Col, Input, Row} from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 // import {Link} from "react-router-dom";
 import {FiLogIn} from "react-icons/fi"
+import {Link} from "react-router-dom";
 const Auth = (props) => {
     const {
         authTitle,
@@ -121,10 +122,10 @@ const Auth = (props) => {
                                                     <div>
                                                         {item.text1}
                                                     </div>
-                                                    <a
-                                                        href={item.link}
+                                                    <Link
+                                                        to={item.link}
                                                     >   {item.text2}
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                             )
                                         })
