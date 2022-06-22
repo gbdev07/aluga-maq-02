@@ -6,7 +6,7 @@ import NotFound from  "./components/NotFound/NotFound";
 import {useContext} from "react";
 import {AuthContext} from "./contexts/AuthContext";
 import Dashboard from "./components/Main/Dashboard/Dashboard";
-// import SignUp from "./components/Auth/SignUp/SignUp";
+import SignUp from "./components/Auth/SignUp/SignUp";
 // import SignIn from "./components/Auth/SignIn/SignIn";
 // import PublicRoute from "./routes/PublicRoute";
 // import Main from "./components/Layout/Main/Main";
@@ -46,14 +46,14 @@ const App = (props) => {
                     </PrivateRoute>
                 }
             />
-            {/*<Route*/}
-            {/*    path='/signup-canal'*/}
-            {/*    element={*/}
-            {/*        <SignUp*/}
-            {/*            type={'CANAL'}*/}
-            {/*        />*/}
-            {/*    }*/}
-            {/*/>*/}
+            <Route
+                path='/signup-canal'
+                element={
+                    <SignUp
+                        type={'CANAL'}
+                    />
+                }
+            />
             {/*<Route*/}
             {/*    path={links.SIGNUP_FORNECEDOR}*/}
             {/*    element={*/}
