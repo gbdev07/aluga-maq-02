@@ -1,17 +1,17 @@
 import './App.css';
 import React from 'react';
-import PrivateRoute from "./routes/PrivateRoute";
+// import PrivateRoute from "./routes/PrivateRoute";
 import {Route, Routes} from "react-router-dom";
 import NotFound from  "./components/NotFound/NotFound";
 import {useContext} from "react";
 import {AuthContext} from "./contexts/AuthContext";
 import SignUp from "./components/Auth/SignUp/SignUp";
 // import SignIn from "./components/Auth/SignIn/SignIn";
-import PublicRoute from "./routes/PublicRoute";
+// import PublicRoute from "./routes/PublicRoute";
 // import Main from "./components/Layout/Main/Main";
 import Dashboard from "./components/Main/Dashboard/Dashboard";
 // import * as links from "./utils/links"
-import {CANAL, FORNECEDOR} from "./utils/constants";
+// import {CANAL, FORNECEDOR} from "./utils/constants";
 // import Main from "./components/Layout/Main/Main";
 // const App = (props) => {
 //     return (
@@ -38,19 +38,15 @@ const App = (props) => {
             <Route
                 path='/'
                 element={
-                    <PrivateRoute>
-                        <Dashboard />
-                    </PrivateRoute>
+                    <Dashboard />
                 }
             />
             <Route
                 path='/signup-canal'
                 element={
-                    <PublicRoute>
-                        <SignUp
-                            type={CANAL}
-                        />
-                    </PublicRoute>
+                    <SignUp
+                        type={'CANAL'}
+                    />
                 }
             />
             {/*<Route*/}
