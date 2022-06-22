@@ -1,0 +1,131 @@
+.LoginWrapper {
+    background: #1E1E2E;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.LoginLogoWrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.LoginLogoWrapper img {
+    width: 500px;
+    margin-bottom: 100px;
+}
+
+.LoginWrapper .LoginFormBlock {
+    padding: 50px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.LoginLogoWrapper .LoginLogoTitle {
+    color: #8ADAB8;
+    text-align: center;
+}
+
+.LoginForm {
+    width: 450px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 30px;
+    padding: 30px 40px;
+    justify-content: center;
+}
+
+.LoginFormTitle {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.LoginForm .LabelAndInputLabel {
+    color: #fff;
+}
+
+.LoginForm .LabelAndInputInput input {
+    border: 2px solid #0C3871;
+    background: transparent!important;
+    color: #fff;
+}
+.LoginForm .LoginFormRemember {
+    padding: 10px 0;
+    width: 100%;
+}
+
+.LoginForm .LoginFormRemember label {
+    font-size: 0.9rem;
+    color: #fff;
+    padding-left: 10px;
+}
+
+.LoginForm .LoginFormBtn {
+    background: rgb(0, 111, 255, 0.39);
+    border-radius: 16px;
+    padding: 10px 0;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: calc(100% - 20px);
+}
+
+
+.LoginForm .LoginFormRow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.LoginFormFooter {
+    color: #2871F6;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    font-size: 1rem;
+}
+
+.LoginFormFooter .LoginFormSignUp {
+    color: #2871F6;
+    text-decoration: none;
+}
+
+.LoginFormCopyright {
+    color: #2871F6;
+    font-size: 0.9rem;
+}
+
+
+@media only screen and (max-width: 700px) {
+    .LoginFormBlock {
+        padding: 0!important;
+        width: 100%;
+    }
+    .LoginForm {
+        max-width: calc(100% - 100px);
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .LoginLogoWrapper img {
+        width: 240px;
+        margin-bottom: 20px;
+    }
+
+    .LoginLogoWrapper .LoginLogoTitle {
+        font-size: 1rem;
+    }
+    .LoginWrapper {
+        flex-direction: column;
+    }
+}

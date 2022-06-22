@@ -1,0 +1,125 @@
+.SignUpWrapper {
+    background: #1E1E2E;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.SignUpLogoWrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.SignUpLogoWrapper img {
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.SignUpWrapper .SignUpFormBlock {
+    padding: 50px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.SignUpLogoWrapper .SignUpLogoTitle {
+    font-style: normal;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.SignUpForm {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: #FFFFFF;
+    border: 5px solid #006FFF;
+    border-radius: 30px;
+    padding: 30px 40px;
+    justify-content: center;
+    max-width: calc(100vw - 100px);
+}
+
+
+.SignUpForm .SignUpFormTitle {
+    font-weight: 500;
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
+
+.SignUpForm .SignUpFormBody {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 100%;
+}
+
+.SignUpForm .SignUpFormRow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.SignUpForm .SignUpFormBtn {
+    background: #3B62FF;
+    box-shadow: 0px 5.3037px 5.3037px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 1.3rem;
+    padding: 10px;
+    width: calc(100% - 20px);
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.SignUpForm .SignUpHaveAcc {
+    margin-left: auto;
+    padding: 20px;
+}
+
+.SignUpForm .SignUpHaveAcc span {
+    font-size: 1rem;
+}
+
+.SignUpForm .SignUpHaveAcc a {
+    color: #006FFF;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 992px) {
+    .SignUpLogoWrapper img {
+        width: 120px;
+    }
+
+    .SignUpLogoWrapper .SignUpLogoTitle {
+        font-size: 2rem;
+    }
+    .SignUpWrapper {
+        flex-direction: column;
+    }
+}
+
+.SignUpFormError {
+    color: #E46772;
+    font-size: 0.9rem;
+    padding: 10px 0;
+}
+
+.SignUpFormSuccess {
+    color: #8FC727;
+    font-size: 0.9rem;
+    padding: 10px 0;
+}

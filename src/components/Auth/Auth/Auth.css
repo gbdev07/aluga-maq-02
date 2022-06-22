@@ -1,0 +1,178 @@
+.container {
+    height: 100%;
+}
+.rowContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.rowContainer .ant-col {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.colAuthForm {
+    padding: 50px;
+    display: flex!important;
+    align-items: center;
+    justify-content: center;
+    background-color: #2b394b;
+}
+
+.authBlock {
+    background: #24221F;
+    border-radius: 4px;
+    padding: 20px 50px;
+}
+
+.authTitle {
+    display: flex;
+    align-items: center;
+}
+
+.authTitleIcon {
+    color: #4196DD;
+    height: 24px;
+}
+
+.authTitleText {
+    padding-left: 5px;
+    color: #D4CCB6;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.authDescription {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #AFB6C2;
+}
+
+.itemField {
+    padding: 10px 0;
+}
+
+.itemFieldLabel {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #AFB6C2;
+
+}
+
+.itemField input {
+    border: 1px solid #469AE2;
+    /*box-shadow: 0px 0px 0px 2px #FFDE88;*/
+    border-radius: 4px;
+    background-color: transparent;
+    color: #fff!important;
+}
+
+.itemField .ant-input-password {
+    border: 1px solid #469AE2!important;
+    background-color: transparent!important;
+    border-radius: 4px;
+}
+
+.itemField .ant-input-password svg path {
+    fill: #fff
+}
+
+.itemField .itemFieldLabelCheckbox {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #AFB6C2;
+}
+
+.itemField .itemFieldError {
+    color: #E46772;
+    font-size: 14px;
+    padding: 2px 0;
+}
+
+.itemField input:-webkit-autofill,
+.itemField input:-webkit-autofill:hover,
+.itemField input:-webkit-autofill:focus,
+.itemField textarea:-webkit-autofill,
+.itemField textarea:-webkit-autofill:hover,
+.itemField textarea:-webkit-autofill:focus,
+.itemField select:-webkit-autofill,
+.itemField select:-webkit-autofill:hover,
+.itemField select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
+    color: #fff!important;
+}
+
+.authSubmit {
+    background: #4599E1!important;
+    border-radius: 4px!important;
+    width: 100%;
+    border: none!important;
+    box-shadow: none!important;
+    color: #fff!important;
+    font-weight: 600!important;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.authFooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.itemAuthFooter {
+    display: flex;
+    padding: 5px 0;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.itemAuthFooter > div {
+    padding: 0 5px;
+    color: #469AE2!important;
+}
+
+.itemAuthFooter > a {
+    color: #469AE2!important;
+    text-decoration: underline;
+}
+
+.successMessage {
+    color: #8FC727;
+    font-size: 14px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.errorMessage {
+    color: #E46772;
+    font-size: 14px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.authImage {
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    .colAuthForm {
+        padding: 0;
+        background: #24221F;
+    }
+    .colAuthImage {
+        display: none!important;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .colAuthImage {
+        display: none!important;
+    }
+}
