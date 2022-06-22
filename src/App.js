@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-// import PrivateRoute from "./routes/PrivateRoute";
+import PrivateRoute from "./routes/PrivateRoute";
 import {Route, Routes} from "react-router-dom";
 import NotFound from  "./components/NotFound/NotFound";
 import {useContext} from "react";
@@ -39,7 +39,9 @@ const App = (props) => {
             <Route
                 path='/'
                 element={
-                    <Dashboard />
+                    <PrivateRoute>
+                        <Dashboard />
+                    </PrivateRoute>
                 }
             />
             {/*<Route*/}
