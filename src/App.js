@@ -18,7 +18,10 @@ import NotFound from  "./components/NotFound/NotFound";
 // }
 const App = (props) => {
     return (
-        <NotFound />
+        <div>
+            Test 1.0
+            <NotFound />
+        </div>
     )
     // return (
     //     <Routes>
