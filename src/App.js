@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 import PrivateRoute from "./routes/PrivateRoute";
 import {Route, Routes} from "react-router-dom";
-// import NotFound from  "./components/NotFound/NotFound";
+import NotFound from  "./components/NotFound/NotFound";
 import {useContext} from "react";
 import {AuthContext} from "./contexts/AuthContext";
 import SignUp from "./components/Auth/SignUp/SignUp";
