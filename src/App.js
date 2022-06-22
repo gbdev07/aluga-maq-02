@@ -43,9 +43,7 @@ const App = (props) => {
                         //         <Dashboard />
                         //     </Main>
                         // </PrivateRoute>
-                        <Main>
-                            <Dashboard />
-                        </Main>
+                        <Dashboard />
                     }
                 />
                 {/*<Route*/}
