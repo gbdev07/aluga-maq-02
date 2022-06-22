@@ -2,14 +2,14 @@ import './App.css';
 import React from 'react';
 // import PrivateRoute from "./routes/PrivateRoute";
 import {Route, Routes} from "react-router-dom";
-import NotFound from  "./components/NotFound/NotFound";
+// import NotFound from  "./components/NotFound/NotFound";
 import {useContext} from "react";
 import {AuthContext} from "./contexts/AuthContext";
 // import SignUp from "./components/Auth/SignUp/SignUp";
 // import SignIn from "./components/Auth/SignIn/SignIn";
 // import PublicRoute from "./routes/PublicRoute";
 // import Main from "./components/Layout/Main/Main";
-// import Dashboard from "./components/Main/Dashboard/Dashboard";
+import Dashboard from "./components/Main/Dashboard/Dashboard";
 // import * as links from "./utils/links"
 // import {CANAL, FORNECEDOR} from "./utils/constants";
 // const App = (props) => {
@@ -35,7 +35,7 @@ const App = (props) => {
         <div>
             Test 1.7
             <Routes>
-                <Route path='*' element={<NotFound />} />
+                <Route path='*' element={<Dashboard />} />
                 {/*<Route*/}
                 {/*    path={links.SIGNUP_CANAL}*/}
                 {/*    element={*/}
