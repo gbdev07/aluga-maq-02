@@ -113,7 +113,7 @@ const ForgotPassword = (props) => {
                     {
                         text1: 'Voltar para ',
                         text2: 'Login.',
-                        link: links.SIGNIN_CANAL
+                        link: links.SIGNIN
                     }
                 ]}
                 authImage={forgotpassword}

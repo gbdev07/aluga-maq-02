@@ -83,7 +83,7 @@ const ActiveUser = (props) => {
                     }
                     <div className="ActiveUser_messageActiveBottom">
                         <Link
-                            to={links.SIGNIN_CANAL}
+                            to={links.SIGNIN}
                             className="ActiveUser_loginBtn"
                         >
                             Login

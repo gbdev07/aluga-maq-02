@@ -208,7 +208,7 @@ const SignUp = (props) => {
                     {
                         text1: 'Voltar para',
                         text2: 'Login',
-                        link: type === CANAL ? links.SIGNIN_CANAL: links.SIGNIN_FORNECEDOR
+                        link: type === CANAL ? links.SIGNIN: links.SIGNIN
                     },
                     {
                         text1: 'Registrar-se como',

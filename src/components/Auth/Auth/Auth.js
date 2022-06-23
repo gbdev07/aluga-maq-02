@@ -63,6 +63,11 @@ const Auth = (props) => {
                                                                 itemField.setField(event.target.value)
                                                             }
                                                         }}
+                                                        onKeyPress={(event) => {
+                                                            if(event.key === 'Enter'){
+                                                                onsubmit();
+                                                            }
+                                                        }}
                                                     />
                                                     {itemField.error && <div className="itemFieldError">
                                                         {itemField.error}
@@ -82,6 +87,11 @@ const Auth = (props) => {
                                                         onChange={(event) => {
                                                             if (typeof itemField.setField === "function") {
                                                                 itemField.setField(event.target.value)
+                                                            }
+                                                        }}
+                                                        onKeyPress={(event) => {
+                                                            if(event.key === 'Enter'){
+                                                                onsubmit();
                                                             }
                                                         }}
                                                     />

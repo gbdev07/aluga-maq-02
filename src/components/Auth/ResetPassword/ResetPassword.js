@@ -84,7 +84,7 @@ const ResetPassword = (props) => {
                     if (res.status === 200) {
                         setIsLoading(false)
                         setSuccess(true)
-                        navigate(links.SIGNIN_CANAL)
+                        navigate(links.SIGNIN)
                     } else {
                         throw new Error();
                     }
@@ -160,7 +160,7 @@ const ResetPassword = (props) => {
                     {
                         text1: 'Voltar para ',
                         text2: 'Login.',
-                        link: links.SIGNIN_CANAL
+                        link: links.SIGNIN
                     }
                 ]}
                 authImage={resetpassword}

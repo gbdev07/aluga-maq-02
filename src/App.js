@@ -13,7 +13,7 @@ import ForgotPassword from "./components/Auth/ForgotPassword/ForgotPassword";
 import ResetPassword from "./components/Auth/ResetPassword/ResetPassword";
 import ActiveUser from "./components/Auth/ActiveUser/ActiveUser";
 import DashboardFornecedor from "./components/Main/Dashboard/DashboardFornecedor";
-import {MAIN} from "./utils/links";
+import {MAIN, SIGNIN} from "./utils/links";
 import MainSite from "./components/Main/Main/MainSite";
 function App() {
     return (
@@ -66,25 +66,23 @@ function App() {
                 }
             />
             <Route
-                path={links.SIGNIN_CANAL}
+                path={links.SIGNIN}
                 element={
                     <PublicRoute>
-                        <SignIn
-                            type={CANAL}
-                        />
+                        <SignIn />
                     </PublicRoute>
                 }
             />
-            <Route
-                path={links.SIGNIN_FORNECEDOR}
-                element={
-                    <PublicRoute>
-                        <SignIn
-                            type={FORNECEDOR}
-                        />
-                    </PublicRoute>
-                }
-            />
+            {/*<Route*/}
+            {/*    path={links.SIGNIN_FORNECEDOR}*/}
+            {/*    element={*/}
+            {/*        <PublicRoute>*/}
+            {/*            <SignIn*/}
+            {/*                type={FORNECEDOR}*/}
+            {/*            />*/}
+            {/*        </PublicRoute>*/}
+            {/*    }*/}
+            {/*/>*/}
             <Route
                 path={links.FORGOTPASSWORD}
                 element={

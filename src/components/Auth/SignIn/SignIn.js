@@ -27,9 +27,6 @@ const validateEmail = (email) => {
 
 const SignIn = (props) => {
     const {
-        type
-    } = props;
-    const {
         setDataUser,
         loading
     } = useContext(AuthContext)
@@ -116,8 +113,8 @@ const SignIn = (props) => {
         <>
             {isLoading && <LoadingAction />}
             <Auth
-                authTitle={type === CANAL ? 'Faça seu login' : 'Faça seu login'}
-                authDescription={type === CANAL ? "Entre com suas informações de cadastro." : "Entre com suas informações de cadastro."}
+                authTitle={'Faça seu login'}
+                authDescription={"Entre com suas informações de cadastro."}
                 authFields={[
                     {
                         label: 'E-mail',
@@ -161,39 +158,29 @@ const SignIn = (props) => {
                     {
                         text1: 'Não tem uma conta?',
                         text2: 'Registre-se',
-                        link: type === CANAL ? links.SIGNUP_CANAL: links.SIGNUP_FORNECEDOR
+                        link: links.SIGNUP_CANAL
                     },
                     {
                         text1: 'Registrar-se como',
-                        text2: type === CANAL ? 'Fornecedor' : 'Canal',
-                        link: type === CANAL ? links.SIGNUP_FORNECEDOR : links.SIGNUP_CANAL
+                        text2: 'Fornecedor',
+                        link: links.SIGNUP_FORNECEDOR
                     }
                 ]}
-                authImage={type === CANAL ? signin : signin}
+                authImage={signin}
                 onsubmit={() => {
                     onsubmit()
                 }}
                 successMessage={success ? 'Usuário cadastrado com sucesso!' : ""}
                 errorMessage={error ?? ""}
                 textImage={
-                    type === CANAL ?
-                        <div className="SignIn_textImage1">
-                            <div className="SignIn_textTitle">
-                                Fit2Sell
-                            </div>
-                            <div className="SignIn_textDescription">
-                                Facilitando a vida de Fornecedores e Canais.
-                            </div>
+                    <div className="SignIn_textImage1">
+                        <div className="SignIn_textTitle">
+                            Fit2Sell
                         </div>
-                        :
-                        <div className="SignIn_textImage1">
-                            <div className="SignIn_textTitle">
-                                Fit2Sell
-                            </div>
-                            <div className="SignIn_textDescription">
-                                Facilitando a vida de Fornecedores e Canais.
-                            </div>
+                        <div className="SignIn_textDescription">
+                            Facilitando a vida de Fornecedores e Canais.
                         </div>
+                    </div>
                 }
                 isSignIn={true}
             />

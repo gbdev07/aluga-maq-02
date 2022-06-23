@@ -6,7 +6,7 @@ import "./MainSite.css"
 const MainSite = (props) => {
     return (
         <div className="MainSite_container">
-            <Link to={links.SIGNIN_CANAL}>
+            <Link to={links.SIGNIN}>
                 <Button>
                     Login
                 </Button>

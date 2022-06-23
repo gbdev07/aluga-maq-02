@@ -94,4 +94,8 @@
     .ActiveUser_messageActive {
         min-width: unset;
     }
+
+    .ActiveUser_messageActive img {
+        width: 100px;
+    }
 }
