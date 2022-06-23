@@ -96,6 +96,7 @@
     padding: 2px 0;
 }
 
+
 .itemField input:-webkit-autofill,
 .itemField input:-webkit-autofill:hover,
 .itemField input:-webkit-autofill:focus,
@@ -159,7 +160,13 @@
     padding: 10px 0;
     text-align: center;
 }
-
+.errorMessage a {
+    color: #E46772;
+    text-decoration: underline;
+}
+.errorMessage a:hover {
+    color: #E46772;
+}
 .authImage {
     width: 100%;
     height: 100%;

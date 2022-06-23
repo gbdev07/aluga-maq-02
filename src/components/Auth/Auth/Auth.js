@@ -142,7 +142,7 @@ const Auth = (props) => {
                         }
                         {
                             errorMessage && <div className="errorMessage">
-                                {errorMessage}
+                                <div dangerouslySetInnerHTML={{ __html: errorMessage }}></div>
                             </div>
                         }
                     </div>

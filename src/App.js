@@ -9,6 +9,7 @@ import Main from "./components/Layout/Main/Main";
 import Dashboard from "./components/Main/Dashboard/Dashboard";
 import * as links from "./utils/links"
 import {CANAL, FORNECEDOR} from "./utils/constants";
+import ForgotPassword from "./components/Auth/ForgotPassword/ForgotPassword";
 function App() {
     return (
         <Routes>
@@ -36,6 +37,12 @@ function App() {
                     <SignUp
                         type={FORNECEDOR}
                     />
+                }
+            />
+            <Route
+                path={links.SIGNUP_FORNECEDOR}
+                element={
+                    <ForgotPassword />
                 }
             />
             {/*<Route*/}

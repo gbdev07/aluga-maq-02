@@ -103,9 +103,13 @@ const SignUp = (props) => {
                     }
                 })
                 .catch(err => {
-                    console.log(err.response)
                     setIsLoading(false)
-                    setError(err.response?.data?.error ?? "erro" )
+
+                    if (err.response.status === 500) {
+                        setError('Usuário já existe, <a target="_blank" href='+links.FORGOTPASSWORD+'>esqueceu sua senha<a/>?')
+                    } else {
+                        setError('Erro, algo deu errado ' + (err.response?.data?.error ?? "") )
+                    }
                 })
         } else {
             setErrorField(prev => {
@@ -234,7 +238,7 @@ const SignUp = (props) => {
                                 Fit2Sell
                             </div>
                             <div className="textDescription">
-                                Seja um Canal e encontre Fornecedores que atuam no seu segmento de negócio.
+                                Registre-se como um Fornecedor e encontre facilmente canais voltados ao seu negócio.
                             </div>
                         </div>
                 }
