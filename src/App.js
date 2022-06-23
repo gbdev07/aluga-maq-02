@@ -13,6 +13,8 @@ import ForgotPassword from "./components/Auth/ForgotPassword/ForgotPassword";
 import ResetPassword from "./components/Auth/ResetPassword/ResetPassword";
 import ActiveUser from "./components/Auth/ActiveUser/ActiveUser";
 import DashboardFornecedor from "./components/Main/Dashboard/DashboardFornecedor";
+import {MAIN} from "./utils/links";
+import MainSite from "./components/Main/Main/MainSite";
 function App() {
     return (
         <Routes>
@@ -34,6 +36,13 @@ function App() {
                             <DashboardFornecedor />
                         </Main>
                     </PrivateRoute>
+                }
+            />
+            <Route
+                path={links.MAIN}
+                element={
+                    <MainSite />
+
                 }
             />
             <Route

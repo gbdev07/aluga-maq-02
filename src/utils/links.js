@@ -7,3 +7,4 @@ export const RESETPASSWORD = '/reset-password/:token';
 export const ACTIVEUSER = '/active-user/:token'
 export const DASHBOARD_CANAL = '/dashboard';
 export const DASHBOARD_FORNECEDOR = '/dashboard-fornecedor';
+export const MAIN = '/';
