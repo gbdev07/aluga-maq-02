@@ -5,7 +5,7 @@ import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
 import Auth from "../Auth/Auth";
 import * as links from '../../../utils/links'
 import signup_1 from "../../../assets/images/signup_1.png";
-// import signup_2 from "../../../assets/images/signup_2.png";
+import signup_2 from "../../../assets/images/signup_2.png";
 import {CANAL, REACT_APP_API_BASE_URL} from "../../../utils/constants";
 
 const initialDataSignUp = {
@@ -47,10 +47,10 @@ const SignUp = (props) => {
                 ...dataErrorField,
                 name: 'Nome é obrigatório.'
             }
-        } else if (dataAuth.name.trim().length > 15) {
+        } else if (dataAuth.name.trim().length > 20) {
             dataErrorField = {
                 ...dataErrorField,
-                name: 'Nome não pode ter mais que 15 caracteres'
+                name: 'Nome não pode ter mais que 20 caracteres'
             }
         }
         if (dataAuth.email.trim() === '') {
@@ -78,7 +78,7 @@ const SignUp = (props) => {
         if (!dataAuth.isAgree) {
             dataErrorField = {
                 ...dataErrorField,
-                isAgree: 'Concordo com os Termos de Uso.'
+                isAgree: 'Para criar uma conta é necessário concordar com os Termos de Uso.'
             }
         }
         setSuccess(false)
@@ -103,6 +103,7 @@ const SignUp = (props) => {
                     }
                 })
                 .catch(err => {
+                    console.log(err.response)
                     setIsLoading(false)
                     setError(err.response?.data?.error ?? "erro" )
                 })
@@ -137,6 +138,10 @@ const SignUp = (props) => {
                                 ...prev,
                                 email: value
                             }))
+                            setErrorField(prev => ({
+                                ...prev,
+                                email: undefined
+                            }))
                         },
                         error: errorField?.email ?? ""
                     },
@@ -150,6 +155,10 @@ const SignUp = (props) => {
                             setDataSingUp(prev => ({
                                 ...prev,
                                 name: value
+                            }))
+                            setErrorField(prev => ({
+                                ...prev,
+                                name: undefined
                             }))
                         },
                         error: errorField?.name ?? ""
@@ -165,11 +174,15 @@ const SignUp = (props) => {
                                 ...prev,
                                 password: value
                             }))
+                            setErrorField(prev => ({
+                                ...prev,
+                                password: undefined
+                            }))
                         },
                         error: errorField?.password ?? ""
                     },
                     {
-                        label: 'Concordo com os Termos de Uso',
+                        label: 'Concordo com os <a target="_blank" href="https://docs.google.com/document/d/1PdeTd7O6TxMojMP88dhLWIhalbQVkP9spRxvxXHod9I/edit?usp=sharing">Termos de Uso</a>',
                         name: 'isAgree',
                         value: !!dataAuth?.isAgree,
                         type: 'checkbox',
@@ -177,6 +190,10 @@ const SignUp = (props) => {
                             setDataSingUp(prev => ({
                                 ...prev,
                                 isAgree: value
+                            }))
+                            setErrorField(prev => ({
+                                ...prev,
+                                isAgree: undefined
                             }))
                         },
                         error: errorField?.isAgree ?? ""
@@ -195,12 +212,32 @@ const SignUp = (props) => {
                         link: type === CANAL ? links.SIGNUP_FORNECEDOR : links.SIGNUP_CANAL
                     }
                 ]}
-                authImage={signup_1}
+                authImage={type === CANAL ? signup_1 : signup_2}
                 onsubmit={() => {
                     onsubmit()
                 }}
                 successMessage={success ? 'Usuário cadastrado com sucesso!' : ""}
                 errorMessage={error ?? ""}
+                textImage={
+                    type === CANAL ?
+                    <div className="textImage1">
+                        <div className="textTitle">
+                            Fit2Sell
+                        </div>
+                        <div className="textDescription">
+                            Seja um Canal e encontre Fornecedores que atuam no seu segmento de negócio.
+                        </div>
+                    </div>
+                         :
+                        <div className="textImage2">
+                            <div className="textTitle">
+                                Fit2Sell
+                            </div>
+                            <div className="textDescription">
+                                Seja um Canal e encontre Fornecedores que atuam no seu segmento de negócio.
+                            </div>
+                        </div>
+                }
             />
         </>
     )

@@ -15,7 +15,8 @@ const Auth = (props) => {
         authImage,
         onsubmit,
         successMessage,
-        errorMessage
+        errorMessage,
+        textImage
     } = props;
     return (
         <div className="container">
@@ -88,7 +89,7 @@ const Auth = (props) => {
                                                         }}
                                                     >
                                                         <div className="itemFieldLabelCheckbox">
-                                                            {itemField.label}
+                                                            <div dangerouslySetInnerHTML={{ __html: itemField.label }}></div>
                                                         </div>
                                                     </Checkbox>
                                                     {itemField.error && <div className="itemFieldError">
@@ -148,6 +149,9 @@ const Auth = (props) => {
                 </Col>
                 <Col xs={24} md={12} lg={12} xl={12} className="colAuthImage">
                     {authImage && <img className="authImage" src={authImage}/>}
+                    {
+                        textImage && <>{textImage}</>
+                    }
                 </Col>
             </Row>
         </div>
