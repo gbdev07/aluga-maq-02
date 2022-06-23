@@ -224,20 +224,20 @@ const SignUp = (props) => {
                 errorMessage={error ?? ""}
                 textImage={
                     type === CANAL ?
-                    <div className="textImage1">
-                        <div className="textTitle">
+                    <div className="SignUp_textImage1">
+                        <div className="SignUp_textTitle">
                             Fit2Sell
                         </div>
-                        <div className="textDescription">
+                        <div className="SignUp_textDescription">
                             Seja um Canal e encontre Fornecedores que atuam no seu segmento de negócio.
                         </div>
                     </div>
                          :
-                        <div className="textImage2">
-                            <div className="textTitle">
+                        <div className="SignUp_textImage2">
+                            <div className="SignUp_textTitle">
                                 Fit2Sell
                             </div>
-                            <div className="textDescription">
+                            <div className="SignUp_textDescription">
                                 Registre-se como um Fornecedor e encontre facilmente canais voltados ao seu negócio.
                             </div>
                         </div>

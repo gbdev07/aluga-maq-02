@@ -47,6 +47,7 @@
     font-size: 16px;
     line-height: 24px;
     color: #AFB6C2;
+    max-width: 320px;
 }
 
 .itemField {
@@ -152,6 +153,7 @@
     font-size: 14px;
     padding: 10px 0;
     text-align: center;
+    max-width: 320px;
 }
 
 .errorMessage {
@@ -159,6 +161,7 @@
     font-size: 14px;
     padding: 10px 0;
     text-align: center;
+    max-width: 320px;
 }
 .errorMessage a {
     color: #E46772;

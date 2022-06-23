@@ -5,6 +5,8 @@ import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 // import {Link} from "react-router-dom";
 import {FiLogIn} from "react-icons/fi"
 import {Link} from "react-router-dom";
+import forgotPassword from "../ForgotPassword/ForgotPassword";
+import * as links from "../../../utils/links"
 const Auth = (props) => {
     const {
         authTitle,
@@ -16,11 +18,21 @@ const Auth = (props) => {
         onsubmit,
         successMessage,
         errorMessage,
-        textImage
+        textImage,
+        isSignIn,
+        isForgotPassword
     } = props;
     return (
         <div className="container">
             <Row className="rowContainer">
+                {
+                    isForgotPassword && <Col xs={24} md={12} lg={12} xl={12} className="colAuthImage">
+                        {authImage && <img className="authImage" src={authImage}/>}
+                        {
+                            textImage && <>{textImage}</>
+                        }
+                    </Col>
+                }
                 <Col xs={24} md={12} lg={12} xl={12} className="colAuthForm">
                     <div className="authBlock">
                         <div className="authTitle">
@@ -35,6 +47,7 @@ const Auth = (props) => {
                         <div className="authForm">
                             {
                                 authFields.map((itemField, indexField) => {
+                                    console.log(itemField.error)
                                     switch (itemField.type) {
                                         case "text":
                                             return (
@@ -113,6 +126,17 @@ const Auth = (props) => {
                             {authSubmit}
                         </Button>
                         {
+                            isSignIn && <div style={{
+                                display: 'flex',
+                                justifyContent: 'flex-end',
+                                padding: '10px 0'
+                            }}>
+                                <Link to={links.FORGOTPASSWORD}>
+                                    Esqueci minha senha
+                                </Link>
+                            </div>
+                        }
+                        {
                             Array.isArray(authFooter)
                                 ?
                                 <div className="authFooter">
@@ -147,12 +171,13 @@ const Auth = (props) => {
                         }
                     </div>
                 </Col>
-                <Col xs={24} md={12} lg={12} xl={12} className="colAuthImage">
+                {
+                    !isForgotPassword && <Col xs={24} md={12} lg={12} xl={12} className="colAuthImage">
                     {authImage && <img className="authImage" src={authImage}/>}
                     {
                         textImage && <>{textImage}</>
                     }
-                </Col>
+                </Col>}
             </Row>
         </div>
     )

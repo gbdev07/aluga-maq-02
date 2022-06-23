@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import AuthContextProvider from "./contexts/AuthContext";
 import {BrowserRouter} from "react-router-dom";
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import 'react-notifications/lib/notifications.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

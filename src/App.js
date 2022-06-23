@@ -3,13 +3,15 @@ import PrivateRoute from "./routes/PrivateRoute";
 import {Route, Routes} from "react-router-dom";
 import NotFound from "./components/NotFound/NotFound";
 import SignUp from "./components/Auth/SignUp/SignUp";
-// import SignIn from "./components/Auth/SignIn/SignIn";
-// import PublicRoute from "./routes/PublicRoute";
+import SignIn from "./components/Auth/SignIn/SignIn";
+import PublicRoute from "./routes/PublicRoute";
 import Main from "./components/Layout/Main/Main";
 import Dashboard from "./components/Main/Dashboard/Dashboard";
 import * as links from "./utils/links"
 import {CANAL, FORNECEDOR} from "./utils/constants";
 import ForgotPassword from "./components/Auth/ForgotPassword/ForgotPassword";
+import ResetPassword from "./components/Auth/ResetPassword/ResetPassword";
+import ActiveUser from "./components/Auth/ActiveUser/ActiveUser";
 function App() {
     return (
         <Routes>
@@ -26,45 +28,63 @@ function App() {
             <Route
                 path={links.SIGNUP_CANAL}
                 element={
-                    <SignUp
-                        type={CANAL}
-                    />
+                    <PublicRoute>
+                        <SignUp
+                            type={CANAL}
+                        />
+                    </PublicRoute>
                 }
             />
             <Route
                 path={links.SIGNUP_FORNECEDOR}
                 element={
-                    <SignUp
-                        type={FORNECEDOR}
-                    />
+                    <PublicRoute>
+                        <SignUp
+                            type={FORNECEDOR}
+                        />
+                    </PublicRoute>
                 }
             />
             <Route
-                path={links.SIGNUP_FORNECEDOR}
+                path={links.SIGNIN_CANAL}
+                element={
+                    <PublicRoute>
+                        <SignIn
+                            type={CANAL}
+                        />
+                    </PublicRoute>
+                }
+            />
+            <Route
+                path={links.SIGNIN_FORNECEDOR}
+                element={
+                    <PublicRoute>
+                        <SignIn
+                            type={FORNECEDOR}
+                        />
+                    </PublicRoute>
+                }
+            />
+            <Route
+                path={links.FORGOTPASSWORD}
                 element={
                     <ForgotPassword />
+
                 }
             />
-            {/*<Route*/}
-            {/*    path={links.SIGNIN_CANAL}*/}
-            {/*    element={*/}
-            {/*        <PublicRoute>*/}
-            {/*            <SignIn*/}
-            {/*                type={CANAL}*/}
-            {/*            />*/}
-            {/*        </PublicRoute>*/}
-            {/*    }*/}
-            {/*/>*/}
-            {/*<Route*/}
-            {/*    path={links.SIGNIN_FORNECEDOR}*/}
-            {/*    element={*/}
-            {/*        <PublicRoute>*/}
-            {/*            <SignIn*/}
-            {/*                type={FORNECEDOR}*/}
-            {/*            />*/}
-            {/*        </PublicRoute>*/}
-            {/*    }*/}
-            {/*/>*/}
+            <Route
+                path={links.RESETPASSWORD}
+                element={
+                    <ResetPassword />
+
+                }
+            />
+            <Route
+                path={links.ACTIVEUSER}
+                element={
+                    <ActiveUser />
+                }
+            />
             <Route path='*' element={<NotFound />} />
         </Routes>
     );

@@ -1,0 +1,97 @@
+.ActiveUser_container {
+    width: 100%;
+    height: 100%;
+    background-color: #2b394b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+.ActiveUser_messageActive {
+    background: #24221F;
+    border-radius: 4px;
+    padding: 20px;
+    min-width: 600px;
+}
+
+.ActiveUser_messageActiveSuccess {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 20px;
+    /* identical to box height, or 53% */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    padding: 40px 0!important;
+}
+
+.ActiveUser_messageActiveError {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 20px;
+    /* identical to box height, or 53% */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #D1313A;
+    padding: 40px 0!important;
+}
+
+.ActiveUser_messageActiveError a {
+    color: #D1313A;
+    text-decoration: underline;
+    margin-top: 20px;
+}
+.ActiveUser_messageActiveError a:hover {
+    color: #D1313A;
+}
+.ActiveUser_messageActiveTop {
+    display: flex;
+}
+
+.ActiveUser_messageActiveBottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ActiveUser_messageActive img {
+    width: 160px;
+}
+
+.ActiveUser_messageActive > *{
+    padding: 10px 0;
+}
+.ActiveUser_logoText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+
+.ActiveUser_loginBtn {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 20px;
+    /* identical to box height, or 62% */
+
+    display: flex;
+    align-items: center;
+    text-decoration-line: underline;
+
+    color: #469AE2;
+}
+
+@media only screen and (max-width: 600px) {
+    .ActiveUser_messageActive {
+        min-width: unset;
+    }
+}

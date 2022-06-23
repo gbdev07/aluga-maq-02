@@ -1,4 +1,4 @@
-.textImage1 {
+.SignUp_textImage1 {
     position: absolute;
     bottom: 20px;
     right: 20px;
@@ -8,7 +8,7 @@
     color: #000000;
 }
 
-.textImage2 {
+.SignUp_textImage2 {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -18,13 +18,13 @@
     color: #ffffff;
 }
 
-.textTitle {
+.SignUp_textTitle {
     font-weight: 700;
     font-size: 40px;
     text-align: right;
 }
 
-.textDescription {
+.SignUp_textDescription {
     font-weight: 700;
     font-size: 24px;
     line-height: 44px;
