@@ -3,6 +3,7 @@ import {AuthContext} from "../contexts/AuthContext";
 import {Navigate} from "react-router-dom";
 import LoadingAction from "../themes/LoadingAction/LoadingAction";
 import * as links from "../utils/links";
+import {CANAL} from "../utils/constants";
 function PrivateRoute({children, ...rest}) {
     const {
         authInfo,
@@ -10,7 +11,8 @@ function PrivateRoute({children, ...rest}) {
     } = useContext(AuthContext)
 
     const {
-        isAuthenticated
+        isAuthenticated,
+        dataUser
     } = authInfo;
     if (loading) {
         return <LoadingAction />
@@ -18,7 +20,7 @@ function PrivateRoute({children, ...rest}) {
     if (!isAuthenticated) {
         return children;
     }
-    return <Navigate to={links.DASHBOARD} />
+    return <Navigate to={dataUser?.type === CANAL ? links.DASHBOARD_CANAL : links.DASHBOARD_FORNECEDOR} />
 }
 
 export default PrivateRoute;

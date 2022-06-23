@@ -55,7 +55,7 @@ const ForgotPassword = (props) => {
                     if (res.status === 200) {
                         console.log(res.data)
                         setIsLoading(false)
-                        setSuccess(res.data.message ?? "sucesso!")
+                        setSuccess("Verifique seu email para ativar sua conta")
                         setDataAuth({
                             ...initialDataForgotPassword
                         })
@@ -87,7 +87,7 @@ const ForgotPassword = (props) => {
             {isLoading && <LoadingAction />}
             <Auth
                 authTitle={'Redefinição de Senha'}
-                authDescription={"Informe seu email que te enviaremos um link para redefinir sua senha."}
+                authDescription={"Informe seu email que te enviaremos um link para redefinir sua senha."}
                 authFields={[
                     {
                         label: 'E-mail',

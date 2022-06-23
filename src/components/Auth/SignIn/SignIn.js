@@ -7,6 +7,7 @@ import * as links from '../../../utils/links'
 import signin from "../../../assets/images/signin.png";
 import {CANAL, REACT_APP_API_BASE_URL} from "../../../utils/constants";
 import {AuthContext} from "../../../contexts/AuthContext";
+import {useNavigate} from "react-router-dom";
 
 const initialDataSignIn = {
     email: '',
@@ -32,7 +33,8 @@ const SignIn = (props) => {
         setDataUser,
         loading
     } = useContext(AuthContext)
-    console.log(type)
+    let navigate = useNavigate();
+
     const [dataAuth, setDataSingUp] = useState({...initialDataSignIn});
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(false);
@@ -81,9 +83,8 @@ const SignIn = (props) => {
                         })
                         setDataUser({
                             ...res.data,
-                            email: dataAuth.email.trim(),
                         })
-                        console.log(res.data)
+                        navigate(res.data.type === CANAL ? links.DASHBOARD_CANAL : links.DASHBOARD_FORNECEDOR)
 
                     } else {
                         throw new Error();

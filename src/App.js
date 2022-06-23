@@ -6,21 +6,32 @@ import SignUp from "./components/Auth/SignUp/SignUp";
 import SignIn from "./components/Auth/SignIn/SignIn";
 import PublicRoute from "./routes/PublicRoute";
 import Main from "./components/Layout/Main/Main";
-import Dashboard from "./components/Main/Dashboard/Dashboard";
+import DashboardCanal from "./components/Main/Dashboard/DashboardCanal";
 import * as links from "./utils/links"
 import {CANAL, FORNECEDOR} from "./utils/constants";
 import ForgotPassword from "./components/Auth/ForgotPassword/ForgotPassword";
 import ResetPassword from "./components/Auth/ResetPassword/ResetPassword";
 import ActiveUser from "./components/Auth/ActiveUser/ActiveUser";
+import DashboardFornecedor from "./components/Main/Dashboard/DashboardFornecedor";
 function App() {
     return (
         <Routes>
             <Route
-                path={links.DASHBOARD}
+                path={links.DASHBOARD_CANAL}
                 element={
                     <PrivateRoute>
                         <Main>
-                            <Dashboard />
+                            <DashboardCanal />
+                        </Main>
+                    </PrivateRoute>
+                }
+            />
+            <Route
+                path={links.DASHBOARD_FORNECEDOR}
+                element={
+                    <PrivateRoute>
+                        <Main>
+                            <DashboardFornecedor />
                         </Main>
                     </PrivateRoute>
                 }

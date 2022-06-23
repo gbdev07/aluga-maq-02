@@ -5,4 +5,5 @@ export const SIGNUP_FORNECEDOR = '/signup-fornecedor';
 export const FORGOTPASSWORD = '/forgot-password';
 export const RESETPASSWORD = '/reset-password/:token';
 export const ACTIVEUSER = '/active-user/:token'
-export const DASHBOARD = '/';
+export const DASHBOARD_CANAL = '/dashboard';
+export const DASHBOARD_FORNECEDOR = '/dashboard-fornecedor';

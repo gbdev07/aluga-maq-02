@@ -76,7 +76,7 @@ const ResetPassword = (props) => {
                 password: dataAuth.password,
             }, {
                 headers: {
-                    "X-Auth-Token": token,
+                    "x-access-token": token,
                     "content-type": "application/json"
                 }
             })
