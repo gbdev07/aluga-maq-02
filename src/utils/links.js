@@ -20,4 +20,5 @@ export const FORNECEDOR_SETTINGS = '/fornecedor-settings';
 export const FORNECEDOR_BUY_PREMIUM = '/fornecedor-buy-premium';
 export const FORNECEDOR_NOTI = '/fornecedor-notifications';
 export const FORNECEDOR_MY_FITS = '/my-fits';
+export const FORNECEDOR_FAVORITES_PREMIUM = '/fornecedor-favorites-premium';
 export const MAIN = '/';

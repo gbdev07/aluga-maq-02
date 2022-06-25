@@ -101,7 +101,7 @@ const DashboardFornecedor = (props) => {
             })
     }, [])
 
-
+    const isPremium = (premiumExpiration && moment(premiumExpiration) > moment());
     return (
         <div className="Dashboard_container">
             {isLoading && <LoadingAction />}
@@ -154,13 +154,32 @@ const DashboardFornecedor = (props) => {
                 </Col>
                 <Col xs={24} md={24} lg={8} xl={8} className="Dashboard_col">
                     <div className="Dashboard_staBlock">
-                        <Link to={links.FORNECEDOR_MY_FITS} className="Dashboard_staBlockLinkA">
-                            <div className="Dashboard_staBlockLink">
-                                <img src={premium2Icon} alt=""/>
-                                <div>Ver Fits</div>
-                                <img src={ArrowBottomIcon} alt=""/>
-                            </div>
-                        </Link>
+                        {
+                            isPremium
+                            ?
+                                <Link to={links.FORNECEDOR_MY_FITS} className="Dashboard_staBlockLinkA">
+                                    <div className="Dashboard_staBlockLink">
+                                        <img src={premium2Icon} alt=""/>
+                                        <div>Ver Fits</div>
+                                        <img src={ArrowBottomIcon} alt=""/>
+                                    </div>
+                                </Link>
+                                :
+                                <div className="Dashboard_staBlockLinkA">
+                                    <div className="Dashboard_staBlockLink">
+                                        <img src={premium2Icon} alt=""/>
+                                        <div>Ver Fits</div>
+                                        <img src={ArrowBottomIcon} alt=""/>
+                                    </div>
+                                </div>
+                        }
+                        {/*<Link to={links.FORNECEDOR_MY_FITS} className="Dashboard_staBlockLinkA">*/}
+                        {/*    <div className="Dashboard_staBlockLink">*/}
+                        {/*        <img src={premium2Icon} alt=""/>*/}
+                        {/*        <div>Ver Fits</div>*/}
+                        {/*        <img src={ArrowBottomIcon} alt=""/>*/}
+                        {/*    </div>*/}
+                        {/*</Link>*/}
                         <div className="Dashboard_staBlockTitle">
                             Meus Fits
                         </div>
@@ -184,13 +203,26 @@ const DashboardFornecedor = (props) => {
                         <div className="Dashboard_tableTitle">
                             Canais que te favoritaram
                         </div>
-                        <Link to={links.FORNECEDOR_FAVORITES} className="Dashboard_col_tableLinkA">
-                            <div className="Dashboard_col_tableLink">
-                                <img src={premium2Icon} alt=""/>
-                                <div>Ver todos</div>
-                                <img src={ArrowBottomIcon} alt=""/>
-                            </div>
-                        </Link>
+                        {
+                            isPremium
+                            ?
+                                <Link to={links.FORNECEDOR_FAVORITES_PREMIUM} className="Dashboard_col_tableLinkA">
+                                    <div className="Dashboard_col_tableLink">
+                                        <img src={premium2Icon} alt=""/>
+                                        <div>Ver todos</div>
+                                        <img src={ArrowBottomIcon} alt=""/>
+                                    </div>
+                                </Link>
+                                :
+                                <div className="Dashboard_col_tableLinkA">
+                                    <div className="Dashboard_col_tableLink" >
+                                        <img src={premium2Icon} alt=""/>
+                                        <div>Ver todos</div>
+                                        <img src={ArrowBottomIcon} alt=""/>
+                                    </div>
+                                </div>
+                        }
+
                         <Table columns={columns} dataSource={favorites} />
                     </div>
                 </Col>
@@ -203,7 +235,7 @@ const DashboardFornecedor = (props) => {
                             <Link to={links.FORNECEDOR_BUY_PREMIUM}>Seja Premium</Link> libere todos os recursos
                         </div>
                         {
-                            (premiumExpiration && moment(premiumExpiration) > moment())
+                            isPremium
                             ?
                                 <img src={premiumIcon} alt=""/>
                                 :

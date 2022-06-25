@@ -13,7 +13,7 @@ import ForgotPassword from "./components/Auth/ForgotPassword/ForgotPassword";
 import ResetPassword from "./components/Auth/ResetPassword/ResetPassword";
 import ActiveUser from "./components/Auth/ActiveUser/ActiveUser";
 import DashboardFornecedor from "./components/Main/Dashboard/DashboardFornecedor";
-import {MAIN, SIGNIN} from "./utils/links";
+import {FORNECEDOR_FAVORITES_PREMIUM, MAIN, SIGNIN} from "./utils/links";
 import MainSite from "./components/Main/Main/MainSite";
 import CanalFavorites from "./components/Main/Favorites/CanalFavorites";
 import FornecedorFavorites from "./components/Main/Favorites/CanalFavorites";
@@ -29,6 +29,7 @@ import {NotificationContainer, NotificationManager} from "react-notifications";
 import React, {useContext, useEffect} from "react";
 import {AuthContext} from "./contexts/AuthContext";
 import FornecedorNotification from "./components/Main/Notification/FornecedorNotification";
+import FornecedorFavoritesPremium from "./components/Main/Favorites/FornecedorFavoritesPremium";
 function App() {
     const {
         setDataUser,
@@ -53,6 +54,16 @@ function App() {
                         <PrivateRoute>
                             <Main>
                                 <FornecedorNotification />
+                            </Main>
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path={links.FORNECEDOR_FAVORITES_PREMIUM}
+                    element={
+                        <PrivateRoute>
+                            <Main>
+                                <FornecedorFavoritesPremium />
                             </Main>
                         </PrivateRoute>
                     }
