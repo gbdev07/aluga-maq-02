@@ -30,17 +30,17 @@ const SignIn = (props) => {
     const {
         setDataUser,
         loading,
-        isExpired,
-        setIsExpired
+        notiMessage,
+        setNotiMessage
     } = useContext(AuthContext)
     let navigate = useNavigate();
 
-    useEffect(() => {
-        if (isExpired) {
-            setIsExpired(false)
-            NotificationManager.error('A sua sessão expirou, para continual faça login novamente', 'Hmm... ');
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (notiMessage) {
+    //         setNotiMessage(null)
+    //         NotificationManager.error(notiMessage, 'Hmm... ');
+    //     }
+    // }, [])
 
     const [dataAuth, setDataSingUp] = useState({...initialDataSignIn});
     const [error, setError] = useState(null);

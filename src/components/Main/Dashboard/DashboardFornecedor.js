@@ -20,17 +20,25 @@ const DashboardFornecedor = (props) => {
         setDataUser,
         loading,
         authInfo,
-        setIsExpired
+        setNotiMessage
     } = useContext(AuthContext);
     let navigate = useNavigate();
     const token = authInfo?.dataUser?.token;
     const premiumExpiration = authInfo?.dataUser?.premiumExpiration ?? null;
+    const hasData = !!authInfo?.dataUser?.hasData
     const [favorites, setFavorites] = useState([]);
     const [meusFits, setMeusFits] = useState(null);
     const [totalCanais, setTotalCanais] = useState(null);
     const [totalFornecedores, setTotalFornecedores] = useState(null);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        if (!hasData) {
+            navigate(links.FORNECEDOR_EDIT_PROFILE);
+            setNotiMessage('Você precisa preencher seus dados antes de usar o sistema');
+        }
+    }, [])
     const columns = [
         {
             title: 'Canal',
@@ -87,7 +95,7 @@ const DashboardFornecedor = (props) => {
             .catch(err => {
                 setIsLoading(false);
                 if ([401, 403].includes(err.response.status)) {
-                    setIsExpired(true);
+                    setNotiMessage('A sua sessão expirou, para continuar faça login novamente.');
                     setDataUser(null);
                 }
             })
@@ -97,7 +105,6 @@ const DashboardFornecedor = (props) => {
     return (
         <div className="Dashboard_container">
             {isLoading && <LoadingAction />}
-            <NotificationContainer/>
             <Row>
                 <Col xs={24} md={24} lg={8} xl={8} className="Dashboard_col">
                     <div className="Dashboard_staBlock">
@@ -177,7 +184,7 @@ const DashboardFornecedor = (props) => {
                         <div className="Dashboard_tableTitle">
                             Canais que te favoritaram
                         </div>
-                        <Link to={links.FORNECEDOR_MY_FITS} className="Dashboard_col_tableLinkA">
+                        <Link to={links.FORNECEDOR_FAVORITES} className="Dashboard_col_tableLinkA">
                             <div className="Dashboard_col_tableLink">
                                 <img src={premium2Icon} alt=""/>
                                 <div>Ver todos</div>
