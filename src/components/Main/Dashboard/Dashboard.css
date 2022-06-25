@@ -14,6 +14,25 @@
     flex-direction: column;
     box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
     border-radius: 9px;
+    position: relative;
+}
+
+.Dashboard_staBlockLinkA {
+    color: #000000;
+}
+
+.Dashboard_staBlockLink {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+}
+
+.Dashboard_staBlockLink > div {
+    padding: 0 5px;
 }
 
 .Dashboard_staBlockTitle {
@@ -48,6 +67,7 @@
     border-radius: 9px;
     padding: 20px;
     height: 100%;
+    position: relative;
 }
 
 .Dashboard_table th.ant-table-cell {
@@ -87,6 +107,12 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 34px;
+    text-align: center;
+}
+
+.Dashboard_premiumText a {
+    text-decoration: underline;
+    color: #0E132F;
 }
 
 .Dashboard_premium img {
@@ -97,8 +123,51 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+.Dashboard_staBlockBottomLink {
+    display: none;
+}
+
+.Dashboard_col_tableLinkA {
+    color: #000000;
+}
+
+.Dashboard_col_tableLink {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #878997;
+}
+
+.Dashboard_col_tableLink > div {
+    padding: 0 5px;
+}
+
 @media only screen and (max-width: 800px) {
     .Dashboard_col_table {
         display: none!important;
+    }
+
+    .Dashboard_premium {
+        box-shadow: none;
+        background-color: transparent;
+    }
+
+
+    .Dashboard_staBlockBottom {
+        display: none;
+    }
+
+    .Dashboard_staBlockLink {
+        display: none;
+    }
+
+    .Dashboard_staBlockBottomLink {
+        display: flex;
+        justify-content: flex-end;
+        padding: 10px;
     }
 }

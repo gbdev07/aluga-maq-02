@@ -78,15 +78,39 @@
 .Main_headerBetween {
 
 }
+
+.Main_headerRight {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.Main_headerNoti {
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.Main_headerNoti img {
+    height: 22px;
+}
+.Main_headerSearch {
+    margin: 0 20px;
+    cursor: pointer;
+}
+.Main_headerSearch img {
+    height: 22px;
+}
 @media only screen and (max-width: 800px) {
     .Main_menuitem > div {
         display: none;
     }
     .Main_sidebar {
         box-shadow: none;
+        padding-top: 80px;
     }
     .Main_header {
         padding: 10px;
+        margin-left: -100px;
     }
     .Main_header_title {
         display: block;

@@ -18,4 +18,5 @@ export const FORNECEDOR_SEARCH_CANAIS = '/fornecedor-search-canais';
 export const FORNECEDOR_FAVORITES = '/fornecedor-favorites';
 export const FORNECEDOR_SETTINGS = '/fornecedor-settings';
 export const FORNECEDOR_BUY_PREMIUM = '/fornecedor-buy-premium';
+export const FORNECEDOR_MY_FITS = '/my-fits';
 export const MAIN = '/';

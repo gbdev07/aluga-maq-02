@@ -10,12 +10,16 @@ import {REACT_APP_API_BASE_URL} from "../../../utils/constants";
 import * as links from "../../../utils/links";
 import {AuthContext} from "../../../contexts/AuthContext";
 import moment from "moment";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import ArrowBottomIcon from "../../../assets/images/arrow_bottom.png"
+import premium2Icon from "../../../assets/images/premium2.png"
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 const DashboardFornecedor = (props) => {
     const {
         setDataUser,
         loading,
         authInfo,
+        setIsExpired
     } = useContext(AuthContext);
     let navigate = useNavigate();
     const token = authInfo?.dataUser?.token;
@@ -78,13 +82,17 @@ const DashboardFornecedor = (props) => {
                 }
             })
             .catch(err => {
-
+                if ([401, 403].includes(err.response.status)) {
+                    setIsExpired(true);
+                    setDataUser(null);
+                }
             })
     }, [])
 
-    console.log(favorites)
+
     return (
         <div className="Dashboard_container">
+            <NotificationContainer/>
             <Row>
                 <Col xs={24} md={24} lg={8} xl={8} className="Dashboard_col">
                     <div className="Dashboard_staBlock">
@@ -97,10 +105,23 @@ const DashboardFornecedor = (props) => {
                         <div className="Dashboard_staBlockBottom">
                             <img src={block1} alt=""/>
                         </div>
+                        <div className="Dashboard_staBlockBottomLink">
+                            <Link to={links.FORNECEDOR_SEARCH_CANAIS}>
+                                <div className="arrowBottomLink">
+                                    <img src={ArrowBottomIcon} alt=""/>
+                                </div>
+                            </Link>
+                        </div>
                     </div>
                 </Col>
                 <Col xs={24} md={24} lg={8} xl={8} className="Dashboard_col">
                     <div className="Dashboard_staBlock">
+                        <Link to={links.FORNECEDOR_SEARCH_CANAIS} className="Dashboard_staBlockLinkA">
+                            <div className="Dashboard_staBlockLink">
+                                <div>Buscar</div>
+                                <img src={ArrowBottomIcon} alt=""/>
+                            </div>
+                        </Link>
                         <div className="Dashboard_staBlockTitle">
                             Total de Canais
                         </div>
@@ -110,10 +131,24 @@ const DashboardFornecedor = (props) => {
                         <div className="Dashboard_staBlockBottom">
                             <img src={block2} alt=""/>
                         </div>
+                        <div className="Dashboard_staBlockBottomLink">
+                            <Link to={links.FORNECEDOR_SEARCH_CANAIS}>
+                                <div className="arrowBottomLink">
+                                    <img src={ArrowBottomIcon} alt=""/>
+                                </div>
+                            </Link>
+                        </div>
                     </div>
                 </Col>
                 <Col xs={24} md={24} lg={8} xl={8} className="Dashboard_col">
                     <div className="Dashboard_staBlock">
+                        <Link to={links.FORNECEDOR_MY_FITS} className="Dashboard_staBlockLinkA">
+                            <div className="Dashboard_staBlockLink">
+                                <img src={premium2Icon} alt=""/>
+                                <div>Ver Fits</div>
+                                <img src={ArrowBottomIcon} alt=""/>
+                            </div>
+                        </Link>
                         <div className="Dashboard_staBlockTitle">
                             Meus Fits
                         </div>
@@ -123,30 +158,44 @@ const DashboardFornecedor = (props) => {
                         <div className="Dashboard_staBlockBottom">
                             <img src={block3} alt=""/>
                         </div>
-                    </div>handleOk
+                        <div className="Dashboard_staBlockBottomLink">
+                            <Link to={links.FORNECEDOR_MY_FITS}>
+                                <div className="arrowBottomLink">
+                                    <img src={ArrowBottomIcon} alt=""/>
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
                 </Col>
                 <Col xs={24} md={24} lg={14} xl={14} className="Dashboard_col Dashboard_col_table">
                     <div className="Dashboard_table">
                         <div className="Dashboard_tableTitle">
                             Canais que te favoritaram
                         </div>
+                        <Link to={links.FORNECEDOR_MY_FITS} className="Dashboard_col_tableLinkA">
+                            <div className="Dashboard_col_tableLink">
+                                <img src={premium2Icon} alt=""/>
+                                <div>Ver todos</div>
+                                <img src={ArrowBottomIcon} alt=""/>
+                            </div>
+                        </Link>
                         <Table columns={columns} dataSource={favorites} />
                     </div>
                 </Col>
                 <Col xs={24} md={24} lg={10} xl={10} className="Dashboard_col">
                     <div className="Dashboard_premium">
                         <div className="Dashboard_premiumText">
-                            <div className="Dashboard_premiumBtn" onClick={() => {
-                                setIsModalVisible(true);
-                            }}>Seja Premium</div> e libere todos os recursos
+                            {/*<span className="Dashboard_premiumBtn" onClick={() => {*/}
+                            {/*    setIsModalVisible(true);*/}
+                            {/*}}>Seja Premium</span> */}
+                            <Link to={links.FORNECEDOR_BUY_PREMIUM}>Seja Premium</Link> libere todos os recursos
                         </div>
                         {
                             (premiumExpiration && moment(premiumExpiration) > moment())
                             ?
                                 <img src={premiumIcon} alt=""/>
                                 :
-                                <>
-                                </>
+                                <img src={premiumIcon} alt=""/>
                         }
 
                     </div>

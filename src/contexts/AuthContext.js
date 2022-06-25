@@ -12,11 +12,14 @@ export const AuthContext = createContext({
     setDataUser: (dataUser) => {
     },
     loading: false,
+    isExpired: false,
+    setIsExpired: () => {}
 })
 
 const AuthContextProvider = ({children}) => {
     const [authInfo, setAuthInfo] = useState(authDefault);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
+    const [isExpired, setIsExpired] = useState(false)
     useEffect(() => {
         try {
             const dataUserParse = localStorage.getItem("dataUser");
@@ -68,6 +71,8 @@ const AuthContextProvider = ({children}) => {
         authInfo,
         loading,
         setDataUser,
+        isExpired,
+        setIsExpired
     }
 
     return (

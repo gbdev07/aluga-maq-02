@@ -24,9 +24,20 @@ import CanalSearchFornecedores from "./components/Main/SearchUser/CanalSearchFor
 import FornecedorBuyPremium from "./components/Main/Favorites/FornecedorFavorites";
 import FornecedorEditProfile from "./components/Main/EditProfile/FornecedorEditProfile";
 import CanalEditProfile from "./components/Main/EditProfile/CanalEditProfile";
+import MyFits from "./components/Main/MyFits/MyFits";
 function App() {
     return (
         <Routes>
+            <Route
+                path={links.FORNECEDOR_MY_FITS}
+                element={
+                    <PrivateRoute>
+                        <Main>
+                            <MyFits />
+                        </Main>
+                    </PrivateRoute>
+                }
+            />
             <Route
                 path={links.CANAL_EDIT_PROFILE}
                 element={

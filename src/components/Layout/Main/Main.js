@@ -9,10 +9,11 @@ import EditProfileIcon from "../../../assets/images/edit_profile.png";
 import SearchIcon from '../../../assets/images/search.png';
 import FavoritesIcon from '../../../assets/images/favorites.png';
 import SettingsIcon from "../../../assets/images/settings.png";
-import UserIcon from "../../../assets/images/user.png"
+import UserIcon from "../../../assets/images/user_header.svg"
 import DropdownIcon from "../../../assets/images/chevron-left.png"
 import {Link, useLocation} from "react-router-dom";
-
+import SearchHeaderIcon from "../../../assets/images/search_icon.png";
+import NotiHeaderIcon from "../../../assets/images/noti.png"
 const Main = (props) => {
     const {
         children
@@ -121,12 +122,20 @@ const Main = (props) => {
                         <div className="Main_headerBetween">
 
                         </div>
-                        <Dropdown overlay={menu} placement="bottomRight" arrow>
-                            <div className="Main_menuProfile">
-                                <img src={UserIcon} alt=""/>
-                                <img className="Main_dropdownIcon" src={DropdownIcon} alt=""/>
+                        <div className="Main_headerRight">
+                            <div className="Main_headerSearch">
+                                <img src={SearchHeaderIcon} alt=""/>
                             </div>
-                        </Dropdown>
+                            <div className="Main_headerNoti">
+                                <img src={NotiHeaderIcon} alt=""/>
+                            </div>
+                            <Dropdown overlay={menu} placement="bottomRight" arrow>
+                                <div className="Main_menuProfile">
+                                    <img src={UserIcon} alt=""/>
+                                    <img className="Main_dropdownIcon" src={DropdownIcon} alt=""/>
+                                </div>
+                            </Dropdown>
+                        </div>
                     </div>
                     <div className="Main_content">
                         {children}

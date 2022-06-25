@@ -1,6 +1,6 @@
 import "./SignIn.css";
 import axios from "axios";
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
 import Auth from "../Auth/Auth";
 import * as links from '../../../utils/links'
@@ -8,6 +8,7 @@ import signin from "../../../assets/images/signin.png";
 import {CANAL, REACT_APP_API_BASE_URL} from "../../../utils/constants";
 import {AuthContext} from "../../../contexts/AuthContext";
 import {useNavigate} from "react-router-dom";
+import {NotificationContainer, NotificationManager} from "react-notifications";
 
 const initialDataSignIn = {
     email: '',
@@ -28,9 +29,18 @@ const validateEmail = (email) => {
 const SignIn = (props) => {
     const {
         setDataUser,
-        loading
+        loading,
+        isExpired,
+        setIsExpired
     } = useContext(AuthContext)
     let navigate = useNavigate();
+
+    useEffect(() => {
+        if (isExpired) {
+            setIsExpired(false)
+            NotificationManager.error('A sua sessão expirou, para continual faça login novamente', 'Hmm... ');
+        }
+    }, [])
 
     const [dataAuth, setDataSingUp] = useState({...initialDataSignIn});
     const [error, setError] = useState(null);
@@ -111,6 +121,7 @@ const SignIn = (props) => {
 
     return (
         <>
+            <NotificationContainer/>
             {isLoading && <LoadingAction />}
             <Auth
                 authTitle={'Faça seu login'}
