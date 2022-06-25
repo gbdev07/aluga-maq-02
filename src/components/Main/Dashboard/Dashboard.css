@@ -1,0 +1,104 @@
+.Dashboard_container {
+
+}
+
+
+.Dashboard_col {
+    padding: 20px;
+}
+
+.Dashboard_staBlock {
+    background: #FFFFFF;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+    border-radius: 9px;
+}
+
+.Dashboard_staBlockTitle {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+    padding: 10px 15px;
+}
+
+.Dashboard_staBlockAmount {
+    flex: 1;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 66px;
+    color: #000000;
+    padding: 0 10px;
+}
+
+.Dashboard_staBlockBottom {
+
+}
+
+.Dashboard_staBlockBottom img {
+    width: 100%;
+}
+
+.Dashboard_table {
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+    border-radius: 9px;
+    padding: 20px;
+    height: 100%;
+}
+
+.Dashboard_table th.ant-table-cell {
+    font-weight: 700;
+}
+
+.Dashboard_tableTitle {
+    color: #0E132F;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 34px;
+    letter-spacing: -0.01em;
+}
+
+.Dashboard_favDetail {
+    background: #0BD61F;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.Dashboard_premium {
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+    border-radius: 9px;
+    padding: 20px;
+    height: 100%;
+}
+
+.Dashboard_premiumText {
+    color: #0E132F;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 34px;
+}
+
+.Dashboard_premium img {
+    /*width: 120px;*/
+}
+
+.Dashboard_premiumBtn {
+    text-decoration: underline;
+    cursor: pointer;
+}
+@media only screen and (max-width: 800px) {
+    .Dashboard_col_table {
+        display: none!important;
+    }
+}

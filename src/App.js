@@ -15,9 +15,108 @@ import ActiveUser from "./components/Auth/ActiveUser/ActiveUser";
 import DashboardFornecedor from "./components/Main/Dashboard/DashboardFornecedor";
 import {MAIN, SIGNIN} from "./utils/links";
 import MainSite from "./components/Main/Main/MainSite";
+import CanalFavorites from "./components/Main/Favorites/CanalFavorites";
+import FornecedorFavorites from "./components/Main/Favorites/CanalFavorites";
+import FornecedorSettings from "./components/Main/Settings/FornecedorSettings";
+import CanalSettings from "./components/Main/Settings/CanalSettings";
+import FornecedorSearchCanais from "./components/Main/SearchUser/FornecedorSearchCanais";
+import CanalSearchFornecedores from "./components/Main/SearchUser/CanalSearchFornecedores";
+import FornecedorBuyPremium from "./components/Main/Favorites/FornecedorFavorites";
+import FornecedorEditProfile from "./components/Main/EditProfile/FornecedorEditProfile";
+import CanalEditProfile from "./components/Main/EditProfile/CanalEditProfile";
 function App() {
     return (
         <Routes>
+            <Route
+                path={links.CANAL_EDIT_PROFILE}
+                element={
+                    <PrivateRoute>
+                        <Main>
+                            <CanalEditProfile />
+                        </Main>
+                    </PrivateRoute>
+                }
+            />
+            <Route
+                path={links.FORNECEDOR_EDIT_PROFILE}
+                element={
+                    <PrivateRoute>
+                        <Main>
+                            <FornecedorEditProfile />
+                        </Main>
+                    </PrivateRoute>
+                }
+            />
+            <Route
+                path={links.FORNECEDOR_BUY_PREMIUM}
+                element={
+                    <PrivateRoute>
+                        <Main>
+                            <FornecedorBuyPremium />
+                        </Main>
+                    </PrivateRoute>
+                }
+            />
+            <Route
+                path={links.CANAL_SEARCH_FORNECEDORES}
+                element={
+                    <PrivateRoute>
+                        <Main>
+                            <CanalSearchFornecedores />
+                        </Main>
+                    </PrivateRoute>
+                }
+            />
+            <Route
+                path={links.FORNECEDOR_SEARCH_CANAIS}
+                element={
+                    <PrivateRoute>
+                        <Main>
+                            <FornecedorSearchCanais />
+                        </Main>
+                    </PrivateRoute>
+                }
+            />
+            <Route
+                path={links.CANAL_SETTINGS}
+                element={
+                    <PrivateRoute>
+                        <Main>
+                            <CanalSettings />
+                        </Main>
+                    </PrivateRoute>
+                }
+            />
+            <Route
+                path={links.FORNECEDOR_SETTINGS}
+                element={
+                    <PrivateRoute>
+                        <Main>
+                            <FornecedorSettings />
+                        </Main>
+                    </PrivateRoute>
+                }
+            />
+            <Route
+                path={links.CANAL_FAVORITES}
+                element={
+                    <PrivateRoute>
+                        <Main>
+                            <CanalFavorites />
+                        </Main>
+                    </PrivateRoute>
+                }
+            />
+            <Route
+                path={links.FORNECEDOR_FAVORITES}
+                element={
+                    <PrivateRoute>
+                        <Main>
+                            <FornecedorFavorites />
+                        </Main>
+                    </PrivateRoute>
+                }
+            />
             <Route
                 path={links.DASHBOARD_CANAL}
                 element={
