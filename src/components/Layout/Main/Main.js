@@ -14,7 +14,9 @@ import UserPremiumIcon from "../../../assets/images/user_header_premium.svg"
 import DropdownIcon from "../../../assets/images/chevron-left.png"
 import {Link, useLocation} from "react-router-dom";
 import SearchHeaderIcon from "../../../assets/images/search_icon.png";
-import NotiHeaderIcon from "../../../assets/images/noti.png"
+import NotiHeaderIcon from "../../../assets/images/noti.png";
+import NotiHasHeaderIcon from "../../../assets/images/noti_has.png";
+
 import moment from "moment";
 const Main = (props) => {
     const {
@@ -27,7 +29,7 @@ const Main = (props) => {
     } = useContext(AuthContext);
     const location = useLocation();
     const premiumExpiration = authInfo?.dataUser?.premiumExpiration ?? null;
-
+    const hasNotification = !!authInfo?.dataUser?.hasNotification;
     const {
         dataUser
     } =  authInfo;
@@ -132,7 +134,7 @@ const Main = (props) => {
                                 </Link>
                             </div>
                             <div className="Main_headerNoti">
-                                <img src={NotiHeaderIcon} alt=""/>
+                                <img src={hasNotification ? NotiHasHeaderIcon : NotiHeaderIcon} alt=""/>
                             </div>
                             <Dropdown overlay={menu} placement="bottomRight" arrow>
                                 <div className="Main_menuProfile">
