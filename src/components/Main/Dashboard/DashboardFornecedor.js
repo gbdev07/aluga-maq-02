@@ -14,6 +14,7 @@ import {Link, useNavigate} from "react-router-dom";
 import ArrowBottomIcon from "../../../assets/images/arrow_bottom.png"
 import premium2Icon from "../../../assets/images/premium2.png"
 import {NotificationContainer, NotificationManager} from 'react-notifications';
+import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
 const DashboardFornecedor = (props) => {
     const {
         setDataUser,
@@ -28,7 +29,8 @@ const DashboardFornecedor = (props) => {
     const [meusFits, setMeusFits] = useState(null);
     const [totalCanais, setTotalCanais] = useState(null);
     const [totalFornecedores, setTotalFornecedores] = useState(null);
-    const [isModalVisible, setIsModalVisible] = useState(false)
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const columns = [
         {
             title: 'Canal',
@@ -71,6 +73,7 @@ const DashboardFornecedor = (props) => {
         })
             .then(res => {
                 if (res.status === 200) {
+                    setIsLoading(false);
                     if (Array.isArray(res.data.favorites)) {
                         setFavorites(res.data.favorites)
                     }
@@ -82,6 +85,7 @@ const DashboardFornecedor = (props) => {
                 }
             })
             .catch(err => {
+                setIsLoading(false);
                 if ([401, 403].includes(err.response.status)) {
                     setIsExpired(true);
                     setDataUser(null);
@@ -92,6 +96,7 @@ const DashboardFornecedor = (props) => {
 
     return (
         <div className="Dashboard_container">
+            {isLoading && <LoadingAction />}
             <NotificationContainer/>
             <Row>
                 <Col xs={24} md={24} lg={8} xl={8} className="Dashboard_col">

@@ -30,6 +30,10 @@
     border-left: 5px solid transparent;
 }
 
+.Main_menuitem img {
+    width: 30px;
+}
+
 .Main_menuitem > div {
     padding-left: 5px;
 }
