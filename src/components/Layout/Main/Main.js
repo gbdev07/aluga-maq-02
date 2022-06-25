@@ -134,7 +134,14 @@ const Main = (props) => {
                                 </Link>
                             </div>
                             <div className="Main_headerNoti">
-                                <img src={hasNotification ? NotiHasHeaderIcon : NotiHeaderIcon} alt=""/>
+                                {
+                                    hasNotification ? <Link to={links.FORNECEDOR_NOTI}>
+                                        <img src={NotiHasHeaderIcon} alt=""/>
+                                    </Link>
+                                        :
+                                        <img src={NotiHeaderIcon} alt=""/>
+                                }
+
                             </div>
                             <Dropdown overlay={menu} placement="bottomRight" arrow>
                                 <div className="Main_menuProfile">

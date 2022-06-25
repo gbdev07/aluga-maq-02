@@ -28,6 +28,7 @@ import MyFits from "./components/Main/MyFits/MyFits";
 import {NotificationContainer, NotificationManager} from "react-notifications";
 import React, {useContext, useEffect} from "react";
 import {AuthContext} from "./contexts/AuthContext";
+import FornecedorNotification from "./components/Main/Notification/FornecedorNotification";
 function App() {
     const {
         setDataUser,
@@ -46,6 +47,16 @@ function App() {
         <>
             <NotificationContainer/>
             <Routes>
+                <Route
+                    path={links.FORNECEDOR_NOTI}
+                    element={
+                        <PrivateRoute>
+                            <Main>
+                                <FornecedorNotification />
+                            </Main>
+                        </PrivateRoute>
+                    }
+                />
                 <Route
                     path={links.FORNECEDOR_MY_FITS}
                     element={
