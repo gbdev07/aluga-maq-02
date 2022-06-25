@@ -10,7 +10,7 @@ import SearchIcon from '../../../assets/images/search.png';
 import FavoritesIcon from '../../../assets/images/favorites.png';
 import SettingsIcon from "../../../assets/images/settings.png";
 import UserIcon from "../../../assets/images/user_header.svg"
-import UserPremiumIcon from "../../../assets/images/user_header.svg"
+import UserPremiumIcon from "../../../assets/images/user_header_premium.svg"
 import DropdownIcon from "../../../assets/images/chevron-left.png"
 import {Link, useLocation} from "react-router-dom";
 import SearchHeaderIcon from "../../../assets/images/search_icon.png";
