@@ -12,6 +12,9 @@ import checkIcon from "../../../assets/images/check.png"
 import axios from "axios";
 import {REACT_APP_API_BASE_URL, REACT_APP_PAYMENT_ACCESS_TOKEN} from "../../../utils/constants";
 import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
+import eoLocale  from 'date-fns/locale/pt-BR'
+import {format} from "date-fns";
+
 const FornecedorBuyPremium = (props) => {
     const {
         setDataUser,
@@ -24,7 +27,7 @@ const FornecedorBuyPremium = (props) => {
     const token = authInfo?.dataUser?.token;
     const premiumExpiration = authInfo?.dataUser?.premiumExpiration ?? null;
     const userId = authInfo?.dataUser?.id;
-    const isPremium = (premiumExpiration && moment(premiumExpiration) > moment()) && false;
+    const isPremium = (premiumExpiration && moment(premiumExpiration) > moment());
 
     const onNewPayment = (dataPayment) => {
         setIsLoading(true)
@@ -175,7 +178,8 @@ const FornecedorBuyPremium = (props) => {
                                             Você é um assinante PREMIUM.
                                         </div>
                                         <div className="FornecedorBuyPremium_doneText2">
-                                            Assinatura expira em {moment(premiumExpiration).locale('pt-br').format('LL')}.
+                                            {/*Assinatura expira em {moment(premiumExpiration).locale('pt-br').format('LL')}.*/}
+                                            Assinatura expira em {format(new Date(premiumExpiration), "d 'de' MMMM yyyy", { locale: eoLocale })}.
                                         </div>
                                     </div>
                                 </div>
