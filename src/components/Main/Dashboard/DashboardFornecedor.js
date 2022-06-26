@@ -15,6 +15,8 @@ import ArrowBottomIcon from "../../../assets/images/arrow_bottom.png"
 import premium2Icon from "../../../assets/images/premium2.png"
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
+import {format} from "date-fns";
+import eoLocale from "date-fns/locale/pt-BR";
 const DashboardFornecedor = (props) => {
     const {
         setDataUser,
@@ -240,7 +242,12 @@ const DashboardFornecedor = (props) => {
                             {/*<span className="Dashboard_premiumBtn" onClick={() => {*/}
                             {/*    setIsModalVisible(true);*/}
                             {/*}}>Seja Premium</span> */}
-                            <Link to={links.FORNECEDOR_BUY_PREMIUM}>Seja Premium</Link> libere todos os recursos
+                            {isPremium ? <>
+                                    Assinatura expira em {format(new Date(premiumExpiration), "d 'de' MMMM yyyy", { locale: eoLocale })}.
+                                </> :
+                            <>
+                                <Link to={links.FORNECEDOR_BUY_PREMIUM}>Seja Premium</Link> libere todos os recursos
+                            </>}
                         </div>
                         {
                             isPremium
