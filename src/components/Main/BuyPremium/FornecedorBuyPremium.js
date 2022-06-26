@@ -168,9 +168,9 @@ const FornecedorBuyPremium = (props) => {
                     isPremium
                         ?
                             <>
-                                <div className="FornecedorBuyPremium_doneTitle">
-                                    PREMIUM
-                                </div>
+                                {/*<div className="FornecedorBuyPremium_doneTitle">*/}
+                                {/*    PREMIUM*/}
+                                {/*</div>*/}
                                 <div className="FornecedorBuyPremium_done">
                                     <img src={Premium3Icon} alt=""/>
                                     <div className="FornecedorBuyPremium_doneText">
