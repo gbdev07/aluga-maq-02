@@ -20,6 +20,7 @@ const AuthContextProvider = ({children}) => {
     const [authInfo, setAuthInfo] = useState(authDefault);
     const [loading, setLoading] = useState(true);
     const [notiMessage, setNotiMessage] = useState(null)
+    // const [notiMessageInfo, setNotiMessageInfo] = useState(null)
     useEffect(() => {
         try {
             const dataUserParse = localStorage.getItem("dataUser");
@@ -72,7 +73,9 @@ const AuthContextProvider = ({children}) => {
         loading,
         setDataUser,
         notiMessage,
-        setNotiMessage
+        setNotiMessage,
+        // notiMessageInfo,
+        // setNotiMessageInfo
     }
 
     return (

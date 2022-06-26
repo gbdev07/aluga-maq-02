@@ -16,12 +16,13 @@ import DashboardFornecedor from "./components/Main/Dashboard/DashboardFornecedor
 import {FORNECEDOR_FAVORITES_PREMIUM, MAIN, SIGNIN} from "./utils/links";
 import MainSite from "./components/Main/Main/MainSite";
 import CanalFavorites from "./components/Main/Favorites/CanalFavorites";
-import FornecedorFavorites from "./components/Main/Favorites/CanalFavorites";
+import FornecedorFavorites from "./components/Main/Favorites/FornecedorFavorites";
 import FornecedorSettings from "./components/Main/Settings/FornecedorSettings";
 import CanalSettings from "./components/Main/Settings/CanalSettings";
 import FornecedorSearchCanais from "./components/Main/SearchUser/FornecedorSearchCanais";
 import CanalSearchFornecedores from "./components/Main/SearchUser/CanalSearchFornecedores";
-import FornecedorBuyPremium from "./components/Main/Favorites/FornecedorFavorites";
+// import FornecedorFavorites from "./components/Main/Favorites/FornecedorFavorites";
+import FornecedorBuyPremium from "./components/Main/BuyPremium/FornecedorBuyPremium";
 import FornecedorEditProfile from "./components/Main/EditProfile/FornecedorEditProfile";
 import CanalEditProfile from "./components/Main/EditProfile/CanalEditProfile";
 import MyFits from "./components/Main/MyFits/MyFits";
@@ -35,15 +36,37 @@ function App() {
         setDataUser,
         loading,
         notiMessage,
-        setNotiMessage
+        setNotiMessage,
+        notiMessageInfo,
+        setNotiMessageInfo
     } = useContext(AuthContext)
 
     useEffect(() => {
         if (notiMessage) {
             setNotiMessage(null)
-            NotificationManager.error(notiMessage, 'Hmm... ');
+            console.log(notiMessage.type)
+            switch (notiMessage.type) {
+                case "error":
+                    NotificationManager.error(notiMessage.message, 'Hmm... ');
+                    break;
+                case "success":
+                    NotificationManager.success(notiMessage.message, '... ');
+                    break;
+                case "info":
+                    NotificationManager.info(notiMessage.message, '... ');
+                    break;
+            }
         }
     }, [notiMessage])
+
+    // useEffect(() => {
+    //     if (notiMessageInfo) {
+    //         setNotiMessageInfo(null)
+    //         NotificationManager.info(notiMessageInfo, '... ');
+    //     }
+    // }, [notiMessageInfo])
+
+    console.log(notiMessageInfo)
     return (
         <>
             <NotificationContainer/>

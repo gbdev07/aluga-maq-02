@@ -36,7 +36,11 @@ const DashboardFornecedor = (props) => {
     useEffect(() => {
         if (!hasData) {
             navigate(links.FORNECEDOR_EDIT_PROFILE);
-            setNotiMessage('Você precisa preencher seus dados antes de usar o sistema');
+            // setNotiMessage('Você precisa preencher seus dados antes de usar o sistema');
+            setNotiMessage({
+                type: 'error',
+                message: 'Você precisa preencher seus dados antes de usar o sistema'
+            })
         }
     }, [])
     const columns = [
@@ -95,7 +99,11 @@ const DashboardFornecedor = (props) => {
             .catch(err => {
                 setIsLoading(false);
                 if ([401, 403].includes(err.response.status)) {
-                    setNotiMessage('A sua sessão expirou, para continuar faça login novamente.');
+                    // setNotiMessage('A sua sessão expirou, para continuar faça login novamente.');
+                    setNotiMessage({
+                        type: 'error',
+                        message: 'A sua sessão expirou, para continuar faça login novamente.'
+                    })
                     setDataUser(null);
                 }
             })

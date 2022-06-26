@@ -1,10 +1,10 @@
 import React from "react";
-const FornecedorBuyPremium = (props) => {
+const FornecedorFavorites = (props) => {
     return (
         <div>
-            FornecedorBuyPremium
+            FornecedorFavorites
         </div>
     )
 }
 
-export default FornecedorBuyPremium;
+export default FornecedorFavorites;

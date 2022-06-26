@@ -111,6 +111,10 @@
     .Main_sidebar {
         box-shadow: none;
         padding-top: 80px;
+        width: 80px;
+    }
+    .Main_right {
+        width: calc(100vw - 80px);
     }
     .Main_header {
         padding: 10px;

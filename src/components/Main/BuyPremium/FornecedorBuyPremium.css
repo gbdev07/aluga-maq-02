@@ -1,0 +1,153 @@
+.FornecedorBuyPremium_container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.FornecedorBuyPremium_done {
+    background: #DAE9EF;
+    border-radius: 8px;
+    padding: 80px 50px;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.FornecedorBuyPremium_doneTitle {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 35px;
+
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+
+.FornecedorBuyPremium_doneText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 35px;
+
+    color: #000000;
+    margin-top: 40px;
+}
+
+.FornecedorBuyPremium_doneText2 {
+    font-size: 18px;
+}
+
+.FornecedorBuyPremium_buy {
+    background: #DAE9EF;
+    border-radius: 8px;
+    padding: 80px 40px;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+}
+
+.FornecedorBuyPremium_buy .ant-row {
+    width: 100%;
+}
+.FornecedorBuyPremium_buyBlockCol {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.FornecedorBuyPremium_buyBlock {
+    background: #FFFFFF;
+    border-radius: 8px;
+    width: 100%;
+    padding: 20px;
+}
+
+.FornecedorBuyPremium_buyBlock.textDark div {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+}
+
+.FornecedorBuyPremium_buyBlock.textNotDark {
+    background: #3170EA;
+}
+
+.FornecedorBuyPremium_buyBlock.textNotDark div {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: #ffffff;
+}
+
+.FornecedorBuyPremium_buyBlockTop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+
+.FornecedorBuyPremium_buyBlock .text2 {
+    font-weight: 700!important;
+    font-size: 20px!important;
+    padding: 5px 0;
+}
+
+.FornecedorBuyPremium_buyBlockListCheck {
+    padding: 40px 0;
+}
+
+.FornecedorBuyPremium_buyBlockItemCheck {
+    display: flex;
+    align-items: center;
+}
+
+.FornecedorBuyPremium_buyBlockItemCheck div {
+    padding: 4px;
+}
+
+.FornecedorBuyPremium_buyBlockButton {
+    width: 100%!important;
+    background: #5A45F2!important;
+    border-radius: 8px!important;
+    color: #ffffff!important;
+    font-weight: 700!important;
+    border: none!important;
+    box-shadow: none!important;
+    padding: 10px!important;
+    height: unset!important;
+}
+
+.FornecedorBuyPremium_buyBlockButton:hover {
+    background: #5A45F2;
+}
+.FornecedorBuyPremium_buyBlock.textNotDark .FornecedorBuyPremium_buyBlockButton{
+    background: #000000!important;
+}
+
+.FornecedorBuyPremium_buyBlock.textNotDark .FornecedorBuyPremium_buyBlockButton:hover {
+    background: #000000!important;
+}
+
+@media only screen and (max-width: 600px) {
+    .FornecedorBuyPremium_container {
+        padding: 20px 10px;
+    }
+    .FornecedorBuyPremium_buy {
+        padding: 40px 10px;
+        width: 100%;
+    }
+}
