@@ -1,0 +1,111 @@
+.FornecedorSettings_container {
+    padding: 20px;
+}
+
+.FornecedorSettings_title {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 35px;
+}
+
+.FornecedorSettings_content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.FornecedorSettings_info {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 35px;
+    padding: 20px;
+}
+
+.FornecedorSettings_premiumAction {
+    display: flex;
+    align-items: center;
+}
+
+.FornecedorSettings_premiumAction img {
+    height: 60px;
+}
+
+.FornecedorSettings_premiumLink {
+
+}
+
+.FornecedorSettings_premiumBtn {
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+    background: #4169E1!important;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15)!important;
+    color: #FFFFFF!important;
+    margin-right: 10px;
+    padding: 15px 40px!important;
+    height: unset;
+}
+
+.FornecedorSettings_premiumBtn svg {
+    margin-right: 5px;
+}
+.FornecedorSettings_premium {
+    /*height: 200px;*/
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.FornecedorSettings_feedback {
+    background: #F7FAFC;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 1000px;
+}
+
+.FornecedorSettings_feedbackTitle {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 35px;
+    color: #000000;
+    margin-bottom: 40px;
+}
+
+.FornecedorSettings_feedbackInput {
+    background: #F5F5F5!important;
+    border-radius: 10px!important;
+    border: none!important;
+    box-shadow: none!important;
+    padding: 10px!important;
+    height: 60px;
+    margin-bottom: 10px!important;
+}
+.FornecedorSettings_feedbackDescription {
+    color: #A4A4A4;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+}
+
+.FornecedorSettings_feedbackButton {
+    background: #4169E1!important;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15)!important;
+    padding: 15px 40px!important;
+    height: unset!important;
+    color: #FFFFFF!important;
+    margin-top: 20px;
+}
+
+.FornecedorSettings_feedbackButton:hover {
+    color: #FFFFFF!important;
+}
+
+.FornecedorSettings_errorfeedbackText {
+    color: #E46772;
+    font-size: 14px;
+}

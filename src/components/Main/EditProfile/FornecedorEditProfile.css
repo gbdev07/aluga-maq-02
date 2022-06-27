@@ -1,0 +1,82 @@
+.FornecedorEditProfile_container {
+    padding: 20px;
+}
+
+.FornecedorEditProfile_title {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 35px;
+}
+
+.FornecedorEditProfile_content {
+    padding: 5px;
+}
+
+.FornecedorEditProfile_col {
+    padding: 5px;
+}
+
+.FornecedorEditProfile_fieldInputWrapper {
+    display: flex;
+}
+
+.FornecedorEditProfile_fieldInput {
+    background: #F5F5F5!important;
+    border-radius: 15px!important;
+    height: unset!important;
+    padding: 12px 10px!important;
+    border: none!important;
+}
+
+.FornecedorEditProfile_fieldRequired {
+    color: #FA3A3A;
+    font-size: 16px;
+    margin-left: 5px;
+    width: 10px;
+}
+
+.FornecedorEditProfile_fieldExample {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #A4A4A4;
+    padding: 5px;
+}
+
+.FornecedorEditProfile_groupText {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+}
+.FornecedorEditProfile_btnSubmit {
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+    background: #4169E1!important;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15)!important;
+    color: #FFFFFF!important;
+    margin-right: 10px;
+    padding: 15px 40px!important;
+    height: unset!important;
+    font-size: 18px;
+}
+
+.FornecedorEditProfile_btnSubmit svg {
+    margin-right: 5px;
+}
+
+.FornecedorEditProfile_colBtn {
+    display: flex!important;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.FornecedorEditProfile_fieldSelect {
+    flex: 1;
+}
+
+.FornecedorEditProfile_fieldError {
+    color: #FA3A3A;
+    font-size: 14px;
+    padding: 2px 0;
+}
