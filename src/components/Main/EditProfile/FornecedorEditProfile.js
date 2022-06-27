@@ -356,10 +356,10 @@ const FornecedorEditProfile = (props) => {
                 reference : reference,
                 state : state?.value ?? "",
                 city : city?.label ?? "",
-                phone : phone,
-                whatsapp : whatsapp,
-                // phone : phone.replace( /\D/g, ''),
-                // whatsapp: whatsapp.replace( /\D/g, ''),
+                // phone : phone,
+                // whatsapp : whatsapp,
+                phone : phone.replace( /\D/g, ''),
+                whatsapp: whatsapp.replace( /\D/g, ''),
             }, {
                 headers: {
                     "x-access-token": token,
