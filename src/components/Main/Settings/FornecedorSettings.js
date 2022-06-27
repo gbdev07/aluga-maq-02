@@ -22,7 +22,7 @@ const FornecedorSettings = (props) => {
         setNotiMessage
     } = useContext(AuthContext);
     console.log(authInfo?.dataUser)
-    const email = authInfo?.dataUser?.premiumExpiration ?? '';
+    const email = authInfo?.dataUser?.email ?? '';
     const token = authInfo?.dataUser?.token;
     const premiumExpiration = authInfo?.dataUser?.premiumExpiration ?? null;
     const isPremium = (premiumExpiration && moment(premiumExpiration) > moment());

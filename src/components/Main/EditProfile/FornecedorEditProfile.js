@@ -451,12 +451,12 @@ const FornecedorEditProfile = (props) => {
                     nameCompany: res.data["NOME FANTASIA"] ?? nameCompany,
                     description: res.data["CNAE PRINCIPAL DESCRICAO"] ?? description,
                     street: res.data["LOGRADOURO"] ?? street,
-                    zipCode: res.data["CNAE PRINCIPAL CODIGO"] ?? zipCode,
+                    zipCode: res.data["CEP"] ?? zipCode,
                     // city: {
                     //     value: res.data["MUNICIPIO"],
                     //     label: res.data["MUNICIPIO"]
                     // } ?? city,
-                    phone: res.data["TELEFONE"] ?? phone
+                    phone: res.data["TELEFONE"] ? "00" + res.data["TELEFONE"] : phone
                 }))
             })
     }
