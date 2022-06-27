@@ -1009,7 +1009,7 @@ const FornecedorEditProfile = (props) => {
                                     {/*    className="FornecedorEditProfile_fieldInput"*/}
                                     {/*/>*/}
                                     <InputMask
-                                        mask="(79) 9 9999-9999"
+                                        mask="(99) 9 9999-9999"
                                         onChange={(event) => {
                                             onChangeData('whatsapp', event.target.value)
                                         }}

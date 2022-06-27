@@ -54,7 +54,15 @@ const FornecedorSettings = (props) => {
                     }
                 })
                 .catch(err => {
-                    setIsLoading(false)
+                    setIsLoading(false);
+                    if ([401, 403].includes(err.response.status)) {
+                        // setNotiMessage('A sua sessão expirou, para continuar faça login novamente.');
+                        setNotiMessage({
+                            type: 'error',
+                            message: 'A sua sessão expirou, para continuar faça login novamente.'
+                        })
+                        setDataUser(null);
+                    }
                 })
         } else {
             setErrorfeedbackText('Min caracteres 10.')
