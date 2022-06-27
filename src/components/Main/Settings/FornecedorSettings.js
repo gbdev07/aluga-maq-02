@@ -71,70 +71,72 @@ const FornecedorSettings = (props) => {
     return (
         <div className="FornecedorSettings_container">
             {isLoading && <LoadingAction />}
-            <div className="FornecedorSettings_title">
-                Configurações
-            </div>
-            <div className="FornecedorSettings_content">
-                 <div className="FornecedorSettings_info">
-                     <div>
-                         Email: {email}
-                     </div>
-                     <div>
-                         Conta criada em 16 de Junho  de 2022.
-                     </div>
-                     <div>
-                         Plano: {isPremium ? "Premium" : "Basic"}.
-                     </div>
-                     {
-                         isPremium
-                         ?
-                             <div>
-                                 Expira daqui a {Math.ceil(moment.duration(moment(premiumExpiration).diff(moment())).asDays())} dias em {format(new Date(premiumExpiration), "d 'de' MMMM yyyy", { locale: eoLocale })}.
-                             </div>
-                             :
-                             <div className="FornecedorSettings_premiumAction">
-                                 <Link to={links.FORNECEDOR_BUY_PREMIUM} className="FornecedorSettings_premiumLink">
-                                     <Button className="FornecedorSettings_premiumBtn">
-                                         <AiOutlinePlus />
-                                         <div>Seja Premium</div>
-                                     </Button>
-                                 </Link>
-                                 <img src={premiumIcon} alt=""/>
-                             </div>
-                     }
+            <div className="FornecedorSettings_top">
+                <div className="FornecedorSettings_title">
+                    Configurações
+                </div>
+                <div className="FornecedorSettings_content">
+                    <div className="FornecedorSettings_info">
+                        <div>
+                            Email: {email}
+                        </div>
+                        <div>
+                            Conta criada em 16 de Junho  de 2022.
+                        </div>
+                        <div>
+                            Plano: {isPremium ? "Premium" : "Basic"}.
+                        </div>
+                        {
+                            isPremium
+                                ?
+                                <div>
+                                    Expira em {Math.ceil(moment.duration(moment(premiumExpiration).diff(moment())).asDays())} dias em {format(new Date(premiumExpiration), "d 'de' MMMM yyyy", { locale: eoLocale })}.
+                                </div>
+                                :
+                                <div className="FornecedorSettings_premiumAction">
+                                    <Link to={links.FORNECEDOR_BUY_PREMIUM} className="FornecedorSettings_premiumLink">
+                                        <Button className="FornecedorSettings_premiumBtn">
+                                            <AiOutlinePlus />
+                                            <div>Seja Premium</div>
+                                        </Button>
+                                    </Link>
+                                    <img src={premiumIcon} alt=""/>
+                                </div>
+                        }
 
-                 </div>
-                {
-                    isPremium && <div className="FornecedorSettings_premium">
-                        <img src={premiumIcon} alt=""/>
                     </div>
-                }
-            </div>
-            <div className="FornecedorSettings_feedback">
-                <div className="FornecedorSettings_feedbackTitle">
-                    Envie-nos um feedback
+                    {
+                        isPremium && <div className="FornecedorSettings_premium">
+                            <img src={premiumIcon} alt=""/>
+                        </div>
+                    }
                 </div>
-                <Input
-                    className="FornecedorSettings_feedbackInput"
-                    value={feedbackText}
-                    onChange={(event) => {
-                        setFeedbackText(event.target.value)
-                        setErrorfeedbackText(null)
-                    }}
-                />
-                {
-                    errorfeedbackText && <div className="FornecedorSettings_errorfeedbackText">
-                        {errorfeedbackText}
+                <div className="FornecedorSettings_feedback">
+                    <div className="FornecedorSettings_feedbackTitle">
+                        Envie-nos um feedback
                     </div>
-                }
-                <div className="FornecedorSettings_feedbackDescription">
-                    Exemplo: Gostei da página de busca, pois encontrei facilmente um canal quando digitei apenas a cidade. (Tamanho Máximo: 500 caracteres, Mínimo 10)
+                    <Input
+                        className="FornecedorSettings_feedbackInput"
+                        value={feedbackText}
+                        onChange={(event) => {
+                            setFeedbackText(event.target.value)
+                            setErrorfeedbackText(null)
+                        }}
+                    />
+                    {
+                        errorfeedbackText && <div className="FornecedorSettings_errorfeedbackText">
+                            {errorfeedbackText}
+                        </div>
+                    }
+                    <div className="FornecedorSettings_feedbackDescription">
+                        Exemplo: Gostei da página de busca, pois encontrei facilmente um canal quando digitei apenas a cidade. (Tamanho Máximo: 500 caracteres, Mínimo 10)
+                    </div>
+                    <Button className="FornecedorSettings_feedbackButton" onClick={() => {
+                        sendFeedback();
+                    }}>
+                        ENVIAR
+                    </Button>
                 </div>
-                <Button className="FornecedorSettings_feedbackButton" onClick={() => {
-                    sendFeedback();
-                }}>
-                    ENVIAR
-                </Button>
             </div>
 
             <div className="FornecedorSettings_bottom">

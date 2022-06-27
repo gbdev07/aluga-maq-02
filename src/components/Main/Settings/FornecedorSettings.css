@@ -1,5 +1,8 @@
 .FornecedorSettings_container {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .FornecedorSettings_title {
@@ -108,6 +111,10 @@
 .FornecedorSettings_errorfeedbackText {
     color: #E46772;
     font-size: 14px;
+}
+
+.FornecedorSettings_top {
+    flex: 1;
 }
 
 .FornecedorSettings_bottom {
