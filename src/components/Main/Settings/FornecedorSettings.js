@@ -90,7 +90,8 @@ const FornecedorSettings = (props) => {
                             isPremium
                                 ?
                                 <div>
-                                    Expira em {Math.ceil(moment.duration(moment(premiumExpiration).diff(moment())).asDays())} dias em {format(new Date(premiumExpiration), "d 'de' MMMM yyyy", { locale: eoLocale })}.
+                                    {/*{Math.ceil(moment.duration(moment(premiumExpiration).diff(moment())).asDays())} dias em*/}
+                                    Expira em {format(new Date(premiumExpiration), "d 'de' MMMM yyyy", { locale: eoLocale })}.
                                 </div>
                                 :
                                 <div className="FornecedorSettings_premiumAction">
