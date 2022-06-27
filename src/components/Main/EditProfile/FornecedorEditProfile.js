@@ -312,7 +312,7 @@ const FornecedorEditProfile = (props) => {
         if (!segmento) {
             errorFieldTemp.segmento = 'Este campo é obrigatório'
         }
-        if (!validarCPF(zipCode.trim())) {
+        if (zipCode.trim().includes('-') && !validarCPF(zipCode.trim())) {
             errorFieldTemp.zipCode = 'você deve ter o formato correto - CEP'
         }
         if (country.trim() === "") {
@@ -330,10 +330,10 @@ const FornecedorEditProfile = (props) => {
         if (!city) {
             errorFieldTemp.city = 'Este campo é obrigatório'
         }
-        if (phone.trim() !== "" && !validatePhone(phone.trim())) {
+        if (phone.trim() !== "" && phone.trim().includes('(') && !validatePhone(phone.trim())) {
             errorFieldTemp.phone = 'você deve ter o formato correto - phone'
         }
-        if (phone.trim() !== "" && !validatePhone(whatsapp.trim())) {
+        if (whatsapp.trim() !== "" && whatsapp.trim().includes('(') && !validatePhone(whatsapp.trim())) {
             errorFieldTemp.whatsapp = 'você deve ter o formato correto - phone'
         }
         if(Object.keys(errorFieldTemp).length === 0) {
