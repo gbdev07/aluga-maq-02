@@ -456,7 +456,7 @@ const FornecedorEditProfile = (props) => {
                     //     value: res.data["MUNICIPIO"],
                     //     label: res.data["MUNICIPIO"]
                     // } ?? city,
-                    phone: res.data["TELEFONE"] ? "00" + res.data["TELEFONE"] : phone
+                    phone: res.data["TELEFONE"] ? res.data["DDD"] + res.data["TELEFONE"] : phone
                 }))
             })
     }
