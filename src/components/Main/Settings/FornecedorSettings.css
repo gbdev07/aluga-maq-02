@@ -109,3 +109,29 @@
     color: #E46772;
     font-size: 14px;
 }
+
+.FornecedorSettings_bottom {
+    padding: 20px;
+}
+
+.FornecedorSettings_LinkRemove {
+    border: none!important;
+}
+
+.FornecedorSettings_LinkRemove:hover {
+    border: none!important;
+}
+.FornecedorSettings_buttonRemove {
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+    background: #EB1145!important;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+    color: #FFFFFF!important;
+    margin-right: 10px;
+    padding: 10px 50px!important;
+    height: unset!important;
+}
+.FornecedorSettings_buttonRemove > div {
+    padding: 0 10px;
+}

@@ -26,6 +26,12 @@
     height: unset!important;
     padding: 12px 10px!important;
     border: none!important;
+    flex: 1;
+}
+
+.FornecedorEditProfile_fieldInput:focus-visible {
+    border: none!important;
+    outline: none!important;
 }
 
 .FornecedorEditProfile_fieldRequired {

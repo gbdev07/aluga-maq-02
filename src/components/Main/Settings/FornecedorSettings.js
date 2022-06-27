@@ -128,6 +128,15 @@ const FornecedorSettings = (props) => {
                     ENVIAR
                 </Button>
             </div>
+
+            <div className="FornecedorSettings_bottom">
+                <a href="mailto:suporte@fit2sell.com.br" className="FornecedorSettings_LinkRemove">
+                    <Button className="FornecedorSettings_buttonRemove" >
+                        <div> － </div>
+                        <div>Seja Premium</div>
+                    </Button>
+                </a>
+            </div>
         </div>
     )
 }

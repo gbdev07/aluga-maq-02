@@ -8,6 +8,7 @@ import {REACT_APP_API_BASE_URL} from "../../../utils/constants";
 import {cnpjValidation, validarCPF, validatePhone} from "../../../utils/functions";
 import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
 import {AuthContext} from "../../../contexts/AuthContext";
+import InputMask from "react-input-mask";
 
 const initialData = {
     idFornecedor: "",
@@ -67,54 +68,11 @@ const FornecedorEditProfile = (props) => {
 
     const [data, setData] = useState({...initialData});
     const [errorField, setErrorField] = useState({...initErrorField});
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
     const [city_options, setCity_options] = useState([]);
     const [areaAtuacao_options, setAreaAtuacao_options] = useState([]);
     const [segmento_options, setSegmento_options] = useState([]);
-    useEffect(() => {
-        axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados/SE/distritos')
-            .then(res => {
-                if (res.status === 200 && Array.isArray(res.data)) {
-                    // let city_NamesTemp = []
-                    // let city_optionsTemp = []
-                    // res.data.forEach(item => {
-                    //     const cityName = item.municipio ? item.municipio["regiao-imediata"] ? item.municipio["regiao-imediata"]["regiao-intermediaria"]?.nome ?? "" : "" : "";
-                    //     if (!city_NamesTemp.includes(cityName)) {
-                    //         city_NamesTemp = [
-                    //             ...city_NamesTemp,
-                    //             cityName
-                    //         ]
-                    //         city_optionsTemp = [
-                    //             ...city_optionsTemp,
-                    //             {
-                    //                 value: cityName,
-                    //                 label: cityName
-                    //             }
-                    //         ]
-                    //     }
-                    //
-                    // })
-                    // setCity_options(city_optionsTemp)
-                    setCity_options(res.data.map(item => ({
-                        value: item.id,
-                        label: item.nome
-                    })))
-                }
-            })
-        axios.get(`${REACT_APP_API_BASE_URL}/get-area-atuacao`)
-            .then(res => {
-                if (res.status === 200 && Array.isArray(res.data)) {
-                    setAreaAtuacao_options(res.data.map(item => ({
-                        ...item,
-                        value: item.value,
-                        label: item.name,
-                    })))
-                }
-            })
-
-
-    }, [])
-
+    const [getDone, setGetDone] = useState(false);
 
     const {
         idFornecedor,
@@ -139,157 +97,6 @@ const FornecedorEditProfile = (props) => {
         whatsapp
     } = data;
 
-    const onSave = () => {
-        console.log('onSave')
-        let errorFieldTemp = {}
-        if (!cnpjValidation(cnpj.trim())) {
-            errorFieldTemp.cnpj = 'você deve ter o formato correto - CNPJ'
-        }
-        console.log(razaoSocial)
-        if (razaoSocial.trim() === "") {
-            errorFieldTemp.razaoSocial = 'Este campo é obrigatório'
-        }
-        if (nameCompany.trim() === "") {
-            errorFieldTemp.nameCompany = 'Este campo é obrigatório'
-        }
-        if (description.trim() === "") {
-            errorFieldTemp.description = 'Este campo é obrigatório'
-        }
-        if (!tamanho) {
-            errorFieldTemp.tamanho = 'Este campo é obrigatório'
-        }
-        if (mediaFaturamentoAnual.trim() === "") {
-            errorFieldTemp.mediaFaturamentoAnual = 'Este campo é obrigatório'
-        }
-        if (!areaAtuacao) {
-            errorFieldTemp.areaAtuacao = 'Este campo é obrigatório'
-        }
-        if (responsiblePerson.trim() === "") {
-            errorFieldTemp.responsiblePerson = 'Este campo é obrigatório'
-        }
-        if (!segmento) {
-            errorFieldTemp.segmento = 'Este campo é obrigatório'
-        }
-        if (!validarCPF(zipCode.trim())) {
-            errorFieldTemp.zipCode = 'você deve ter o formato correto - CEP'
-        }
-        if (country.trim() === "") {
-            errorFieldTemp.country = 'Este campo é obrigatório'
-        }
-        // if (number.trim() === "") {
-        //     errorFieldTemp.number = 'Este campo é obrigatório'
-        // }
-        if (street.trim() === "") {
-            errorFieldTemp.street = 'Este campo é obrigatório'
-        }
-        if (!state) {
-            errorFieldTemp.state = 'Este campo é obrigatório'
-        }
-        if (!city) {
-            errorFieldTemp.city = 'Este campo é obrigatório'
-        }
-        if (!validatePhone(phone.trim())) {
-            errorFieldTemp.phone = 'você deve ter o formato correto - phone'
-        }
-        if (!validatePhone(whatsapp.trim())) {
-            errorFieldTemp.whatsapp = 'você deve ter o formato correto - phone'
-        }
-        if(Object.keys(errorFieldTemp).length === 0) {
-            setIsLoading(true);
-            axios.post(`${REACT_APP_API_BASE_URL}/upsert-fornecedor`, {
-                idFornecedor: userId,
-                cnpj: cnpj,
-                razaoSocial : razaoSocial,
-                nameCompany : nameCompany,
-                description : description,
-                tamanho : tamanho?.value ?? "",
-                mediaFaturamentoAnual : mediaFaturamentoAnual,
-                responsiblePerson : responsiblePerson,
-                website : website,
-                areaAtuacao : areaAtuacao?.label ?? "",
-                segmento : segmento?.label ?? "",
-                zipCode : zipCode,
-                country : country,
-                number : Number(number),
-                street : street,
-                reference : reference,
-                state : state?.value ?? "",
-                city : state?.label ?? "",
-                phone : phone.replace( /^\D+/g, ''),
-                whatsapp: whatsapp.replace( /\D/g, ''),
-            }, {
-                headers: {
-                    "x-access-token": token,
-                    "content-type": "application/json"
-                }
-            })
-                .then(res => {
-                    if (res.status === 200 && res.data) {
-                        setNotiMessage({
-                            type: 'success',
-                            message: 'editar perfil sucesso!'
-                        })
-                        setIsLoading(false);
-                    } else {
-                        throw new Error();
-                    }
-                })
-                .catch(err => {
-                    setIsLoading(false);
-                })
-        } else {
-            setErrorField(errorFieldTemp);
-        }
-    }
-
-    console.log(errorField)
-
-
-    useEffect(() => {
-        setCity_options([]);
-        if (areaAtuacao) {
-            getSegmentoOptions();
-            setData(prev => ({
-                ...prev,
-                segmento: ''
-            }))
-        }
-    }, [areaAtuacao])
-    const getSegmentoOptions = () => {
-        if (areaAtuacao) {
-            axios.post(`${REACT_APP_API_BASE_URL}/get-segmento`, {
-                id: areaAtuacao.value
-            })
-                .then(res => {
-                    if (res.status === 200 && Array.isArray(res.data)) {
-                        setSegmento_options(res.data.map(item => ({
-                            ...item,
-                            value: item.value,
-                            label: item.name,
-                        })))
-                    }
-                })
-        }
-    }
-
-
-    const onChangeData = (name, value) => {
-        setData(prev => ({
-            ...prev,
-            [name]: value
-        }))
-        setErrorField(prev => ({
-            ...prev,
-            [name]: undefined
-        }))
-    }
-
-
-    // const city_options = [
-    //     { value: 'chocolate', label: 'Chocolate' },
-    //     { value: 'strawberry', label: 'Strawberry' },
-    //     { value: 'vanilla', label: 'Vanilla' }
-    // ]
 
     const state_options = [
         { 'AC': 'Acre' },
@@ -350,6 +157,321 @@ const FornecedorEditProfile = (props) => {
         }
     ]
 
+    useEffect(() => {
+        getDataProfile();
+        getCityOptions();
+        getAreaAtuacaoOptions();
+    }, [])
+    const getDataProfile = () => {
+        axios.get(`${REACT_APP_API_BASE_URL}/search-fornecedor-by-xaccess-token`, {
+            headers: {
+                "x-access-token": token,
+                "content-type": "application/json"
+            }
+        })
+            .then(res => {
+                setIsLoading(false);
+                if (res.status === 200 && res.data) {
+                    console.log(res.data)
+                    const tamanho = tamanho_options.find(item => item.value === res.data.tamanho);
+                    const state = state_options.find(item => item.value === res.data.state)
+                    setData(prev => ({
+                        ...prev,
+                        ...res.data,
+                        tamanho: tamanho ?? "",
+                        state: state ?? "",
+                    }))
+                }
+            })
+            .catch(err => {
+                setIsLoading(false);
+                if ([401, 403].includes(err.response.status)) {
+                    // setNotiMessage('A sua sessão expirou, para continuar faça login novamente.');
+                    setNotiMessage({
+                        type: 'error',
+                        message: 'A sua sessão expirou, para continuar faça login novamente.'
+                    })
+                    setDataUser(null);
+                }
+            })
+    }
+
+    const getCityOptions = () => {
+        if (state?.value) {
+            axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${state.value}/distritos`)
+                .then(res => {
+                    if (res.status === 200 && Array.isArray(res.data)) {
+                        // let city_NamesTemp = []
+                        // let city_optionsTemp = []
+                        // res.data.forEach(item => {
+                        //     const cityName = item.municipio ? item.municipio["regiao-imediata"] ? item.municipio["regiao-imediata"]["regiao-intermediaria"]?.nome ?? "" : "" : "";
+                        //     if (!city_NamesTemp.includes(cityName)) {
+                        //         city_NamesTemp = [
+                        //             ...city_NamesTemp,
+                        //             cityName
+                        //         ]
+                        //         city_optionsTemp = [
+                        //             ...city_optionsTemp,
+                        //             {
+                        //                 value: cityName,
+                        //                 label: cityName
+                        //             }
+                        //         ]
+                        //     }
+                        //
+                        // })
+                        // setCity_options(city_optionsTemp)
+                        setCity_options(res.data.map(item => ({
+                            value: item.nome,
+                            label: item.nome
+                        })))
+                    }
+                })
+        }
+    }
+    const getAreaAtuacaoOptions = () => {
+        axios.get(`${REACT_APP_API_BASE_URL}/get-area-atuacao`)
+            .then(res => {
+                if (res.status === 200 && Array.isArray(res.data)) {
+                    setAreaAtuacao_options(res.data.map(item => ({
+                        ...item,
+                        value: item.value,
+                        label: item.name,
+                    })))
+                }
+            })
+    }
+
+    useEffect(() => {
+        if (areaAtuacao_options.length && areaAtuacao && typeof areaAtuacao === "string") {
+            const find = areaAtuacao_options.find(item => item.label === areaAtuacao);
+            if (find) {
+                setData(prev => ({
+                    ...prev,
+                    areaAtuacao: find
+                }))
+            }
+        }
+    }, [areaAtuacao_options, areaAtuacao])
+
+
+    useEffect(() => {
+        if (segmento_options.length && segmento && typeof segmento === "string") {
+            const find = segmento_options.find(item => item.label === segmento);
+            if (find) {
+                setData(prev => ({
+                    ...prev,
+                    segmento: find
+                }))
+            }
+        }
+    }, [segmento_options, segmento])
+
+    useEffect(() => {
+        if (city_options.length && city && typeof city === "string") {
+            console.log(city_options)
+            console.log(city)
+            const find = city_options.find(item => item.label === city);
+            console.log(find)
+            if (find) {
+                setData(prev => ({
+                    ...prev,
+                    city: find
+                }))
+            }
+        }
+    }, [city_options, city])
+
+    const onSave = () => {
+        let errorFieldTemp = {}
+        if (!cnpjValidation(cnpj.trim())) {
+            errorFieldTemp.cnpj = 'você deve ter o formato correto - CNPJ'
+        }
+        if (razaoSocial.trim() === "") {
+            errorFieldTemp.razaoSocial = 'Este campo é obrigatório'
+        }
+        if (nameCompany.trim() === "") {
+            errorFieldTemp.nameCompany = 'Este campo é obrigatório'
+        }
+        if (description.trim() === "") {
+            errorFieldTemp.description = 'Este campo é obrigatório'
+        }
+        if (!tamanho) {
+            errorFieldTemp.tamanho = 'Este campo é obrigatório'
+        }
+        if (mediaFaturamentoAnual.trim() === "") {
+            errorFieldTemp.mediaFaturamentoAnual = 'Este campo é obrigatório'
+        }
+        if (!areaAtuacao) {
+            errorFieldTemp.areaAtuacao = 'Este campo é obrigatório'
+        }
+        if (responsiblePerson.trim() === "") {
+            errorFieldTemp.responsiblePerson = 'Este campo é obrigatório'
+        }
+        if (!segmento) {
+            errorFieldTemp.segmento = 'Este campo é obrigatório'
+        }
+        if (!validarCPF(zipCode.trim())) {
+            errorFieldTemp.zipCode = 'você deve ter o formato correto - CEP'
+        }
+        if (country.trim() === "") {
+            errorFieldTemp.country = 'Este campo é obrigatório'
+        }
+        // if (number.trim() === "") {
+        //     errorFieldTemp.number = 'Este campo é obrigatório'
+        // }
+        if (street.trim() === "") {
+            errorFieldTemp.street = 'Este campo é obrigatório'
+        }
+        if (!state) {
+            errorFieldTemp.state = 'Este campo é obrigatório'
+        }
+        if (!city) {
+            errorFieldTemp.city = 'Este campo é obrigatório'
+        }
+        if (phone.trim() !== "" && !validatePhone(phone.trim())) {
+            errorFieldTemp.phone = 'você deve ter o formato correto - phone'
+        }
+        if (phone.trim() !== "" && !validatePhone(whatsapp.trim())) {
+            errorFieldTemp.whatsapp = 'você deve ter o formato correto - phone'
+        }
+        if(Object.keys(errorFieldTemp).length === 0) {
+            setIsLoading(true);
+            axios.post(`${REACT_APP_API_BASE_URL}/upsert-fornecedor`, {
+                idFornecedor: userId,
+                cnpj: cnpj,
+                razaoSocial : razaoSocial,
+                nameCompany : nameCompany,
+                description : description,
+                tamanho : tamanho?.value ?? "",
+                mediaFaturamentoAnual : mediaFaturamentoAnual,
+                responsiblePerson : responsiblePerson,
+                website : website,
+                areaAtuacao : areaAtuacao?.label ?? "",
+                segmento : segmento?.label ?? "",
+                zipCode : zipCode,
+                country : country,
+                number : Number(number),
+                street : street,
+                reference : reference,
+                state : state?.value ?? "",
+                city : city?.label ?? "",
+                phone : phone,
+                whatsapp : whatsapp,
+                // phone : phone.replace( /\D/g, ''),
+                // whatsapp: whatsapp.replace( /\D/g, ''),
+            }, {
+                headers: {
+                    "x-access-token": token,
+                    "content-type": "application/json"
+                }
+            })
+                .then(res => {
+                    if (res.status === 200 && res.data) {
+                        setNotiMessage({
+                            type: 'success',
+                            message: 'editar perfil sucesso!'
+                        })
+                        setIsLoading(false);
+                    } else {
+                        throw new Error();
+                    }
+                })
+                .catch(err => {
+                    setIsLoading(false);
+                })
+        } else {
+            setErrorField(errorFieldTemp);
+        }
+    }
+
+
+    useEffect(() => {
+        setSegmento_options([]);
+        if (areaAtuacao) {
+            getSegmentoOptions();
+        }
+    }, [areaAtuacao])
+
+    useEffect(() => {
+        setCity_options([]);
+        if (state) {
+            getCityOptions();
+        }
+    }, [state])
+    const getSegmentoOptions = () => {
+        if (areaAtuacao) {
+            axios.post(`${REACT_APP_API_BASE_URL}/get-segmento`, {
+                id: areaAtuacao.value
+            })
+                .then(res => {
+                    if (res.status === 200 && Array.isArray(res.data)) {
+                        setSegmento_options(res.data.map(item => ({
+                            ...item,
+                            value: item.value,
+                            label: item.name,
+                        })))
+                    }
+                })
+        }
+    }
+
+
+    const onChangeData = (name, value) => {
+        setData(prev => ({
+            ...prev,
+            [name]: value
+        }))
+        setErrorField(prev => ({
+            ...prev,
+            [name]: undefined
+        }))
+    }
+
+
+    // const city_options = [
+    //     { value: 'chocolate', label: 'Chocolate' },
+    //     { value: 'strawberry', label: 'Strawberry' },
+    //     { value: 'vanilla', label: 'Vanilla' }
+    // ]
+
+    const onBlurCNPJ = () => {
+        console.log(cnpj)
+        axios.get(`https://api-publica.speedio.com.br/buscarcnpj?cnpj=${cnpj.replace( /\D/g, '')}`)
+            .then(res => {
+                console.log(res.data)
+                setData(prev => ({
+                    ...prev,
+                    razaoSocial: res.data["RAZAO SOCIAL"] ?? razaoSocial,
+                    nameCompany: res.data["NOME FANTASIA"] ?? nameCompany,
+                    description: res.data["CNAE PRINCIPAL DESCRICAO"] ?? description,
+                    street: res.data["LOGRADOURO"] ?? street,
+                    zipCode: res.data["CNAE PRINCIPAL CODIGO"] ?? zipCode,
+                    // city: {
+                    //     value: res.data["MUNICIPIO"],
+                    //     label: res.data["MUNICIPIO"]
+                    // } ?? city,
+                    phone: res.data["TELEFONE"] ?? phone
+                }))
+            })
+    }
+
+    const onBlurZipCode = () => {
+        axios.get(`https://viacep.com.br/ws/${zipCode.replace( /\D/g, '')}/json`)
+            .then(res => {
+                console.log(res.data)
+                const stateFind = state_options.find(item => item.value === res.data.uf);
+                setData(prev => ({
+                    ...prev,
+                    state: stateFind ?? state,
+                    city: res.data.localidade ? {
+                        value: res.data.localidade,
+                        label: res.data.localidade
+                    } : city,
+                }))
+            })
+    }
+
     return (
         <div className="FornecedorEditProfile_container">
             {isLoading && <LoadingAction />}
@@ -366,13 +488,25 @@ const FornecedorEditProfile = (props) => {
 
                     <Col xs={24} md={8} lg={8} xl={8} className="FornecedorEditProfile_col">
                         <div className="FornecedorEditProfile_fieldInputWrapper">
-                            <Input
-                                value={cnpj}
+                            {/*<Input*/}
+                            {/*    value={cnpj}*/}
+                            {/*    onChange={(event) => {*/}
+                            {/*        onChangeData('cnpj', event.target.value)*/}
+                            {/*    }}*/}
+                            {/*    placeholder="CNPJ"*/}
+                            {/*    className="FornecedorEditProfile_fieldInput"*/}
+                            {/*/>*/}
+                            <InputMask
+                                mask="99.999.999/9999-99"
                                 onChange={(event) => {
                                     onChangeData('cnpj', event.target.value)
                                 }}
                                 placeholder="CNPJ"
                                 className="FornecedorEditProfile_fieldInput"
+                                value={cnpj}
+                                onBlur={(event) => {
+                                    onBlurCNPJ()
+                                }}
                             />
                             <div className="FornecedorEditProfile_fieldRequired">
                                 *
@@ -465,7 +599,6 @@ const FornecedorEditProfile = (props) => {
                                 className="FornecedorEditProfile_fieldSelect"
                                 value={tamanho}
                                 onChange={(value) => {
-                                    // console.log(value)
                                     onChangeData('tamanho', value)
                                 }}
                                 placeholder="Tamanho da Empresa"
@@ -493,6 +626,17 @@ const FornecedorEditProfile = (props) => {
                                 placeholder="Média de Faturamento Anual"
                                 className="FornecedorEditProfile_fieldInput"
                             />
+                            {/*<InputMask*/}
+                            {/*    mask="99.999.999/9999-99"*/}
+                            {/*    onChange={(event) => {*/}
+                            {/*        console.log(event.target)*/}
+                            {/*        // console.log(value.target.value)*/}
+                            {/*        // onChangeData('mediaFaturamentoAnual', event.target.value)*/}
+                            {/*    }}*/}
+                            {/*    placeholder="CNPJ"*/}
+                            {/*    className="FornecedorEditProfile_fieldInput"*/}
+                            {/*    // value={props.value}*/}
+                            {/*/>*/}
                             <div className="FornecedorEditProfile_fieldRequired">
                                 *
                             </div>
@@ -515,6 +659,10 @@ const FornecedorEditProfile = (props) => {
                                 onChange={(value) => {
                                     // console.log(value)
                                     onChangeData('areaAtuacao', value)
+                                    setData(prev => ({
+                                        ...prev,
+                                        segmento: ''
+                                    }))
                                 }}
                                 placeholder="Área de Atuação"
                             />
@@ -611,13 +759,25 @@ const FornecedorEditProfile = (props) => {
                     </Col>
                     <Col xs={24} md={8} lg={8} xl={8} className="FornecedorEditProfile_col">
                         <div className="FornecedorEditProfile_fieldInputWrapper">
-                            <Input
-                                value={zipCode}
+                            {/*<Input*/}
+                            {/*    value={zipCode}*/}
+                            {/*    onChange={(event) => {*/}
+                            {/*        onChangeData('zipCode', event.target.value)*/}
+                            {/*    }}*/}
+                            {/*    placeholder="CEP"*/}
+                            {/*    className="FornecedorEditProfile_fieldInput"*/}
+                            {/*/>*/}
+                            <InputMask
+                                mask="99999-999"
                                 onChange={(event) => {
                                     onChangeData('zipCode', event.target.value)
                                 }}
+                                value={zipCode}
                                 placeholder="CEP"
                                 className="FornecedorEditProfile_fieldInput"
+                                onBlur={(event) => {
+                                    onBlurZipCode()
+                                }}
                             />
                             <div className="FornecedorEditProfile_fieldRequired">
                                 *
@@ -737,7 +897,11 @@ const FornecedorEditProfile = (props) => {
                                         value={state}
                                         onChange={(value) => {
                                             // console.log(value)
-                                            onChangeData('state', value)
+                                            onChangeData('state', value);
+                                            setData(prev => ({
+                                                ...prev,
+                                                city: ''
+                                            }))
                                         }}
                                     />
                                     <div className="FornecedorEditProfile_fieldRequired">
@@ -762,6 +926,7 @@ const FornecedorEditProfile = (props) => {
                                         options={city_options}
                                         className="FornecedorEditProfile_fieldSelect"
                                         value={city}
+                                        isDisabled={!state || city_options.length === 0}
                                         onChange={(value) => {
                                             // console.log(value)
                                             onChangeData('city', value)
@@ -782,13 +947,23 @@ const FornecedorEditProfile = (props) => {
                             </Col>
                             <Col xs={24} md={12} lg={12} xl={12} className="FornecedorEditProfile_col">
                                 <div className="FornecedorEditProfile_fieldInputWrapper">
-                                    <Input
-                                        value={phone}
+                                    {/*<Input*/}
+                                    {/*    value={phone}*/}
+                                    {/*    onChange={(event) => {*/}
+                                    {/*        onChangeData('phone', event.target.value)*/}
+                                    {/*    }}*/}
+                                    {/*    placeholder="Telefone"*/}
+                                    {/*    className="FornecedorEditProfile_fieldInput"*/}
+                                    {/*/>*/}
+                                    <InputMask
+                                        mask="(79) 9999-9999"
                                         onChange={(event) => {
                                             onChangeData('phone', event.target.value)
                                         }}
+                                        value={phone}
                                         placeholder="Telefone"
                                         className="FornecedorEditProfile_fieldInput"
+                                        // value={props.value}
                                     />
                                     <div className="FornecedorEditProfile_fieldRequired">
 
@@ -805,13 +980,23 @@ const FornecedorEditProfile = (props) => {
                             </Col>
                             <Col xs={24} md={12} lg={12} xl={12} className="FornecedorEditProfile_col">
                                 <div className="FornecedorEditProfile_fieldInputWrapper">
-                                    <Input
-                                        value={whatsapp}
+                                    {/*<Input*/}
+                                    {/*    value={whatsapp}*/}
+                                    {/*    onChange={(event) => {*/}
+                                    {/*        onChangeData('whatsapp', event.target.value)*/}
+                                    {/*    }}*/}
+                                    {/*    placeholder="Whatsapp"*/}
+                                    {/*    className="FornecedorEditProfile_fieldInput"*/}
+                                    {/*/>*/}
+                                    <InputMask
+                                        mask="(79) 9 9999-9999"
                                         onChange={(event) => {
                                             onChangeData('whatsapp', event.target.value)
                                         }}
+                                        value={whatsapp}
                                         placeholder="Whatsapp"
                                         className="FornecedorEditProfile_fieldInput"
+                                        // value={props.value}
                                     />
                                     <div className="FornecedorEditProfile_fieldRequired">
 
