@@ -9,6 +9,7 @@ import {cnpjValidation, validarCPF, validatePhone} from "../../../utils/function
 import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
 import {AuthContext} from "../../../contexts/AuthContext";
 import InputMask from "react-input-mask";
+import CreatableSelect from 'react-select/creatable';
 
 const initialData = {
     idFornecedor: "",
@@ -23,7 +24,7 @@ const initialData = {
     areaAtuacao : "",
     segmento : "",
     zipCode: "",
-    country : "",
+    country : "Brasil",
     number : "",
     street : "",
     reference: "",
@@ -370,7 +371,7 @@ const FornecedorEditProfile = (props) => {
                     if (res.status === 200 && res.data) {
                         setNotiMessage({
                             type: 'success',
-                            message: 'editar perfil sucesso!'
+                            message: 'Dados atualizados com sucesso!'
                         })
                         setIsLoading(false);
                     } else {
@@ -379,6 +380,10 @@ const FornecedorEditProfile = (props) => {
                 })
                 .catch(err => {
                     setIsLoading(false);
+                    setNotiMessage({
+                        type: 'error',
+                        message: `Hmm, algo deu errado ${err.response?.data?.error ?? "error"}`
+                    })
                 })
         } else {
             setErrorField(errorFieldTemp);
@@ -471,6 +476,8 @@ const FornecedorEditProfile = (props) => {
                 }))
             })
     }
+
+    console.log(segmento)
 
     return (
         <div className="FornecedorEditProfile_container">
@@ -728,15 +735,28 @@ const FornecedorEditProfile = (props) => {
                     </Col>
                     <Col xs={24} md={8} lg={8} xl={8} className="FornecedorEditProfile_col">
                         <div className="FornecedorEditProfile_fieldInputWrapper">
-                            <Select
-                                options={segmento_options}
-                                className="FornecedorEditProfile_fieldSelect"
+                            {/*<Select*/}
+                            {/*    options={segmento_options}*/}
+                            {/*    className="FornecedorEditProfile_fieldSelect"*/}
+                            {/*    value={segmento}*/}
+                            {/*    isDisabled={!areaAtuacao || segmento_options.length === 0}*/}
+                            {/*    onChange={(value) => {*/}
+                            {/*        onChangeData('segmento', value)*/}
+                            {/*    }}*/}
+                            {/*    placeholder="Segmento"*/}
+                            {/*/>*/}
+                            <CreatableSelect
+                                // isMulti
                                 value={segmento}
-                                isDisabled={!areaAtuacao || segmento_options.length === 0}
                                 onChange={(value) => {
                                     onChangeData('segmento', value)
                                 }}
                                 placeholder="Segmento"
+                                className="FornecedorEditProfile_fieldSelect"
+                                options={segmento_options}
+                                // components={{
+                                //     MultiValueLabel,
+                                // }}
                             />
                             <div className="FornecedorEditProfile_fieldRequired">
                                 *
@@ -956,7 +976,7 @@ const FornecedorEditProfile = (props) => {
                                     {/*    className="FornecedorEditProfile_fieldInput"*/}
                                     {/*/>*/}
                                     <InputMask
-                                        mask="(79) 9999-9999"
+                                        mask="(99) 9999-9999"
                                         onChange={(event) => {
                                             onChangeData('phone', event.target.value)
                                         }}

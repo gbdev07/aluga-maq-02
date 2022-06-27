@@ -106,57 +106,68 @@ const Main = (props) => {
         )
     } else {
         return (
-            <div className="Main_container">
-                <div className="Main_sidebar">
-                    {
-                        listMenuFornecedor.map((item, index) => {
-                            return (
-                                <Link to={item.link} className={"Main_menuitemLink" + (location.pathname === item.link ? " Main_menuitemLinkActive" : "")}>
-                                    <div className="Main_menuitem">
-                                        <img src={item.icon} alt=""/>
-                                        <div>{item.text}</div>
-                                    </div>
-                                </Link>
-                            )
-                        })
-                    }
-                </div>
-                <div className="Main_right">
-                    <div className="Main_header">
-                        <div className="Main_header_title">{renderScreenTitle()}</div>
-                        <div className="Main_headerBetween">
-
-                        </div>
-                        <div className="Main_headerRight">
-                            <div className="Main_headerSearch">
-                                <Link to={links.FORNECEDOR_SEARCH_CANAIS}>
-                                    <img src={SearchHeaderIcon} alt=""/>
-                                </Link>
-                            </div>
-                            <div className="Main_headerNoti">
-                                {
-                                    hasNotification ? <Link to={links.FORNECEDOR_NOTI}>
-                                        <img src={NotiHasHeaderIcon} alt=""/>
+            <>
+                <div className="Main_container">
+                    <div className="Main_sidebar">
+                        {
+                            listMenuFornecedor.map((item, index) => {
+                                return (
+                                    <Link to={item.link} className={"Main_menuitemLink" + (location.pathname === item.link ? " Main_menuitemLinkActive" : "")}>
+                                        <div className="Main_menuitem">
+                                            <img src={item.icon} alt=""/>
+                                            <div>{item.text}</div>
+                                        </div>
                                     </Link>
-                                        :
-                                        <img src={NotiHeaderIcon} alt=""/>
-                                }
+                                )
+                            })
+                        }
+                    </div>
+                    <div className="Main_right">
+                        <div className="Main_header">
+                            <div className="Main_header_title">{renderScreenTitle()}</div>
+                            <div className="Main_headerBetween">
 
                             </div>
-                            <Dropdown overlay={menu} placement="bottomRight" arrow>
-                                <div className="Main_menuProfile">
-                                    <img src={(premiumExpiration && moment(premiumExpiration) > moment()) ? UserPremiumIcon : UserIcon} alt=""/>
-                                    <img className="Main_dropdownIcon" src={DropdownIcon} alt=""/>
+                            <div className="Main_headerRight">
+                                <div className="Main_headerSearch">
+                                    <Link to={links.FORNECEDOR_SEARCH_CANAIS}>
+                                        <img src={SearchHeaderIcon} alt=""/>
+                                    </Link>
                                 </div>
-                            </Dropdown>
+                                <div className="Main_headerNoti">
+                                    {
+                                        hasNotification ? <Link to={links.FORNECEDOR_NOTI}>
+                                                <img src={NotiHasHeaderIcon} alt=""/>
+                                            </Link>
+                                            :
+                                            <img src={NotiHeaderIcon} alt=""/>
+                                    }
+
+                                </div>
+                                <Dropdown overlay={menu} placement="bottomRight" arrow>
+                                    <div className="Main_menuProfile">
+                                        <img src={(premiumExpiration && moment(premiumExpiration) > moment()) ? UserPremiumIcon : UserIcon} alt=""/>
+                                        <img className="Main_dropdownIcon" src={DropdownIcon} alt=""/>
+                                    </div>
+                                </Dropdown>
+                            </div>
+                        </div>
+                        <div className="Main_content">
+                            {children}
                         </div>
                     </div>
-                    <div className="Main_content">
-                        {children}
-                    </div>
-                </div>
 
-            </div>
+                </div>
+                {/*<div className="FornecedorSettings_bottom">*/}
+                {/*    <a href="mailto:suporte@fit2sell.com.br" className="FornecedorSettings_LinkRemove">*/}
+                {/*        <Button className="FornecedorSettings_buttonRemove" >*/}
+                {/*            <div> － </div>*/}
+                {/*            <div>Remover minha conta</div>*/}
+                {/*        </Button>*/}
+                {/*    </a>*/}
+                {/*</div>*/}
+            </>
+
         )
     }
 }
