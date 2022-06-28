@@ -49,8 +49,8 @@ const DashboardCanal = (props) => {
     const columns = [
         {
             title: 'Top 3 da plataforma',
-            dataIndex: 'name',
-            key: 'name',
+            dataIndex: 'idFornecedor',
+            key: 'idFornecedor',
             render: (text) => <div style={{
                 fontWeight: 700,
             }}>{text}</div>,
@@ -342,7 +342,7 @@ const DashboardCanal = (props) => {
                         </Col>
                         <Col xs={24} md={24} lg={12} xl={12}>
                             <div className="Dashboard_modalDetailText2">
-                                Tipo de Parceria desejada: {dataCurrentDetail.tipoParceriaDesejada}
+                                Pessoa Responsável: {dataCurrentDetail.responsiblePerson}
                             </div>
                         </Col>
                         <Col xs={24} md={24} lg={12} xl={12}>
@@ -352,7 +352,7 @@ const DashboardCanal = (props) => {
                         </Col>
                         <Col xs={24} md={24} lg={12} xl={12}>
                             <div className="Dashboard_modalDetailText2">
-                                Número Aprox. de Clientes: R$: {dataCurrentDetail.numeroAproxClientes}
+                                Empresa: R$: {dataCurrentDetail.nameCompany}
                             </div>
                         </Col>
                         <Col xs={24} md={24} lg={12} xl={12}>
@@ -362,7 +362,7 @@ const DashboardCanal = (props) => {
                         </Col>
                         <Col xs={24} md={24} lg={12} xl={12}>
                             <div className="Dashboard_modalDetailText2">
-                                Descrição de Produtos e Serviços: {dataCurrentDetail.descricaoProdutosServicos}
+                                Faturamento Anual: {dataCurrentDetail.mediaFaturamentoAnual}
                             </div>
                         </Col>
                         <Col xs={24} md={24} lg={12} xl={12}>
