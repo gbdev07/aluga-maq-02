@@ -4,3 +4,20 @@
     background-color: #2b394b;
     padding: 50px;
 }
+
+.logoText {
+    color: #FFFFFF!important;
+    text-decoration: none!important;
+    font-size: 18px;
+    font-weight: 700;
+    width: unset!important;
+}
+
+.logoText:hover {
+    color: #FFFFFF!important;
+    text-decoration: none!important;
+}
+
+.logoTextDark {
+    color: #0E132F!important;
+}

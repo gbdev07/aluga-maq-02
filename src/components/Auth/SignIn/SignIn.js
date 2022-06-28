@@ -11,7 +11,7 @@ import {useNavigate} from "react-router-dom";
 import {NotificationContainer, NotificationManager} from "react-notifications";
 
 const initialDataSignIn = {
-    email: 'br.lcsistemas@gmail.com',
+    email: 'antoniolucasmcarvalho@gmail.com',
     password: '654321',
 }
 

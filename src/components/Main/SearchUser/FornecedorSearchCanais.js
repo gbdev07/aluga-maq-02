@@ -1,8 +1,402 @@
-import React from "react";
+import React, {useCallback, useContext, useEffect, useState} from "react";
+import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
+import "./FornecedorSearchCanais.css"
+import {Button, Col, Input, Row, Table} from "antd";
+import search2Icon from "../../../assets/images/search2.png"
+import {AiOutlinePlus} from "react-icons/ai";
+import {AuthContext} from "../../../contexts/AuthContext";
+import {Link, useNavigate} from "react-router-dom";
+import moment from "moment";
+import * as links from "../../../utils/links";
+import premiumIcon from "../../../assets/images/premium3.png";
+import _, {debounce} from 'lodash';
+import axios from "axios";
+import {REACT_APP_API_BASE_URL} from "../../../utils/constants";
+
 const FornecedorSearchCanais = (props) => {
+    const {
+        setDataUser,
+        loading,
+        authInfo,
+        setNotiMessage
+    } = useContext(AuthContext);
+    let navigate = useNavigate();
+    const email = authInfo?.dataUser?.email;
+    const token = authInfo?.dataUser?.token;
+    const premiumExpiration = authInfo?.dataUser?.premiumExpiration ?? null;
+    const isPremium = !!(premiumExpiration && moment(premiumExpiration) > moment());
+    const [isLoading, setIsLoading] = useState(false);
+    const [searchTextTemp, setSearchTextTemp] = useState('');
+    const [searchText, setSearchText] = useState('');
+    const [listCanals, setListCanals] = useState([]);
+    const [dataCurrentDetail, setDataCurrentDetail] = useState(null);
+    const [loadingTable, setLoadingTable] = useState(false);
+    // const []
+    const [isLiked, setIsLiked] = useState(null);
+
+    useEffect(() => {
+        if (dataCurrentDetail) {
+            setLoadingTable(true)
+            axios.post(`${REACT_APP_API_BASE_URL}/fornecedor-loves-me`, {
+                idCanal: dataCurrentDetail.idCanal
+            }, {
+                headers: {
+                    "x-access-token": token,
+                    "content-type": "application/json"
+                }
+            })
+                .then(res => {
+                    setLoadingTable(false)
+                    if (res.status === 200 && res.data) {
+                        setIsLiked(!!res.data.message)
+                    }
+                })
+                .catch(err => {
+                    setLoadingTable(false)
+                    if ([401, 403].includes(err.response.status)) {
+                        // setNotiMessage('A sua sessão expirou, para continuar faça login novamente.');
+                        setNotiMessage({
+                            type: 'error',
+                            message: 'A sua sessão expirou, para continuar faça login novamente.'
+                        })
+                        setDataUser(null);
+                    }
+                })
+        }
+    }, [dataCurrentDetail])
+
+
+    const onLikedCanal = () => {
+        if (dataCurrentDetail) {
+            setIsLoading(true);
+            axios.post(`${REACT_APP_API_BASE_URL}/fornecedor-like-canal`, {
+                idCanal: dataCurrentDetail.idCanal
+            }, {
+                headers: {
+                    "x-access-token": token,
+                    "content-type": "application/json"
+                }
+            })
+                .then(res => {
+                    setIsLoading(false);
+                    if (res.status === 200 && res.data) {
+                        console.log(res.data)
+                        setIsLiked(true)
+                    }
+                })
+                .catch(err => {
+                    setIsLoading(false);
+                    setNotiMessage({
+                        type: 'error',
+                        message: `Hmm, ${err.response?.data?.error ?? "error"}`
+                    })
+                    if ([401, 403].includes(err.response.status)) {
+                        // setNotiMessage('A sua sessão expirou, para continuar faça login novamente.');
+                        setNotiMessage({
+                            type: 'error',
+                            message: 'A sua sessão expirou, para continuar faça login novamente.'
+                        })
+                        setDataUser(null);
+                    }
+                })
+        }
+    }
+
+    const onDisLikedCanal = () => {
+        if (dataCurrentDetail) {
+            setIsLoading(true);
+            axios.post(`${REACT_APP_API_BASE_URL}/fornecedor-unlike-canal`, {
+                idCanal: dataCurrentDetail.idCanal
+            }, {
+                headers: {
+                    "x-access-token": token,
+                    "content-type": "application/json"
+                }
+            })
+                .then(res => {
+                    setIsLoading(false);
+                    if (res.status === 200 && res.data) {
+                        console.log(res.data)
+                        setIsLiked(false)
+                    }
+                })
+                .catch(err => {
+                    setIsLoading(false);
+                    setNotiMessage({
+                        type: 'error',
+                        message: `Hmm, ${err.response?.data?.error ?? "error"}`
+                    })
+                    if ([401, 403].includes(err.response.status)) {
+                        // setNotiMessage('A sua sessão expirou, para continuar faça login novamente.');
+                        setNotiMessage({
+                            type: 'error',
+                            message: 'A sua sessão expirou, para continuar faça login novamente.'
+                        })
+                        setDataUser(null);
+                    }
+                })
+        }
+    }
+
+    const onActionFilter = () => {
+        setNotiMessage({
+            type: 'info',
+            message: '"Funcionalidade em desenvolvimento...'
+        })
+    }
+
+    const onChangeSearch = (value) => {
+        setSearchText(value);
+    }
+
+    useEffect(() => {
+        axios.post(`${REACT_APP_API_BASE_URL}/search-canais`, {
+            description: searchText,
+            type : "CANAL",
+            email : email
+        }, {
+            headers: {
+                "x-access-token": token,
+                "content-type": "application/json"
+            }
+        })
+            .then(res => {
+                if (res.status === 200 && Array.isArray(res.data)) {
+                    console.log(res.data)
+                    setListCanals(res.data);
+                }
+            })
+            .catch(err => {
+                if ([401, 403].includes(err.response.status)) {
+                    // setNotiMessage('A sua sessão expirou, para continuar faça login novamente.');
+                    setNotiMessage({
+                        type: 'error',
+                        message: 'A sua sessão expirou, para continuar faça login novamente.'
+                    })
+                    setDataUser(null);
+                }
+            })
+    }, [searchText])
+
+    const debounceUpdate = useCallback(debounce((nextValue) => {
+        onChangeSearch(nextValue);
+    }, 300), [])
+    useEffect(() => {
+        if (searchTextTemp !== searchText) {
+            debounceUpdate(searchTextTemp)
+        }
+    }, [searchTextTemp])
+
+    const onOpenModalDetail = (data) => {
+        console.log(data)
+        setDataCurrentDetail(data)
+    }
+
+    const columns = [
+        {
+            title: 'CANAL',
+            dataIndex: 'name',
+            key: 'name',
+        },
+        {
+            title: 'DESCRIÇÃO',
+            dataIndex: 'description',
+            key: 'description',
+        },
+        {
+            title: 'CIDADE',
+            dataIndex: 'city',
+            key: 'city',
+            render: (_, record) => {
+                return (
+                    <div>
+                        {record.city} - {record.state}
+                    </div>
+                )
+            },
+        },
+        {
+            title: 'DETALHAR',
+            dataIndex: 'detail',
+            key: 'detail',
+            render: (_, record) => {
+                return (
+                    <Button onClick={() => {
+                        onOpenModalDetail(record)
+                    }}>
+                        ...
+                    </Button>
+                )
+            },
+        },
+    ];
+
     return (
-        <div>
-            FornecedorSearchCanais
+        <div className="FornecedorSearchCanais_container">
+            {isLoading && <LoadingAction />}
+            <div className="FornecedorSearchCanais_title">
+                Buscar Canais
+            </div>
+
+            <div className="FornecedorSearchCanais_body">
+                {dataCurrentDetail && <div className="FornecedorSearchCanais_modalDetail">
+                    <div className="FornecedorSearchCanais_modalAction">
+                        <div className="FornecedorSearchCanais_modalClose" onClick={() => {
+                            setDataCurrentDetail(null)
+                            setIsLiked(null)
+                        }}>
+                            X
+                        </div>
+                    </div>
+                    <Row>
+                        <Col xs={24}>
+                            <div className="FornecedorSearchCanais_modalDetailText1">
+                                {dataCurrentDetail.description ?? ""}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <div className="FornecedorSearchCanais_modalDetailText2">
+                                Tamanho da Empresa: {dataCurrentDetail.tamanho}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <div className="FornecedorSearchCanais_modalDetailText2">
+                                País: {dataCurrentDetail.country}.
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <div className="FornecedorSearchCanais_modalDetailText2">
+                                Média de Faturamento Anual: R$: {dataCurrentDetail.mediaFaturamentoAnual}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <div className="FornecedorSearchCanais_modalDetailText2">
+                                Cidade: {dataCurrentDetail.city}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <div className="FornecedorSearchCanais_modalDetailText2">
+                                Responsável: {dataCurrentDetail.responsiblePerson}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <div className="FornecedorSearchCanais_modalDetailText2">
+                                Estado: {dataCurrentDetail.state}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <div className="FornecedorSearchCanais_modalDetailText2">
+                                Área de Atuação: {dataCurrentDetail.areaAtuacao}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <div className="FornecedorSearchCanais_modalDetailText2">
+                                Endereço: {dataCurrentDetail.street}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <div className="FornecedorSearchCanais_modalDetailText2">
+                                Segmento: {dataCurrentDetail.segmento}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+
+                        </Col>
+                        <Col xs={24} md={24} lg={8} xl={8} className="FornecedorSearchCanais_modalDetailCol">
+                            <div className="FornecedorSearchCanais_modalDetailText3">
+                                Telefone
+                            </div>
+                            <div className="FornecedorSearchCanais_modalDetailView">
+                                {dataCurrentDetail.phone}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={8} xl={8} className="FornecedorSearchCanais_modalDetailCol">
+                            <div className="FornecedorSearchCanais_modalDetailText3">
+                                Whatsapp
+                            </div>
+                            <div className="FornecedorSearchCanais_modalDetailView">
+                                {dataCurrentDetail.whatsapp}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={8} xl={8} className="FornecedorSearchCanais_modalDetailCol">
+                            <div className="FornecedorSearchCanais_modalDetailText3">
+                                Site
+                            </div>
+                            <div className="FornecedorSearchCanais_modalDetailView">
+                                {dataCurrentDetail.website}
+                            </div>
+                        </Col>
+                        <Col xs={24} className="FornecedorSearchCanais_modalDetailCol">
+                            {
+                                isLiked === false
+                                ?
+                                    <div className="FornecedorSearchCanais_like" onClick={() => {
+                                        onLikedCanal();
+                                    }}>
+                                        FAVORITAR
+                                    </div>
+                                    :
+                                    isLiked === true
+                                    ?
+
+                                    <div className="FornecedorSearchCanais_like" onClick={() => {
+                                        onDisLikedCanal();}
+                                    }>
+                                        Desfavoritar
+                                    </div>
+                                        :
+                                        <></>
+                            }
+
+                        </Col>
+                    </Row>
+                </div>}
+                <div className="FornecedorSearchCanais_header">
+                    <div className="FornecedorSearchCanais_search">
+                        <Input
+                            className="FornecedorSearchCanais_inputSearch"
+                            value={searchTextTemp}
+                            onChange={(event) => {
+                                setSearchTextTemp(event.target.value)
+                            }}
+                        />
+                        <img src={search2Icon} alt=""/>
+                    </div>
+                    {isPremium && <Button className="FornecedorSearchCanais_btnSubmit" onClick={() => {
+                        // onSave();
+                        onActionFilter();
+                    }}>
+                        <AiOutlinePlus />
+                        <div>
+                            Mais filtros
+                        </div>
+                    </Button>}
+                </div>
+                <div className="FornecedorSearchCanais_content">
+                    <div className="FornecedorSearchCanais_titleList">
+                        <div>
+                            Resultados Encontrados
+                        </div>
+                        <div className="FornecedorSearchCanais_nbList">{listCanals.length}</div>
+                    </div>
+                    <Table columns={columns} dataSource={listCanals} pagination={false} loading={loadingTable}/>
+                </div>
+                {
+                    !isPremium && <>
+                        <div className="FornecedorSearchCanais_premiumAction">
+                            <Link to={links.FORNECEDOR_BUY_PREMIUM} className="FornecedorSearchCanais_premiumLink">
+                                <Button className="FornecedorSearchCanais_premiumBtn">
+                                    <AiOutlinePlus />
+                                    <div>
+                                        Seja Premium e veja todos os canais que te favoritaram
+                                    </div>
+                                </Button>
+                            </Link>
+                            <img src={premiumIcon} alt=""/>
+                        </div>
+                    </>
+                }
+            </div>
         </div>
     )
 }

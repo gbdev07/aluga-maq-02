@@ -1,17 +1,17 @@
-.container {
+.Auth_container {
     height: 100%;
 }
-.rowContainer {
+.Auth_rowContainer {
     width: 100%;
     height: 100%;
 }
 
-.rowContainer .ant-col {
+.Auth_rowContainer .ant-col {
     height: 100%;
     overflow-y: auto;
 }
 
-.colAuthForm {
+.Auth_colAuthForm {
     padding: 50px;
     display: flex!important;
     align-items: center;
@@ -19,30 +19,30 @@
     background-color: #2b394b;
 }
 
-.authBlock {
+.Auth_authBlock {
     background: #24221F;
     border-radius: 4px;
     padding: 20px 50px;
 }
 
-.authTitle {
+.Auth_authTitle {
     display: flex;
     align-items: center;
 }
 
-.authTitleIcon {
+.Auth_authTitleIcon {
     color: #4196DD;
     height: 24px;
 }
 
-.authTitleText {
+.Auth_authTitleText {
     padding-left: 5px;
     color: #D4CCB6;
     font-weight: 600;
     font-size: 24px;
 }
 
-.authDescription {
+.Auth_authDescription {
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -50,11 +50,11 @@
     max-width: 320px;
 }
 
-.itemField {
+.Auth_itemField {
     padding: 10px 0;
 }
 
-.itemFieldLabel {
+.Auth_itemFieldLabel {
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -62,7 +62,7 @@
 
 }
 
-.itemField input {
+.Auth_itemField input {
     border: 1px solid #469AE2;
     /*box-shadow: 0px 0px 0px 2px #FFDE88;*/
     border-radius: 4px;
@@ -70,50 +70,50 @@
     color: #fff!important;
 }
 
-.itemField .ant-input-password {
+.Auth_itemField .ant-input-password {
     border: 1px solid #469AE2!important;
     background-color: transparent!important;
     border-radius: 4px;
 }
 
-.itemField .ant-input-password svg path {
+.Auth_itemField .ant-input-password svg path {
     fill: #fff
 }
 
-.itemField .itemFieldLabelCheckbox {
+.Auth_itemField .Auth_itemFieldLabelCheckbox {
     font-weight: 500;
     font-size: 14px;
     line-height: 24px;
     color: #AFB6C2;
 }
 
-.itemField .itemFieldLabelCheckbox a {
+.Auth_itemField .Auth_itemFieldLabelCheckbox a {
     color: #AFB6C2;
     text-decoration: underline;
 }
-.itemField .itemFieldError {
+.Auth_itemField .Auth_itemFieldError {
     color: #E46772;
     font-size: 14px;
     padding: 2px 0;
 }
 
 
-.itemField input:-webkit-autofill,
-.itemField input:-webkit-autofill:hover,
-.itemField input:-webkit-autofill:focus,
-.itemField textarea:-webkit-autofill,
-.itemField textarea:-webkit-autofill:hover,
-.itemField textarea:-webkit-autofill:focus,
-.itemField select:-webkit-autofill,
-.itemField select:-webkit-autofill:hover,
-.itemField select:-webkit-autofill:focus {
+.Auth_itemField input:-webkit-autofill,
+.Auth_itemField input:-webkit-autofill:hover,
+.Auth_itemField input:-webkit-autofill:focus,
+.Auth_itemField textarea:-webkit-autofill,
+.Auth_itemField textarea:-webkit-autofill:hover,
+.Auth_itemField textarea:-webkit-autofill:focus,
+.Auth_itemField select:-webkit-autofill,
+.Auth_itemField select:-webkit-autofill:hover,
+.Auth_itemField select:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px transparent inset;
     -webkit-text-fill-color: #fff!important;
     transition: background-color 5000s ease-in-out 0s;
     /*color: #fff!important;*/
 }
 
-.authSubmit {
+.Auth_authSubmit {
     background: #4599E1!important;
     border-radius: 4px!important;
     width: 100%;
@@ -125,13 +125,13 @@
     text-transform: uppercase;
 }
 
-.authFooter {
+.Auth_authFooter {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
-.itemAuthFooter {
+.Auth_itemAuthFooter {
     display: flex;
     padding: 5px 0;
     font-weight: 600;
@@ -139,17 +139,17 @@
     line-height: 21px;
 }
 
-.itemAuthFooter > div {
+.Auth_itemAuthFooter > div {
     padding: 0 5px;
     color: #469AE2!important;
 }
 
-.itemAuthFooter > a {
+.Auth_itemAuthFooter > a {
     color: #469AE2!important;
     text-decoration: underline;
 }
 
-.successMessage {
+.Auth_successMessage {
     color: #8FC727;
     font-size: 14px;
     padding: 10px 0;
@@ -157,39 +157,39 @@
     max-width: 320px;
 }
 
-.errorMessage {
+.Auth_errorMessage {
     color: #E46772;
     font-size: 14px;
     padding: 10px 0;
     text-align: center;
     max-width: 320px;
 }
-.errorMessage a {
+.Auth_errorMessage a {
     color: #E46772;
     text-decoration: underline;
 }
-.errorMessage a:hover {
+.Auth_errorMessage a:hover {
     color: #E46772;
 }
-.authImage {
+.Auth_authImage {
     width: 100%;
     height: 100%;
 }
-.colAuthImage {
+.Auth_colAuthImage {
     position: relative;
 }
 @media only screen and (max-width: 600px) {
-    .colAuthForm {
+    .Auth_colAuthForm {
         padding: 0;
         background: #24221F;
     }
-    .colAuthImage {
+    .Auth_colAuthImage {
         display: none!important;
     }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 768px) {
-    .colAuthImage {
+    .Auth_colAuthImage {
         display: none!important;
     }
 }

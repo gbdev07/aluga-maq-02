@@ -23,36 +23,36 @@ const Auth = (props) => {
         isForgotPassword
     } = props;
     return (
-        <div className="container">
-            <Row className="rowContainer">
+        <div className="Auth_container">
+            <Row className="Auth_rowContainer">
                 {
-                    isForgotPassword && <Col xs={24} md={12} lg={12} xl={12} className="colAuthImage">
-                        {authImage && <img className="authImage" src={authImage}/>}
+                    isForgotPassword && <Col xs={24} md={12} lg={12} xl={12} className="Auth_colAuthImage">
+                        {authImage && <img className="Auth_authImage" src={authImage}/>}
                         {
                             textImage && <>{textImage}</>
                         }
                     </Col>
                 }
-                <Col xs={24} md={12} lg={12} xl={12} className="colAuthForm">
-                    <div className="authBlock">
-                        <div className="authTitle">
-                            <FiLogIn className="authTitleIcon" />
-                            <div className="authTitleText">
+                <Col xs={24} md={12} lg={12} xl={12} className="Auth_colAuthForm">
+                    <div className="Auth_authBlock">
+                        <div className="Auth_authTitle">
+                            <FiLogIn className="Auth_authTitleIcon" />
+                            <div className="Auth_authTitleText">
                                 {authTitle}
                             </div>
                         </div>
-                        <div className="authDescription">
+                        <div className="Auth_authDescription">
                             {authDescription}
                         </div>
-                        <div className="authForm">
+                        <div className="Auth_authForm">
                             {
                                 authFields.map((itemField, indexField) => {
                                     console.log(itemField.error)
                                     switch (itemField.type) {
                                         case "text":
                                             return (
-                                                <div className="itemField">
-                                                    <div className="itemFieldLabel">
+                                                <div className="Auth_itemField">
+                                                    <div className="Auth_itemFieldLabel">
                                                         {itemField.label}
                                                     </div>
                                                     <Input
@@ -69,15 +69,15 @@ const Auth = (props) => {
                                                             }
                                                         }}
                                                     />
-                                                    {itemField.error && <div className="itemFieldError">
+                                                    {itemField.error && <div className="Auth_itemFieldError">
                                                         {itemField.error}
                                                     </div>}
                                                 </div>
                                             )
                                         case "password":
                                             return (
-                                                <div className="itemField">
-                                                    <div className="itemFieldLabel">
+                                                <div className="Auth_itemField">
+                                                    <div className="Auth_itemFieldLabel">
                                                         {itemField.label}
                                                     </div>
                                                     <Input.Password
@@ -95,14 +95,14 @@ const Auth = (props) => {
                                                             }
                                                         }}
                                                     />
-                                                    {itemField.error && <div className="itemFieldError">
+                                                    {itemField.error && <div className="Auth_itemFieldError">
                                                         {itemField.error}
                                                     </div>}
                                                 </div>
                                             )
                                         case "checkbox":
                                             return (
-                                                <div className="itemField">
+                                                <div className="Auth_itemField">
                                                     <Checkbox
                                                         value={itemField.value}
                                                         onChange={(event) => {
@@ -111,11 +111,11 @@ const Auth = (props) => {
                                                             }
                                                         }}
                                                     >
-                                                        <div className="itemFieldLabelCheckbox">
+                                                        <div className="Auth_itemFieldLabelCheckbox">
                                                             <div dangerouslySetInnerHTML={{ __html: itemField.label }}></div>
                                                         </div>
                                                     </Checkbox>
-                                                    {itemField.error && <div className="itemFieldError">
+                                                    {itemField.error && <div className="Auth_itemFieldError">
                                                         {itemField.error}
                                                     </div>}
                                                 </div>
@@ -128,7 +128,7 @@ const Auth = (props) => {
                                 })
                             }
                         </div>
-                        <Button className="authSubmit" onClick={() => {
+                        <Button className="Auth_authSubmit" onClick={() => {
                             if (typeof onsubmit === "function") {
                                 onsubmit()
                             }
@@ -149,11 +149,11 @@ const Auth = (props) => {
                         {
                             Array.isArray(authFooter)
                                 ?
-                                <div className="authFooter">
+                                <div className="Auth_authFooter">
                                     {
                                         authFooter.map((item, index) => {
                                             return (
-                                                <div className="itemAuthFooter">
+                                                <div className="Auth_itemAuthFooter">
                                                     <div>
                                                         {item.text1}
                                                     </div>
@@ -170,20 +170,20 @@ const Auth = (props) => {
                                 <></>
                         }
                         {
-                            successMessage && <div className="successMessage">
+                            successMessage && <div className="Auth_successMessage">
                                 {successMessage}
                             </div>
                         }
                         {
-                            errorMessage && <div className="errorMessage">
+                            errorMessage && <div className="Auth_errorMessage">
                                 <div dangerouslySetInnerHTML={{ __html: errorMessage }}></div>
                             </div>
                         }
                     </div>
                 </Col>
                 {
-                    !isForgotPassword && <Col xs={24} md={12} lg={12} xl={12} className="colAuthImage">
-                    {authImage && <img className="authImage" src={authImage}/>}
+                    !isForgotPassword && <Col xs={24} md={12} lg={12} xl={12} className="Auth_colAuthImage">
+                    {authImage && <img className="Auth_authImage" src={authImage}/>}
                     {
                         textImage && <>{textImage}</>
                     }

@@ -59,6 +59,10 @@
     justify-content: center;
 }
 
+.FornecedorSettings_premium img {
+    height: 120px;
+    width: 120px;
+}
 .FornecedorSettings_feedback {
     background: #F7FAFC;
     border-radius: 10px;

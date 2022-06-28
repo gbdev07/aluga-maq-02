@@ -1,0 +1,194 @@
+.FornecedorSearchCanais_container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.FornecedorSearchCanais_title {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 35px;
+}
+
+.FornecedorSearchCanais_header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.FornecedorSearchCanais_search {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    max-width: 100%;
+}
+
+.FornecedorSearchCanais_inputSearch {
+    background: #F5F5F5!important;
+    border-radius: 15px!important;
+    height: unset!important;
+    padding: 12px 10px!important;
+    border: none!important;
+    width: 400px;
+}
+
+.FornecedorSearchCanais_search img {
+    height: 36px;
+    width: 36px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.FornecedorSearchCanais_btnSubmit {
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+    background: #4169E1!important;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15)!important;
+    color: #FFFFFF!important;
+    margin-right: 10px;
+    padding: 7px 40px!important;
+    height: unset!important;
+    font-size: 18px;
+}
+
+.FornecedorSearchCanais_content {
+    padding: 20px;
+}
+
+.FornecedorSearchCanais_titleList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 28px;
+    color: #52525B;
+}
+
+.FornecedorSearchCanais_nbList {
+    margin-left: 5px;
+    background: #E5E7EB;
+    border-radius: 4px;
+    padding: 2px 5px;
+    font-size: 16px;
+}
+
+
+.FornecedorSearchCanais_premiumAction {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.FornecedorSearchCanais_premiumAction img {
+    height: 60px;
+    width: 60px;
+}
+
+.FornecedorSearchCanais_premiumLink {
+    margin-bottom: 30px;
+}
+
+.FornecedorSearchCanais_premiumBtn {
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+    background: #4169E1!important;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15)!important;
+    color: #FFFFFF!important;
+    margin-right: 10px;
+    padding: 15px 40px!important;
+    height: unset;
+}
+
+.FornecedorSearchCanais_premiumBtn svg {
+    margin-right: 5px;
+}
+
+
+.FornecedorSearchCanais_body {
+    position: relative;
+}
+
+.FornecedorSearchCanais_modalDetail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    /*bottom: 0;*/
+    background: #F7FAFC;
+    border-radius: 10px;
+    z-index: 100;
+    padding: 20px 50px 20px 50px;
+}
+
+.FornecedorSearchCanais_modalAction {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.FornecedorSearchCanais_modalDetailCol {
+    display: flex!important;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.FornecedorSearchCanais_modalClose {
+    border: 2px solid #3182CE;
+    border-radius: 10px;
+    color: #3182CE;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.FornecedorSearchCanais_like {
+    border: 2px solid #3182CE;
+    border-radius: 10px;
+    color: #3182CE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: auto;
+    text-transform: uppercase;
+}
+
+.FornecedorSearchCanais_modalDetailText1 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: justify;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.FornecedorSearchCanais_modalDetailText2 {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 24px;
+    padding: 10px 5px;
+    color: #000000;
+}
+
+.FornecedorSearchCanais_modalDetailText3 {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 19px;
+    color: #718096;
+    padding-bottom: 5px;
+}
+
+.FornecedorSearchCanais_modalDetailView {
+    background: #E2E8F0;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
