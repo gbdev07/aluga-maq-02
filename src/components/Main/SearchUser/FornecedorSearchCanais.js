@@ -195,7 +195,11 @@ const FornecedorSearchCanais = (props) => {
                 .then(res => {
                     if (res.status === 200 && Array.isArray(res.data)) {
                         console.log(res.data)
-                        setListCanals(res.data);
+                        if (isPremium) {
+                            setListCanals(res.data);
+                        } else {
+                            setListCanals(res.data.slice(0,3))
+                        }
                     }
                 })
                 .catch(err => {
@@ -383,7 +387,7 @@ const FornecedorSearchCanais = (props) => {
                             </div>
                             <a href={dataCurrentDetail.website} target={"_blank"} className="FornecedorSearchCanais_modalDetailViewLink">
                                 <div className="FornecedorSearchCanais_modalDetailView">
-                                    {dataCurrentDetail.website}
+                                    Clique aqui para acessar.
                                 </div>
                             </a>
                         </Col>

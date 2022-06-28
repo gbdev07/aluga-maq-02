@@ -244,7 +244,7 @@ const FornecedorFavoritesPremium = (props) => {
                                     </div>
                                     <a href={dataCurrentDetail.website} target={"_blank"} className="FornecedorFavorites_modalDetailViewLink">
                                         <div className="FornecedorFavorites_modalDetailView">
-                                            {dataCurrentDetail.website}
+                                            Clique aqui para acessar.
                                         </div>
                                     </a>
                                 </Col>
