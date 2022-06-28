@@ -101,11 +101,16 @@ const FornecedorFavorites = (props) => {
             key: 'detail',
             render: (_, record) => {
                 return (
-                    <Button onClick={() => {
-                        onOpenModalDetail(record)
-                    }}>
-                        ...
-                    </Button>
+                    <div
+                        className="FornecedorFavorites_detailBtn"
+                    >
+                        <Button
+                            onClick={() => {
+                                onOpenModalDetail(record)
+                            }}>
+                            ...
+                        </Button>
+                    </div>
                 )
             },
         },
@@ -172,81 +177,87 @@ const FornecedorFavorites = (props) => {
                             </div>
                             <Row>
                                 <Col xs={24}>
-                                    <div className="FornecedorSearchCanais_modalDetailText1">
+                                    <div className="FornecedorFavorites_modalDetailText1">
                                         {dataCurrentDetail.description ?? ""}
                                     </div>
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
-                                    <div className="FornecedorSearchCanais_modalDetailText2">
+                                    <div className="FornecedorFavorites_modalDetailText2">
                                         Tamanho da Empresa: {dataCurrentDetail.tamanho}
                                     </div>
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
-                                    <div className="FornecedorSearchCanais_modalDetailText2">
+                                    <div className="FornecedorFavorites_modalDetailText2">
                                         País: {dataCurrentDetail.country}.
                                     </div>
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
-                                    <div className="FornecedorSearchCanais_modalDetailText2">
+                                    <div className="FornecedorFavorites_modalDetailText2">
                                         Média de Faturamento Anual: R$: {dataCurrentDetail.mediaFaturamentoAnual}
                                     </div>
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
-                                    <div className="FornecedorSearchCanais_modalDetailText2">
+                                    <div className="FornecedorFavorites_modalDetailText2">
                                         Cidade: {dataCurrentDetail.city}
                                     </div>
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
-                                    <div className="FornecedorSearchCanais_modalDetailText2">
+                                    <div className="FornecedorFavorites_modalDetailText2">
                                         Responsável: {dataCurrentDetail.responsiblePerson}
                                     </div>
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
-                                    <div className="FornecedorSearchCanais_modalDetailText2">
+                                    <div className="FornecedorFavorites_modalDetailText2">
                                         Estado: {dataCurrentDetail.state}
                                     </div>
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
-                                    <div className="FornecedorSearchCanais_modalDetailText2">
+                                    <div className="FornecedorFavorites_modalDetailText2">
                                         Área de Atuação: {dataCurrentDetail.areaAtuacao}
                                     </div>
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
-                                    <div className="FornecedorSearchCanais_modalDetailText2">
+                                    <div className="FornecedorFavorites_modalDetailText2">
                                         Endereço: {dataCurrentDetail.street}
                                     </div>
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
-                                    <div className="FornecedorSearchCanais_modalDetailText2">
+                                    <div className="FornecedorFavorites_modalDetailText2">
                                         Segmento: {dataCurrentDetail.segmento}
                                     </div>
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
 
                                 </Col>
-                                <Col xs={24} md={24} lg={8} xl={8} className="FornecedorSearchCanais_modalDetailCol">
-                                    <div className="FornecedorSearchCanais_modalDetailText3">
+                                <Col xs={24} md={24} lg={8} xl={8} className="FornecedorFavorites_modalDetailCol">
+                                    <div className="FornecedorFavorites_modalDetailText3">
                                         Telefone
                                     </div>
-                                    <div className="FornecedorSearchCanais_modalDetailView">
-                                        {dataCurrentDetail.phone}
-                                    </div>
+                                    <a href={`tel:${dataCurrentDetail.phone}`} target={"_blank"} className="FornecedorFavorites_modalDetailViewLink">
+                                        <div className="FornecedorFavorites_modalDetailView">
+                                            {dataCurrentDetail.phone}
+                                        </div>
+                                    </a>
                                 </Col>
-                                <Col xs={24} md={24} lg={8} xl={8} className="FornecedorSearchCanais_modalDetailCol">
-                                    <div className="FornecedorSearchCanais_modalDetailText3">
+                                <Col xs={24} md={24} lg={8} xl={8} className="FornecedorFavorites_modalDetailCol">
+                                    <div className="FornecedorFavorites_modalDetailText3">
                                         Whatsapp
                                     </div>
-                                    <div className="FornecedorSearchCanais_modalDetailView">
-                                        {dataCurrentDetail.whatsapp}
-                                    </div>
+                                    <a href={`https://wa.me/${dataCurrentDetail.whatsapp}`} target={"_blank"} className="FornecedorFavorites_modalDetailViewLink">
+                                        <div className="FornecedorFavorites_modalDetailView">
+                                            {dataCurrentDetail.whatsapp}
+                                        </div>
+                                    </a>
                                 </Col>
-                                <Col xs={24} md={24} lg={8} xl={8} className="FornecedorSearchCanais_modalDetailCol">
-                                    <div className="FornecedorSearchCanais_modalDetailText3">
+                                <Col xs={24} md={24} lg={8} xl={8} className="FornecedorFavorites_modalDetailCol">
+                                    <div className="FornecedorFavorites_modalDetailText3">
                                         Site
                                     </div>
-                                    <div className="FornecedorSearchCanais_modalDetailView">
-                                        {dataCurrentDetail.website}
-                                    </div>
+                                    <a href={dataCurrentDetail.website} target={"_blank"} className="FornecedorFavorites_modalDetailViewLink">
+                                        <div className="FornecedorFavorites_modalDetailView">
+                                            {dataCurrentDetail.website}
+                                        </div>
+                                    </a>
                                 </Col>
                                 <Col xs={24} className="FornecedorFavorites_modalDetailCol">
                                     {/*{*/}
@@ -277,6 +288,12 @@ const FornecedorFavorites = (props) => {
                                 </Col>
                             </Row>
                         </div>}
+                        <div className="FornecedorFavorites_titleList">
+                            <div>
+                                Meus Favoritos
+                            </div>
+                            <div className="FornecedorFavorites_nbList">{data.length}</div>
+                        </div>
                         <Table columns={columns} dataSource={data} pagination={false} loading={loadingTable}/>
                     </div>
                     :

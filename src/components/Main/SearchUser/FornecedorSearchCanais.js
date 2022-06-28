@@ -221,11 +221,16 @@ const FornecedorSearchCanais = (props) => {
             key: 'detail',
             render: (_, record) => {
                 return (
-                    <Button onClick={() => {
-                        onOpenModalDetail(record)
-                    }}>
-                        ...
-                    </Button>
+                    <div
+                        className="FornecedorSearchCanais_detailBtn"
+                    >
+                        <Button
+                            onClick={() => {
+                                onOpenModalDetail(record)
+                            }}>
+                            ...
+                        </Button>
+                    </div>
                 )
             },
         },
@@ -306,25 +311,31 @@ const FornecedorSearchCanais = (props) => {
                             <div className="FornecedorSearchCanais_modalDetailText3">
                                 Telefone
                             </div>
+                            <a href={`tel:${dataCurrentDetail.phone}`} target={"_blank"} className="FornecedorSearchCanais_modalDetailViewLink">
                             <div className="FornecedorSearchCanais_modalDetailView">
                                 {dataCurrentDetail.phone}
                             </div>
+                            </a>
                         </Col>
                         <Col xs={24} md={24} lg={8} xl={8} className="FornecedorSearchCanais_modalDetailCol">
                             <div className="FornecedorSearchCanais_modalDetailText3">
                                 Whatsapp
                             </div>
+                            <a href={`https://wa.me/${dataCurrentDetail.whatsapp}`} target={"_blank"} className="FornecedorSearchCanais_modalDetailViewLink">
                             <div className="FornecedorSearchCanais_modalDetailView">
                                 {dataCurrentDetail.whatsapp}
                             </div>
+                            </a>
                         </Col>
                         <Col xs={24} md={24} lg={8} xl={8} className="FornecedorSearchCanais_modalDetailCol">
                             <div className="FornecedorSearchCanais_modalDetailText3">
                                 Site
                             </div>
-                            <div className="FornecedorSearchCanais_modalDetailView">
-                                {dataCurrentDetail.website}
-                            </div>
+                            <a href={dataCurrentDetail.website} target={"_blank"} className="FornecedorSearchCanais_modalDetailViewLink">
+                                <div className="FornecedorSearchCanais_modalDetailView">
+                                    {dataCurrentDetail.website}
+                                </div>
+                            </a>
                         </Col>
                         <Col xs={24} className="FornecedorSearchCanais_modalDetailCol">
                             {

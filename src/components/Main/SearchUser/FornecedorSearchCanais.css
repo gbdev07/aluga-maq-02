@@ -108,9 +108,7 @@
 }
 
 
-.FornecedorSearchCanais_body {
-    position: relative;
-}
+
 
 .FornecedorSearchCanais_modalDetail {
     position: absolute;
@@ -191,4 +189,22 @@
     background: #E2E8F0;
     border-radius: 5px;
     padding: 10px 20px;
+}
+
+.FornecedorSearchCanais_modalDetailViewLink {
+    color: #718096!important;
+}
+.FornecedorSearchCanais_body {
+    position: relative;
+}
+
+.FornecedorSearchCanais_detailBtn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+.FornecedorSearchCanais_content table th.ant-table-cell:last-child {
+    text-align: right;
 }
