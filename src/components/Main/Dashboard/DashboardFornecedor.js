@@ -34,6 +34,7 @@ const DashboardFornecedor = (props) => {
     const [totalFornecedores, setTotalFornecedores] = useState(null);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
+    const [dataCurrentDetail, setDataCurrentDetail] = useState(null);
 
     useEffect(() => {
         if (!hasData) {
@@ -48,21 +49,21 @@ const DashboardFornecedor = (props) => {
     const columns = [
         {
             title: 'Top 3 da plataforma',
-            dataIndex: 'canal',
-            key: 'canal',
+            dataIndex: 'name',
+            key: 'name',
             render: (text) => <div style={{
                 fontWeight: 700,
             }}>{text}</div>,
         },
         {
             title: 'Categoria',
-            dataIndex: 'categoria',
-            key: 'categoria',
+            dataIndex: 'areaAtuacao',
+            key: 'areaAtuacao',
         },
         {
             title: 'Cidade',
-            dataIndex: 'cidade',
-            key: 'cidade',
+            dataIndex: 'city',
+            key: 'city',
         },
         {
             title: 'Ação',
@@ -70,7 +71,9 @@ const DashboardFornecedor = (props) => {
             key: 'action',
             render: (_, record) => {
                 return (
-                    <div className="Dashboard_favDetail">
+                    <div className="Dashboard_favDetail" onClick={() => {
+                        setDataCurrentDetail(record)
+                    }}>
                         DETALHES
                     </div>
                 )
@@ -79,6 +82,9 @@ const DashboardFornecedor = (props) => {
     ];
 
     useEffect(() => {
+        dataData();
+    }, [])
+    const dataData = () => {
         axios.get(`${REACT_APP_API_BASE_URL}/dashboard-fornecedor`, {
             headers: {
                 "x-access-token": token,
@@ -109,7 +115,42 @@ const DashboardFornecedor = (props) => {
                     setDataUser(null);
                 }
             })
-    }, [])
+    }
+    const onDisLikedCanal = () => {
+        if (dataCurrentDetail) {
+            setIsLoading(true);
+            axios.post(`${REACT_APP_API_BASE_URL}/fornecedor-unlike-canal`, {
+                idCanal: dataCurrentDetail.idCanal
+            }, {
+                headers: {
+                    "x-access-token": token,
+                    "content-type": "application/json"
+                }
+            })
+                .then(res => {
+                    setIsLoading(false);
+                    if (res.status === 200 && res.data) {
+                        setDataCurrentDetail(null);
+                        dataData();
+                    }
+                })
+                .catch(err => {
+                    setIsLoading(false);
+                    setNotiMessage({
+                        type: 'error',
+                        message: `Hmm, ${err.response?.data?.error ?? "error"}`
+                    })
+                    if ([401, 403].includes(err.response.status)) {
+                        // setNotiMessage('A sua sessão expirou, para continuar faça login novamente.');
+                        setNotiMessage({
+                            type: 'error',
+                            message: 'A sua sessão expirou, para continuar faça login novamente.'
+                        })
+                        setDataUser(null);
+                    }
+                })
+        }
+    }
 
     const isPremium = (premiumExpiration && moment(premiumExpiration) > moment());
     return (
@@ -275,6 +316,138 @@ const DashboardFornecedor = (props) => {
                     Para poder iniciar as buscas é necessário completar o seu cadastro.
                 </div>
             </Modal>
+            {dataCurrentDetail && <Modal
+                visible={!!dataCurrentDetail}
+                footer={null}
+                header={null}
+                className="Dashboard_modal"
+                onCancel={() => {
+                    setDataCurrentDetail(null)
+                }}
+            >
+                <div className="Dashboard_modalDetail">
+                    <div className="Dashboard_modalAction">
+                        <div className="Dashboard_modalClose" onClick={() => {
+                            setDataCurrentDetail(null)
+                            // setIsLiked(null)
+                        }}>
+                            X
+                        </div>
+                    </div>
+                    <Row>
+                        <Col xs={24}>
+                            <div className="Dashboard_modalDetailText1">
+                                {dataCurrentDetail.description ?? ""}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <div className="Dashboard_modalDetailText2">
+                                Tipo de Parceria desejada: {dataCurrentDetail.tipoParceriaDesejada}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <div className="Dashboard_modalDetailText2">
+                                País: {dataCurrentDetail.country}.
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <div className="Dashboard_modalDetailText2">
+                                Número Aprox. de Clientes: R$: {dataCurrentDetail.numeroAproxClientes}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <div className="Dashboard_modalDetailText2">
+                                Cidade: {dataCurrentDetail.city}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <div className="Dashboard_modalDetailText2">
+                                Descrição de Produtos e Serviços: {dataCurrentDetail.descricaoProdutosServicos}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <div className="Dashboard_modalDetailText2">
+                                Estado: {dataCurrentDetail.state}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <div className="Dashboard_modalDetailText2">
+                                Área de Atuação: {dataCurrentDetail.areaAtuacao}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <div className="Dashboard_modalDetailText2">
+                                Endereço: {dataCurrentDetail.street}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <div className="Dashboard_modalDetailText2">
+                                Segmento: {dataCurrentDetail.segmento}
+                            </div>
+                        </Col>
+                        <Col xs={24} md={24} lg={12} xl={12}>
+
+                        </Col>
+                        <Col xs={24} md={24} lg={8} xl={8} className="Dashboard_modalDetailCol">
+                            <div className="Dashboard_modalDetailText3">
+                                Telefone
+                            </div>
+                            <a href={`tel:${dataCurrentDetail.phone}`} target={"_blank"} className="Dashboard_modalDetailViewLink">
+                                <div className="Dashboard_modalDetailView">
+                                    {dataCurrentDetail.phone}
+                                </div>
+                            </a>
+                        </Col>
+                        <Col xs={24} md={24} lg={8} xl={8} className="Dashboard_modalDetailCol">
+                            <div className="Dashboard_modalDetailText3">
+                                Whatsapp
+                            </div>
+                            <a href={`https://wa.me/${dataCurrentDetail.whatsapp}`} target={"_blank"} className="Dashboard_modalDetailViewLink">
+                                <div className="Dashboard_modalDetailView">
+                                    {dataCurrentDetail.whatsapp}
+                                </div>
+                            </a>
+                        </Col>
+                        <Col xs={24} md={24} lg={8} xl={8} className="Dashboard_modalDetailCol">
+                            <div className="Dashboard_modalDetailText3">
+                                Site
+                            </div>
+                            <a href={dataCurrentDetail.website} target={"_blank"} className="Dashboard_modalDetailViewLink">
+                                <div className="Dashboard_modalDetailView">
+                                    Clique aqui para acessar.
+                                </div>
+                            </a>
+                        </Col>
+                        <Col xs={24} className="Dashboard_modalDetailCol">
+                            {/*{*/}
+                            {/*    isLiked === false*/}
+                            {/*        ?*/}
+                            {/*        <div className="Dashboard_like" onClick={() => {*/}
+                            {/*            onLikedCanal();*/}
+                            {/*        }}>*/}
+                            {/*            FAVORITAR*/}
+                            {/*        </div>*/}
+                            {/*        :*/}
+                            {/*        isLiked === true*/}
+                            {/*            ?*/}
+
+                            {/*            <div className="Dashboard_like" onClick={() => {*/}
+                            {/*                onDisLikedCanal();}*/}
+                            {/*            }>*/}
+                            {/*                Desfavoritar*/}
+                            {/*            </div>*/}
+                            {/*            :*/}
+                            {/*            <></>*/}
+                            {/*}*/}
+                            {/*<div className="FornecedorFavorites_like" onClick={() => {*/}
+                            {/*    onDisLikedCanal();}*/}
+                            {/*}>*/}
+                            {/*    Desfavoritar*/}
+                            {/*</div>*/}
+                        </Col>
+                    </Row>
+                </div>
+            </Modal>}
         </div>
     )
 }

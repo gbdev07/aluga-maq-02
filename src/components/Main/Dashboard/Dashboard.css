@@ -146,6 +146,110 @@
     padding: 0 5px;
 }
 
+.Dashboard_modal {
+    min-width: 800px;
+    max-width: 100vw;
+    border-radius: 10px;
+}
+
+
+.Dashboard_modalDetail {
+    min-width: 800px;
+    max-width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    /*!*bottom: 0;*!*/
+    background: #F7FAFC;
+    border-radius: 10px;
+    z-index: 100;
+    padding: 20px 50px 20px 50px;
+}
+
+.Dashboard_modalAction {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Dashboard_modalDetailCol {
+    display: flex!important;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Dashboard_modalClose {
+    border: 2px solid #3182CE;
+    border-radius: 10px;
+    color: #3182CE;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.Dashboard_like {
+    border: 2px solid #3182CE;
+    border-radius: 10px;
+    color: #3182CE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: auto;
+    text-transform: uppercase;
+}
+
+.Dashboard_modalDetailText1 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: justify;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.Dashboard_modalDetailText2 {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 24px;
+    padding: 10px 5px;
+    color: #000000;
+}
+
+.Dashboard_modalDetailText3 {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 19px;
+    color: #718096;
+    padding-bottom: 5px;
+}
+
+.Dashboard_modalDetailView {
+    background: #E2E8F0;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.Dashboard_modalDetailViewLink {
+    color: #718096!important;
+}
+.Dashboard_body {
+    position: relative;
+}
+
+.Dashboard_detailBtn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
 @media only screen and (max-width: 800px) {
     .Dashboard_col_table {
         display: none!important;
