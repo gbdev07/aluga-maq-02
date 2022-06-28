@@ -40,7 +40,7 @@ const MainSite = (props) => {
                         </Link>
                         {/*<a className="logo logoText" href="#">*/}
                         {/*    Fit2Sell*/}
-                        {/*    /!*<img src="https://fulax.netlify.app/img/logo-light.png" alt="logo" />*!/*/}
+                        {/*    /!*<img src="fula/logo-light.png" alt="logo" />*!/*/}
                         {/*</a>*/}
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="icon-bar"><i className="fas fa-bars" /></span>
@@ -91,7 +91,7 @@ const MainSite = (props) => {
                 {/* =====================================
     ==== Start Header */}
                 <header className="header" data-scroll-index={0}>
-                    <div className="background valign bg-img parallaxie" data-overlay-dark={9} data-background="img/bg1.jpg">
+                    <div className="background valign bg-img parallaxie" data-overlay-dark={9} data-background="fula/bg1.jpg">
                         <div className="container">
                             <div className="row">
                                 <div className="offset-lg-2 col-lg-8 offset-md-1 col-md-10 text-center caption mt-80">
@@ -149,12 +149,12 @@ const MainSite = (props) => {
                     {/*            <div className="col-lg-2 col-md-3 col-sm-4">*/}
                     {/*                <div className="brand">*/}
                     {/*                    /!*<a href="#0">*!/*/}
-                    {/*                    /!*    <img src="https://fulax.netlify.app/img/clients-logo/1.png" alt="" />*!/*/}
+                    {/*                    /!*    <img src="fula/clients-logo/1.png" alt="" />*!/*/}
                     {/*                    /!*</a>*!/*/}
                     {/*                    <Link*/}
                     {/*                          to={links.SIGNIN}*/}
                     {/*                    >*/}
-                    {/*                        <img src="https://fulax.netlify.app/img/clients-logo/1.png" alt="" />*/}
+                    {/*                        <img src="fula/clients-logo/1.png" alt="" />*/}
                     {/*                    </Link>*/}
                     {/*                </div>*/}
                     {/*            </div>*/}
@@ -163,55 +163,55 @@ const MainSite = (props) => {
                     {/*                    <Link*/}
                     {/*                          to={links.SIGNIN}*/}
                     {/*                    >*/}
-                    {/*                        <img src="https://fulax.netlify.app/img/clients-logo/2.png" alt="" />*/}
+                    {/*                        <img src="fula/clients-logo/2.png" alt="" />*/}
                     {/*                    </Link>*/}
                     {/*                </div>*/}
                     {/*            </div>*/}
                     {/*            <div className="col-lg-2 col-md-3 col-sm-4">*/}
                     {/*                <div className="brand">*/}
                     {/*                    /!*<a href="#0">*!/*/}
-                    {/*                    /!*    <img src="https://fulax.netlify.app/img/clients-logo/3.png" alt="" />*!/*/}
+                    {/*                    /!*    <img src="fula/clients-logo/3.png" alt="" />*!/*/}
                     {/*                    /!*</a>*!/*/}
                     {/*                    <Link*/}
                     {/*                        to={links.SIGNIN}*/}
                     {/*                    >*/}
-                    {/*                        <img src="https://fulax.netlify.app/img/clients-logo/3.png" alt="" />*/}
+                    {/*                        <img src="fula/clients-logo/3.png" alt="" />*/}
                     {/*                    </Link>*/}
                     {/*                </div>*/}
                     {/*            </div>*/}
                     {/*            <div className="col-lg-2 col-md-3 col-sm-4">*/}
                     {/*                <div className="brand">*/}
                     {/*                    /!*<a href="#0">*!/*/}
-                    {/*                    /!*    <img src="https://fulax.netlify.app/img/clients-logo/4.png" alt="" />*!/*/}
+                    {/*                    /!*    <img src="fula/clients-logo/4.png" alt="" />*!/*/}
                     {/*                    /!*</a>*!/*/}
                     {/*                    <Link*/}
                     {/*                        to={links.SIGNIN}*/}
                     {/*                    >*/}
-                    {/*                        <img src="https://fulax.netlify.app/img/clients-logo/4.png" alt="" />*/}
+                    {/*                        <img src="fula/clients-logo/4.png" alt="" />*/}
                     {/*                    </Link>*/}
                     {/*                </div>*/}
                     {/*            </div>*/}
                     {/*            <div className="col-lg-2 col-md-3 col-sm-4">*/}
                     {/*                <div className="brand">*/}
                     {/*                    /!*<a href="#0">*!/*/}
-                    {/*                    /!*    <img src="https://fulax.netlify.app/img/clients-logo/5.png" alt="" />*!/*/}
+                    {/*                    /!*    <img src="fula/clients-logo/5.png" alt="" />*!/*/}
                     {/*                    /!*</a>*!/*/}
                     {/*                    <Link*/}
                     {/*                        to={links.SIGNIN}*/}
                     {/*                    >*/}
-                    {/*                        <img src="https://fulax.netlify.app/img/clients-logo/5.png" alt="" />*/}
+                    {/*                        <img src="fula/clients-logo/5.png" alt="" />*/}
                     {/*                    </Link>*/}
                     {/*                </div>*/}
                     {/*            </div>*/}
                     {/*            <div className="col-lg-2 col-md-3 col-sm-4">*/}
                     {/*                <div className="brand">*/}
                     {/*                    /!*<a href="#0">*!/*/}
-                    {/*                    /!*    <img src="https://fulax.netlify.app/img/clients-logo/6.png" alt="" />*!/*/}
+                    {/*                    /!*    <img src="fula/clients-logo/6.png" alt="" />*!/*/}
                     {/*                    /!*</a>*!/*/}
                     {/*                    <Link*/}
                     {/*                        to={links.SIGNIN}*/}
                     {/*                    >*/}
-                    {/*                        <img src="https://fulax.netlify.app/img/clients-logo/6.png" alt="" />*/}
+                    {/*                        <img src="fula/clients-logo/6.png" alt="" />*/}
                     {/*                    </Link>*/}
                     {/*                </div>*/}
                     {/*            </div>*/}
@@ -228,7 +228,7 @@ const MainSite = (props) => {
                         <div className="row">
                             <div className="col-md-5">
                                 <div className="img mb-sm50">
-                                    <img src="https://fulax.netlify.app/img/v1.svg" alt="" />
+                                    <img src="fula/v1.svg" alt="" />
                                 </div>
                             </div>
                             <div className="offset-md-1 col-md-6 valign">
@@ -283,7 +283,7 @@ const MainSite = (props) => {
                             </div>
                             <div className="offset-md-1 col-md-5">
                                 <div className="img">
-                                    <img src="https://fulax.netlify.app/img/v3.svg" alt="" />
+                                    <img src="fula/v3.svg" alt="" />
                                 </div>
                             </div>
                         </div>
@@ -294,7 +294,7 @@ const MainSite = (props) => {
                 {/* =====================================
     ==== Start Process */}
                 <section className="process">
-                    <div className="section-padding background bg-img parallaxie" data-overlay-dark={9} data-background="img/bg1.jpg">
+                    <div className="section-padding background bg-img parallaxie" data-overlay-dark={9} data-background="fula/bg1.jpg">
                         <div className="container">
                             <div className="row">
                                 <div className="section-head text-center col-sm-12">
@@ -303,7 +303,7 @@ const MainSite = (props) => {
                                 </div>
                                 <div className="col-lg-3 col-md-6 padding mb-md50">
                                     <div className="item text-center">
-                                        <img src="https://fulax.netlify.app/img/arrow1.png" className="tobotm" alt="" />
+                                        <img src="fula/arrow1.png" className="tobotm" alt="" />
                                         {/*<span className="icon pe-7s-scissors" />*/}
                                         <span className="icon fa-solid fa-scissors"></span>
                                         <h6><span>01.</span>Analyze</h6>
@@ -312,7 +312,7 @@ const MainSite = (props) => {
                                 </div>
                                 <div className="col-lg-3 col-md-6 padding mb-md50">
                                     <div className="item text-center">
-                                        <img src="https://fulax.netlify.app/img/arrow1.png" alt="" />
+                                        <img src="fula/arrow1.png" alt="" />
                                         {/*<span className="icon pe-7s-diamond" />*/}
                                         <span className="icon fa-solid fa-diamond"></span>
                                         <h6><span>02.</span>Strategy</h6>
@@ -321,7 +321,7 @@ const MainSite = (props) => {
                                 </div>
                                 <div className="col-lg-3 col-md-6 padding mb-sm50">
                                     <div className="item text-center">
-                                        <img src="https://fulax.netlify.app/img/arrow1.png" className="tobotm" alt="" />
+                                        <img src="fula/arrow1.png" className="tobotm" alt="" />
                                         {/*<span className="icon pe-7s-rocket" />*/}
                                         <span className="icon fa-solid fa-rocket"></span>                                        <h6><span>03.</span>lounch</h6>
                                         <p>Fusce imperdiet justo vitae ac massa scelerisque.</p>
@@ -468,10 +468,10 @@ const MainSite = (props) => {
                                                 torquent per conubia
                                                 nostra.</p>
                                             <div className="img">
-                                                <span className="icon"><img src="https://fulax.netlify.app/img/left-quote.svg" alt="" /></span>
-                                                <span className="icon"><img src="https://fulax.netlify.app/img/right-quote.svg" alt="" /></span>
+                                                <span className="icon"><img src="fula/left-quote.svg" alt="" /></span>
+                                                <span className="icon"><img src="fula/right-quote.svg" alt="" /></span>
                                                 <div className="author">
-                                                    <img src="https://fulax.netlify.app/img/clients/1.jpg" alt="" />
+                                                    <img src="fula/clients/1.jpg" alt="" />
                                                 </div>
                                             </div>
                                             <h6>Alex Smith</h6>
@@ -484,10 +484,10 @@ const MainSite = (props) => {
                                                 torquent per conubia
                                                 nostra.</p>
                                             <div className="img">
-                                                <span className="icon"><img src="https://fulax.netlify.app/img/left-quote.svg" alt="" /></span>
-                                                <span className="icon"><img src="https://fulax.netlify.app/img/right-quote.svg" alt="" /></span>
+                                                <span className="icon"><img src="fula/left-quote.svg" alt="" /></span>
+                                                <span className="icon"><img src="fula/right-quote.svg" alt="" /></span>
                                                 <div className="author">
-                                                    <img src="https://fulax.netlify.app/img/clients/2.jpg" alt="" />
+                                                    <img src="fula/clients/2.jpg" alt="" />
                                                 </div>
                                             </div>
                                             <h6>Sam Smith</h6>
@@ -500,10 +500,10 @@ const MainSite = (props) => {
                                                 torquent per conubia
                                                 nostra.</p>
                                             <div className="img">
-                                                <span className="icon"><img src="https://fulax.netlify.app/img/left-quote.svg" alt="" /></span>
-                                                <span className="icon"><img src="https://fulax.netlify.app/img/right-quote.svg" alt="" /></span>
+                                                <span className="icon"><img src="fula/left-quote.svg" alt="" /></span>
+                                                <span className="icon"><img src="fula/right-quote.svg" alt="" /></span>
                                                 <div className="author">
-                                                    <img src="https://fulax.netlify.app/img/clients/3.jpg" alt="" />
+                                                    <img src="fula/clients/3.jpg" alt="" />
                                                 </div>
                                             </div>
                                             <h6>Alex Martin</h6>
@@ -520,7 +520,7 @@ const MainSite = (props) => {
                 {/* =====================================
     ==== Start Call Action */}
                 <div className="call-action text-center">
-                    <div className="background bg-img  parallaxie pt-80 pb-80" data-background="img/bg2.jpg" data-overlay-dark={8}>
+                    <div className="background bg-img  parallaxie pt-80 pb-80" data-background="fula/bg2.jpg" data-overlay-dark={8}>
                         <div className="container">
                             <div className="row">
                                 <div className="offset-lg-3 col-lg-6 offset-md-2 col-md-8">
@@ -560,7 +560,7 @@ const MainSite = (props) => {
                 {/*                    <div className="post-img">*/}
                 {/*                        <div className="img">*/}
                 {/*                            <a href="#0"><span>6 Aug</span> 2019</a>*/}
-                {/*                            <img src="https://fulax.netlify.app/img/blog/1.jpg" alt="" />*/}
+                {/*                            <img src="fula/blog/1.jpg" alt="" />*/}
                 {/*                        </div>*/}
                 {/*                    </div>*/}
                 {/*                    <div className="cont">*/}
@@ -580,7 +580,7 @@ const MainSite = (props) => {
                 {/*                    <div className="post-img">*/}
                 {/*                        <div className="img">*/}
                 {/*                            <a href="#0"><span>6 Aug</span> 2019</a>*/}
-                {/*                            <img src="https://fulax.netlify.app/img/blog/2.jpg" alt="" />*/}
+                {/*                            <img src="fula/blog/2.jpg" alt="" />*/}
                 {/*                        </div>*/}
                 {/*                    </div>*/}
                 {/*                    <div className="cont">*/}
@@ -600,7 +600,7 @@ const MainSite = (props) => {
                 {/*                    <div className="post-img">*/}
                 {/*                        <div className="img">*/}
                 {/*                            <a href="#0"><span>6 Aug</span> 2019</a>*/}
-                {/*                            <img src="https://fulax.netlify.app/img/blog/3.jpg" alt="" />*/}
+                {/*                            <img src="fula/blog/3.jpg" alt="" />*/}
                 {/*                        </div>*/}
                 {/*                    </div>*/}
                 {/*                    <div className="cont">*/}
@@ -628,7 +628,7 @@ const MainSite = (props) => {
                 {/*            <div className="col-lg-4 col-md-4">*/}
                 {/*                <div className="item">*/}
                 {/*                    <a className="logo logoText" href="#">*/}
-                {/*                        /!*<img src="https://fulax.netlify.app/img/logo-dark.png" alt="logo" />*!/*/}
+                {/*                        /!*<img src="fula/logo-dark.png" alt="logo" />*!/*/}
                 {/*                        Fit2Sell*/}
                 {/*                    </a>*/}
                 {/*                    <p>Nulla metus metus sed euismod volutpat velit class aptent taciti ad litora torquent per*/}
