@@ -13,6 +13,7 @@ export const CANAL_FAVORITES = '/canal-favorites';
 export const CANAL_SETTINGS = '/canal-settings';
 export const CANAL_BUY_PREMIUM = '/canal-buy-premium';
 export const CANAL_FAVORITES_PREMIUM = '/canal-favorites-premium';
+export const CANAL_MY_FITS = '/canal-my-fits';
 
 export const DASHBOARD_FORNECEDOR = '/dashboard-fornecedor';
 export const FORNECEDOR_EDIT_PROFILE = '/fornecedor-edit-profile';

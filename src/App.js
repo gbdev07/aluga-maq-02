@@ -33,6 +33,7 @@ import FornecedorNotification from "./components/Main/Notification/FornecedorNot
 import FornecedorFavoritesPremium from "./components/Main/Favorites/FornecedorFavoritesPremium";
 import CanalBuyPremium from "./components/Main/BuyPremium/CanalBuyPremium";
 import CanalFavoritesPremium from "./components/Main/Favorites/CanalFavoritesPremium";
+import CanalMyFits from "./components/Main/MyFits/CanalMyFits";
 function App() {
     const {
         setDataUser,
@@ -112,6 +113,16 @@ function App() {
                         <PrivateRoute>
                             <Main>
                                 <MyFits />
+                            </Main>
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path={links.CANAL_MY_FITS}
+                    element={
+                        <PrivateRoute>
+                            <Main>
+                                <CanalMyFits />
                             </Main>
                         </PrivateRoute>
                     }

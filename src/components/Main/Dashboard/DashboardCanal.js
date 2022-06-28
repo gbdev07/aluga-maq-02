@@ -17,6 +17,7 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
 import {format} from "date-fns";
 import eoLocale from "date-fns/locale/pt-BR";
+import {CANAL_SEARCH_FORNECEDORES} from "../../../utils/links";
 const DashboardCanal = (props) => {
     const {
         setDataUser,
@@ -169,7 +170,7 @@ const DashboardCanal = (props) => {
                             <img src={block1} alt=""/>
                         </div>
                         <div className="Dashboard_staBlockBottomLink">
-                            <Link to={links.FORNECEDOR_SEARCH_CANAIS}>
+                            <Link to={links.CANAL_SEARCH_FORNECEDORES}>
                                 <div className="arrowBottomLink">
                                     <img src={ArrowBottomIcon} alt=""/>
                                 </div>
@@ -179,7 +180,7 @@ const DashboardCanal = (props) => {
                 </Col>
                 <Col xs={24} md={24} lg={8} xl={8} className="Dashboard_col">
                     <div className="Dashboard_staBlock">
-                        <Link to={links.FORNECEDOR_SEARCH_CANAIS} className="Dashboard_staBlockLinkA">
+                        <Link to={links.CANAL_SEARCH_FORNECEDORES} className="Dashboard_staBlockLinkA">
                             <div className="Dashboard_staBlockLink">
                                 <div>Buscar</div>
                                 <img src={ArrowBottomIcon} alt=""/>
@@ -195,7 +196,7 @@ const DashboardCanal = (props) => {
                             <img src={block2} alt=""/>
                         </div>
                         <div className="Dashboard_staBlockBottomLink">
-                            <Link to={links.FORNECEDOR_SEARCH_CANAIS}>
+                            <Link to={links.CANAL_SEARCH_FORNECEDORES}>
                                 <div className="arrowBottomLink">
                                     <img src={ArrowBottomIcon} alt=""/>
                                 </div>
@@ -208,7 +209,7 @@ const DashboardCanal = (props) => {
                         {
                             isPremium
                                 ?
-                                <Link to={links.FORNECEDOR_MY_FITS} className="Dashboard_staBlockLinkA">
+                                <Link to={links.CANAL_MY_FITS} className="Dashboard_staBlockLinkA">
                                     <div className="Dashboard_staBlockLink">
                                         <img src={premium2Icon} alt=""/>
                                         <div>Ver Fits</div>
@@ -224,7 +225,7 @@ const DashboardCanal = (props) => {
                                     </div>
                                 </div>
                         }
-                        {/*<Link to={links.FORNECEDOR_MY_FITS} className="Dashboard_staBlockLinkA">*/}
+                        {/*<Link to={links.CANAL_MY_FITS} className="Dashboard_staBlockLinkA">*/}
                         {/*    <div className="Dashboard_staBlockLink">*/}
                         {/*        <img src={premium2Icon} alt=""/>*/}
                         {/*        <div>Ver Fits</div>*/}
@@ -241,7 +242,7 @@ const DashboardCanal = (props) => {
                             <img src={block3} alt=""/>
                         </div>
                         <div className="Dashboard_staBlockBottomLink">
-                            <Link to={links.FORNECEDOR_MY_FITS}>
+                            <Link to={links.CANAL_MY_FITS}>
                                 <div className="arrowBottomLink">
                                     <img src={ArrowBottomIcon} alt=""/>
                                 </div>
