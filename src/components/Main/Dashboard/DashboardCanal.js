@@ -287,7 +287,7 @@ const DashboardCanal = (props) => {
                                     Assinatura expira em {format(new Date(premiumExpiration), "d 'de' MMMM yyyy", { locale: eoLocale })}.
                                 </> :
                                 <>
-                                    <Link to={links.FORNECEDOR_BUY_PREMIUM}>Seja Premium</Link> libere todos os recursos
+                                    <Link to={links.CANAL_BUY_PREMIUM}>Seja Premium</Link> libere todos os recursos
                                 </>}
                         </div>
                         {
