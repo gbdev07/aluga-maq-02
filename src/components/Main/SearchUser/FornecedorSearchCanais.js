@@ -408,10 +408,17 @@ const FornecedorSearchCanais = (props) => {
                             if (searchText.trim() !==  "") {
                                 getData(searchText)
                             } else {
-                                setNotiMessage({
-                                    type: 'warning',
-                                    message: 'Insira algo para buscar, como por exemplo: marketing ou software ou erp em São Paulo'
-                                })
+                                if (hasData) {
+                                    setNotiMessage({
+                                        type: 'warning',
+                                        message: 'Insira algo para buscar, como por exemplo: marketing ou software ou erp em São Paulo'
+                                    })
+                                } else {
+                                    setNotiMessage({
+                                        type: 'success',
+                                        message: 'Insira algo para buscar, como por exemplo: marketing ou software ou erp em São Paulo'
+                                    })
+                                }
                             }
                         }}/>
                     </div>
