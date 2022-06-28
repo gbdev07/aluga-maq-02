@@ -61,9 +61,9 @@ const MainSite = (props) => {
                                 <li className="nav-item">
                                     <a className="nav-link" href="#" data-scroll-nav={2}>Features</a>
                                 </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#" data-scroll-nav={3}>Price</a>
-                                </li>
+                                {/*<li className="nav-item">*/}
+                                {/*    <a className="nav-link" href="#" data-scroll-nav={3}>Price</a>*/}
+                                {/*</li>*/}
                                 <li className="nav-item">
                                     <a className="nav-link" href="#" data-scroll-nav={4}>Testimonials</a>
                                 </li>
