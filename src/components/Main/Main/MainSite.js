@@ -49,11 +49,9 @@ const MainSite = (props) => {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item">
-                                    <Link className="nav-link active" href="#" data-scroll-nav={0}
-                                        to={links.SIGNIN}
-                                    >
+                                    <a className="nav-link active" href="#" data-scroll-nav={0}>
                                         Home
-                                    </Link>
+                                    </a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#" data-scroll-nav={1}>About</a>
