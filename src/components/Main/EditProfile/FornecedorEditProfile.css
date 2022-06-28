@@ -86,3 +86,18 @@
     font-size: 14px;
     padding: 2px 0;
 }
+
+.FornecedorEditProfile_col1Wrapper {
+    display: flex;
+    align-items: center;
+    /*padding-right: 15px;*/
+}
+
+.FornecedorEditProfile_col1Wrapper .FornecedorEditProfile_fieldRequired {
+    margin-top: -15px;
+    /*margin-left: -2px;*/
+}
+
+.FornecedorEditProfile_col1Wrapper row {
+    width: 100%;
+}

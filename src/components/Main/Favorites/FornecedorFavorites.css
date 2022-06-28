@@ -125,6 +125,7 @@
     background: #E2E8F0;
     border-radius: 5px;
     padding: 10px 20px;
+    min-height: 42px;
 }
 
 .FornecedorFavorites_modalDetailViewLink {
@@ -157,3 +158,4 @@
     padding: 2px 5px;
     font-size: 16px;
 }
+

@@ -31,6 +31,8 @@ import React, {useContext, useEffect} from "react";
 import {AuthContext} from "./contexts/AuthContext";
 import FornecedorNotification from "./components/Main/Notification/FornecedorNotification";
 import FornecedorFavoritesPremium from "./components/Main/Favorites/FornecedorFavoritesPremium";
+import CanalBuyPremium from "./components/Main/BuyPremium/CanalBuyPremium";
+import CanalFavoritesPremium from "./components/Main/Favorites/CanalFavoritesPremium";
 function App() {
     const {
         setDataUser,
@@ -95,6 +97,16 @@ function App() {
                     }
                 />
                 <Route
+                    path={links.CANAL_FAVORITES_PREMIUM}
+                    element={
+                        <PrivateRoute>
+                            <Main>
+                                <CanalFavoritesPremium />
+                            </Main>
+                        </PrivateRoute>
+                    }
+                />
+                <Route
                     path={links.FORNECEDOR_MY_FITS}
                     element={
                         <PrivateRoute>
@@ -130,6 +142,16 @@ function App() {
                         <PrivateRoute>
                             <Main>
                                 <FornecedorBuyPremium />
+                            </Main>
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path={links.CANAL_BUY_PREMIUM}
+                    element={
+                        <PrivateRoute>
+                            <Main>
+                                <CanalBuyPremium />
                             </Main>
                         </PrivateRoute>
                     }

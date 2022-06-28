@@ -189,6 +189,7 @@
     background: #E2E8F0;
     border-radius: 5px;
     padding: 10px 20px;
+    min-height: 42px;
 }
 
 .FornecedorSearchCanais_modalDetailViewLink {

@@ -62,6 +62,34 @@ const Main = (props) => {
         }
     ]
 
+    const listMenuCanal = [
+        {
+            icon: DashboardIcon,
+            text: 'Dashboard',
+            link: links.DASHBOARD_CANAL,
+        },
+        {
+            icon: EditProfileIcon,
+            text: 'Editar Perfil',
+            link: links.CANAL_EDIT_PROFILE,
+        },
+        {
+            icon: SearchIcon,
+            text: 'Buscar Canais',
+            link: links.CANAL_SEARCH_FORNECEDORES,
+        },
+        {
+            icon: FavoritesIcon,
+            text: 'Favoritos',
+            link: links.CANAL_FAVORITES,
+        },
+        {
+            icon: SettingsIcon,
+            text: 'Configurações',
+            link: links.CANAL_SETTINGS,
+        }
+    ]
+
     const menu = (
         <Menu
             items={[
@@ -89,19 +117,56 @@ const Main = (props) => {
     }
     if (dataUser?.type === CANAL) {
         return (
-            <div>
-                {children}
-                <Button
-                    style={{
-                        padding: '10px 20px',
-                        margin: 20,
-                    }}
-                    onClick={() => {
-                        setDataUser(null)
-                    }}
-                >
-                    Logout
-                </Button>
+            <div className="Main_container">
+                <div className="Main_sidebar">
+                    {
+                        listMenuCanal.map((item, index) => {
+                            return (
+                                <Link to={item.link} className={"Main_menuitemLink" + (location.pathname === item.link ? " Main_menuitemLinkActive" : "")}>
+                                    <div className="Main_menuitem">
+                                        <img src={item.icon} alt=""/>
+                                        <div>{item.text}</div>
+                                    </div>
+                                </Link>
+                            )
+                        })
+                    }
+                </div>
+                <div className="Main_right">
+                    <div className="Main_header">
+                        <div className="Main_header_title">{renderScreenTitle()}</div>
+                        <div className="Main_headerBetween">
+
+                        </div>
+                        <div className="Main_headerRight">
+                            <div className="Main_headerSearch">
+                                <Link to={links.FORNECEDOR_SEARCH_CANAIS}>
+                                    <img src={SearchHeaderIcon} alt=""/>
+                                </Link>
+                            </div>
+                            <div className="Main_headerNoti">
+                                {
+                                    hasNotification ? <Link to={links.FORNECEDOR_NOTI}>
+                                            <img src={NotiHasHeaderIcon} alt=""/>
+                                        </Link>
+                                        :
+                                        <img src={NotiHeaderIcon} alt=""/>
+                                }
+
+                            </div>
+                            <Dropdown overlay={menu} placement="bottomRight" arrow>
+                                <div className="Main_menuProfile">
+                                    <img src={(premiumExpiration && moment(premiumExpiration) > moment()) ? UserPremiumIcon : UserIcon} alt=""/>
+                                    <img className="Main_dropdownIcon" src={DropdownIcon} alt=""/>
+                                </div>
+                            </Dropdown>
+                        </div>
+                    </div>
+                    <div className="Main_content">
+                        {children}
+                    </div>
+                </div>
+
             </div>
         )
     } else {
