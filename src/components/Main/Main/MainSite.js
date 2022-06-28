@@ -471,7 +471,7 @@ const MainSite = (props) => {
                                                 <span className="icon"><img src="fula/left-quote.svg" alt="" /></span>
                                                 <span className="icon"><img src="fula/right-quote.svg" alt="" /></span>
                                                 <div className="author">
-                                                    <img src="fula/clients/1.jpg" alt="" />
+                                                    <img src="fula/1.jpg" alt="" />
                                                 </div>
                                             </div>
                                             <h6>Alex Smith</h6>
@@ -487,7 +487,7 @@ const MainSite = (props) => {
                                                 <span className="icon"><img src="fula/left-quote.svg" alt="" /></span>
                                                 <span className="icon"><img src="fula/right-quote.svg" alt="" /></span>
                                                 <div className="author">
-                                                    <img src="fula/clients/2.jpg" alt="" />
+                                                    <img src="fula/2.jpg" alt="" />
                                                 </div>
                                             </div>
                                             <h6>Sam Smith</h6>
@@ -503,7 +503,7 @@ const MainSite = (props) => {
                                                 <span className="icon"><img src="fula/left-quote.svg" alt="" /></span>
                                                 <span className="icon"><img src="fula/right-quote.svg" alt="" /></span>
                                                 <div className="author">
-                                                    <img src="fula/clients/3.jpg" alt="" />
+                                                    <img src="fula/3.jpg" alt="" />
                                                 </div>
                                             </div>
                                             <h6>Alex Martin</h6>
