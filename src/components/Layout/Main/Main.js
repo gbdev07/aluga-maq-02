@@ -140,7 +140,7 @@ const Main = (props) => {
                         </div>
                         <div className="Main_headerRight">
                             <div className="Main_headerSearch">
-                                <Link to={links.FORNECEDOR_SEARCH_CANAIS}>
+                                <Link to={links.CANAL_SEARCH_FORNECEDORES}>
                                     <img src={SearchHeaderIcon} alt=""/>
                                 </Link>
                             </div>
