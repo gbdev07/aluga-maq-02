@@ -163,7 +163,7 @@ const FornecedorFavorites = (props) => {
                 Canais Favoritos
             </div>
             {
-                isPremium
+                true
                 ?
                     <div className="FornecedorFavorites_body">
                         {dataCurrentDetail && <div className="FornecedorFavorites_modalDetail">

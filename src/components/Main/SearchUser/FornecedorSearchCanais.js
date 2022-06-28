@@ -268,6 +268,24 @@ const FornecedorSearchCanais = (props) => {
         },
     ];
 
+    const onSearch = () => {
+        if (searchText.trim() !==  "") {
+            getData(searchText)
+        } else {
+            if (hasData) {
+                setNotiMessage({
+                    type: 'warning',
+                    message: 'Insira algo para buscar, como por exemplo: marketing ou software ou erp em São Paulo'
+                })
+            } else {
+                setNotiMessage({
+                    type: 'success',
+                    message: 'Insira algo para buscar, como por exemplo: marketing ou software ou erp em São Paulo'
+                })
+            }
+        }
+    }
+
     return (
         <div className="FornecedorSearchCanais_container">
             {isLoading && <LoadingAction />}
@@ -402,24 +420,15 @@ const FornecedorSearchCanais = (props) => {
                             onChange={(event) => {
                                 setSearchTextTemp(event.target.value)
                             }}
+                            onKeyPress={(event) => {
+                                if(event.key === 'Enter'){
+                                    onSearch();
+                                }
+                            }}
                             disabled={!hasData}
                         />
                         <img src={search2Icon} alt="" onClick={() => {
-                            if (searchText.trim() !==  "") {
-                                getData(searchText)
-                            } else {
-                                if (hasData) {
-                                    setNotiMessage({
-                                        type: 'warning',
-                                        message: 'Insira algo para buscar, como por exemplo: marketing ou software ou erp em São Paulo'
-                                    })
-                                } else {
-                                    setNotiMessage({
-                                        type: 'success',
-                                        message: 'Insira algo para buscar, como por exemplo: marketing ou software ou erp em São Paulo'
-                                    })
-                                }
-                            }
+                           onSearch()
                         }}/>
                     </div>
                     {isPremium && <Button className="FornecedorSearchCanais_btnSubmit" onClick={() => {
