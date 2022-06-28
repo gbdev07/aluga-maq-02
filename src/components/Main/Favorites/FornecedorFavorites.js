@@ -182,47 +182,37 @@ const FornecedorFavorites = (props) => {
                                     </div>
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
-                                    <div className="FornecedorFavorites_modalDetailText2">
-                                        Tamanho da Empresa: {dataCurrentDetail.tamanho}
+                                    <div className="FornecedorSearchCanais_modalDetailText2">
+                                        Número Aprox. de Clientes: R$: {dataCurrentDetail.numeroAproxClientes}
                                     </div>
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
-                                    <div className="FornecedorFavorites_modalDetailText2">
-                                        País: {dataCurrentDetail.country}.
-                                    </div>
-                                </Col>
-                                <Col xs={24} md={24} lg={12} xl={12}>
-                                    <div className="FornecedorFavorites_modalDetailText2">
-                                        Média de Faturamento Anual: R$: {dataCurrentDetail.mediaFaturamentoAnual}
-                                    </div>
-                                </Col>
-                                <Col xs={24} md={24} lg={12} xl={12}>
-                                    <div className="FornecedorFavorites_modalDetailText2">
+                                    <div className="FornecedorSearchCanais_modalDetailText2">
                                         Cidade: {dataCurrentDetail.city}
                                     </div>
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
-                                    <div className="FornecedorFavorites_modalDetailText2">
-                                        Responsável: {dataCurrentDetail.responsiblePerson}
+                                    <div className="FornecedorSearchCanais_modalDetailText2">
+                                        Descrição de Produtos e Serviços: {dataCurrentDetail.descricaoProdutosServicos}
                                     </div>
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
-                                    <div className="FornecedorFavorites_modalDetailText2">
+                                    <div className="FornecedorSearchCanais_modalDetailText2">
                                         Estado: {dataCurrentDetail.state}
                                     </div>
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
-                                    <div className="FornecedorFavorites_modalDetailText2">
+                                    <div className="FornecedorSearchCanais_modalDetailText2">
                                         Área de Atuação: {dataCurrentDetail.areaAtuacao}
                                     </div>
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
-                                    <div className="FornecedorFavorites_modalDetailText2">
+                                    <div className="FornecedorSearchCanais_modalDetailText2">
                                         Endereço: {dataCurrentDetail.street}
                                     </div>
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
-                                    <div className="FornecedorFavorites_modalDetailText2">
+                                    <div className="FornecedorSearchCanais_modalDetailText2">
                                         Segmento: {dataCurrentDetail.segmento}
                                     </div>
                                 </Col>

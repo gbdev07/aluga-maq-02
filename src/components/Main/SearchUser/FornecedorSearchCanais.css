@@ -30,7 +30,7 @@
     height: unset!important;
     padding: 12px 10px!important;
     border: none!important;
-    width: 400px;
+    width: 400px!important;
 }
 
 .FornecedorSearchCanais_search img {

@@ -55,6 +55,9 @@ function App() {
                 case "info":
                     NotificationManager.info(notiMessage.message, '... ');
                     break;
+                case "warning":
+                    NotificationManager.warning(notiMessage.message, '... ');
+                    break;
             }
         }
     }, [notiMessage])

@@ -23,6 +23,7 @@ const FornecedorSearchCanais = (props) => {
     let navigate = useNavigate();
     const email = authInfo?.dataUser?.email;
     const token = authInfo?.dataUser?.token;
+    const hasData = !!authInfo?.dataUser?.hasData
     const premiumExpiration = authInfo?.dataUser?.premiumExpiration ?? null;
     const isPremium = !!(premiumExpiration && moment(premiumExpiration) > moment());
     const [isLoading, setIsLoading] = useState(false);
@@ -180,32 +181,34 @@ const FornecedorSearchCanais = (props) => {
     // }, [searchText])
 
     const getData = (description) => {
-        axios.post(`${REACT_APP_API_BASE_URL}/search-canais`, {
-            description: description,
-            type : "CANAL",
-            email : email
-        }, {
-            headers: {
-                "x-access-token": token,
-                "content-type": "application/json"
-            }
-        })
-            .then(res => {
-                if (res.status === 200 && Array.isArray(res.data)) {
-                    console.log(res.data)
-                    setListCanals(res.data);
+        if (description.trim()!== "") {
+            axios.post(`${REACT_APP_API_BASE_URL}/search-canais`, {
+                description: description.trim(),
+                type: "CANAL",
+                email: email
+            }, {
+                headers: {
+                    "x-access-token": token,
+                    "content-type": "application/json"
                 }
             })
-            .catch(err => {
-                if ([401, 403].includes(err.response.status)) {
-                    // setNotiMessage('A sua sessão expirou, para continuar faça login novamente.');
-                    setNotiMessage({
-                        type: 'error',
-                        message: 'A sua sessão expirou, para continuar faça login novamente.'
-                    })
-                    setDataUser(null);
-                }
-            })
+                .then(res => {
+                    if (res.status === 200 && Array.isArray(res.data)) {
+                        console.log(res.data)
+                        setListCanals(res.data);
+                    }
+                })
+                .catch(err => {
+                    if ([401, 403].includes(err.response.status)) {
+                        // setNotiMessage('A sua sessão expirou, para continuar faça login novamente.');
+                        setNotiMessage({
+                            type: 'error',
+                            message: 'A sua sessão expirou, para continuar faça login novamente.'
+                        })
+                        setDataUser(null);
+                    }
+                })
+        }
     }
     const debounceUpdate = useCallback(debounce((nextValue) => {
         onChangeSearch(nextValue);
@@ -290,7 +293,7 @@ const FornecedorSearchCanais = (props) => {
                         </Col>
                         <Col xs={24} md={24} lg={12} xl={12}>
                             <div className="FornecedorSearchCanais_modalDetailText2">
-                                Tamanho da Empresa: {dataCurrentDetail.tamanho}
+                                Tipo de Parceria desejada: {dataCurrentDetail.tipoParceriaDesejada}
                             </div>
                         </Col>
                         <Col xs={24} md={24} lg={12} xl={12}>
@@ -300,7 +303,7 @@ const FornecedorSearchCanais = (props) => {
                         </Col>
                         <Col xs={24} md={24} lg={12} xl={12}>
                             <div className="FornecedorSearchCanais_modalDetailText2">
-                                Média de Faturamento Anual: R$: {dataCurrentDetail.mediaFaturamentoAnual}
+                                Número Aprox. de Clientes: R$: {dataCurrentDetail.numeroAproxClientes}
                             </div>
                         </Col>
                         <Col xs={24} md={24} lg={12} xl={12}>
@@ -310,7 +313,7 @@ const FornecedorSearchCanais = (props) => {
                         </Col>
                         <Col xs={24} md={24} lg={12} xl={12}>
                             <div className="FornecedorSearchCanais_modalDetailText2">
-                                Responsável: {dataCurrentDetail.responsiblePerson}
+                                Descrição de Produtos e Serviços: {dataCurrentDetail.descricaoProdutosServicos}
                             </div>
                         </Col>
                         <Col xs={24} md={24} lg={12} xl={12}>
@@ -399,9 +402,17 @@ const FornecedorSearchCanais = (props) => {
                             onChange={(event) => {
                                 setSearchTextTemp(event.target.value)
                             }}
+                            disabled={!hasData}
                         />
                         <img src={search2Icon} alt="" onClick={() => {
-                            getData(searchText)
+                            if (searchText.trim() !==  "") {
+                                getData(searchText)
+                            } else {
+                                setNotiMessage({
+                                    type: 'warning',
+                                    message: 'Insira algo para buscar, como por exemplo: marketing ou software ou erp em São Paulo'
+                                })
+                            }
                         }}/>
                     </div>
                     {isPremium && <Button className="FornecedorSearchCanais_btnSubmit" onClick={() => {
@@ -430,7 +441,7 @@ const FornecedorSearchCanais = (props) => {
                                 <Button className="FornecedorSearchCanais_premiumBtn">
                                     <AiOutlinePlus />
                                     <div>
-                                        Seja Premium e veja todos os canais que te favoritaram
+                                        Seja Premium e Veja Todos Os Resultados.
                                     </div>
                                 </Button>
                             </Link>
