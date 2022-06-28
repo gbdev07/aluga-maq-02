@@ -37,12 +37,12 @@ const DashboardFornecedor = (props) => {
 
     useEffect(() => {
         if (!hasData) {
-            // navigate(links.FORNECEDOR_EDIT_PROFILE);
-            // // setNotiMessage('Você precisa preencher seus dados antes de usar o sistema');
-            // setNotiMessage({
-            //     type: 'success',
-            //     message: 'Você precisa preencher seus dados antes de usar o sistema'
-            // })
+            navigate(links.FORNECEDOR_EDIT_PROFILE);
+            // setNotiMessage('Você precisa preencher seus dados antes de usar o sistema');
+            setNotiMessage({
+                type: 'success',
+                message: 'Você precisa preencher seus dados antes de usar o sistema'
+            })
         }
     }, [])
     const columns = [

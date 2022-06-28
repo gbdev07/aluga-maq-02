@@ -147,11 +147,41 @@ const FornecedorSearchCanais = (props) => {
 
     const onChangeSearch = (value) => {
         setSearchText(value);
+        getData(value);
     }
 
-    useEffect(() => {
+    // useEffect(() => {
+    //     axios.post(`${REACT_APP_API_BASE_URL}/search-canais`, {
+    //         description: searchText,
+    //         type : "CANAL",
+    //         email : email
+    //     }, {
+    //         headers: {
+    //             "x-access-token": token,
+    //             "content-type": "application/json"
+    //         }
+    //     })
+    //         .then(res => {
+    //             if (res.status === 200 && Array.isArray(res.data)) {
+    //                 console.log(res.data)
+    //                 setListCanals(res.data);
+    //             }
+    //         })
+    //         .catch(err => {
+    //             if ([401, 403].includes(err.response.status)) {
+    //                 // setNotiMessage('A sua sessão expirou, para continuar faça login novamente.');
+    //                 setNotiMessage({
+    //                     type: 'error',
+    //                     message: 'A sua sessão expirou, para continuar faça login novamente.'
+    //                 })
+    //                 setDataUser(null);
+    //             }
+    //         })
+    // }, [searchText])
+
+    const getData = (description) => {
         axios.post(`${REACT_APP_API_BASE_URL}/search-canais`, {
-            description: searchText,
+            description: description,
             type : "CANAL",
             email : email
         }, {
@@ -176,8 +206,7 @@ const FornecedorSearchCanais = (props) => {
                     setDataUser(null);
                 }
             })
-    }, [searchText])
-
+    }
     const debounceUpdate = useCallback(debounce((nextValue) => {
         onChangeSearch(nextValue);
     }, 300), [])
@@ -371,7 +400,9 @@ const FornecedorSearchCanais = (props) => {
                                 setSearchTextTemp(event.target.value)
                             }}
                         />
-                        <img src={search2Icon} alt=""/>
+                        <img src={search2Icon} alt="" onClick={() => {
+                            getData(searchText)
+                        }}/>
                     </div>
                     {isPremium && <Button className="FornecedorSearchCanais_btnSubmit" onClick={() => {
                         // onSave();

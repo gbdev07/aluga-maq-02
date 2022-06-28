@@ -55,18 +55,18 @@ const MainSite = (props) => {
                                         Home
                                     </Link>
                                 </li>
-                                {/*<li className="nav-item">*/}
-                                {/*    <a className="nav-link" href="#" data-scroll-nav={1}>About</a>*/}
-                                {/*</li>*/}
-                                {/*<li className="nav-item">*/}
-                                {/*    <a className="nav-link" href="#" data-scroll-nav={2}>Features</a>*/}
-                                {/*</li>*/}
-                                {/*<li className="nav-item">*/}
-                                {/*    <a className="nav-link" href="#" data-scroll-nav={3}>Price</a>*/}
-                                {/*</li>*/}
-                                {/*<li className="nav-item">*/}
-                                {/*    <a className="nav-link" href="#" data-scroll-nav={4}>Testimonials</a>*/}
-                                {/*</li>*/}
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#" data-scroll-nav={1}>About</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#" data-scroll-nav={2}>Features</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#" data-scroll-nav={3}>Price</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#" data-scroll-nav={4}>Testimonials</a>
+                                </li>
                                 {/*<li className="nav-item dropdown">*/}
                                 {/*    <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>*/}
                                 {/*    <div className="dropdown-menu">*/}
@@ -306,7 +306,8 @@ const MainSite = (props) => {
                                 <div className="col-lg-3 col-md-6 padding mb-md50">
                                     <div className="item text-center">
                                         <img src="https://fulax.netlify.app/img/arrow1.png" className="tobotm" alt="" />
-                                        <span className="icon pe-7s-scissors" />
+                                        {/*<span className="icon pe-7s-scissors" />*/}
+                                        <span className="icon fa-solid fa-scissors"></span>
                                         <h6><span>01.</span>Analyze</h6>
                                         <p>Fusce imperdiet justo vitae ac massa scelerisque.</p>
                                     </div>
@@ -314,7 +315,8 @@ const MainSite = (props) => {
                                 <div className="col-lg-3 col-md-6 padding mb-md50">
                                     <div className="item text-center">
                                         <img src="https://fulax.netlify.app/img/arrow1.png" alt="" />
-                                        <span className="icon pe-7s-diamond" />
+                                        {/*<span className="icon pe-7s-diamond" />*/}
+                                        <span className="icon fa-solid fa-diamond"></span>
                                         <h6><span>02.</span>Strategy</h6>
                                         <p>Fusce imperdiet justo vitae ac massa scelerisque.</p>
                                     </div>
@@ -322,14 +324,15 @@ const MainSite = (props) => {
                                 <div className="col-lg-3 col-md-6 padding mb-sm50">
                                     <div className="item text-center">
                                         <img src="https://fulax.netlify.app/img/arrow1.png" className="tobotm" alt="" />
-                                        <span className="icon pe-7s-rocket" />
-                                        <h6><span>03.</span>lounch</h6>
+                                        {/*<span className="icon pe-7s-rocket" />*/}
+                                        <span className="icon fa-solid fa-rocket"></span>                                        <h6><span>03.</span>lounch</h6>
                                         <p>Fusce imperdiet justo vitae ac massa scelerisque.</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-3 col-md-6 padding">
                                     <div className="item text-center">
-                                        <span className="icon pe-7s-check" />
+                                        {/*<span className="icon pe-7s-check" />*/}
+                                        <span className="icon fa-solid fa-check"></span>
                                         <h6><span>03.</span>Result</h6>
                                         <p>Fusce imperdiet justo vitae ac massa scelerisque.</p>
                                     </div>
@@ -532,7 +535,10 @@ const MainSite = (props) => {
                                             to={links.SIGNIN}
                                             className="butn light mt-30"
                                         >
-                                            <span>Contact Us<i className="pe-7s-paper-plane" /></span>
+                                            <span>Contact Us
+                                                <i className="fa-solid fa-paper-plane"></i>
+                                                {/*<i className="pe-7s-paper-plane" />*/}
+                                            </span>
                                         </Link>
                                     </div>
                                 </div>

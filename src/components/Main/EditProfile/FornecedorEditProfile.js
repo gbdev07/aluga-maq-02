@@ -373,6 +373,10 @@ const FornecedorEditProfile = (props) => {
                             type: 'success',
                             message: 'Dados atualizados com sucesso!'
                         })
+                        setDataUser({
+                            ...authInfo?.dataUser,
+                            hasData: true,
+                        })
                         setIsLoading(false);
                     } else {
                         throw new Error();
