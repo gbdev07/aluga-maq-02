@@ -49,8 +49,8 @@ const DashboardCanal = (props) => {
     const columns = [
         {
             title: 'Top 3 da plataforma',
-            dataIndex: 'idFornecedor',
-            key: 'idFornecedor',
+            dataIndex: 'nameCompany',
+            key: 'nameCompany',
             render: (text) => <div style={{
                 fontWeight: 700,
             }}>{text}</div>,
