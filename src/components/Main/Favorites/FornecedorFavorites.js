@@ -278,13 +278,17 @@ const FornecedorFavorites = (props) => {
                                 </Col>
                             </Row>
                         </div>}
-                        <div className="FornecedorFavorites_titleList">
-                            <div>
-                                Meus Favoritos
-                            </div>
-                            <div className="FornecedorFavorites_nbList">{data.length}</div>
-                        </div>
-                        <Table columns={columns} dataSource={data} pagination={false} loading={loadingTable}/>
+                        {!dataCurrentDetail &&
+                            <>
+                                <div className="FornecedorFavorites_titleList">
+                                    <div>
+                                        Meus Favoritos
+                                    </div>
+                                    <div className="FornecedorFavorites_nbList">{data.length}</div>
+                                </div>
+                                <Table columns={columns} dataSource={data} pagination={false} loading={loadingTable}/>
+                            </>
+                        }
                     </div>
                     :
                     <div>

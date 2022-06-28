@@ -194,12 +194,7 @@ const FornecedorSearchCanais = (props) => {
             })
                 .then(res => {
                     if (res.status === 200 && Array.isArray(res.data)) {
-                        console.log(res.data)
-                        if (isPremium) {
-                            setListCanals(res.data);
-                        } else {
-                            setListCanals(res.data.slice(0,3))
-                        }
+                        setListCanals(res.data);
                     }
                 })
                 .catch(err => {
@@ -416,57 +411,62 @@ const FornecedorSearchCanais = (props) => {
                         </Col>
                     </Row>
                 </div>}
-                <div className="FornecedorSearchCanais_header">
-                    <div className="FornecedorSearchCanais_search">
-                        <Input
-                            className="FornecedorSearchCanais_inputSearch"
-                            value={searchTextTemp}
-                            onChange={(event) => {
-                                setSearchTextTemp(event.target.value)
-                            }}
-                            onKeyPress={(event) => {
-                                if(event.key === 'Enter'){
-                                    onSearch();
-                                }
-                            }}
-                            disabled={!hasData}
-                        />
-                        <img src={search2Icon} alt="" onClick={() => {
-                           onSearch()
-                        }}/>
-                    </div>
-                    {isPremium && <Button className="FornecedorSearchCanais_btnSubmit" onClick={() => {
-                        // onSave();
-                        onActionFilter();
-                    }}>
-                        <AiOutlinePlus />
-                        <div>
-                            Mais filtros
-                        </div>
-                    </Button>}
-                </div>
-                <div className="FornecedorSearchCanais_content">
-                    <div className="FornecedorSearchCanais_titleList">
-                        <div>
-                            Resultados Encontrados
-                        </div>
-                        <div className="FornecedorSearchCanais_nbList">{listCanals.length}</div>
-                    </div>
-                    <Table columns={columns} dataSource={listCanals} pagination={false} loading={loadingTable}/>
-                </div>
                 {
-                    !isPremium && <>
-                        <div className="FornecedorSearchCanais_premiumAction">
-                            <Link to={links.FORNECEDOR_BUY_PREMIUM} className="FornecedorSearchCanais_premiumLink">
-                                <Button className="FornecedorSearchCanais_premiumBtn">
-                                    <AiOutlinePlus />
-                                    <div>
-                                        Seja Premium e Veja Todos Os Resultados.
-                                    </div>
-                                </Button>
-                            </Link>
-                            <img src={premiumIcon} alt=""/>
+                    !dataCurrentDetail &&
+                    <>
+                        <div className="FornecedorSearchCanais_header">
+                            <div className="FornecedorSearchCanais_search">
+                                <Input
+                                    className="FornecedorSearchCanais_inputSearch"
+                                    value={searchTextTemp}
+                                    onChange={(event) => {
+                                        setSearchTextTemp(event.target.value)
+                                    }}
+                                    onKeyPress={(event) => {
+                                        if(event.key === 'Enter'){
+                                            onSearch();
+                                        }
+                                    }}
+                                    disabled={!hasData}
+                                />
+                                <img src={search2Icon} alt="" onClick={() => {
+                                    onSearch()
+                                }}/>
+                            </div>
+                            {isPremium && <Button className="FornecedorSearchCanais_btnSubmit" onClick={() => {
+                                // onSave();
+                                onActionFilter();
+                            }}>
+                                <AiOutlinePlus />
+                                <div>
+                                    Mais filtros
+                                </div>
+                            </Button>}
                         </div>
+                        <div className="FornecedorSearchCanais_content">
+                            <div className="FornecedorSearchCanais_titleList">
+                                <div>
+                                    Resultados Encontrados
+                                </div>
+                                <div className="FornecedorSearchCanais_nbList">{listCanals.length}</div>
+                            </div>
+                            <Table columns={columns} dataSource={isPremium ? listCanals : listCanals.slice(0,3)} pagination={false} loading={loadingTable}/>
+                        </div>
+                        {
+                            !isPremium && <>
+                                <div className="FornecedorSearchCanais_premiumAction">
+                                    <Link to={links.FORNECEDOR_BUY_PREMIUM} className="FornecedorSearchCanais_premiumLink">
+                                        <Button className="FornecedorSearchCanais_premiumBtn">
+                                            <AiOutlinePlus />
+                                            <div>
+                                                Seja Premium e Veja Todos Os Resultados.
+                                            </div>
+                                        </Button>
+                                    </Link>
+                                    <img src={premiumIcon} alt=""/>
+                                </div>
+                            </>
+                        }
                     </>
                 }
             </div>
