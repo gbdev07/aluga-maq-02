@@ -393,31 +393,56 @@ const DashboardCanal = (props) => {
                             <div className="Dashboard_modalDetailText3">
                                 Telefone
                             </div>
-                            <a href={`tel:${dataCurrentDetail.phone}`} target={"_blank"} className="Dashboard_modalDetailViewLink">
-                                <div className="Dashboard_modalDetailView">
-                                    {dataCurrentDetail.phone ? dataCurrentDetail.phone : "Não Informado."}
-                                </div>
-                            </a>
+                            {
+                                dataCurrentDetail.phone
+                                    ?
+                                    <a href={`tel:${dataCurrentDetail.phone}`} target={"_blank"} className="FornecedorFavorites_modalDetailViewLink">
+                                        <div className="FornecedorFavorites_modalDetailView">
+                                            {dataCurrentDetail.phone}
+                                        </div>
+                                    </a>
+                                    :
+                                    <div className="FornecedorFavorites_modalDetailView">
+                                        Não Informado.
+                                    </div>
+                            }
                         </Col>
                         <Col xs={24} md={24} lg={8} xl={8} className="Dashboard_modalDetailCol">
                             <div className="Dashboard_modalDetailText3">
                                 Whatsapp
                             </div>
-                            <a href={`https://wa.me/${dataCurrentDetail.whatsapp}`} target={"_blank"} className="Dashboard_modalDetailViewLink">
-                                <div className="Dashboard_modalDetailView">
-                                    {dataCurrentDetail.whatsapp ? dataCurrentDetail.whatsapp :"Não Informado."}
-                                </div>
-                            </a>
+                            {
+                                dataCurrentDetail.whatsapp
+                                    ?
+                                    <a href={`https://wa.me/550${dataCurrentDetail.whatsapp}`} target={"_blank"} className="FornecedorFavorites_modalDetailViewLink">
+                                        <div className="FornecedorFavorites_modalDetailView">
+                                            {dataCurrentDetail.whatsapp}
+                                        </div>
+                                    </a>
+                                    :
+                                    <div className="FornecedorFavorites_modalDetailView">
+                                        Não Informado.
+                                    </div>
+                            }
                         </Col>
                         <Col xs={24} md={24} lg={8} xl={8} className="Dashboard_modalDetailCol">
                             <div className="Dashboard_modalDetailText3">
                                 Site
                             </div>
-                            <a href={dataCurrentDetail.website} target={"_blank"} className="Dashboard_modalDetailViewLink">
-                                <div className="Dashboard_modalDetailView">
-                                    {dataCurrentDetail.website ? "Clique aqui para acessar .": "Não Informado."}
-                                </div>
-                            </a>
+                            {
+                                dataCurrentDetail.website
+                                    ?
+                                    <a href={dataCurrentDetail.website} target={"_blank"}
+                                       className="FornecedorSearchCanais_modalDetailViewLink">
+                                        <div className="FornecedorSearchCanais_modalDetailView">
+                                            Clique aqui para acessar .
+                                        </div>
+                                    </a>
+                                    :
+                                    <div className="FornecedorSearchCanais_modalDetailView">
+                                        Não Informado.
+                                    </div>
+                            }
                         </Col>
                         <Col xs={24} className="Dashboard_modalDetailCol">
                             {/*{*/}
