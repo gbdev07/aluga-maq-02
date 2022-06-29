@@ -181,7 +181,9 @@ const CanalSearchFornecedores = (props) => {
     // }, [searchText])
 
     const getData = (description) => {
+
         if (description.trim()!== "") {
+            setLoadingTable(true)
             axios.post(`${REACT_APP_API_BASE_URL}/search-fornecedor`, {
                 description: description.trim(),
                 type: "FORNECEDOR",
@@ -193,11 +195,13 @@ const CanalSearchFornecedores = (props) => {
                 }
             })
                 .then(res => {
+                    setLoadingTable(false)
                     if (res.status === 200 && Array.isArray(res.data)) {
                         setListCanals(res.data);
                     }
                 })
                 .catch(err => {
+                    setLoadingTable(false)
                     if ([401, 403].includes(err.response.status)) {
                         // setNotiMessage('A sua sessão expirou, para continuar faça login novamente.');
                         setNotiMessage({
@@ -207,6 +211,8 @@ const CanalSearchFornecedores = (props) => {
                         setDataUser(null);
                     }
                 })
+        } else {
+            setListCanals([])
         }
     }
     const debounceUpdate = useCallback(debounce((nextValue) => {
@@ -450,7 +456,14 @@ const CanalSearchFornecedores = (props) => {
                                 </div>
                                 <div className="FornecedorSearchCanais_nbList">{listCanals.length}</div>
                             </div>
-                            <Table columns={columns} dataSource={isPremium ? listCanals : listCanals.slice(0,3)} pagination={false} loading={loadingTable}/>
+                            <Table
+                                columns={columns}
+                                dataSource={isPremium ? listCanals : listCanals.slice(0,3)}
+                                pagination={false}
+                                loading={loadingTable}
+                                // noDataContent={}
+                                locale={{ emptyText: <div>Não foram encontrados resultados para sua pesquisa.</div> }}
+                            />
                         </div>
                         {
                             !isPremium && <>

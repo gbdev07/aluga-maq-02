@@ -316,14 +316,27 @@ const CanalEditProfile = (props) => {
         if (name.trim() === "") {
             errorFieldTemp.name = 'Este campo é obrigatório'
         }
+        if (name.trim().length > 35) {
+            errorFieldTemp.name = 'Este campo deve ter no máximo 35 caracteres'
+        }
         if (description.trim() === "") {
             errorFieldTemp.description = 'Este campo é obrigatório'
+        }
+        if (description.trim().length > 250 || description.trim().length < 10) {
+            errorFieldTemp.description = 'Este campo deve ter entre 10 e 250 caracteres'
         }
         // if (!tamanho) {
         //     errorFieldTemp.tamanho = 'Este campo é obrigatório'
         // }
         if (tipoParceriaDesejada.trim() === "") {
             errorFieldTemp.tipoParceriaDesejada = 'Este campo é obrigatório'
+        }
+        if (tipoParceriaDesejada.trim().length > 35) {
+            errorFieldTemp.tipoParceriaDesejada = 'Este campo deve ter no máximo 35 caracteres'
+        }
+        console.log(descricaoProdutosServicos)
+        if (descricaoProdutosServicos.trim() !== "" && (descricaoProdutosServicos.trim().length > 250 || descricaoProdutosServicos.trim().length < 10)) {
+            errorFieldTemp.descricaoProdutosServicos = 'Este campo deve ter entre 10 e 250 caracteres'
         }
         if (!areaAtuacao) {
             errorFieldTemp.areaAtuacao = 'Este campo é obrigatório'
@@ -345,6 +358,12 @@ const CanalEditProfile = (props) => {
         // }
         if (street.trim() === "") {
             errorFieldTemp.street = 'Este campo é obrigatório'
+        }
+        if (street.trim().length > 150) {
+            errorFieldTemp.street = 'Este campo deve ter no máximo 150 caracteres'
+        }
+        if (reference.trim().length > 35) {
+            errorFieldTemp.reference = 'Este campo deve ter no máximo 35 caracteres'
         }
         if (!state) {
             errorFieldTemp.state = 'Este campo é obrigatório'
