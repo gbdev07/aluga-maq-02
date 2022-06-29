@@ -182,6 +182,7 @@ const FornecedorSearchCanais = (props) => {
 
     const getData = (description) => {
         if (description.trim()!== "") {
+            setLoadingTable(true)
             axios.post(`${REACT_APP_API_BASE_URL}/search-canais`, {
                 description: description.trim(),
                 type: "CANAL",
@@ -193,11 +194,13 @@ const FornecedorSearchCanais = (props) => {
                 }
             })
                 .then(res => {
+                    setLoadingTable(false)
                     if (res.status === 200 && Array.isArray(res.data)) {
                         setListCanals(res.data);
                     }
                 })
                 .catch(err => {
+                    setLoadingTable(false)
                     if ([401, 403].includes(err.response.status)) {
                         // setNotiMessage('A sua sessão expirou, para continuar faça login novamente.');
                         setNotiMessage({
@@ -428,6 +431,7 @@ const FornecedorSearchCanais = (props) => {
                                         }
                                     }}
                                     disabled={!hasData}
+                                    placeholder="Não Informado."
                                 />
                                 <img src={search2Icon} alt="" onClick={() => {
                                     onSearch()
@@ -450,7 +454,13 @@ const FornecedorSearchCanais = (props) => {
                                 </div>
                                 <div className="FornecedorSearchCanais_nbList">{listCanals.length}</div>
                             </div>
-                            <Table columns={columns} dataSource={isPremium ? listCanals : listCanals.slice(0,3)} pagination={false} loading={loadingTable}/>
+                            <Table
+                                columns={columns}
+                                dataSource={isPremium ? listCanals : listCanals.slice(0,3)}
+                                pagination={false}
+                                loading={loadingTable}
+                                locale={{ emptyText: (searchTextTemp.trim() !== "") ? <div>Não foram encontrados resultados para sua pesquisa.</div> : <div></div>}}
+                            />
                         </div>
                         {
                             !isPremium && <>
