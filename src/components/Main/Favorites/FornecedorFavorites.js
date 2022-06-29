@@ -183,6 +183,16 @@ const FornecedorFavorites = (props) => {
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
                                     <div className="FornecedorSearchCanais_modalDetailText2">
+                                        Tipo de Parceria desejada: {dataCurrentDetail.tipoParceriaDesejada}
+                                    </div>
+                                </Col>
+                                <Col xs={24} md={24} lg={12} xl={12}>
+                                    <div className="FornecedorSearchCanais_modalDetailText2">
+                                        País: {dataCurrentDetail.country}.
+                                    </div>
+                                </Col>
+                                <Col xs={24} md={24} lg={12} xl={12}>
+                                    <div className="FornecedorSearchCanais_modalDetailText2">
                                         Número Aprox. de Clientes: R$: {dataCurrentDetail.numeroAproxClientes}
                                     </div>
                                 </Col>

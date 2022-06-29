@@ -8,7 +8,7 @@ function NotFound() {
             <div className="NotFoundText">
                 404 - Página Não Encontrada.
             </div>
-            <NavLink to={links.DASHBOARD_CANAL} className="NotFoundGoHome">
+            <NavLink to={links.MAIN} className="NotFoundGoHome">
                 Voltar
             </NavLink>
         </div>

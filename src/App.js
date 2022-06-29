@@ -41,9 +41,12 @@ function App() {
         notiMessage,
         setNotiMessage,
         notiMessageInfo,
-        setNotiMessageInfo
+        setNotiMessageInfo,
+        authInfo
     } = useContext(AuthContext)
 
+    const type = authInfo?.dataUser?.type;
+    console.log(type)
     useEffect(() => {
         if (notiMessage) {
             setNotiMessage(null)
@@ -77,176 +80,196 @@ function App() {
         <>
             <NotificationContainer/>
             <Routes>
-                <Route
-                    path={links.FORNECEDOR_NOTI}
-                    element={
-                        <PrivateRoute>
-                            <Main>
-                                <FornecedorNotification />
-                            </Main>
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path={links.FORNECEDOR_FAVORITES_PREMIUM}
-                    element={
-                        <PrivateRoute>
-                            <Main>
-                                <FornecedorFavoritesPremium />
-                            </Main>
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path={links.CANAL_FAVORITES_PREMIUM}
-                    element={
-                        <PrivateRoute>
-                            <Main>
-                                <CanalFavoritesPremium />
-                            </Main>
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path={links.FORNECEDOR_MY_FITS}
-                    element={
-                        <PrivateRoute>
-                            <Main>
-                                <MyFits />
-                            </Main>
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path={links.CANAL_MY_FITS}
-                    element={
-                        <PrivateRoute>
-                            <Main>
-                                <CanalMyFits />
-                            </Main>
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path={links.CANAL_EDIT_PROFILE}
-                    element={
-                        <PrivateRoute>
-                            <Main>
-                                <CanalEditProfile />
-                            </Main>
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path={links.FORNECEDOR_EDIT_PROFILE}
-                    element={
-                        <PrivateRoute>
-                            <Main>
-                                <FornecedorEditProfile />
-                            </Main>
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path={links.FORNECEDOR_BUY_PREMIUM}
-                    element={
-                        <PrivateRoute>
-                            <Main>
-                                <FornecedorBuyPremium />
-                            </Main>
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path={links.CANAL_BUY_PREMIUM}
-                    element={
-                        <PrivateRoute>
-                            <Main>
-                                <CanalBuyPremium />
-                            </Main>
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path={links.CANAL_SEARCH_FORNECEDORES}
-                    element={
-                        <PrivateRoute>
-                            <Main>
-                                <CanalSearchFornecedores />
-                            </Main>
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path={links.FORNECEDOR_SEARCH_CANAIS}
-                    element={
-                        <PrivateRoute>
-                            <Main>
-                                <FornecedorSearchCanais />
-                            </Main>
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path={links.CANAL_SETTINGS}
-                    element={
-                        <PrivateRoute>
-                            <Main>
-                                <CanalSettings />
-                            </Main>
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path={links.FORNECEDOR_SETTINGS}
-                    element={
-                        <PrivateRoute>
-                            <Main>
-                                <FornecedorSettings />
-                            </Main>
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path={links.CANAL_FAVORITES}
-                    element={
-                        <PrivateRoute>
-                            <Main>
-                                <CanalFavorites />
-                            </Main>
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path={links.FORNECEDOR_FAVORITES}
-                    element={
-                        <PrivateRoute>
-                            <Main>
-                                <FornecedorFavorites />
-                            </Main>
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path={links.DASHBOARD_CANAL}
-                    element={
-                        <PrivateRoute>
-                            <Main>
-                                <DashboardCanal />
-                            </Main>
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path={links.DASHBOARD_FORNECEDOR}
-                    element={
-                        <PrivateRoute>
-                            <Main>
-                                <DashboardFornecedor />
-                            </Main>
-                        </PrivateRoute>
-                    }
-                />
+                {
+                    // type !== FORNECEDOR &&
+                    <>
+                        <Route
+                            path={links.CANAL_FAVORITES_PREMIUM}
+                            element={
+                                <PrivateRoute>
+                                    <Main>
+                                        <CanalFavoritesPremium />
+                                    </Main>
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path={links.CANAL_MY_FITS}
+                            element={
+                                <PrivateRoute>
+                                    <Main>
+                                        <CanalMyFits />
+                                    </Main>
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path={links.CANAL_EDIT_PROFILE}
+                            element={
+                                <PrivateRoute>
+                                    <Main>
+                                        <CanalEditProfile />
+                                    </Main>
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path={links.CANAL_BUY_PREMIUM}
+                            element={
+                                <PrivateRoute>
+                                    <Main>
+                                        <CanalBuyPremium />
+                                    </Main>
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path={links.CANAL_SEARCH_FORNECEDORES}
+                            element={
+                                <PrivateRoute>
+                                    <Main>
+                                        <CanalSearchFornecedores />
+                                    </Main>
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path={links.CANAL_SETTINGS}
+                            element={
+                                <PrivateRoute>
+                                    <Main>
+                                        <CanalSettings />
+                                    </Main>
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path={links.CANAL_FAVORITES}
+                            element={
+                                <PrivateRoute>
+                                    <Main>
+                                        <CanalFavorites />
+                                    </Main>
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path={links.DASHBOARD_CANAL}
+                            element={
+                                <PrivateRoute>
+                                    <Main>
+                                        <DashboardCanal />
+                                    </Main>
+                                </PrivateRoute>
+                            }
+                        />
+                    </>
+                }
+
+                {
+                    // type !== CANAL &&
+
+                    <>
+                        <Route
+                            path={links.FORNECEDOR_NOTI}
+                            element={
+                                <PrivateRoute>
+                                    <Main>
+                                        <FornecedorNotification />
+                                    </Main>
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path={links.FORNECEDOR_FAVORITES_PREMIUM}
+                            element={
+                                <PrivateRoute>
+                                    <Main>
+                                        <FornecedorFavoritesPremium />
+                                    </Main>
+                                </PrivateRoute>
+                            }
+                        />
+
+                        <Route
+                            path={links.FORNECEDOR_MY_FITS}
+                            element={
+                                <PrivateRoute>
+                                    <Main>
+                                        <MyFits />
+                                    </Main>
+                                </PrivateRoute>
+                            }
+                        />
+
+                        <Route
+                            path={links.FORNECEDOR_EDIT_PROFILE}
+                            element={
+                                <PrivateRoute>
+                                    <Main>
+                                        <FornecedorEditProfile />
+                                    </Main>
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path={links.FORNECEDOR_BUY_PREMIUM}
+                            element={
+                                <PrivateRoute>
+                                    <Main>
+                                        <FornecedorBuyPremium />
+                                    </Main>
+                                </PrivateRoute>
+                            }
+                        />
+
+                        <Route
+                            path={links.FORNECEDOR_SEARCH_CANAIS}
+                            element={
+                                <PrivateRoute>
+                                    <Main>
+                                        <FornecedorSearchCanais />
+                                    </Main>
+                                </PrivateRoute>
+                            }
+                        />
+
+                        <Route
+                            path={links.FORNECEDOR_SETTINGS}
+                            element={
+                                <PrivateRoute>
+                                    <Main>
+                                        <FornecedorSettings />
+                                    </Main>
+                                </PrivateRoute>
+                            }
+                        />
+
+                        <Route
+                            path={links.FORNECEDOR_FAVORITES}
+                            element={
+                                <PrivateRoute>
+                                    <Main>
+                                        <FornecedorFavorites />
+                                    </Main>
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route
+                            path={links.DASHBOARD_FORNECEDOR}
+                            element={
+                                <PrivateRoute>
+                                    <Main>
+                                        <DashboardFornecedor />
+                                    </Main>
+                                </PrivateRoute>
+                            }
+                        />
+                    </>
+                }
+
+
+
                 <Route
                     path={links.MAIN}
                     element={

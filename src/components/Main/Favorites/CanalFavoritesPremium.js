@@ -35,7 +35,7 @@ const CanalFavoritesPremium = (props) => {
 
     const getFavorites = () => {
         setLoadingTable(true);
-        axios.post(`${REACT_APP_API_BASE_URL}/fornecedor-favorites-premium`, {},{
+        axios.post(`${REACT_APP_API_BASE_URL}/canal-favorites-premium`, {},{
             headers: {
                 "x-access-token": token,
                 "content-type": "application/json"
@@ -73,9 +73,9 @@ const CanalFavoritesPremium = (props) => {
 
     const columns = [
         {
-            title: 'CANAL',
-            dataIndex: 'name',
-            key: 'name',
+            title: 'Fornecedor',
+            dataIndex: 'nameCompany',
+            key: 'nameCompany',
         },
         // {
         //     title: 'DESCRIÇÃO',
@@ -118,7 +118,7 @@ const CanalFavoritesPremium = (props) => {
     const onDisLikedCanal = () => {
         if (dataCurrentDetail) {
             setIsLoading(true);
-            axios.post(`${REACT_APP_API_BASE_URL}/fornecedor-unlike-canal`, {
+            axios.post(`${REACT_APP_API_BASE_URL}/canal-unlike-fornecedor`, {
                 idCanal: dataCurrentDetail.idCanal
             }, {
                 headers: {
