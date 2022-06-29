@@ -27,7 +27,7 @@ const FornecedorSearchCanais = (props) => {
     const premiumExpiration = authInfo?.dataUser?.premiumExpiration ?? null;
     const isPremium = !!(premiumExpiration && moment(premiumExpiration) > moment());
     const [isLoading, setIsLoading] = useState(false);
-    const [searchTextTemp, setSearchTextTemp] = useState('');
+    // const [searchText, setsearchText] = useState('');
     const [searchText, setSearchText] = useState('');
     const [listCanals, setListCanals] = useState([]);
     const [dataCurrentDetail, setDataCurrentDetail] = useState(null);
@@ -212,14 +212,14 @@ const FornecedorSearchCanais = (props) => {
                 })
         }
     }
-    const debounceUpdate = useCallback(debounce((nextValue) => {
-        onChangeSearch(nextValue);
-    }, 300), [])
-    useEffect(() => {
-        if (searchTextTemp !== searchText) {
-            debounceUpdate(searchTextTemp)
-        }
-    }, [searchTextTemp])
+    // const debounceUpdate = useCallback(debounce((nextValue) => {
+    //     onChangeSearch(nextValue);
+    // }, 300), [])
+    // useEffect(() => {
+    //     if (searchTextTemp !== searchText) {
+    //         debounceUpdate(searchTextTemp)
+    //     }
+    // }, [searchTextTemp])
 
     const onOpenModalDetail = (data) => {
         console.log(data)
@@ -421,9 +421,9 @@ const FornecedorSearchCanais = (props) => {
                             <div className="FornecedorSearchCanais_search">
                                 <Input
                                     className="FornecedorSearchCanais_inputSearch"
-                                    value={searchTextTemp}
+                                    value={searchText}
                                     onChange={(event) => {
-                                        setSearchTextTemp(event.target.value)
+                                        setSearchText(event.target.value)
                                     }}
                                     onKeyPress={(event) => {
                                         if(event.key === 'Enter'){
@@ -458,7 +458,7 @@ const FornecedorSearchCanais = (props) => {
                                 dataSource={isPremium ? listCanals : listCanals.slice(0,3)}
                                 pagination={false}
                                 loading={loadingTable}
-                                locale={{ emptyText: (searchTextTemp.trim() !== "") ? <div>Não foram encontrados resultados para sua pesquisa.</div> : <div>Não Informado.</div>}}
+                                locale={{ emptyText: (searchText.trim() !== "") ? <div>Não foram encontrados resultados para sua pesquisa.</div> : <div>Não Informado.</div>}}
                             />
                         </div>
                         {

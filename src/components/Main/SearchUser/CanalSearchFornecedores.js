@@ -27,7 +27,7 @@ const CanalSearchFornecedores = (props) => {
     const premiumExpiration = authInfo?.dataUser?.premiumExpiration ?? null;
     const isPremium = !!(premiumExpiration && moment(premiumExpiration) > moment());
     const [isLoading, setIsLoading] = useState(false);
-    const [searchTextTemp, setSearchTextTemp] = useState('');
+    // const [searchTextTemp, setSearchText] = useState('');
     const [searchText, setSearchText] = useState('');
     const [listCanals, setListCanals] = useState([]);
     const [dataCurrentDetail, setDataCurrentDetail] = useState(null);
@@ -146,10 +146,10 @@ const CanalSearchFornecedores = (props) => {
         })
     }
 
-    const onChangeSearch = (value) => {
-        setSearchText(value);
-        getData(value);
-    }
+    // const onChangeSearch = (value) => {
+    //     setSearchText(value);
+    //     getData(value);
+    // }
 
     // useEffect(() => {
     //     axios.post(`${REACT_APP_API_BASE_URL}/search-canais`, {
@@ -215,14 +215,14 @@ const CanalSearchFornecedores = (props) => {
             setListCanals([])
         }
     }
-    const debounceUpdate = useCallback(debounce((nextValue) => {
-        onChangeSearch(nextValue);
-    }, 300), [])
-    useEffect(() => {
-        if (searchTextTemp !== searchText) {
-            debounceUpdate(searchTextTemp)
-        }
-    }, [searchTextTemp])
+    // const debounceUpdate = useCallback(debounce((nextValue) => {
+    //     onChangeSearch(nextValue);
+    // }, 300), [])
+    // useEffect(() => {
+    //     if (searchTextTemp !== searchText) {
+    //         debounceUpdate(searchTextTemp)
+    //     }
+    // }, [searchTextTemp])
 
     const onOpenModalDetail = (data) => {
         console.log(data)
@@ -424,9 +424,9 @@ const CanalSearchFornecedores = (props) => {
                             <div className="FornecedorSearchCanais_search">
                                 <Input
                                     className="FornecedorSearchCanais_inputSearch"
-                                    value={searchTextTemp}
+                                    value={searchText}
                                     onChange={(event) => {
-                                        setSearchTextTemp(event.target.value)
+                                        setSearchText(event.target.value)
                                     }}
                                     onKeyPress={(event) => {
                                         if(event.key === 'Enter'){
@@ -462,7 +462,7 @@ const CanalSearchFornecedores = (props) => {
                                 pagination={false}
                                 loading={loadingTable}
                                 // noDataContent={}
-                                locale={{ emptyText: (searchTextTemp.trim() !== "") ? <div>Não foram encontrados resultados para sua pesquisa.</div> : <div>Não Informado.</div>}}
+                                locale={{ emptyText: (searchText.trim() !== "") ? <div>Não foram encontrados resultados para sua pesquisa.</div> : <div>Não Informado.</div>}}
                             />
                         </div>
                         {
