@@ -75,7 +75,7 @@ const Main = (props) => {
         },
         {
             icon: SearchIcon,
-            text: 'Buscar Canais',
+            text: 'Buscar',
             link: links.CANAL_SEARCH_FORNECEDORES,
         },
         {

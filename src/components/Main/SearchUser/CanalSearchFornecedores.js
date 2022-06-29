@@ -289,7 +289,7 @@ const CanalSearchFornecedores = (props) => {
         <div className="FornecedorSearchCanais_container">
             {isLoading && <LoadingAction />}
             <div className="FornecedorSearchCanais_title">
-                Buscar Canais
+                Buscar Fornecedores
             </div>
 
             <div className="FornecedorSearchCanais_body">

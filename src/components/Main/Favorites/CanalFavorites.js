@@ -160,7 +160,7 @@ const CanalFavorites = (props) => {
         <div className="FornecedorFavorites_container">
             {isLoading && <LoadingAction />}
             <div className="FornecedorFavorites_title">
-                Canais Favoritos
+                Fornecedors Favoritos
             </div>
             {
                 true
