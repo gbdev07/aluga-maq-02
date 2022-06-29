@@ -434,7 +434,6 @@ const CanalSearchFornecedores = (props) => {
                                         }
                                     }}
                                     disabled={!hasData}
-                                    placeholder="Não Informado."
                                 />
                                 <img src={search2Icon} alt="" onClick={() => {
                                     onSearch()
@@ -463,7 +462,7 @@ const CanalSearchFornecedores = (props) => {
                                 pagination={false}
                                 loading={loadingTable}
                                 // noDataContent={}
-                                locale={{ emptyText: (searchTextTemp.trim() !== "") ? <div>Não foram encontrados resultados para sua pesquisa.</div> : <div></div>}}
+                                locale={{ emptyText: (searchTextTemp.trim() !== "") ? <div>Não foram encontrados resultados para sua pesquisa.</div> : <div>Não Informado.</div>}}
                             />
                         </div>
                         {

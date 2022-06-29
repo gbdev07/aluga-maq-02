@@ -459,7 +459,7 @@ const FornecedorSearchCanais = (props) => {
                                 dataSource={isPremium ? listCanals : listCanals.slice(0,3)}
                                 pagination={false}
                                 loading={loadingTable}
-                                locale={{ emptyText: (searchTextTemp.trim() !== "") ? <div>Não foram encontrados resultados para sua pesquisa.</div> : <div></div>}}
+                                locale={{ emptyText: (searchTextTemp.trim() !== "") ? <div>Não foram encontrados resultados para sua pesquisa.</div> : <div>Não Informado.</div>}}
                             />
                         </div>
                         {
