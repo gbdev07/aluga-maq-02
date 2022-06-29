@@ -431,7 +431,6 @@ const FornecedorSearchCanais = (props) => {
                                         }
                                     }}
                                     disabled={!hasData}
-                                    placeholder="Não Informado."
                                 />
                                 <img src={search2Icon} alt="" onClick={() => {
                                     onSearch()
