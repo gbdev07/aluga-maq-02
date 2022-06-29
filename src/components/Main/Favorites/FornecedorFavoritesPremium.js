@@ -224,7 +224,7 @@ const FornecedorFavoritesPremium = (props) => {
                                     </div>
                                     <a href={`tel:${dataCurrentDetail.phone}`} target={"_blank"} className="FornecedorFavorites_modalDetailViewLink">
                                         <div className="FornecedorFavorites_modalDetailView">
-                                            {dataCurrentDetail.phone}
+                                            {dataCurrentDetail.phone ? dataCurrentDetail.phone : "Não Informado."}
                                         </div>
                                     </a>
                                 </Col>
@@ -234,7 +234,7 @@ const FornecedorFavoritesPremium = (props) => {
                                     </div>
                                     <a href={`https://wa.me/${dataCurrentDetail.whatsapp}`} target={"_blank"} className="FornecedorFavorites_modalDetailViewLink">
                                         <div className="FornecedorFavorites_modalDetailView">
-                                            {dataCurrentDetail.whatsapp}
+                                            {dataCurrentDetail.whatsapp ? dataCurrentDetail.whatsapp : "Não Informado."}
                                         </div>
                                     </a>
                                 </Col>
@@ -244,7 +244,7 @@ const FornecedorFavoritesPremium = (props) => {
                                     </div>
                                     <a href={dataCurrentDetail.website} target={"_blank"} className="FornecedorFavorites_modalDetailViewLink">
                                         <div className="FornecedorFavorites_modalDetailView">
-                                            Clique aqui para acessar.
+                                            {dataCurrentDetail.website ? "Clique aqui para acessar .": "Não Informado."}
                                         </div>
                                     </a>
                                 </Col>

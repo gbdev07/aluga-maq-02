@@ -365,7 +365,7 @@ const FornecedorSearchCanais = (props) => {
                             </div>
                             <a href={`tel:${dataCurrentDetail.phone}`} target={"_blank"} className="FornecedorSearchCanais_modalDetailViewLink">
                             <div className="FornecedorSearchCanais_modalDetailView">
-                                {dataCurrentDetail.phone}
+                                {dataCurrentDetail.phone ? dataCurrentDetail.phone : "Não Informado."}
                             </div>
                             </a>
                         </Col>
@@ -375,7 +375,7 @@ const FornecedorSearchCanais = (props) => {
                             </div>
                             <a href={`https://wa.me/${dataCurrentDetail.whatsapp}`} target={"_blank"} className="FornecedorSearchCanais_modalDetailViewLink">
                             <div className="FornecedorSearchCanais_modalDetailView">
-                                {dataCurrentDetail.whatsapp}
+                                {dataCurrentDetail.whatsapp ? dataCurrentDetail.whatsapp : "Não Informado."}
                             </div>
                             </a>
                         </Col>
@@ -385,7 +385,7 @@ const FornecedorSearchCanais = (props) => {
                             </div>
                             <a href={dataCurrentDetail.website} target={"_blank"} className="FornecedorSearchCanais_modalDetailViewLink">
                                 <div className="FornecedorSearchCanais_modalDetailView">
-                                    Clique aqui para acessar.
+                                    {dataCurrentDetail.website ? "Clique aqui para acessar .": "Não Informado."}
                                 </div>
                             </a>
                         </Col>
