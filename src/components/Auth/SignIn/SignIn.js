@@ -1,18 +1,18 @@
 import "./SignIn.css";
 import axios from "axios";
-import React, {useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
 import Auth from "../Auth/Auth";
 import * as links from '../../../utils/links'
 import signin from "../../../assets/images/signin.png";
-import {CANAL, REACT_APP_API_BASE_URL} from "../../../utils/constants";
-import {AuthContext} from "../../../contexts/AuthContext";
-import {useNavigate} from "react-router-dom";
-import {NotificationContainer, NotificationManager} from "react-notifications";
+import { CANAL, REACT_APP_API_BASE_URL } from "../../../utils/constants";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { NotificationContainer, NotificationManager } from "react-notifications";
 
 const initialDataSignIn = {
-    email: 'antoniolucasmcarvalho@gmail.com',
-    password: '654321',
+    email: '',
+    password: '',
 }
 
 const initErrorField = {
@@ -42,10 +42,10 @@ const SignIn = (props) => {
     //     }
     // }, [])
 
-    const [dataAuth, setDataSingUp] = useState({...initialDataSignIn});
+    const [dataAuth, setDataSingUp] = useState({ ...initialDataSignIn });
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(false);
-    const [errorField, setErrorField] = useState({...initErrorField});
+    const [errorField, setErrorField] = useState({ ...initErrorField });
     const [isLoading, setIsLoading] = useState(false)
 
     const onsubmit = () => {
@@ -101,9 +101,9 @@ const SignIn = (props) => {
                     setIsLoading(false)
 
                     if (err.response.status === 500) {
-                        setError('Usuário já existe, <a target="_blank" href='+links.FORGOTPASSWORD+'>esqueceu sua senha<a/>?')
+                        setError('Usuário já existe, <a target="_blank" href=' + links.FORGOTPASSWORD + '>esqueceu sua senha<a/>?')
                     } else {
-                        setError('Erro, algo deu errado ' + (err.response?.data?.error ?? "") )
+                        setError('Erro, algo deu errado ' + (err.response?.data?.error ?? ""))
                     }
                 })
         } else {
@@ -121,7 +121,7 @@ const SignIn = (props) => {
 
     return (
         <>
-            <NotificationContainer/>
+            <NotificationContainer />
             {isLoading && <LoadingAction />}
             <Auth
                 authTitle={'Faça seu login'}
