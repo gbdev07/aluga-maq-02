@@ -1,13 +1,13 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import './FornecedorEditProfile.css';
-import {Button, Col, Input, Row} from "antd";
-import {AiOutlinePlus} from "react-icons/ai";
+import { Button, Col, Input, Row } from "antd";
+import { AiOutlinePlus } from "react-icons/ai";
 import Select from 'react-select'
 import axios from "axios";
-import {REACT_APP_API_BASE_URL} from "../../../utils/constants";
-import {cnpjValidation, validarCPF, validatePhone} from "../../../utils/functions";
+import { REACT_APP_API_BASE_URL } from "../../../utils/constants";
+import { cnpjValidation, validarCPF, validatePhone } from "../../../utils/functions";
 import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
-import {AuthContext} from "../../../contexts/AuthContext";
+import { AuthContext } from "../../../contexts/AuthContext";
 import InputMask from "react-input-mask";
 import CreatableSelect from 'react-select/creatable';
 import { isValid as isValidCpf } from "@fnando/cpf"; // import just one function
@@ -15,59 +15,59 @@ import { isValid as isValidCpf } from "@fnando/cpf"; // import just one function
 const initialData = {
     idFornecedor: "",
     cpf: "",
-    cnpj : "",
+    cnpj: "",
     name: "",
     anoFundacao: "",
     tipoParceriaDesejada: "",
     numeroAproxClientes: "",
-    razaoSocial : "",
-    nameCompany : "",
-    description : "",
-    tamanho : "",
-    mediaFaturamentoAnual : "",
+    razaoSocial: "",
+    nameCompany: "",
+    description: "",
+    tamanho: "",
+    mediaFaturamentoAnual: "",
     responsiblePerson: '',
-    website : "",
-    areaAtuacao : "",
-    segmento : "",
+    website: "",
+    areaAtuacao: "",
+    segmento: "",
     zipCode: "",
-    country : "Brasil",
-    number : "",
-    street : "",
+    country: "Brasil",
+    number: "",
+    street: "",
     reference: "",
     state: "",
     city: "",
-    phone : "",
-    whatsapp : "",
+    phone: "",
+    whatsapp: "",
     descricaoProdutosServicos: ""
 }
 
 const initErrorField = {
     cpf: undefined,
     idFornecedor: undefined,
-    cnpj : undefined,
+    cnpj: undefined,
     name: undefined,
-    anoFundacao:  undefined,
+    anoFundacao: undefined,
     tipoParceriaDesejada: undefined,
     numeroAproxClientes: undefined,
     descricaoProdutosServicos: undefined,
-    razaoSocial : undefined,
-    nameCompany : undefined,
-    description : undefined,
-    tamanho : undefined,
-    mediaFaturamentoAnual : undefined,
+    razaoSocial: undefined,
+    nameCompany: undefined,
+    description: undefined,
+    tamanho: undefined,
+    mediaFaturamentoAnual: undefined,
     responsiblePerson: undefined,
-    website : undefined,
-    areaAtuacao : undefined,
-    segmento : undefined,
+    website: undefined,
+    areaAtuacao: undefined,
+    segmento: undefined,
     zipCode: undefined,
-    country : undefined,
-    number : undefined,
-    street : undefined,
+    country: undefined,
+    number: undefined,
+    street: undefined,
     reference: undefined,
     state: undefined,
     city: undefined,
-    phone : undefined,
-    whatsapp : undefined
+    phone: undefined,
+    whatsapp: undefined
 }
 
 const CanalEditProfile = (props) => {
@@ -80,8 +80,8 @@ const CanalEditProfile = (props) => {
     const userId = authInfo?.dataUser?.id;
     const token = authInfo?.dataUser?.token;
 
-    const [data, setData] = useState({...initialData});
-    const [errorField, setErrorField] = useState({...initErrorField});
+    const [data, setData] = useState({ ...initialData });
+    const [errorField, setErrorField] = useState({ ...initErrorField });
     const [isLoading, setIsLoading] = useState(true)
     const [city_options, setCity_options] = useState([]);
     const [areaAtuacao_options, setAreaAtuacao_options] = useState([]);
@@ -90,29 +90,29 @@ const CanalEditProfile = (props) => {
 
     const {
         idFornecedor,
-        cnpj ,
+        cnpj,
         cpf,
         name,
         anoFundacao,
         tipoParceriaDesejada,
         numeroAproxClientes,
-        razaoSocial ,
-        nameCompany ,
-        description ,
-        tamanho ,
-        mediaFaturamentoAnual ,
+        razaoSocial,
+        nameCompany,
+        description,
+        tamanho,
+        mediaFaturamentoAnual,
         responsiblePerson,
-        website ,
-        areaAtuacao ,
-        segmento ,
+        website,
+        areaAtuacao,
+        segmento,
         zipCode,
-        country ,
-        number ,
-        street ,
+        country,
+        number,
+        street,
         reference,
         state,
         city,
-        phone ,
+        phone,
         whatsapp,
         descricaoProdutosServicos
     } = data;
@@ -377,33 +377,33 @@ const CanalEditProfile = (props) => {
         if (whatsapp.trim() !== "" && whatsapp.trim().includes('(') && !validatePhone(whatsapp.trim())) {
             errorFieldTemp.whatsapp = 'você deve ter o formato correto - phone'
         }
-        if(Object.keys(errorFieldTemp).length === 0) {
+        if (Object.keys(errorFieldTemp).length === 0) {
             setIsLoading(true);
             axios.post(`${REACT_APP_API_BASE_URL}/upsert-canal`, {
                 idCanal: userId,
                 cpf: cpf,
                 cnpj: cnpj,
-                name : name,
+                name: name,
                 // nameCompany : nameCompany,
-                description : description,
-                anoFundacao : Number(anoFundacao),
-                tipoParceriaDesejada : tipoParceriaDesejada,
-                numeroAproxClientes : Number(numeroAproxClientes),
-                website : website,
-                areaAtuacao : areaAtuacao?.label ?? "",
-                segmento : segmento?.label ?? "",
+                description: description,
+                anoFundacao: Number(anoFundacao),
+                tipoParceriaDesejada: tipoParceriaDesejada,
+                numeroAproxClientes: Number(numeroAproxClientes),
+                website: website,
+                areaAtuacao: areaAtuacao?.label ?? "",
+                segmento: segmento?.label ?? "",
                 descricaoProdutosServicos: descricaoProdutosServicos,
-                zipCode : zipCode,
-                country : country,
-                number : Number(number),
-                street : street,
-                reference : reference,
-                state : state?.value ?? "",
-                city : city?.label ?? "",
+                zipCode: zipCode,
+                country: country,
+                number: Number(number),
+                street: street,
+                reference: reference,
+                state: state?.value ?? "",
+                city: city?.label ?? "",
                 // phone : phone,
                 // whatsapp : whatsapp,
-                phone : phone.replace( /\D/g, ''),
-                whatsapp: whatsapp.replace( /\D/g, ''),
+                phone: phone.replace(/\D/g, ''),
+                whatsapp: whatsapp.replace(/\D/g, ''),
             }, {
                 headers: {
                     "x-access-token": token,
@@ -497,7 +497,7 @@ const CanalEditProfile = (props) => {
 
     const onBlurCNPJ = () => {
         console.log(cnpj)
-        axios.get(`https://api-publica.speedio.com.br/buscarcnpj?cnpj=${cnpj.replace( /\D/g, '')}`)
+        axios.get(`https://api-publica.speedio.com.br/buscarcnpj?cnpj=${cnpj.replace(/\D/g, '')}`)
             .then(res => {
                 console.log(res.data)
                 setData(prev => ({
@@ -517,7 +517,7 @@ const CanalEditProfile = (props) => {
     }
 
     const onBlurZipCode = () => {
-        axios.get(`https://viacep.com.br/ws/${zipCode.replace( /\D/g, '')}/json`)
+        axios.get(`https://viacep.com.br/ws/${zipCode.replace(/\D/g, '')}/json`)
             .then(res => {
                 console.log(res.data)
                 const stateFind = state_options.find(item => item.value === res.data.uf);
@@ -846,9 +846,9 @@ const CanalEditProfile = (props) => {
                                 placeholder="Segmento"
                                 className="FornecedorEditProfile_fieldSelect"
                                 options={segmento_options}
-                                // components={{
-                                //     MultiValueLabel,
-                                // }}
+                            // components={{
+                            //     MultiValueLabel,
+                            // }}
                             />
                             <div className="FornecedorEditProfile_fieldRequired">
                                 *
@@ -860,7 +860,7 @@ const CanalEditProfile = (props) => {
                             </div>
                         }
                         <div className="FornecedorEditProfile_fieldExample">
-                            Exemplo: Maquinários Agrícolas
+                            Segmento: Maquinários. Dica: tab ou enter para registrar um novo Segmento
                         </div>
                     </Col>
                     <Col xs={24} md={8} lg={8} xl={8} className="FornecedorEditProfile_col">
@@ -1100,7 +1100,7 @@ const CanalEditProfile = (props) => {
                                         value={phone}
                                         placeholder="Telefone"
                                         className="FornecedorEditProfile_fieldInput"
-                                        // value={props.value}
+                                    // value={props.value}
                                     />
                                     <div className="FornecedorEditProfile_fieldRequired">
 
@@ -1133,7 +1133,7 @@ const CanalEditProfile = (props) => {
                                         value={whatsapp}
                                         placeholder="Whatsapp"
                                         className="FornecedorEditProfile_fieldInput"
-                                        // value={props.value}
+                                    // value={props.value}
                                     />
                                     <div className="FornecedorEditProfile_fieldRequired">
 

@@ -1,17 +1,17 @@
-import React, {useCallback, useContext, useEffect, useState} from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
 import "./FornecedorSearchCanais.css"
-import {Button, Col, Input, Row, Table} from "antd";
+import { Button, Col, Input, Row, Table } from "antd";
 import search2Icon from "../../../assets/images/search2.png"
-import {AiOutlinePlus} from "react-icons/ai";
-import {AuthContext} from "../../../contexts/AuthContext";
-import {Link, useNavigate} from "react-router-dom";
+import { AiOutlinePlus } from "react-icons/ai";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
 import moment from "moment";
 import * as links from "../../../utils/links";
 import premiumIcon from "../../../assets/images/premium3.png";
-import _, {debounce} from 'lodash';
+import _, { debounce } from 'lodash';
 import axios from "axios";
-import {REACT_APP_API_BASE_URL} from "../../../utils/constants";
+import { REACT_APP_API_BASE_URL } from "../../../utils/constants";
 
 const CanalSearchFornecedores = (props) => {
     const {
@@ -182,7 +182,7 @@ const CanalSearchFornecedores = (props) => {
 
     const getData = (description) => {
 
-        if (description.trim()!== "") {
+        if (description.trim() !== "") {
             setLoadingTable(true)
             axios.post(`${REACT_APP_API_BASE_URL}/search-fornecedor`, {
                 description: description.trim(),
@@ -274,7 +274,7 @@ const CanalSearchFornecedores = (props) => {
     ];
 
     const onSearch = () => {
-        if (searchText.trim() !==  "") {
+        if (searchText.trim() !== "") {
             getData(searchText)
         } else {
             if (hasData) {
@@ -326,7 +326,7 @@ const CanalSearchFornecedores = (props) => {
                         </Col>
                         <Col xs={24} md={24} lg={12} xl={12}>
                             <div className="FornecedorSearchCanais_modalDetailText2">
-                                Empresa: R$: {dataCurrentDetail.nameCompany}
+                                Empresa: {dataCurrentDetail.nameCompany}
                             </div>
                         </Col>
                         <Col xs={24} md={24} lg={12} xl={12}>
@@ -406,7 +406,7 @@ const CanalSearchFornecedores = (props) => {
                                 dataCurrentDetail.website
                                     ?
                                     <a href={dataCurrentDetail.website} target={"_blank"}
-                                       className="FornecedorSearchCanais_modalDetailViewLink">
+                                        className="FornecedorSearchCanais_modalDetailViewLink">
                                         <div className="FornecedorSearchCanais_modalDetailView">
                                             Clique aqui para acessar .
                                         </div>
@@ -431,7 +431,8 @@ const CanalSearchFornecedores = (props) => {
                                         ?
 
                                         <div className="FornecedorSearchCanais_like" onClick={() => {
-                                            onDisLikedCanal();}
+                                            onDisLikedCanal();
+                                        }
                                         }>
                                             Desfavoritar
                                         </div>
@@ -454,7 +455,7 @@ const CanalSearchFornecedores = (props) => {
                                         setSearchText(event.target.value)
                                     }}
                                     onKeyPress={(event) => {
-                                        if(event.key === 'Enter'){
+                                        if (event.key === 'Enter') {
                                             onSearch();
                                         }
                                     }}
@@ -462,7 +463,7 @@ const CanalSearchFornecedores = (props) => {
                                 />
                                 <img src={search2Icon} alt="" onClick={() => {
                                     onSearch()
-                                }}/>
+                                }} />
                             </div>
                             {isPremium && <Button className="FornecedorSearchCanais_btnSubmit" onClick={() => {
                                 // onSave();
@@ -483,11 +484,11 @@ const CanalSearchFornecedores = (props) => {
                             </div>
                             <Table
                                 columns={columns}
-                                dataSource={isPremium ? listCanals : listCanals.slice(0,3)}
+                                dataSource={isPremium ? listCanals : listCanals.slice(0, 3)}
                                 pagination={false}
                                 loading={loadingTable}
                                 // noDataContent={}
-                                locale={{ emptyText: (searchText.trim() !== "") ? <div>Não foram encontrados resultados para sua pesquisa.</div> : <div>Não Informado.</div>}}
+                                locale={{ emptyText: (searchText.trim() !== "") ? <div>Não foram encontrados resultados para sua pesquisa.</div> : <div>Não Informado.</div> }}
                             />
                         </div>
                         {
@@ -501,7 +502,7 @@ const CanalSearchFornecedores = (props) => {
                                             </div>
                                         </Button>
                                     </Link>
-                                    <img src={premiumIcon} alt=""/>
+                                    <img src={premiumIcon} alt="" />
                                 </div>
                             </>
                         }

@@ -2,7 +2,9 @@ import React from "react";
 const CanalMyFits = (props) => {
     return (
         <div>
-            CanalMyFits
+            Você ainda não não possui nenhum fit.
+            <br />
+            Um fit é quando um Fornecedor combina com você.
         </div>
     )
 }

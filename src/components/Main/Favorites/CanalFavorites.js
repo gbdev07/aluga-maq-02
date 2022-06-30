@@ -1,15 +1,15 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import './FornecedorFavorites.css'
 import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
-import {AuthContext} from "../../../contexts/AuthContext";
-import {Link, useNavigate} from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
 import moment from "moment";
 import * as links from "../../../utils/links";
-import {Button, Col, Row, Table} from "antd";
-import {AiOutlinePlus} from "react-icons/ai";
+import { Button, Col, Row, Table } from "antd";
+import { AiOutlinePlus } from "react-icons/ai";
 import premiumIcon from "../../../assets/images/premium3.png";
 import axios from "axios";
-import {REACT_APP_API_BASE_URL} from "../../../utils/constants";
+import { REACT_APP_API_BASE_URL } from "../../../utils/constants";
 const CanalFavorites = (props) => {
     const {
         setDataUser,
@@ -35,7 +35,7 @@ const CanalFavorites = (props) => {
 
     const getFavorites = () => {
         setLoadingTable(true);
-        axios.post(`${REACT_APP_API_BASE_URL}/canal-my-favorites`, {},{
+        axios.post(`${REACT_APP_API_BASE_URL}/canal-my-favorites`, {}, {
             headers: {
                 "x-access-token": token,
                 "content-type": "application/json"
@@ -193,7 +193,7 @@ const CanalFavorites = (props) => {
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
                                     <div className="FornecedorSearchCanais_modalDetailText2">
-                                        Empresa: R$: {dataCurrentDetail.nameCompany}
+                                        Empresa: {dataCurrentDetail.nameCompany}
                                     </div>
                                 </Col>
                                 <Col xs={24} md={24} lg={12} xl={12}>
@@ -274,7 +274,7 @@ const CanalFavorites = (props) => {
                                         dataCurrentDetail.website
                                             ?
                                             <a href={dataCurrentDetail.website} target={"_blank"}
-                                               className="FornecedorSearchCanais_modalDetailViewLink">
+                                                className="FornecedorSearchCanais_modalDetailViewLink">
                                                 <div className="FornecedorSearchCanais_modalDetailView">
                                                     Clique aqui para acessar .
                                                 </div>
@@ -307,7 +307,8 @@ const CanalFavorites = (props) => {
                                     {/*            <></>*/}
                                     {/*}*/}
                                     <div className="FornecedorFavorites_like" onClick={() => {
-                                        onDisLikedCanal();}
+                                        onDisLikedCanal();
+                                    }
                                     }>
                                         Desfavoritar
                                     </div>
@@ -322,7 +323,7 @@ const CanalFavorites = (props) => {
                                     </div>
                                     <div className="FornecedorFavorites_nbList">{data.length}</div>
                                 </div>
-                                <Table columns={columns} dataSource={data} pagination={false} loading={loadingTable}/>
+                                <Table columns={columns} dataSource={data} pagination={false} loading={loadingTable} />
                             </>
                         }
                     </div>
@@ -337,7 +338,7 @@ const CanalFavorites = (props) => {
                                     </div>
                                 </Button>
                             </Link>
-                            <img src={premiumIcon} alt=""/>
+                            <img src={premiumIcon} alt="" />
                         </div>
                     </div>
             }

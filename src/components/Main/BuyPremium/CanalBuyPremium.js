@@ -129,8 +129,7 @@ const CanalBuyPremium = (props) => {
                 'Prioridade no suporte',
                 'Sabe os canais que te favoritou',
                 'Acesso aos fits',
-                'desconto de 5% em relação ao plano de 6 meses'
-            ],
+                'desconto de 5% em relação ao plano de 6 meses'],
             buttonText: 'Seja Premium',
             onSubmit: () => {
                 onNewPayment({

@@ -1,21 +1,21 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import './Dashboard.css'
-import {Col, Modal, Row, Table} from "antd";
+import { Col, Modal, Row, Table } from "antd";
 import block1 from "../../../assets/images/block1.png"
 import block2 from "../../../assets/images/block2.png"
 import block3 from "../../../assets/images/block3.png"
 import premiumIcon from "../../../assets/images/premium.png"
 import axios from "axios";
-import {REACT_APP_API_BASE_URL} from "../../../utils/constants";
+import { REACT_APP_API_BASE_URL } from "../../../utils/constants";
 import * as links from "../../../utils/links";
-import {AuthContext} from "../../../contexts/AuthContext";
+import { AuthContext } from "../../../contexts/AuthContext";
 import moment from "moment";
-import {Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ArrowBottomIcon from "../../../assets/images/arrow_bottom.png"
 import premium2Icon from "../../../assets/images/premium2.png"
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
-import {format} from "date-fns";
+import { format } from "date-fns";
 import eoLocale from "date-fns/locale/pt-BR";
 const DashboardFornecedor = (props) => {
     const {
@@ -160,18 +160,18 @@ const DashboardFornecedor = (props) => {
                 <Col xs={24} md={24} lg={8} xl={8} className="Dashboard_col">
                     <div className="Dashboard_staBlock">
                         <div className="Dashboard_staBlockTitle">
-                            Total Fornecedores
+                            Total de Fornecedores
                         </div>
                         <div className="Dashboard_staBlockAmount">
                             {totalFornecedores !== null ? totalFornecedores : ""}
                         </div>
                         <div className="Dashboard_staBlockBottom">
-                            <img src={block1} alt=""/>
+                            <img src={block1} alt="" />
                         </div>
                         <div className="Dashboard_staBlockBottomLink">
                             <Link to={links.FORNECEDOR_SEARCH_CANAIS}>
                                 <div className="arrowBottomLink">
-                                    <img src={ArrowBottomIcon} alt=""/>
+                                    <img src={ArrowBottomIcon} alt="" />
                                 </div>
                             </Link>
                         </div>
@@ -182,7 +182,7 @@ const DashboardFornecedor = (props) => {
                         <Link to={links.FORNECEDOR_SEARCH_CANAIS} className="Dashboard_staBlockLinkA">
                             <div className="Dashboard_staBlockLink">
                                 <div>Buscar</div>
-                                <img src={ArrowBottomIcon} alt=""/>
+                                <img src={ArrowBottomIcon} alt="" />
                             </div>
                         </Link>
                         <div className="Dashboard_staBlockTitle">
@@ -192,12 +192,12 @@ const DashboardFornecedor = (props) => {
                             {totalCanais !== null ? totalCanais : ""}
                         </div>
                         <div className="Dashboard_staBlockBottom">
-                            <img src={block2} alt=""/>
+                            <img src={block2} alt="" />
                         </div>
                         <div className="Dashboard_staBlockBottomLink">
                             <Link to={links.FORNECEDOR_SEARCH_CANAIS}>
                                 <div className="arrowBottomLink">
-                                    <img src={ArrowBottomIcon} alt=""/>
+                                    <img src={ArrowBottomIcon} alt="" />
                                 </div>
                             </Link>
                         </div>
@@ -207,20 +207,20 @@ const DashboardFornecedor = (props) => {
                     <div className="Dashboard_staBlock">
                         {
                             isPremium
-                            ?
+                                ?
                                 <Link to={links.FORNECEDOR_MY_FITS} className="Dashboard_staBlockLinkA">
                                     <div className="Dashboard_staBlockLink">
-                                        <img src={premium2Icon} alt=""/>
+                                        <img src={premium2Icon} alt="" />
                                         <div>Ver Fits</div>
-                                        <img src={ArrowBottomIcon} alt=""/>
+                                        <img src={ArrowBottomIcon} alt="" />
                                     </div>
                                 </Link>
                                 :
                                 <div className="Dashboard_staBlockLinkA">
                                     <div className="Dashboard_staBlockLink">
-                                        <img src={premium2Icon} alt=""/>
+                                        <img src={premium2Icon} alt="" />
                                         <div>Ver Fits</div>
-                                        <img src={ArrowBottomIcon} alt=""/>
+                                        <img src={ArrowBottomIcon} alt="" />
                                     </div>
                                 </div>
                         }
@@ -238,12 +238,12 @@ const DashboardFornecedor = (props) => {
                             {meusFits !== null ? meusFits : ""}
                         </div>
                         <div className="Dashboard_staBlockBottom">
-                            <img src={block3} alt=""/>
+                            <img src={block3} alt="" />
                         </div>
                         <div className="Dashboard_staBlockBottomLink">
                             <Link to={links.FORNECEDOR_MY_FITS}>
                                 <div className="arrowBottomLink">
-                                    <img src={ArrowBottomIcon} alt=""/>
+                                    <img src={ArrowBottomIcon} alt="" />
                                 </div>
                             </Link>
                         </div>
@@ -256,20 +256,20 @@ const DashboardFornecedor = (props) => {
                         </div>
                         {
                             isPremium
-                            ?
+                                ?
                                 <Link to={links.FORNECEDOR_FAVORITES_PREMIUM} className="Dashboard_col_tableLinkA">
                                     <div className="Dashboard_col_tableLink">
-                                        <img src={premium2Icon} alt=""/>
+                                        <img src={premium2Icon} alt="" />
                                         <div>Ver todos</div>
-                                        <img src={ArrowBottomIcon} alt=""/>
+                                        <img src={ArrowBottomIcon} alt="" />
                                     </div>
                                 </Link>
                                 :
                                 <div className="Dashboard_col_tableLinkA">
                                     <div className="Dashboard_col_tableLink" >
-                                        <img src={premium2Icon} alt=""/>
+                                        <img src={premium2Icon} alt="" />
                                         <div>Ver todos</div>
-                                        <img src={ArrowBottomIcon} alt=""/>
+                                        <img src={ArrowBottomIcon} alt="" />
                                     </div>
                                 </div>
                         }
@@ -284,18 +284,18 @@ const DashboardFornecedor = (props) => {
                             {/*    setIsModalVisible(true);*/}
                             {/*}}>Seja Premium</span> */}
                             {isPremium ? <>
-                                    Assinatura expira em {format(new Date(premiumExpiration), "d 'de' MMMM yyyy", { locale: eoLocale })}.
-                                </> :
-                            <>
-                                <Link to={links.FORNECEDOR_BUY_PREMIUM}>Seja Premium</Link> libere todos os recursos
-                            </>}
+                                Assinatura expira em {format(new Date(premiumExpiration), "d 'de' MMMM yyyy", { locale: eoLocale })}.
+                            </> :
+                                <>
+                                    <Link to={links.FORNECEDOR_BUY_PREMIUM}>Seja Premium</Link> libere todos os recursos
+                                </>}
                         </div>
                         {
                             isPremium
-                            ?
-                                <img src={premiumIcon} alt=""/>
+                                ?
+                                <img src={premiumIcon} alt="" />
                                 :
-                                <img src={premiumIcon} alt=""/>
+                                <img src={premiumIcon} alt="" />
                         }
 
                     </div>
@@ -432,7 +432,7 @@ const DashboardFornecedor = (props) => {
                                 dataCurrentDetail.website
                                     ?
                                     <a href={dataCurrentDetail.website} target={"_blank"}
-                                       className="FornecedorSearchCanais_modalDetailViewLink">
+                                        className="FornecedorSearchCanais_modalDetailViewLink">
                                         <div className="FornecedorSearchCanais_modalDetailView">
                                             Clique aqui para acessar .
                                         </div>
