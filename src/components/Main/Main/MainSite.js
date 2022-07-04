@@ -1,6 +1,6 @@
 import React from "react";
-import {Button} from "antd";
-import {Link} from "react-router-dom";
+import { Button } from "antd";
+import { Link } from "react-router-dom";
 import * as links from "../../../utils/links"
 import "./MainSite.css";
 const MainSite = (props) => {
@@ -34,7 +34,7 @@ const MainSite = (props) => {
                     <div className="container">
                         {/* Logo */}
                         <Link className="logo logoText"
-                              to={links.SIGNIN}
+                            to={links.SIGNIN}
                         >
                             Fit2Sell
                         </Link>
@@ -54,16 +54,16 @@ const MainSite = (props) => {
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#" data-scroll-nav={1}>About</a>
+                                    <a className="nav-link" href="#" data-scroll-nav={1}>Sobre</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#" data-scroll-nav={2}>Features</a>
+                                    <a className="nav-link" href="#" data-scroll-nav={2}>Conheça</a>
                                 </li>
                                 {/*<li className="nav-item">*/}
                                 {/*    <a className="nav-link" href="#" data-scroll-nav={3}>Price</a>*/}
                                 {/*</li>*/}
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#" data-scroll-nav={4}>Testimonials</a>
+                                    <a className="nav-link" href="#" data-scroll-nav={4}>Depoimentos</a>
                                 </li>
                                 {/*<li className="nav-item dropdown">*/}
                                 {/*    <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>*/}
@@ -95,9 +95,9 @@ const MainSite = (props) => {
                         <div className="container">
                             <div className="row">
                                 <div className="offset-lg-2 col-lg-8 offset-md-1 col-md-10 text-center caption mt-80">
-                                    <h1>Everything you need to increase your Business</h1>
-                                    <p>We design and develop mobile apps that delight your users and grow your business.<br />
-                                        Enterprise grade development combined with outstanding design.</p>
+                                    <h1>A melhor plataforma de Fornecedores e Canais de vendas do mundo.</h1>
+                                    <p>Uma plataforma de parcerias com algoritmos baseados em inteligência artificial<br />
+                                        Encontraremos o  “FIT” perfeito entre um Fornecedor e um Canal de Vendas.</p>
                                     {/*<a href="#0" className="butn light mt-30">*/}
                                     {/*    <span>Contact Us<i className="pe-7s-paper-plane" /></span>*/}
                                     {/*</a>*/}
@@ -120,24 +120,24 @@ const MainSite = (props) => {
                                 <div className="text-center">
                                     {/*<span className="icon pe-7s-diamond" />*/}
                                     <i className="icon fa-solid fa-gem"></i>
-                                    <h6>Awesome Design</h6>
-                                    <p>It has survived not only five centuries, but also the leap into remaining.</p>
+                                    <h6>Crescimento</h6>
+                                    <p>As suas vendas não crescem porque somente 3% do seu mercado potencial conhece a sua empresa e os seus produtos.</p>
                                 </div>
                             </div>
                             <div className="col-lg-4 item">
                                 <div className="text-center">
                                     <i className="icon fa-solid fa-box"></i>
                                     {/*<span className="icon pe-7s-box2" />*/}
-                                    <h6>Unlimited Features</h6>
-                                    <p>It has survived not only five centuries, but also the leap into remaining.</p>
+                                    <h6>Marketing</h6>
+                                    <p>Você pode investir em marketing, contratação de profissionais para o comercial e para o técnico, mas além das altas cifras, do aumento do custo fixo, você enfrentará a escassez de profissionais.</p>
                                 </div>
                             </div>
                             <div className="col-lg-4 item">
                                 <div className="text-center">
                                     <i className="icon fa-solid fa-lightbulb"></i>
                                     {/*<span className="icon pe-7s-light" />*/}
-                                    <h6>Powerful &amp; Simple</h6>
-                                    <p>It has survived not only five centuries, but also the leap into remaining.</p>
+                                    <h6>Escalabilidade  </h6>
+                                    <p>Com uma rede de canais de vendas você escalará as suas vendas, reduzirá os custos fixos, aumentará a lucratividade, aproveitando as estruturas dos seus futuros parceiros.</p>
                                 </div>
                             </div>
                         </div>
@@ -233,18 +233,17 @@ const MainSite = (props) => {
                             </div>
                             <div className="offset-md-1 col-md-6 valign">
                                 <div className="content">
-                                    <span className="sm-title">Awesome Tools</span>
-                                    <h3>We Provide Almost Every Kind Of Business Solution.</h3>
-                                    <p>Fusce imperdiet justo vitae dui eleifend imperdiet sed ac massa. Eu scelerisque felis
-                                        imperdiet proin fermentum. Odio pellentesque diam volutpat commodo sed.</p>
+                                    <span className="sm-title">Fornecedor</span>
+                                    <h3>Cadastre sua empresa.</h3>
+                                    <p>Nossa plataforma irá googlar seus parceiros e mostrar pra você o "Fit" ideal entre você e os Canais de Vendas relacionados ao seu negócio.</p>
                                     {/*<a href="#0" className="butn butn-bg">*/}
                                     {/*    <span>View More <i className="pe-7s-angle-right" /></span>*/}
                                     {/*</a>*/}
                                     <Link
-                                        to={links.SIGNIN}
+                                        to={links.SIGNUP_FORNECEDOR}
                                         className="butn butn-bg"
                                     >
-                                        <span>View More
+                                        <span>Cadastre-se
                                             <i className="fa-solid fa-angle-right"></i>
                                             {/*<i className="pe-7s-angle-right" />*/}
                                         </span>
@@ -263,18 +262,17 @@ const MainSite = (props) => {
                         <div className="row">
                             <div className="col-md-6 valign">
                                 <div className="content mb-sm50">
-                                    <span className="sm-title">Awesome Tools</span>
-                                    <h3>We Provide Almost Every Kind Of Business Solution.</h3>
-                                    <p>Fusce imperdiet justo vitae dui eleifend imperdiet sed ac massa. Eu scelerisque felis
-                                        imperdiet proin fermentum. Odio pellentesque diam volutpat commodo sed.</p>
+                                    <span className="sm-title">Canal de Vendas</span>
+                                    <h3>Cadastre-se</h3>
+                                    <p>Cadastre sua empresa ou cadastre-se como pessoa física, informe suas “expertises”, seus produtos e seu segmento. Nossa plataforma irá “googlar” os melhores Fornecedores e mostrar os "Fits" perfeitos para seu negócio.</p>
                                     {/*<a href="#0" className="butn butn-bg">*/}
                                     {/*    <span>View More <i className="pe-7s-angle-right" /></span>*/}
                                     {/*</a>*/}
                                     <Link
-                                        to={links.SIGNIN}
+                                        to={links.SIGNUP_CANAL}
                                         className="butn butn-bg"
                                     >
-                                        <span>View More
+                                        <span>Cadastre-se
                                             <i className="fa-solid fa-angle-right"></i>
                                             {/*<i className="pe-7s-angle-right" />*/}
                                         </span>
@@ -298,16 +296,16 @@ const MainSite = (props) => {
                         <div className="container">
                             <div className="row">
                                 <div className="section-head text-center col-sm-12">
-                                    <h6 className="sm-title">How It's Work</h6>
-                                    <h4>Our Process</h4>
+                                    <h6 className="sm-title">Como funciona?</h6>
+                                    <h4>Nosso Processo</h4>
                                 </div>
                                 <div className="col-lg-3 col-md-6 padding mb-md50">
                                     <div className="item text-center">
                                         <img src="fula/arrow1.png" className="tobotm" alt="" />
                                         {/*<span className="icon pe-7s-scissors" />*/}
                                         <span className="icon fa-solid fa-scissors"></span>
-                                        <h6><span>01.</span>Analyze</h6>
-                                        <p>Fusce imperdiet justo vitae ac massa scelerisque.</p>
+                                        <h6><span>01.</span>Dados</h6>
+                                        <p>Você fornece os dados do seu negócio.</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-3 col-md-6 padding mb-md50">
@@ -315,24 +313,24 @@ const MainSite = (props) => {
                                         <img src="fula/arrow1.png" alt="" />
                                         {/*<span className="icon pe-7s-diamond" />*/}
                                         <span className="icon fa-solid fa-diamond"></span>
-                                        <h6><span>02.</span>Strategy</h6>
-                                        <p>Fusce imperdiet justo vitae ac massa scelerisque.</p>
+                                        <h6><span>02.</span>Processamento</h6>
+                                        <p>Nosso sistema faz uma análise automática.</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-3 col-md-6 padding mb-sm50">
                                     <div className="item text-center">
                                         <img src="fula/arrow1.png" className="tobotm" alt="" />
                                         {/*<span className="icon pe-7s-rocket" />*/}
-                                        <span className="icon fa-solid fa-rocket"></span>                                        <h6><span>03.</span>lounch</h6>
-                                        <p>Fusce imperdiet justo vitae ac massa scelerisque.</p>
+                                        <span className="icon fa-solid fa-rocket"></span>                                        <h6><span>03.</span>Fits</h6>
+                                        <p>Encontramos seus potenciais parceiros.</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-3 col-md-6 padding">
                                     <div className="item text-center">
                                         {/*<span className="icon pe-7s-check" />*/}
                                         <span className="icon fa-solid fa-check"></span>
-                                        <h6><span>03.</span>Result</h6>
-                                        <p>Fusce imperdiet justo vitae ac massa scelerisque.</p>
+                                        <h6><span>03.</span>Resultado</h6>
+                                        <p>Você encontra parcerias com mais facilidade.</p>
                                     </div>
                                 </div>
                             </div>
@@ -457,16 +455,18 @@ const MainSite = (props) => {
                     <div className="container">
                         <div className="row">
                             <div className="section-head text-center col-sm-12">
-                                <h6 className="sm-title">What Peapole Says?</h6>
-                                <h4>Testimonials</h4>
+                                <h6 className="sm-title">O que as pessoas dizem?</h6>
+                                <h4>Depoimentos</h4>
                             </div>
                             <div className="col-lg-12">
                                 <div className="owl-carousel owl-theme text-center">
                                     <div className="item">
                                         <div className="client-area">
-                                            <p>Nulla metus metus sed euismod volutpat velit class aptent taciti sociosqu ad litora
-                                                torquent per conubia
-                                                nostra.</p>
+                                            <p>"Meu nome é Sérgio Tomasini, sou o Diretor da Exekon do Brasil. Através do canal de vendas aberto
+                                                pela Fit2Sell, já fechamos os primeiros negócios no Nordeste. Nosso objetivo agora é aumentar
+                                                a presença no Sudeste através de mais canais e assim continuar este processo de crescimento no Brasil.
+                                                A Fit2Sell é nossa parceira desde 2018 nos ajudando no processo de desenvolvimento dos canais de vendas e na gestão dos
+                                                processos comerciais!"</p>
                                             <div className="img">
                                                 <span className="icon"><img src="fula/left-quote.svg" alt="" /></span>
                                                 <span className="icon"><img src="fula/right-quote.svg" alt="" /></span>
@@ -474,15 +474,19 @@ const MainSite = (props) => {
                                                     <img src="fula/1.jpg" alt="" />
                                                 </div>
                                             </div>
-                                            <h6>Alex Smith</h6>
-                                            <span>Envato Customer</span>
+                                            <h6>Sérgio Tomasini</h6>
+                                            <span>Diretor da Exekon do Brasil</span>
                                         </div>
                                     </div>
                                     <div className="item">
                                         <div className="client-area">
-                                            <p>Nulla metus metus sed euismod volutpat velit class aptent taciti sociosqu ad litora
-                                                torquent per conubia
-                                                nostra.</p>
+                                            <p>Olá! Meu nome é Victor e sou Gerente Comercial na empresa RSData.
+                                                O Alexandre Maia está implantando estratégias comerciais utilizadas pelas Startups
+                                                aqui na empresa! Os resultados ocorrem muito rapidamente e hoje já estamos noutro patamar de operação!
+                                                Fique a vontade para me ligar, caso deseje mais informações sobre os trabalhos do Alexandre Maia!
+                                                Whatsapp <a href="https://wa.me/5551995220091" target={"_blank"}>+55 51 9 9522 0091</a>
+                                                - <a href="mailto:victor@rsdata.inf.br" target={"_blank"}>victor@rsdata.inf.br</a>
+                                            </p>
                                             <div className="img">
                                                 <span className="icon"><img src="fula/left-quote.svg" alt="" /></span>
                                                 <span className="icon"><img src="fula/right-quote.svg" alt="" /></span>
@@ -490,15 +494,18 @@ const MainSite = (props) => {
                                                     <img src="fula/2.jpg" alt="" />
                                                 </div>
                                             </div>
-                                            <h6>Sam Smith</h6>
-                                            <span>Envato Customer</span>
+                                            <h6>Victor</h6>
+                                            <span>Gerente Comercial da RSData</span>
                                         </div>
                                     </div>
                                     <div className="item">
                                         <div className="client-area">
-                                            <p>Nulla metus metus sed euismod volutpat velit class aptent taciti sociosqu ad litora
-                                                torquent per conubia
-                                                nostra.</p>
+                                            <p>Olá! Meu nome é Danilo, sou desenvolvedor de negócios e estratégias comerciais.
+                                                Os treinamentos ministrados pelo Alexandre Maia sobre gestão comercial e gestão de canais de vendas
+                                                foram muito importantes para mim e me deram uma nova visão
+                                                sobre negócios!<br /> Para mais informações podem entrar em contato comigo, através dos meus contatos a seguir:
+                                                Whatsapp para contato:<br /> <a href="https://wa.me/5519993305895" target={"_blank"}>+55 19 9 9330-5895</a>
+                                            </p>
                                             <div className="img">
                                                 <span className="icon"><img src="fula/left-quote.svg" alt="" /></span>
                                                 <span className="icon"><img src="fula/right-quote.svg" alt="" /></span>
@@ -506,8 +513,8 @@ const MainSite = (props) => {
                                                     <img src="fula/3.jpg" alt="" />
                                                 </div>
                                             </div>
-                                            <h6>Alex Martin</h6>
-                                            <span>Envato Customer</span>
+                                            <h6>Danilo</h6>
+                                            <span>Desenvolvedor de Negócios e Estratégias Comerciais</span>
                                         </div>
                                     </div>
                                 </div>
@@ -525,7 +532,7 @@ const MainSite = (props) => {
                             <div className="row">
                                 <div className="offset-lg-3 col-lg-6 offset-md-2 col-md-8">
                                     <div>
-                                        <h3>Do You Have Any Project? Contact Us</h3>
+                                        <h3>CADASTRE-SE GRATUITAMENTE</h3>
                                         {/*<a href="#0" className="butn light mt-30">*/}
                                         {/*    <span>Contact Us<i className="pe-7s-paper-plane" /></span>*/}
                                         {/*</a>*/}
@@ -533,7 +540,7 @@ const MainSite = (props) => {
                                             to={links.SIGNIN}
                                             className="butn light mt-30"
                                         >
-                                            <span>Contact Us
+                                            <span>Login
                                                 <i className="fa-solid fa-paper-plane"></i>
                                                 {/*<i className="pe-7s-paper-plane" />*/}
                                             </span>
