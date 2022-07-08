@@ -167,8 +167,8 @@ const SignIn = (props) => {
                 authSubmit={"Entrar"}
                 authFooter={[
                     {
-                        text1: 'Não tem uma conta?',
-                        text2: 'Registre-se',
+                        text1: 'Registre-se como um',
+                        text2: 'Canal de Vendas',
                         link: links.SIGNUP_CANAL
                     },
                     {

@@ -1,12 +1,12 @@
 import "./SignUp.css";
 import axios from "axios";
-import React, { useState} from "react";
+import React, { useState } from "react";
 import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
 import Auth from "../Auth/Auth";
 import * as links from '../../../utils/links'
 import signup_1 from "../../../assets/images/signup_1.png";
 import signup_2 from "../../../assets/images/signup_2.png";
-import {CANAL, REACT_APP_API_BASE_URL} from "../../../utils/constants";
+import { CANAL, REACT_APP_API_BASE_URL } from "../../../utils/constants";
 
 const initialDataSignUp = {
     email: '',
@@ -33,10 +33,10 @@ const SignUp = (props) => {
         type
     } = props;
     console.log(type)
-    const [dataAuth, setDataSingUp] = useState({...initialDataSignUp});
+    const [dataAuth, setDataSingUp] = useState({ ...initialDataSignUp });
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(false);
-    const [errorField, setErrorField] = useState({...initErrorField});
+    const [errorField, setErrorField] = useState({ ...initErrorField });
     const [isLoading, setIsLoading] = useState(false)
 
     const onsubmit = () => {
@@ -106,9 +106,9 @@ const SignUp = (props) => {
                     setIsLoading(false)
 
                     if (err.response.status === 500) {
-                        setError('Usuário já existe, <a target="_blank" href='+links.FORGOTPASSWORD+'>esqueceu sua senha<a/>?')
+                        setError('Usuário já existe, <a target="_blank" href=' + links.FORGOTPASSWORD + '>esqueceu sua senha<a/>?')
                     } else {
-                        setError('Erro, algo deu errado ' + (err.response?.data?.error ?? "") )
+                        setError('Erro, algo deu errado ' + (err.response?.data?.error ?? ""))
                     }
                 })
         } else {
@@ -208,11 +208,11 @@ const SignUp = (props) => {
                     {
                         text1: 'Voltar para',
                         text2: 'Login',
-                        link: type === CANAL ? links.SIGNIN: links.SIGNIN
+                        link: type === CANAL ? links.SIGNIN : links.SIGNIN
                     },
                     {
                         text1: 'Registrar-se como',
-                        text2: type === CANAL ? 'Fornecedor' : 'Canal',
+                        text2: type === CANAL ? 'Fornecedor' : 'Canal de Vendas',
                         link: type === CANAL ? links.SIGNUP_FORNECEDOR : links.SIGNUP_CANAL
                     }
                 ]}
@@ -224,15 +224,15 @@ const SignUp = (props) => {
                 errorMessage={error ?? ""}
                 textImage={
                     type === CANAL ?
-                    <div className="SignUp_textImage1">
-                        <div className="SignUp_textTitle">
-                            Fit2Sell
+                        <div className="SignUp_textImage1">
+                            <div className="SignUp_textTitle">
+                                Fit2Sell
+                            </div>
+                            <div className="SignUp_textDescription">
+                                Seja um Canal e encontre Fornecedores que atuam no seu segmento de negócio.
+                            </div>
                         </div>
-                        <div className="SignUp_textDescription">
-                            Seja um Canal e encontre Fornecedores que atuam no seu segmento de negócio.
-                        </div>
-                    </div>
-                         :
+                        :
                         <div className="SignUp_textImage2">
                             <div className="SignUp_textTitle">
                                 Fit2Sell

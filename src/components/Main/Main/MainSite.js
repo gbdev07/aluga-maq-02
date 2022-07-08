@@ -95,9 +95,10 @@ const MainSite = (props) => {
                         <div className="container">
                             <div className="row">
                                 <div className="offset-lg-2 col-lg-8 offset-md-1 col-md-10 text-center caption mt-80">
-                                    <h1>A melhor plataforma de Fornecedores e Canais de vendas do mundo.</h1>
-                                    <p>Uma plataforma de parcerias com algoritmos baseados em inteligência artificial<br />
-                                        Encontraremos o  “FIT” perfeito entre um Fornecedor e um Canal de Vendas.</p>
+                                    <h1>FIT2SELL<br />Se deu FIT, deu Venda!</h1>
+                                    <p>A primeira plataforma de relacionamento entre fornecedores e canais de vendas!
+                                        2fit é a Inteligência Artificial da FIT2SELL que encontrará os parceiros com fit para o seu negócio!
+                                        2fit encontra mercados e parceiros! Esta IA é fit, Esta IA é venda!</p>
                                     {/*<a href="#0" className="butn light mt-30">*/}
                                     {/*    <span>Contact Us<i className="pe-7s-paper-plane" /></span>*/}
                                     {/*</a>*/}
@@ -120,24 +121,30 @@ const MainSite = (props) => {
                                 <div className="text-center">
                                     {/*<span className="icon pe-7s-diamond" />*/}
                                     <i className="icon fa-solid fa-gem"></i>
-                                    <h6>Crescimento</h6>
-                                    <p>As suas vendas não crescem porque somente 3% do seu mercado potencial conhece a sua empresa e os seus produtos.</p>
+                                    <h6>Crescimento Exponencial</h6>
+                                    <p>As suas vendas não crescem na velocidade que você deseja porque somente 3% do seu mercado potencial conhece a sua empresa, o seus produtos e os seus serviços!
+                                        Parceiros que se relacionam com o seu mercado reduzem os investimentos em marketing em até 68% e geram 27% de vendas a mais logo no primeiro ano!
+                                        Sem contar a lucratividade que poderá aumentar em até 17%!</p>
                                 </div>
                             </div>
                             <div className="col-lg-4 item">
                                 <div className="text-center">
                                     <i className="icon fa-solid fa-box"></i>
                                     {/*<span className="icon pe-7s-box2" />*/}
-                                    <h6>Marketing</h6>
-                                    <p>Você pode investir em marketing, contratação de profissionais para o comercial e para o técnico, mas além das altas cifras, do aumento do custo fixo, você enfrentará a escassez de profissionais.</p>
+                                    <h6>Pilares das Vendas</h6>
+                                    <p>As vendas são consequências da nossa capacidade de chamar atenção, mostrar importância e utilidade!
+                                        Em seguida precisamos de provas sociais!
+                                        Estes dois pilares são complementados pela confiança e pelo relacionamento!
+                                        Se você tem parceiros bem relacionados, você tem sustentação comercial!</p>
                                 </div>
                             </div>
                             <div className="col-lg-4 item">
                                 <div className="text-center">
                                     <i className="icon fa-solid fa-lightbulb"></i>
                                     {/*<span className="icon pe-7s-light" />*/}
-                                    <h6>Escalabilidade  </h6>
-                                    <p>Com uma rede de canais de vendas você escalará as suas vendas, reduzirá os custos fixos, aumentará a lucratividade, aproveitando as estruturas dos seus futuros parceiros.</p>
+                                    <h6>Escala</h6>
+                                    <p>Qual a sua capacidade de crescimento atuando somente com a sua equipe comercial interna?
+                                        Com uma rede de parceiros, escalar as vendas e os resultados podem ser obtidos através de um custo menor, enquanto mais dinheiro será disponibilizado para investir em novas tecnologias, novos produtos e mercados!</p>
                                 </div>
                             </div>
                         </div>
@@ -234,8 +241,21 @@ const MainSite = (props) => {
                             <div className="offset-md-1 col-md-6 valign">
                                 <div className="content">
                                     <span className="sm-title">Fornecedor</span>
-                                    <h3>Cadastre sua empresa.</h3>
-                                    <p>Nossa plataforma irá googlar seus parceiros e mostrar pra você o "Fit" ideal entre você e os Canais de Vendas relacionados ao seu negócio.</p>
+                                    <h3>Por que estas questões abaixo precisam ser analisadas por você, FORNECEDOR de produtos e serviços?</h3>
+                                    <p><b>Crescimento Exponencial</b> As suas vendas não crescem na velocidade que você deseja porque somente 3% do seu mercado potencial conhece a sua empresa, o seus produtos e os seus serviços!
+                                        Parceiros que se relacionam com o seu mercado reduzem os investimentos em marketing em até 68% e geram 27% de vendas a mais logo no primeiro ano!
+                                        Sem contar a lucratividade que poderá aumentar em até 17%!
+                                    </p>
+                                    <p><b>Pilares das Vendas</b> As vendas são consequências da nossa capacidade de chamar atenção, mostrar importância e utilidade!
+                                        Em seguida precisamos de provas sociais!
+                                        Estes dois pilares são complementados pela confiança e pelo relacionamento!
+                                        Se você tem parceiros bem relacionados, você tem sustentação comercial!
+
+                                    </p>
+                                    <p><b>Escala</b> Qual a sua capacidade de crescimento atuando somente com a sua equipe comercial interna?
+                                        Com uma rede de parceiros, escalar as vendas e os resultados podem ser obtidos através de um custo menor, enquanto mais dinheiro será disponibilizado para investir em novas tecnologias, novos produtos e mercados!
+                                    </p>
+                                    <p></p>
                                     {/*<a href="#0" className="butn butn-bg">*/}
                                     {/*    <span>View More <i className="pe-7s-angle-right" /></span>*/}
                                     {/*</a>*/}
@@ -243,7 +263,7 @@ const MainSite = (props) => {
                                         to={links.SIGNUP_FORNECEDOR}
                                         className="butn butn-bg"
                                     >
-                                        <span>Cadastre-se
+                                        <span>CADASTRE-SE AGORA COMO FORNECEDOR
                                             <i className="fa-solid fa-angle-right"></i>
                                             {/*<i className="pe-7s-angle-right" />*/}
                                         </span>
@@ -263,8 +283,25 @@ const MainSite = (props) => {
                             <div className="col-md-6 valign">
                                 <div className="content mb-sm50">
                                     <span className="sm-title">Canal de Vendas</span>
-                                    <h3>Cadastre-se</h3>
-                                    <p>Cadastre sua empresa ou cadastre-se como pessoa física, informe suas “expertises”, seus produtos e seu segmento. Nossa plataforma irá “googlar” os melhores Fornecedores e mostrar os "Fits" perfeitos para seu negócio.</p>
+                                    <h3>Por que estas questões abaixo precisam ser analisadas por você, EMPREENDEDOR que observa potencial em sua região e precisa gerar receitas crescentes?</h3>
+                                    <p><b>O que o Google é para o mundo?</b> O Google é para o mundo uma tecnologia de disponibilização de dados e informações.
+                                        Porém, é você EMPREENDEDOR o único capaz de transformar estes dados e informações em decisão!
+                                        Como você faz isso? Mostrando aos seus clientes como usar os dados, as informações em conjunto com as soluções que você representa!
+                                        A Informação está com o Google, mas o como decidir está com você!
+                                        E você será cada vez mais eficiente no como tendo em seu portfólio os produtos e as soluções corretas!
+                                    </p>
+                                    <p><b>O que você pode ser para o seu cliente</b> Há tanta tecnologia e produtos no mundo que o seu cliente passou a ter como principal necessidade transformar esta tecnologia em resultados!
+
+                                        Como obter os melhores resultados é o que o seu cliente espera de você!
+
+                                        Com um portfólio bem estruturado, além da fidelidade, sua base perceberá em você o parceiro ideal para a geração de resultados!
+
+                                    </p>
+                                    <p><b>Desenvolver Tecnologia ou Gerar Resultados</b> Não há uma resposta certa, mas quando observamos que o “COMO” é muito mais importante que “O QUE”, fica evidente que montar um bom portfólio de parcerias é a grande oportunidade que temos para a geração rápida, crescente e recorrente de receitas!
+
+                                        Empreendedor, isso faz sentido para você? Já analisou o quanto vale a pena ser um canal? Um integrador de soluções?
+
+                                    </p>
                                     {/*<a href="#0" className="butn butn-bg">*/}
                                     {/*    <span>View More <i className="pe-7s-angle-right" /></span>*/}
                                     {/*</a>*/}
@@ -272,7 +309,7 @@ const MainSite = (props) => {
                                         to={links.SIGNUP_CANAL}
                                         className="butn butn-bg"
                                     >
-                                        <span>Cadastre-se
+                                        <span>CADASTRE-SE AGORA COMO CANAL DE VENDAS
                                             <i className="fa-solid fa-angle-right"></i>
                                             {/*<i className="pe-7s-angle-right" />*/}
                                         </span>
