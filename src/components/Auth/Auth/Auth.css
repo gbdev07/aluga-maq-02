@@ -1,6 +1,7 @@
 .Auth_container {
     height: 100%;
 }
+
 .Auth_rowContainer {
     width: 100%;
     height: 100%;
@@ -13,7 +14,7 @@
 
 .Auth_colAuthForm {
     padding: 50px;
-    display: flex!important;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     background-color: #2b394b;
@@ -67,12 +68,12 @@
     /*box-shadow: 0px 0px 0px 2px #FFDE88;*/
     border-radius: 4px;
     background-color: transparent;
-    color: #fff!important;
+    color: #fff !important;
 }
 
 .Auth_itemField .ant-input-password {
-    border: 1px solid #469AE2!important;
-    background-color: transparent!important;
+    border: 1px solid #469AE2 !important;
+    background-color: transparent !important;
     border-radius: 4px;
 }
 
@@ -91,6 +92,7 @@
     color: #AFB6C2;
     text-decoration: underline;
 }
+
 .Auth_itemField .Auth_itemFieldError {
     color: #E46772;
     font-size: 14px;
@@ -108,19 +110,19 @@
 .Auth_itemField select:-webkit-autofill:hover,
 .Auth_itemField select:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px transparent inset;
-    -webkit-text-fill-color: #fff!important;
+    -webkit-text-fill-color: #fff !important;
     transition: background-color 5000s ease-in-out 0s;
     /*color: #fff!important;*/
 }
 
 .Auth_authSubmit {
-    background: #4599E1!important;
-    border-radius: 4px!important;
+    background: #4599E1 !important;
+    border-radius: 4px !important;
     width: 100%;
-    border: none!important;
-    box-shadow: none!important;
-    color: #fff!important;
-    font-weight: 600!important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #fff !important;
+    font-weight: 600 !important;
     font-size: 18px;
     text-transform: uppercase;
 }
@@ -131,6 +133,7 @@
     justify-content: center;
     flex-direction: column;
 }
+
 .Auth_itemAuthFooter {
     display: flex;
     padding: 5px 0;
@@ -139,13 +142,13 @@
     line-height: 21px;
 }
 
-.Auth_itemAuthFooter > div {
+.Auth_itemAuthFooter>div {
     padding: 0 5px;
-    color: #469AE2!important;
+    color: #469AE2 !important;
 }
 
-.Auth_itemAuthFooter > a {
-    color: #469AE2!important;
+.Auth_itemAuthFooter>a {
+    color: #469AE2 !important;
     text-decoration: underline;
 }
 
@@ -164,32 +167,38 @@
     text-align: center;
     max-width: 320px;
 }
+
 .Auth_errorMessage a {
     color: #E46772;
     text-decoration: underline;
 }
+
 .Auth_errorMessage a:hover {
     color: #E46772;
 }
+
 .Auth_authImage {
     width: 100%;
     height: 100%;
 }
+
 .Auth_colAuthImage {
     position: relative;
 }
+
 @media only screen and (max-width: 600px) {
     .Auth_colAuthForm {
         padding: 0;
-        background: #24221F;
+        background: #292F4A;
     }
+
     .Auth_colAuthImage {
-        display: none!important;
+        display: none !important;
     }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 768px) {
     .Auth_colAuthImage {
-        display: none!important;
+        display: none !important;
     }
 }
