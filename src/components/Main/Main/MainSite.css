@@ -6,18 +6,18 @@
 }
 
 .logoText {
-    color: #FFFFFF!important;
-    text-decoration: none!important;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
     font-size: 18px;
     font-weight: 700;
-    width: unset!important;
+    width: unset !important;
 }
 
 .logoText:hover {
-    color: #FFFFFF!important;
-    text-decoration: none!important;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
 }
 
 .logoTextDark {
-    color: #0E132F!important;
+    color: #0E132F !important;
 }
