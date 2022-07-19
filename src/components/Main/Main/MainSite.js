@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "antd";
+import {Button, Col, Row} from "antd";
 import { Link } from "react-router-dom";
 import * as links from "../../../utils/links"
 import "./MainSite.css";
@@ -497,65 +497,77 @@ const MainSite = (props) => {
                                 <h4>Depoimentos</h4>
                             </div>
                             <div className="col-lg-12">
-                                <div className="owl-carousel owl-theme text-center">
-                                    <div className="item">
-                                        <div className="client-area">
-                                            <p>"Meu nome é Sérgio Tomasini, sou o Diretor da Exekon do Brasil. Através do canal de vendas aberto
-                                                pela Fit2Sell, já fechamos os primeiros negócios no Nordeste. Nosso objetivo agora é aumentar
-                                                a presença no Sudeste através de mais canais e assim continuar este processo de crescimento no Brasil.
-                                                A Fit2Sell é nossa parceira desde 2018 nos ajudando no processo de desenvolvimento dos canais de vendas e na gestão dos
-                                                processos comerciais!"</p>
-                                            <div className="img">
-                                                <span className="icon"><img src="fula/left-quote.svg" alt="" /></span>
-                                                <span className="icon"><img src="fula/right-quote.svg" alt="" /></span>
-                                                <div className="author">
-                                                    <img src="fula/1.jpg" alt="" />
+                                <Row className="owl-carousel-2 owl-theme text-center">
+                                    <Col xs={24} sm={24} md={8} style={{
+                                        padding: 20,
+                                    }}>
+                                        <div className="item">
+                                            <div className="client-area">
+                                                <p>"Meu nome é Sérgio Tomasini, sou o Diretor da Exekon do Brasil. Através do canal de vendas aberto
+                                                    pela Fit2Sell, já fechamos os primeiros negócios no Nordeste. Nosso objetivo agora é aumentar
+                                                    a presença no Sudeste através de mais canais e assim continuar este processo de crescimento no Brasil.
+                                                    A Fit2Sell é nossa parceira desde 2018 nos ajudando no processo de desenvolvimento dos canais de vendas e na gestão dos
+                                                    processos comerciais!"</p>
+                                                <div className="img">
+                                                    <span className="icon"><img src="fula/left-quote.svg" alt="" /></span>
+                                                    <span className="icon"><img src="fula/right-quote.svg" alt="" /></span>
+                                                    <div className="author">
+                                                        <img src="fula/1.jpg" alt="" />
+                                                    </div>
                                                 </div>
+                                                <h6>Sérgio Tomasini</h6>
+                                                <span>Diretor da Exekon do Brasil</span>
                                             </div>
-                                            <h6>Sérgio Tomasini</h6>
-                                            <span>Diretor da Exekon do Brasil</span>
                                         </div>
-                                    </div>
+                                    </Col>
+                                    <Col xs={24} sm={24} md={8} style={{
+                                        padding: 20,
+                                    }}>
                                     <div className="item">
-                                        <div className="client-area">
-                                            <p>Olá! Meu nome é Victor e sou Gerente Comercial na empresa RSData.
-                                                O Alexandre Maia está implantando estratégias comerciais utilizadas pelas Startups
-                                                aqui na empresa! Os resultados ocorrem muito rapidamente e hoje já estamos noutro patamar de operação!
-                                                Fique a vontade para me ligar, caso deseje mais informações sobre os trabalhos do Alexandre Maia!
-                                                Whatsapp <a href="https://wa.me/5551995220091" target={"_blank"}>+55 51 9 9522 0091</a>
-                                                - <a href="mailto:victor@rsdata.inf.br" target={"_blank"}>victor@rsdata.inf.br</a>
-                                            </p>
-                                            <div className="img">
-                                                <span className="icon"><img src="fula/left-quote.svg" alt="" /></span>
-                                                <span className="icon"><img src="fula/right-quote.svg" alt="" /></span>
-                                                <div className="author">
-                                                    <img src="fula/2.jpg" alt="" />
+                                            <div className="client-area">
+                                                <p>Olá! Meu nome é Victor e sou Gerente Comercial na empresa RSData.
+                                                    O Alexandre Maia está implantando estratégias comerciais utilizadas pelas Startups
+                                                    aqui na empresa! Os resultados ocorrem muito rapidamente e hoje já estamos noutro patamar de operação!
+                                                    Fique a vontade para me ligar, caso deseje mais informações sobre os trabalhos do Alexandre Maia!
+                                                    Whatsapp <a href="https://wa.me/5551995220091" target={"_blank"}>+55 51 9 9522 0091</a>
+                                                    - <a href="mailto:victor@rsdata.inf.br" target={"_blank"}>victor@rsdata.inf.br</a>
+                                                </p>
+                                                <div className="img">
+                                                    <span className="icon"><img src="fula/left-quote.svg" alt="" /></span>
+                                                    <span className="icon"><img src="fula/right-quote.svg" alt="" /></span>
+                                                    <div className="author">
+                                                        <img src="fula/2.jpg" alt="" />
+                                                    </div>
                                                 </div>
+                                                <h6>Victor</h6>
+                                                <span>Gerente Comercial da RSData</span>
                                             </div>
-                                            <h6>Victor</h6>
-                                            <span>Gerente Comercial da RSData</span>
                                         </div>
-                                    </div>
+                                    </Col>
+                                    <Col xs={24} sm={24} md={8} style={{
+                                        padding: 20,
+                                    }}>
                                     <div className="item">
-                                        <div className="client-area">
-                                            <p>Olá! Meu nome é Danilo, sou desenvolvedor de negócios e estratégias comerciais.
-                                                Os treinamentos ministrados pelo Alexandre Maia sobre gestão comercial e gestão de canais de vendas
-                                                foram muito importantes para mim e me deram uma nova visão
-                                                sobre negócios!<br /> Para mais informações podem entrar em contato comigo, através dos meus contatos a seguir:
-                                                Whatsapp para contato:<br /> <a href="https://wa.me/5519993305895" target={"_blank"}>+55 19 9 9330-5895</a>
-                                            </p>
-                                            <div className="img">
-                                                <span className="icon"><img src="fula/left-quote.svg" alt="" /></span>
-                                                <span className="icon"><img src="fula/right-quote.svg" alt="" /></span>
-                                                <div className="author">
-                                                    <img src="fula/3.jpg" alt="" />
+                                            <div className="client-area">
+                                                <p>Olá! Meu nome é Danilo, sou desenvolvedor de negócios e estratégias comerciais.
+                                                    Os treinamentos ministrados pelo Alexandre Maia sobre gestão comercial e gestão de canais de vendas
+                                                    foram muito importantes para mim e me deram uma nova visão
+                                                    sobre negócios!<br /> Para mais informações podem entrar em contato comigo, através dos meus contatos a seguir:
+                                                    Whatsapp para contato:<br /> <a href="https://wa.me/5519993305895" target={"_blank"}>+55 19 9 9330-5895</a>
+                                                </p>
+                                                <div className="img">
+                                                    <span className="icon"><img src="fula/left-quote.svg" alt="" /></span>
+                                                    <span className="icon"><img src="fula/right-quote.svg" alt="" /></span>
+                                                    <div className="author">
+                                                        <img src="fula/3.jpg" alt="" />
+                                                    </div>
                                                 </div>
+                                                <h6>Danilo</h6>
+                                                <span>Desenvolvedor de Negócios e Estratégias Comerciais</span>
                                             </div>
-                                            <h6>Danilo</h6>
-                                            <span>Desenvolvedor de Negócios e Estratégias Comerciais</span>
                                         </div>
-                                    </div>
-                                </div>
+                                    </Col>
+                                </Row>
                             </div>
                         </div>
                     </div>

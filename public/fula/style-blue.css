@@ -240,11 +240,11 @@ span, a, a:hover {
   background: #664ffa;
 }
 
-.owl-carousel:hover .owl-nav .owl-next {
+.owl-carousel-2:hover .owl-nav .owl-next {
   right: 0;
   opacity: 1 !important;
 }
-.owl-carousel:hover .owl-nav .owl-prev {
+.owl-carousel-2:hover .owl-nav .owl-prev {
   left: 0;
   opacity: 1 !important;
 }
@@ -271,14 +271,17 @@ span, a, a:hover {
   cursor: pointer;
 }
 
-.owl-carousel .owl-nav .owl-next {
+.owl-carousel-2 .owl-nav .owl-next {
   right: 0;
 }
 
-.owl-carousel .owl-nav .owl-prev {
+.owl-carousel-2 .owl-nav .owl-prev {
   left: 0;
 }
-
+.owl-carousel-2 img {
+  display: block;
+  width: 100%;
+}
 [data-overlay-dark]:before {
   background: #00D9E8;
   /*background: linear-gradient(-29deg, #303f9f 0, #6E6EFF 100%);*/
