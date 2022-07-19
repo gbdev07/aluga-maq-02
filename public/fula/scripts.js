@@ -42,16 +42,18 @@ $(function() {
             navbar = $(".navbar"),
             logo = $(".change .logo> img");
 
-        if(bodyScroll > 100){
-
-            navbar.addClass("nav-scroll");
-            logo.attr('src', 'fula/logo_fit2sell.png');
-
-        }else{
-
-            navbar.removeClass("nav-scroll");
-            logo.attr('src', 'fula/logo_fit2sell.png');
-        }
+        // if(bodyScroll > 100){
+        //
+        //     navbar.addClass("nav-scroll");
+        //     logo.attr('src', 'fula/logo_fit2sell.png');
+        //
+        // }else{
+        //
+        //     navbar.removeClass("nav-scroll");
+        //     logo.attr('src', 'fula/logo_fit2sell.png');
+        // }
+        navbar.addClass("nav-scroll");
+        logo.attr('src', 'fula/logo_fit2sell.png');
     });
 
 

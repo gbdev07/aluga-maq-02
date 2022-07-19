@@ -895,6 +895,12 @@ span, a, a:hover {
           transform: rotateX(180deg);
   top: 15%;
 }
+/*.process .item .iconWrapper {*/
+/*  background-color: #002AD1;*/
+/*  padding: 30px;*/
+/*  border-radius: 50%;*/
+/*}*/
+
 .process .item .icon {
   font-size: 60px;
   color: #fff;
@@ -912,13 +918,13 @@ span, a, a:hover {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: #fff;
+  background: #002AD1;
   position: absolute;
   top: 0;
   left: 0;
   -webkit-transform: scale(1.4, 1.4);
           transform: scale(1.4, 1.4);
-  opacity: .05;
+  /*opacity: .05;*/
   z-index: -1;
 }
 .process .item h6 {

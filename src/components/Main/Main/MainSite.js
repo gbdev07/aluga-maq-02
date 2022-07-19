@@ -350,7 +350,9 @@ const MainSite = (props) => {
                                     <div className="item text-center">
                                         <img src="fula/arrow1.png" alt="" />
                                         {/*<span className="icon pe-7s-diamond" />*/}
-                                        <span className="icon fa-solid fa-diamond"></span>
+                                        <div className="iconWrapper">
+                                            <span className="icon fa-solid fa-diamond"></span>
+                                        </div>
                                         <h6><span>02.</span>Processamento</h6>
                                         <p>Nosso sistema faz uma análise automática.</p>
                                     </div>
@@ -359,14 +361,19 @@ const MainSite = (props) => {
                                     <div className="item text-center">
                                         <img src="fula/arrow1.png" className="tobotm" alt="" />
                                         {/*<span className="icon pe-7s-rocket" />*/}
-                                        <span className="icon fa-solid fa-rocket"></span>                                        <h6><span>03.</span>Fits</h6>
+                                        <div className="iconWrapper">
+                                        <span className="icon fa-solid fa-rocket"></span>
+                                        </div>
+                                        <h6><span>03.</span>Fits</h6>
                                         <p>Encontramos seus potenciais parceiros.</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-3 col-md-6 padding">
                                     <div className="item text-center">
                                         {/*<span className="icon pe-7s-check" />*/}
+                                        <div className="iconWrapper">
                                         <span className="icon fa-solid fa-check"></span>
+                                        </div>
                                         <h6><span>03.</span>Resultado</h6>
                                         <p>Você encontra parcerias com mais facilidade.</p>
                                     </div>
