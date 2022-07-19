@@ -3,6 +3,7 @@ import { Button } from "antd";
 import { Link } from "react-router-dom";
 import * as links from "../../../utils/links"
 import "./MainSite.css";
+import LogoIcon from "./../../../assets/images/logo_fit2sell.png"
 const MainSite = (props) => {
     return (
         // <div className="MainSite_container">
@@ -36,7 +37,7 @@ const MainSite = (props) => {
                         <Link className="logo logoText"
                             to={links.SIGNIN}
                         >
-                            Fit2Sell
+                            <img src={LogoIcon} alt=""/>
                         </Link>
                         {/*<a className="logo logoText" href="#">*/}
                         {/*    Fit2Sell*/}
@@ -235,7 +236,7 @@ const MainSite = (props) => {
                         <div className="row">
                             <div className="col-md-5">
                                 <div className="img mb-sm50">
-                                    <img src="fula/v1.svg" alt="" />
+                                    <img src="fula/fornecedor.png" alt="" />
                                 </div>
                             </div>
                             <div className="offset-md-1 col-md-6 valign">
@@ -318,7 +319,7 @@ const MainSite = (props) => {
                             </div>
                             <div className="offset-md-1 col-md-5">
                                 <div className="img">
-                                    <img src="fula/v3.svg" alt="" />
+                                    <img src="fula/canal.png" alt="" />
                                 </div>
                             </div>
                         </div>

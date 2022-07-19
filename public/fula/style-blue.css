@@ -280,8 +280,8 @@ span, a, a:hover {
 }
 
 [data-overlay-dark]:before {
-  background: #303f9f;
-  background: linear-gradient(-29deg, #303f9f 0, #6E6EFF 100%);
+  background: #00D9E8;
+  /*background: linear-gradient(-29deg, #303f9f 0, #6E6EFF 100%);*/
 }
 [data-overlay-dark]:after {
   content: '';
@@ -302,15 +302,16 @@ span, a, a:hover {
 -----------------------------------------------------------------*/
 .butn {
   padding: 14px 25px;
-  background: #fff;
+  background: #002AD1!important;
   border: 1px solid transparent;
   border-radius: 15px 0px 15px 0px;
   position: relative;
   z-index: 3;
-  -webkit-transition: all .4s;
-  transition: all .4s;
+  /*-webkit-transition: all .4s;*/
+  /*transition: all .4s;*/
   cursor: pointer;
   outline: none !important;
+  color: #fff!important;
 }
 .butn span {
   font-size: 12px;
@@ -321,6 +322,8 @@ span, a, a:hover {
   z-index: 2;
   -webkit-transition-delay: 0s;
           transition-delay: 0s;
+  color: #fff!important;
+
 }
 .butn span i {
   font-size: 14px;
@@ -350,21 +353,21 @@ span, a, a:hover {
   -webkit-box-shadow: -15px 15px 20px rgba(0, 0, 0, 0.1);
           box-shadow: -15px 15px 20px rgba(0, 0, 0, 0.1);
 }
-.butn-bg:hover {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-.butn-bg:hover:after {
-  width: 100%;
-  left: 0;
-  opacity: 1;
-}
-.butn-bg:hover span {
-  color: #664ffa;
-}
-.butn-bg:after {
-  background: #fff;
-}
+/*.butn-bg:hover {*/
+/*  !*-webkit-box-shadow: none;*!*/
+/*  !*        box-shadow: none;*!*/
+/*}*/
+/*.butn-bg:hover:after {*/
+/*  !*width: 100%;*!*/
+/*  !*left: 0;*!*/
+/*  !*opacity: 1;*!*/
+/*}*/
+/*.butn-bg:hover span {*/
+/*  color: #664ffa;*/
+/*}*/
+/*.butn-bg:after {*/
+/*  background: #fff;*/
+/*}*/
 .butn-bg span {
   color: #fff;
 }
@@ -543,6 +546,10 @@ span, a, a:hover {
 .logo {
   padding: 15px 0;
   width: 60px;
+}
+
+.logo img {
+  width: 80px;
 }
 
 .dropdown-menu {
@@ -856,10 +863,12 @@ span, a, a:hover {
   left: 0;
   z-index: -1;
 }
-
-/* ----------------------------------------------------------------
-     [ End Banner ]
------------------------------------------------------------------*/
+.banner .img img {
+  width: 100%;
+}
+  /* ----------------------------------------------------------------
+       [ End Banner ]
+  -----------------------------------------------------------------*/
 /* ----------------------------------------------------------------
      [ 07 Start Process ]
 -----------------------------------------------------------------*/
@@ -1144,8 +1153,8 @@ span, a, a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #303f9f;
-  background: linear-gradient(-29deg, #303f9f 0, #6E6EFF 100%);
+  background: #00D9E8;
+  /*background: linear-gradient(-29deg, #303f9f 0, #6E6EFF 100%);*/
   opacity: .7;
 }
 .team .item .img .social .full-width {
