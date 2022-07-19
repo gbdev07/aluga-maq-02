@@ -31,7 +31,7 @@ const MainSite = (props) => {
     ======================================= */}
                 {/* =====================================
     ==== Start Navbar */}
-                <nav className="navbar change navbar-expand-lg">
+                <nav className="navbar nav-scroll change navbar-expand-lg">
                     <div className="container">
                         {/* Logo */}
                         <Link className="logo logoText"
