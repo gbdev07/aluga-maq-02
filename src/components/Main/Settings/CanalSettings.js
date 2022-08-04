@@ -1,16 +1,16 @@
-import React, {useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import "./FornecedorSettings.css"
-import {AuthContext} from "../../../contexts/AuthContext";
-import {Link, useLocation} from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { Link, useLocation } from "react-router-dom";
 import moment from "moment";
 import premiumIcon from "../../../assets/images/premium3.png"
-import {AiOutlinePlus} from "react-icons/ai"
-import {Button, Input} from "antd";
-import {format} from "date-fns";
+import { AiOutlinePlus } from "react-icons/ai"
+import { Button, Input } from "antd";
+import { format } from "date-fns";
 import eoLocale from "date-fns/locale/pt-BR";
 import * as links from "../../../utils/links"
 import axios from "axios";
-import {REACT_APP_API_BASE_URL} from "../../../utils/constants";
+import { REACT_APP_API_BASE_URL } from "../../../utils/constants";
 import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
 const CanalSettings = (props) => {
 
@@ -101,20 +101,20 @@ const CanalSettings = (props) => {
                                             <div>Seja Premium</div>
                                         </Button>
                                     </Link>
-                                    <img src={premiumIcon} alt=""/>
+                                    <img src={premiumIcon} alt="" />
                                 </div>
                         }
 
                     </div>
                     {
                         isPremium && <div className="FornecedorSettings_premium">
-                            <img src={premiumIcon} alt=""/>
+                            <img src={premiumIcon} alt="" />
                         </div>
                     }
                 </div>
                 <div className="FornecedorSettings_feedback">
                     <div className="FornecedorSettings_feedbackTitle">
-                        Envie-nos um feedback
+                        Diga para nós onde podemos melhorar
                     </div>
                     <Input
                         className="FornecedorSettings_feedbackInput"
@@ -130,7 +130,7 @@ const CanalSettings = (props) => {
                         </div>
                     }
                     <div className="FornecedorSettings_feedbackDescription">
-                        Exemplo: Gostei da página de busca, pois encontrei facilmente um canal quando digitei apenas a cidade. (Tamanho Máximo: 500 caracteres, Mínimo 10)
+                        (Tamanho Máximo: 500 caracteres, Mínimo 10)
                     </div>
                     <Button className="FornecedorSettings_feedbackButton" onClick={() => {
                         sendFeedback();
