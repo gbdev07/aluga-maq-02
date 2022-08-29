@@ -169,11 +169,11 @@ const DashboardFornecedor = (props) => {
                             <img src={block1} alt="" />
                         </div>
                         <div className="Dashboard_staBlockBottomLink">
-                            <Link to={links.FORNECEDOR_SEARCH_CANAIS}>
+                            {/* <Link to={links.FORNECEDOR_SEARCH_CANAIS}>
                                 <div className="arrowBottomLink">
                                     <img src={ArrowBottomIcon} alt="" />
                                 </div>
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                 </Col>
@@ -352,7 +352,7 @@ const DashboardFornecedor = (props) => {
                         </Col>
                         <Col xs={24} md={24} lg={12} xl={12}>
                             <div className="Dashboard_modalDetailText2">
-                                Número Aprox. de Clientes: R$: {dataCurrentDetail.numeroAproxClientes}
+                                Número Aprox. de Clientes: {dataCurrentDetail.numeroAproxClientes}
                             </div>
                         </Col>
                         <Col xs={24} md={24} lg={12} xl={12}>

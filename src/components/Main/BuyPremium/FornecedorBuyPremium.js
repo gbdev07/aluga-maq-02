@@ -122,7 +122,7 @@ const FornecedorBuyPremium = (props) => {
         {
             icon: premium_type2,
             text1: 'Premium 12 meses',
-            text2: 'R$: 89,00',
+            text2: 'R$: 1.143,00',
             text3: 'por 12 meses',
             listCheck: [
                 'Acesso a todos os recursos',
@@ -130,12 +130,12 @@ const FornecedorBuyPremium = (props) => {
                 'Sabe os canais que te favoritou',
                 'Acesso aos fits',
                 `desconto de 5% em relação ao plano de 6 meses`
-      ],
+            ],
             buttonText: 'Seja Premium',
             onSubmit: () => {
                 onNewPayment({
                     "plano": "PREMIUM 12 MESES",
-                    "valor": 89
+                    "valor": 1143
                 })
             },
             textDark: true,
@@ -143,7 +143,7 @@ const FornecedorBuyPremium = (props) => {
         {
             icon: premium_type3,
             text1: 'Premium 6 meses',
-            text2: 'R$: 129,00',
+            text2: 'R$: 762,00',
             text3: 'por 6 meses',
             listCheck: [
                 'Acesso a todos os recursos',
@@ -156,7 +156,7 @@ const FornecedorBuyPremium = (props) => {
             onSubmit: () => {
                 onNewPayment({
                     "plano": "PREMIUM 6 MESES",
-                    "valor": 129
+                    "valor": 762
                 })
             }
         }

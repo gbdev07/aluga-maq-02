@@ -220,7 +220,7 @@ const SignUp = (props) => {
                 onsubmit={() => {
                     onsubmit()
                 }}
-                successMessage={success ? 'Usuário cadastrado com sucesso!' : ""}
+                successMessage={success ? 'Cadastrado(a)! Verifique seu email para continuar!' : ""}
                 errorMessage={error ?? ""}
                 textImage={
                     type === CANAL ?
@@ -229,7 +229,7 @@ const SignUp = (props) => {
                                 Fit2Sell
                             </div>
                             <div className="SignUp_textDescription">
-                                Seja um Canal e encontre Fornecedores que atuam no seu segmento de negócio.
+                                Gerando networking entre Fornecedores e Canais de Vendas!
                             </div>
                         </div>
                         :
@@ -238,7 +238,7 @@ const SignUp = (props) => {
                                 Fit2Sell
                             </div>
                             <div className="SignUp_textDescription">
-                                Registre-se como um Fornecedor e encontre facilmente canais voltados ao seu negócio.
+                                Registre-se como um fornecedor e encontre canais de vendas com “FIT” para o seu negócio.
                             </div>
                         </div>
                 }

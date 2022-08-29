@@ -63,6 +63,13 @@ const FornecedorSettings = (props) => {
                         })
                         setDataUser(null);
                     }
+                    if ([500].includes(err.response.status)) {
+                        setErrorfeedbackText('Tamanho Máximo: 500 caracteres!')
+                        setNotiMessage({
+                            type: 'error',
+                            message: 'Tamanho Máximo: 500 caracteres!'
+                        })
+                    }
                 })
         } else {
             setErrorfeedbackText('Min caracteres 10.')

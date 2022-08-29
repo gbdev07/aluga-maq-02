@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Col, Row} from "antd";
+import { Button, Col, Row } from "antd";
 import { Link } from "react-router-dom";
 import * as links from "../../../utils/links"
 import "./MainSite.css";
@@ -37,7 +37,7 @@ const MainSite = (props) => {
                         <Link className="logo logoText"
                             to={links.SIGNIN}
                         >
-                            <img src={LogoIcon} alt=""/>
+                            <img src={LogoIcon} alt="" />
                         </Link>
                         {/*<a className="logo logoText" href="#">*/}
                         {/*    Fit2Sell*/}
@@ -60,9 +60,7 @@ const MainSite = (props) => {
                                 <li className="nav-item">
                                     <a className="nav-link" href="#" data-scroll-nav={2}>Conheça</a>
                                 </li>
-                                {/*<li className="nav-item">*/}
-                                {/*    <a className="nav-link" href="#" data-scroll-nav={3}>Price</a>*/}
-                                {/*</li>*/}
+
                                 <li className="nav-item">
                                     <a className="nav-link" href="#" data-scroll-nav={4}>Depoimentos</a>
                                 </li>
@@ -123,7 +121,7 @@ const MainSite = (props) => {
                                     {/*<span className="icon pe-7s-diamond" />*/}
                                     <i className="icon fa-solid fa-gem"></i>
                                     <h6>Crescimento Exponencial</h6>
-                                    <p>As suas vendas não crescem na velocidade que você deseja porque somente 3% do seu mercado potencial conhece a sua empresa, o seus produtos e os seus serviços!
+                                    <p>As suas vendas não crescem na velocidade que você deseja porque somente 3% do seu mercado potencial conhece a sua empresa, os seus produtos e os seus serviços!
                                         Parceiros que se relacionam com o seu mercado reduzem os investimentos em marketing em até 68% e geram 27% de vendas a mais logo no primeiro ano!
                                         Sem contar a lucratividade que poderá aumentar em até 17%!</p>
                                 </div>
@@ -144,8 +142,7 @@ const MainSite = (props) => {
                                     <i className="icon fa-solid fa-lightbulb"></i>
                                     {/*<span className="icon pe-7s-light" />*/}
                                     <h6>Escala</h6>
-                                    <p>Qual a sua capacidade de crescimento atuando somente com a sua equipe comercial interna?
-                                        Com uma rede de parceiros, escalar as vendas e os resultados podem ser obtidos através de um custo menor, enquanto mais dinheiro será disponibilizado para investir em novas tecnologias, novos produtos e mercados!</p>
+                                    <p>Qual a sua capacidade de crescimento atuando somente com a sua equipe comercial interna? Com uma rede de parceiros, a sua empresa alcançará as vendas e os resultados através de um custo menor, enquanto os recursos serão disponibilizados para investir em novas tecnologias, novos produtos e mercados!</p>
                                 </div>
                             </div>
                         </div>
@@ -243,7 +240,7 @@ const MainSite = (props) => {
                                 <div className="content">
                                     <span className="sm-title">Fornecedor</span>
                                     <h3>Por que estas questões abaixo precisam ser analisadas por você, FORNECEDOR de produtos e serviços?</h3>
-                                    <p><b>Crescimento Exponencial</b> As suas vendas não crescem na velocidade que você deseja porque somente 3% do seu mercado potencial conhece a sua empresa, o seus produtos e os seus serviços!
+                                    <p><b>Crescimento Exponencial</b> As suas vendas não crescem na velocidade que você deseja porque somente 3% do seu mercado potencial conhece a sua empresa, os seus produtos e os seus serviços!
                                         Parceiros que se relacionam com o seu mercado reduzem os investimentos em marketing em até 68% e geram 27% de vendas a mais logo no primeiro ano!
                                         Sem contar a lucratividade que poderá aumentar em até 17%!
                                     </p>
@@ -253,8 +250,7 @@ const MainSite = (props) => {
                                         Se você tem parceiros bem relacionados, você tem sustentação comercial!
 
                                     </p>
-                                    <p><b>Escala</b> Qual a sua capacidade de crescimento atuando somente com a sua equipe comercial interna?
-                                        Com uma rede de parceiros, escalar as vendas e os resultados podem ser obtidos através de um custo menor, enquanto mais dinheiro será disponibilizado para investir em novas tecnologias, novos produtos e mercados!
+                                    <p><b>Escala</b> Qual a sua capacidade de crescimento atuando somente com a sua equipe comercial interna? Com uma rede de parceiros, a sua empresa alcançará as vendas e os resultados através de um custo menor, enquanto os recursos serão disponibilizados para investir em novas tecnologias, novos produtos e mercados!
                                     </p>
                                     <p></p>
                                     {/*<a href="#0" className="butn butn-bg">*/}
@@ -289,9 +285,9 @@ const MainSite = (props) => {
                                         Porém, é você EMPREENDEDOR o único capaz de transformar estes dados e informações em decisão!
                                         Como você faz isso? Mostrando aos seus clientes como usar os dados, as informações em conjunto com as soluções que você representa!
                                         A Informação está com o Google, mas o como decidir está com você!
-                                        E você será cada vez mais eficiente no como tendo em seu portfólio os produtos e as soluções corretas!
+                                        E você será cada vez mais eficiente no COMO tendo em seu portfólio os produtos e as soluções corretas!
                                     </p>
-                                    <p><b>O que você pode ser para o seu cliente</b> Há tanta tecnologia e produtos no mundo que o seu cliente passou a ter como principal necessidade transformar esta tecnologia em resultados!
+                                    <p><b>O que você pode ser para o seu cliente</b> <br />Há tanta tecnologia e produtos no mundo que o seu cliente passou a ter como principal necessidade transformar esta tecnologia em resultados!
 
                                         Como obter os melhores resultados é o que o seu cliente espera de você!
 
@@ -300,7 +296,7 @@ const MainSite = (props) => {
                                     </p>
                                     <p><b>Desenvolver Tecnologia ou Gerar Resultados</b> Não há uma resposta certa, mas quando observamos que o “COMO” é muito mais importante que “O QUE”, fica evidente que montar um bom portfólio de parcerias é a grande oportunidade que temos para a geração rápida, crescente e recorrente de receitas!
 
-                                        Empreendedor, isso faz sentido para você? Já analisou o quanto vale a pena ser um canal? Um integrador de soluções?
+                                        Empreendedor, isso faz sentido para você? Já analisou o quanto vale a pena ser um canal? SEJA um integrador de soluções!
 
                                     </p>
                                     {/*<a href="#0" className="butn butn-bg">*/}
@@ -362,7 +358,7 @@ const MainSite = (props) => {
                                         <img src="fula/arrow1.png" className="tobotm" alt="" />
                                         {/*<span className="icon pe-7s-rocket" />*/}
                                         <div className="iconWrapper">
-                                        <span className="icon fa-solid fa-rocket"></span>
+                                            <span className="icon fa-solid fa-rocket"></span>
                                         </div>
                                         <h6><span>03.</span>Fits</h6>
                                         <p>Encontramos seus potenciais parceiros.</p>
@@ -372,7 +368,7 @@ const MainSite = (props) => {
                                     <div className="item text-center">
                                         {/*<span className="icon pe-7s-check" />*/}
                                         <div className="iconWrapper">
-                                        <span className="icon fa-solid fa-check"></span>
+                                            <span className="icon fa-solid fa-check"></span>
                                         </div>
                                         <h6><span>03.</span>Resultado</h6>
                                         <p>Você encontra parcerias com mais facilidade.</p>
@@ -530,7 +526,7 @@ const MainSite = (props) => {
                                     <Col xs={24} sm={24} md={8} style={{
                                         padding: 20,
                                     }}>
-                                    <div className="item">
+                                        <div className="item">
                                             <div className="client-area">
                                                 <p>Olá! Meu nome é Victor e sou Gerente Comercial na empresa RSData.
                                                     O Alexandre Maia está implantando estratégias comerciais utilizadas pelas Startups
@@ -554,7 +550,7 @@ const MainSite = (props) => {
                                     <Col xs={24} sm={24} md={8} style={{
                                         padding: 20,
                                     }}>
-                                    <div className="item">
+                                        <div className="item">
                                             <div className="client-area">
                                                 <p>Olá! Meu nome é Danilo, sou desenvolvedor de negócios e estratégias comerciais.
                                                     Os treinamentos ministrados pelo Alexandre Maia sobre gestão comercial e gestão de canais de vendas

@@ -822,7 +822,7 @@ const CanalEditProfile = (props) => {
                             </div>
                         }
                         <div className="FornecedorEditProfile_fieldExample">
-                            País. Ex: Brasil.
+                            Ex: https://www.youtube.com.br
                         </div>
                     </Col>
                     <Col xs={24} md={8} lg={8} xl={8} className="FornecedorEditProfile_col">
