@@ -59,8 +59,8 @@
 
 .FornecedorSearchCanais_titleList {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     font-size: 18px;
     line-height: 28px;
     color: #52525B;

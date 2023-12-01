@@ -1,4 +1,4 @@
-export const SIGNIN = '/login';
+export const SIGNIN = '/';
 // export const SIGNIN_FORNECEDOR = '/signin-fornecedor';
 export const SIGNUP_CANAL = '/signup-canal';
 export const SIGNUP_FORNECEDOR = '/signup-fornecedor';
@@ -24,4 +24,4 @@ export const FORNECEDOR_BUY_PREMIUM = '/fornecedor-buy-premium';
 export const FORNECEDOR_NOTI = '/fornecedor-notifications';
 export const FORNECEDOR_MY_FITS = '/my-fits';
 export const FORNECEDOR_FAVORITES_PREMIUM = '/fornecedor-favorites-premium';
-export const MAIN = '/';
+// export const MAIN = '/';

@@ -16,6 +16,8 @@ import {Link, useLocation} from "react-router-dom";
 import SearchHeaderIcon from "../../../assets/images/search_icon.png";
 import NotiHeaderIcon from "../../../assets/images/noti.png";
 import NotiHasHeaderIcon from "../../../assets/images/noti_has.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowDown , faCheckCircle, faXmarkCircle, faBars} from '@fortawesome/free-solid-svg-icons';
 
 import moment from "moment";
 const Main = (props) => {
@@ -37,29 +39,29 @@ const Main = (props) => {
     const listMenuFornecedor = [
         {
             icon: DashboardIcon,
-            text: 'Dashboard',
+            text: 'Máquinas',
             link: links.DASHBOARD_FORNECEDOR,
-        },
-        {
-            icon: EditProfileIcon,
-            text: 'Editar Perfil',
-            link: links.FORNECEDOR_EDIT_PROFILE,
-        },
-        {
-            icon: SearchIcon,
-            text: 'Buscar Canais',
-            link: links.FORNECEDOR_SEARCH_CANAIS,
-        },
-        {
-            icon: FavoritesIcon,
-            text: 'Favoritos',
-            link: links.FORNECEDOR_FAVORITES,
-        },
-        {
-            icon: SettingsIcon,
-            text: 'Configurações',
-            link: links.FORNECEDOR_SETTINGS,
         }
+        // {
+        //     icon: EditProfileIcon,
+        //     text: 'Editar Perfil',
+        //     link: links.FORNECEDOR_EDIT_PROFILE,
+        // },
+        // {
+        //     icon: SearchIcon,
+        //     text: 'Buscar Canais',
+        //     link: links.FORNECEDOR_SEARCH_CANAIS,
+        // },
+        // {
+        //     icon: FavoritesIcon,
+        //     text: 'Favoritos',
+        //     link: links.FORNECEDOR_FAVORITES,
+        // },
+        // {
+        //     icon: SettingsIcon,
+        //     text: 'Configurações',
+        //     link: links.FORNECEDOR_SETTINGS,
+        // }
     ]
 
     const listMenuCanal = [

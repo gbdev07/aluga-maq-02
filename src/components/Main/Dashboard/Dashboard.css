@@ -37,7 +37,14 @@
 
 .Dashboard_staBlockTitle {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 24px;
+    line-height: 27px;
+    padding: 10px 15px;
+}
+
+.WarningMsg {
+    font-weight: 400;
+    font-size: 12px;
     line-height: 27px;
     padding: 10px 15px;
 }
@@ -277,3 +284,24 @@
         padding: 10px;
     }
 }
+
+
+.maquina {
+    background: #fff;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    transition: transform 100ms ease-in-out;
+  }
+  
+  .maquina:hover{
+    transform: scale(1.05);
+  }
+  
+  .maquina img {
+    max-width: 100%;
+  }
+  
+  .maquina-info {
+    padding: 20px;
+  }

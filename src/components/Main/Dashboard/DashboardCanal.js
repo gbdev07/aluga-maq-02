@@ -37,16 +37,16 @@ const DashboardCanal = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [dataCurrentDetail, setDataCurrentDetail] = useState(null);
 
-    useEffect(() => {
-        if (!hasData) {
-            navigate(links.CANAL_EDIT_PROFILE);
-            // setNotiMessage('Você precisa preencher seus dados antes de usar o sistema');
-            setNotiMessage({
-                type: 'success',
-                message: 'Você precisa preencher seus dados antes de usar o sistema'
-            })
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (!hasData) {
+    //         navigate(links.CANAL_EDIT_PROFILE);
+    //         // setNotiMessage('Você precisa preencher seus dados antes de usar o sistema');
+    //         setNotiMessage({
+    //             type: 'success',
+    //             message: 'Você precisa preencher seus dados antes de usar o sistema'
+    //         })
+    //     }
+    // }, [])
     const columns = [
         {
             title: 'Top 3 da plataforma',

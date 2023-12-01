@@ -13,7 +13,7 @@ import ForgotPassword from "./components/Auth/ForgotPassword/ForgotPassword";
 import ResetPassword from "./components/Auth/ResetPassword/ResetPassword";
 import ActiveUser from "./components/Auth/ActiveUser/ActiveUser";
 import DashboardFornecedor from "./components/Main/Dashboard/DashboardFornecedor";
-import {FORNECEDOR_FAVORITES_PREMIUM, MAIN, SIGNIN} from "./utils/links";
+import {FORNECEDOR_FAVORITES_PREMIUM, SIGNIN} from "./utils/links";
 import MainSite from "./components/Main/Main/MainSite";
 import CanalFavorites from "./components/Main/Favorites/CanalFavorites";
 import FornecedorFavorites from "./components/Main/Favorites/FornecedorFavorites";
@@ -224,7 +224,8 @@ function App() {
                         />
 
                         <Route
-                            path={links.FORNECEDOR_SEARCH_CANAIS}
+                            // path={links.FORNECEDOR_SEARCH_CANAIS}
+                            path={`${links.FORNECEDOR_SEARCH_CANAIS}/:id`}
                             element={
                                 <PrivateRoute>
                                     <Main>
@@ -270,13 +271,13 @@ function App() {
 
 
 
-                <Route
+                {/* <Route
                     path={links.MAIN}
                     element={
                         <MainSite />
 
                     }
-                />
+                /> */}
                 <Route
                     path={links.SIGNUP_CANAL}
                     element={

@@ -77,8 +77,8 @@ const SignIn = (props) => {
         if (Object.keys(dataErrorField).length === 0) {
             setIsLoading(true)
             setError(null)
-            axios.post(`${REACT_APP_API_BASE_URL}/login`, {
-                password: dataAuth.password,
+            axios.post(`${REACT_APP_API_BASE_URL}/login-cliente`, {
+                senha: dataAuth.password,
                 email: dataAuth.email.trim(),
             })
                 .then(res => {
@@ -91,7 +91,7 @@ const SignIn = (props) => {
                         setDataUser({
                             ...res.data,
                         })
-                        navigate(res.data.type === CANAL ? links.DASHBOARD_CANAL : links.DASHBOARD_FORNECEDOR)
+                        navigate(links.DASHBOARD_FORNECEDOR)
 
                     } else {
                         throw new Error();
@@ -186,7 +186,7 @@ const SignIn = (props) => {
                 textImage={
                     <div className="SignIn_textImage1">
                         <div className="SignIn_textTitle">
-                            Fit2Sell
+                            ALUGA MÁQ
                         </div>
                         <div className="SignIn_textDescription">
                             Facilitando a vida de Fornecedores e Canais.

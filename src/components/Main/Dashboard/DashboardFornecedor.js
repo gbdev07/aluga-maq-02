@@ -17,6 +17,9 @@ import { NotificationContainer, NotificationManager } from 'react-notifications'
 import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
 import { format } from "date-fns";
 import eoLocale from "date-fns/locale/pt-BR";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowDown , faCheckCircle, faXmarkCircle} from '@fortawesome/free-solid-svg-icons';
+
 const DashboardFornecedor = (props) => {
     const {
         setDataUser,
@@ -31,21 +34,21 @@ const DashboardFornecedor = (props) => {
     const [favorites, setFavorites] = useState([]);
     const [meusFits, setMeusFits] = useState(null);
     const [totalCanais, setTotalCanais] = useState(null);
-    const [totalFornecedores, setTotalFornecedores] = useState(null);
+    const [totalFornecedores, setTotalFornecedores] = useState([]);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [dataCurrentDetail, setDataCurrentDetail] = useState(null);
 
-    useEffect(() => {
-        if (!hasData) {
-            navigate(links.FORNECEDOR_EDIT_PROFILE);
-            // setNotiMessage('Você precisa preencher seus dados antes de usar o sistema');
-            setNotiMessage({
-                type: 'success',
-                message: 'Você precisa preencher seus dados antes de usar o sistema'
-            })
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (!hasData) {
+    //         navigate(links.FORNECEDOR_EDIT_PROFILE);
+    //         // setNotiMessage('Você precisa preencher seus dados antes de usar o sistema');
+    //         setNotiMessage({
+    //             type: 'success',
+    //             message: 'Você precisa preencher seus dados antes de usar o sistema'
+    //         })
+    //     }
+    // }, [])
     const columns = [
         {
             title: 'Top 3 da plataforma',
@@ -85,7 +88,7 @@ const DashboardFornecedor = (props) => {
         dataData();
     }, [])
     const dataData = () => {
-        axios.get(`${REACT_APP_API_BASE_URL}/dashboard-fornecedor`, {
+        axios.get(`${REACT_APP_API_BASE_URL}/maquinas`, {
             headers: {
                 "x-access-token": token,
                 "content-type": "application/json"
@@ -94,12 +97,13 @@ const DashboardFornecedor = (props) => {
             .then(res => {
                 if (res.status === 200) {
                     setIsLoading(false);
+                    console.log(res.data);
                     if (Array.isArray(res.data.favorites)) {
                         setFavorites(res.data.favorites)
                     }
                     setMeusFits(res.data.meusFits);
                     setTotalCanais(res.data.totalCanais);
-                    setTotalFornecedores(res.data.totalFornecedores);
+                    setTotalFornecedores(res.data);
                 } else {
                     throw new Error();
                 }
@@ -116,54 +120,53 @@ const DashboardFornecedor = (props) => {
                 }
             })
     }
-    const onDisLikedCanal = () => {
-        if (dataCurrentDetail) {
-            setIsLoading(true);
-            axios.post(`${REACT_APP_API_BASE_URL}/fornecedor-unlike-canal`, {
-                idCanal: dataCurrentDetail.idCanal
-            }, {
-                headers: {
-                    "x-access-token": token,
-                    "content-type": "application/json"
-                }
-            })
-                .then(res => {
-                    setIsLoading(false);
-                    if (res.status === 200 && res.data) {
-                        setDataCurrentDetail(null);
-                        dataData();
-                    }
-                })
-                .catch(err => {
-                    setIsLoading(false);
-                    setNotiMessage({
-                        type: 'error',
-                        message: `Hmm, ${err.response?.data?.error ?? "error"}`
-                    })
-                    if ([401, 403].includes(err.response.status)) {
-                        // setNotiMessage('A sua sessão expirou, para continuar faça login novamente.');
-                        setNotiMessage({
-                            type: 'error',
-                            message: 'A sua sessão expirou, para continuar faça login novamente.'
-                        })
-                        setDataUser(null);
-                    }
-                })
-        }
+
+    const handleMaquinaClick = (id) => {
+        navigate(`${links.FORNECEDOR_SEARCH_CANAIS}/${id}`);
+
     }
 
     const isPremium = (premiumExpiration && moment(premiumExpiration) > moment());
     return (
         <div className="Dashboard_container">
             {isLoading && <LoadingAction />}
+                <div className="WarningMsg">
+                    mensagem de aviso
+                </div>
+                <div className="Dashboard_staBlockTitle">
+                    Monitoramento
+                </div>
             <Row>
+                {totalFornecedores.map(post => (
+                    <Col xs={24} md={24} lg={8} xl={8} className="Dashboard_col">
+
+                        <div className='maquina' key={post.id} onClick={() => handleMaquinaClick(post.id)}>
+                        <div className='maquina-info'>
+                            {(() => {
+                            switch (post.status) {
+                                case 'ONLINE':
+                                return <FontAwesomeIcon icon={faCheckCircle} color={'green'} className="logout-icon fa-3x"/>;
+                                case 'OFFLINE':
+                                return <FontAwesomeIcon icon={faXmarkCircle} color={'red'} className="logout-icon fa-3x"/>;
+                                case 'PAGAMENTO_RECENTE':
+                                return <FontAwesomeIcon icon={faCheckCircle} color={'blue'} className="logout-icon fa-3x"/>;
+                                default:
+                                return null;
+                            }
+                            })()}
+                            <h2>{post.nome}</h2>
+                            <h4 style={{ fontWeight: '300' }}>{post.status} - {post.descricao}</h4>
+                        </div>
+                        </div>
+                    </Col>
+                ))}
                 <Col xs={24} md={24} lg={8} xl={8} className="Dashboard_col">
                     <div className="Dashboard_staBlock">
                         <div className="Dashboard_staBlockTitle">
                             Total de Fornecedores
                         </div>
                         <div className="Dashboard_staBlockAmount">
-                            {totalFornecedores !== null ? totalFornecedores : ""}
+                            {/* {totalFornecedores !== null ? totalFornecedores : ""} */}
                         </div>
                         <div className="Dashboard_staBlockBottom">
                             <img src={block1} alt="" />

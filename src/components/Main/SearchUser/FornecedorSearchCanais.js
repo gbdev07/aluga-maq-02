@@ -12,6 +12,7 @@ import premiumIcon from "../../../assets/images/premium3.png";
 import _, {debounce} from 'lodash';
 import axios from "axios";
 import {REACT_APP_API_BASE_URL} from "../../../utils/constants";
+import { useParams } from 'react-router-dom';
 
 const FornecedorSearchCanais = (props) => {
     const {
@@ -30,10 +31,14 @@ const FornecedorSearchCanais = (props) => {
     // const [searchText, setsearchText] = useState('');
     const [searchText, setSearchText] = useState('');
     const [listCanals, setListCanals] = useState([]);
+    const [estornos, setEstornos] = useState('');
+    const [total, setTotal] = useState('');
     const [dataCurrentDetail, setDataCurrentDetail] = useState(null);
     const [loadingTable, setLoadingTable] = useState(false);
     // const []
     const [isLiked, setIsLiked] = useState(null);
+    const { id } = useParams();
+    console.log(props);
 
     useEffect(() => {
         if (dataCurrentDetail) {
@@ -66,78 +71,9 @@ const FornecedorSearchCanais = (props) => {
         }
     }, [dataCurrentDetail])
 
-
-    const onLikedCanal = () => {
-        if (dataCurrentDetail) {
-            setIsLoading(true);
-            axios.post(`${REACT_APP_API_BASE_URL}/fornecedor-like-canal`, {
-                idCanal: dataCurrentDetail.idCanal
-            }, {
-                headers: {
-                    "x-access-token": token,
-                    "content-type": "application/json"
-                }
-            })
-                .then(res => {
-                    setIsLoading(false);
-                    if (res.status === 200 && res.data) {
-                        console.log(res.data)
-                        setIsLiked(true)
-                    }
-                })
-                .catch(err => {
-                    setIsLoading(false);
-                    setNotiMessage({
-                        type: 'error',
-                        message: `Hmm, ${err.response?.data?.error ?? "error"}`
-                    })
-                    if ([401, 403].includes(err.response.status)) {
-                        // setNotiMessage('A sua sessão expirou, para continuar faça login novamente.');
-                        setNotiMessage({
-                            type: 'error',
-                            message: 'A sua sessão expirou, para continuar faça login novamente.'
-                        })
-                        setDataUser(null);
-                    }
-                })
-        }
-    }
-
-    const onDisLikedCanal = () => {
-        if (dataCurrentDetail) {
-            setIsLoading(true);
-            axios.post(`${REACT_APP_API_BASE_URL}/fornecedor-unlike-canal`, {
-                idCanal: dataCurrentDetail.idCanal
-            }, {
-                headers: {
-                    "x-access-token": token,
-                    "content-type": "application/json"
-                }
-            })
-                .then(res => {
-                    setIsLoading(false);
-                    if (res.status === 200 && res.data) {
-                        console.log(res.data)
-                        setIsLiked(false)
-                    }
-                })
-                .catch(err => {
-                    setIsLoading(false);
-                    setNotiMessage({
-                        type: 'error',
-                        message: `Hmm, ${err.response?.data?.error ?? "error"}`
-                    })
-                    if ([401, 403].includes(err.response.status)) {
-                        // setNotiMessage('A sua sessão expirou, para continuar faça login novamente.');
-                        setNotiMessage({
-                            type: 'error',
-                            message: 'A sua sessão expirou, para continuar faça login novamente.'
-                        })
-                        setDataUser(null);
-                    }
-                })
-        }
-    }
+    useEffect(() => {
+        getData(id);
+    }, [])
 
     const onActionFilter = () => {
         setNotiMessage({
@@ -180,14 +116,10 @@ const FornecedorSearchCanais = (props) => {
     //         })
     // }, [searchText])
 
-    const getData = (description) => {
-        if (description.trim()!== "") {
+    const getData = (id) => {
+        if (id.trim()!== "") {
             setLoadingTable(true)
-            axios.post(`${REACT_APP_API_BASE_URL}/search-canais`, {
-                description: description.trim(),
-                type: "CANAL",
-                email: email
-            }, {
+            axios.get(`${REACT_APP_API_BASE_URL}/pagamentos/${id}`, {
                 headers: {
                     "x-access-token": token,
                     "content-type": "application/json"
@@ -195,8 +127,11 @@ const FornecedorSearchCanais = (props) => {
             })
                 .then(res => {
                     setLoadingTable(false)
-                    if (res.status === 200 && Array.isArray(res.data)) {
-                        setListCanals(res.data);
+                    console.log(res.data);
+                    setEstornos(res.data.estornos);
+                    setTotal(res.data.total);
+                    if (res.status === 200 && Array.isArray(res.data.pagamentos)) {
+                        setListCanals(res.data.pagamentos);
                     }
                 })
                 .catch(err => {
@@ -212,236 +147,50 @@ const FornecedorSearchCanais = (props) => {
                 })
         }
     }
-    // const debounceUpdate = useCallback(debounce((nextValue) => {
-    //     onChangeSearch(nextValue);
-    // }, 300), [])
-    // useEffect(() => {
-    //     if (searchTextTemp !== searchText) {
-    //         debounceUpdate(searchTextTemp)
-    //     }
-    // }, [searchTextTemp])
-
-    const onOpenModalDetail = (data) => {
-        console.log(data)
-        setDataCurrentDetail(data)
-    }
 
     const columns = [
         {
-            title: 'CANAL',
-            dataIndex: 'name',
-            key: 'name',
+            title: 'Data',
+            dataIndex: 'data',
+            key: 'data',
+            width: 500,
         },
         {
-            title: 'DESCRIÇÃO',
-            dataIndex: 'description',
-            key: 'description',
+            title: 'Valor',
+            dataIndex: 'valor',
+            key: 'valor',
+            render: (valor) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valor),
         },
         {
-            title: 'CIDADE',
-            dataIndex: 'city',
-            key: 'city',
-            render: (_, record) => {
-                return (
-                    <div>
-                        {record.city} - {record.state}
-                    </div>
-                )
-            },
+            title: 'Identificador MP',
+            dataIndex: 'mercadoPagoId',
+            key: 'mercadoPagoId',
         },
         {
-            title: 'DETALHAR',
-            dataIndex: 'detail',
-            key: 'detail',
-            render: (_, record) => {
-                return (
-                    <div
-                        className="FornecedorSearchCanais_detailBtn"
-                    >
-                        <Button
-                            onClick={() => {
-                                onOpenModalDetail(record)
-                            }}>
-                            ...
-                        </Button>
-                    </div>
-                )
-            },
-        },
+            title: 'Estornado',
+            dataIndex: 'estornado',
+            key: 'estornado',
+            width: 100,
+            render: (estornado) => (
+                <span style={{ color: estornado ? 'gray' : 'green'}}>
+                  {estornado ? 'Estornado' : 'Recebido'}
+                </span>
+              ),
+        }
     ];
 
     const onSearch = () => {
-        if (searchText.trim() !==  "") {
-            getData(searchText)
-        } else {
-            if (hasData) {
-                setNotiMessage({
-                    type: 'warning',
-                    message: 'Insira algo para buscar, como por exemplo: marketing ou software ou erp em São Paulo'
-                })
-            } else {
-                setNotiMessage({
-                    type: 'success',
-                    message: 'Insira algo para buscar, como por exemplo: marketing ou software ou erp em São Paulo'
-                })
-            }
-        }
+        getData(id);
     }
 
     return (
         <div className="FornecedorSearchCanais_container">
             {isLoading && <LoadingAction />}
             <div className="FornecedorSearchCanais_title">
-                Buscar Canais
+                {id}
             </div>
 
             <div className="FornecedorSearchCanais_body">
-                {dataCurrentDetail && <div className="FornecedorSearchCanais_modalDetail">
-                    <div className="FornecedorSearchCanais_modalAction">
-                        <div className="FornecedorSearchCanais_modalClose" onClick={() => {
-                            setDataCurrentDetail(null)
-                            setIsLiked(null)
-                        }}>
-                            X
-                        </div>
-                    </div>
-                    <Row>
-                        <Col xs={24}>
-                            <div className="FornecedorSearchCanais_modalDetailText1">
-                                {dataCurrentDetail.description ?? ""}
-                            </div>
-                        </Col>
-                        <Col xs={24} md={24} lg={12} xl={12}>
-                            <div className="FornecedorSearchCanais_modalDetailText2">
-                                Tipo de Parceria desejada: {dataCurrentDetail.tipoParceriaDesejada}
-                            </div>
-                        </Col>
-                        <Col xs={24} md={24} lg={12} xl={12}>
-                            <div className="FornecedorSearchCanais_modalDetailText2">
-                                País: {dataCurrentDetail.country}.
-                            </div>
-                        </Col>
-                        <Col xs={24} md={24} lg={12} xl={12}>
-                            <div className="FornecedorSearchCanais_modalDetailText2">
-                                Número Aprox. de Clientes: R$: {dataCurrentDetail.numeroAproxClientes}
-                            </div>
-                        </Col>
-                        <Col xs={24} md={24} lg={12} xl={12}>
-                            <div className="FornecedorSearchCanais_modalDetailText2">
-                                Cidade: {dataCurrentDetail.city}
-                            </div>
-                        </Col>
-                        <Col xs={24} md={24} lg={12} xl={12}>
-                            <div className="FornecedorSearchCanais_modalDetailText2">
-                                Descrição de Produtos e Serviços: {dataCurrentDetail.descricaoProdutosServicos}
-                            </div>
-                        </Col>
-                        <Col xs={24} md={24} lg={12} xl={12}>
-                            <div className="FornecedorSearchCanais_modalDetailText2">
-                                Estado: {dataCurrentDetail.state}
-                            </div>
-                        </Col>
-                        <Col xs={24} md={24} lg={12} xl={12}>
-                            <div className="FornecedorSearchCanais_modalDetailText2">
-                                Área de Atuação: {dataCurrentDetail.areaAtuacao}
-                            </div>
-                        </Col>
-                        <Col xs={24} md={24} lg={12} xl={12}>
-                            <div className="FornecedorSearchCanais_modalDetailText2">
-                                Endereço: {dataCurrentDetail.street}
-                            </div>
-                        </Col>
-                        <Col xs={24} md={24} lg={12} xl={12}>
-                            <div className="FornecedorSearchCanais_modalDetailText2">
-                                Segmento: {dataCurrentDetail.segmento}
-                            </div>
-                        </Col>
-                        <Col xs={24} md={24} lg={12} xl={12}>
-
-                        </Col>
-                        <Col xs={24} md={24} lg={8} xl={8} className="FornecedorSearchCanais_modalDetailCol">
-                            <div className="FornecedorSearchCanais_modalDetailText3">
-                                Telefone
-                            </div>
-                            {
-                                dataCurrentDetail.phone
-                                    ?
-                                    <a href={`tel:${dataCurrentDetail.phone}`} target={"_blank"} className="FornecedorFavorites_modalDetailViewLink">
-                                        <div className="FornecedorFavorites_modalDetailView">
-                                            {dataCurrentDetail.phone}
-                                        </div>
-                                    </a>
-                                    :
-                                    <div className="FornecedorFavorites_modalDetailView">
-                                        Não Informado.
-                                    </div>
-                            }
-                        </Col>
-                        <Col xs={24} md={24} lg={8} xl={8} className="FornecedorSearchCanais_modalDetailCol">
-                            <div className="FornecedorSearchCanais_modalDetailText3">
-                                Whatsapp
-                            </div>
-                            {
-                                dataCurrentDetail.whatsapp
-                                    ?
-                                    <a href={`https://wa.me/550${dataCurrentDetail.whatsapp}`} target={"_blank"} className="FornecedorFavorites_modalDetailViewLink">
-                                        <div className="FornecedorFavorites_modalDetailView">
-                                            {dataCurrentDetail.whatsapp}
-                                        </div>
-                                    </a>
-                                    :
-                                    <div className="FornecedorFavorites_modalDetailView">
-                                        Não Informado.
-                                    </div>
-                            }
-                        </Col>
-                        <Col xs={24} md={24} lg={8} xl={8} className="FornecedorSearchCanais_modalDetailCol">
-                            <div className="FornecedorSearchCanais_modalDetailText3">
-                                Site
-                            </div>
-                            {
-                                dataCurrentDetail.website
-                                    ?
-                                    <a href={dataCurrentDetail.website} target={"_blank"}
-                                       className="FornecedorSearchCanais_modalDetailViewLink">
-                                        <div className="FornecedorSearchCanais_modalDetailView">
-                                            Clique aqui para acessar .
-                                        </div>
-                                    </a>
-                                    :
-                                    <div className="FornecedorSearchCanais_modalDetailView">
-                                        Não Informado.
-                                    </div>
-                            }
-                        </Col>
-                        <Col xs={24} className="FornecedorSearchCanais_modalDetailCol">
-                            {
-                                isLiked === false
-                                ?
-                                    <div className="FornecedorSearchCanais_like" onClick={() => {
-                                        onLikedCanal();
-                                    }}>
-                                        FAVORITAR
-                                    </div>
-                                    :
-                                    isLiked === true
-                                    ?
-
-                                    <div className="FornecedorSearchCanais_like" onClick={() => {
-                                        onDisLikedCanal();}
-                                    }>
-                                        Desfavoritar
-                                    </div>
-                                        :
-                                        <></>
-                            }
-
-                        </Col>
-                    </Row>
-                </div>}
-                {
-                    !dataCurrentDetail &&
-                    <>
                         <div className="FornecedorSearchCanais_header">
                             <div className="FornecedorSearchCanais_search">
                                 <Input
@@ -461,32 +210,31 @@ const FornecedorSearchCanais = (props) => {
                                     onSearch()
                                 }}/>
                             </div>
-                            {isPremium && <Button className="FornecedorSearchCanais_btnSubmit" onClick={() => {
-                                // onSave();
-                                onActionFilter();
-                            }}>
-                                <AiOutlinePlus />
-                                <div>
-                                    Mais filtros
-                                </div>
-                            </Button>}
                         </div>
                         <div className="FornecedorSearchCanais_content">
                             <div className="FornecedorSearchCanais_titleList">
-                                <div>
-                                    Resultados Encontrados
+                                {/* <div>
+                                    Pagamentos Registrados
                                 </div>
-                                <div className="FornecedorSearchCanais_nbList">{listCanals.length}</div>
+                                <div className="FornecedorSearchCanais_nbList">{listCanals.length}</div> */}
+                                <div>
+                                    Total
+                                </div>
+                                <div className="FornecedorSearchCanais_nbList">{total}</div>
+                                <div style={{marginLeft: '20px'}}>
+                                    Estornos
+                                </div>
+                                <div className="FornecedorSearchCanais_nbList">{estornos}</div>
                             </div>
                             <Table
                                 columns={columns}
-                                dataSource={isPremium ? listCanals : listCanals.slice(0,3)}
+                                dataSource={listCanals}
                                 pagination={false}
                                 loading={loadingTable}
                                 locale={{ emptyText: (searchText.trim() !== "") ? <div>Não foram encontrados resultados para sua pesquisa.</div> : <div>Não Informado.</div>}}
                             />
                         </div>
-                        {
+                        {/* {
                             !isPremium && <>
                                 <div className="FornecedorSearchCanais_premiumAction">
                                     <Link to={links.FORNECEDOR_BUY_PREMIUM} className="FornecedorSearchCanais_premiumLink">
@@ -500,9 +248,7 @@ const FornecedorSearchCanais = (props) => {
                                     <img src={premiumIcon} alt=""/>
                                 </div>
                             </>
-                        }
-                    </>
-                }
+                        } */}
             </div>
         </div>
     )

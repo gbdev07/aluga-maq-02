@@ -493,7 +493,7 @@ const FornecedorEditProfile = (props) => {
                 <Row>
                     <Col xs={24} className="FornecedorEditProfile_col">
                         <div className="FornecedorEditProfile_groupText">
-                            Dados da empresa
+                            Dados da empresas
                         </div>
                     </Col>
 

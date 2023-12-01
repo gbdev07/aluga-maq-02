@@ -8,9 +8,9 @@ function NotFound() {
             <div className="NotFoundText">
                 404 - Página Não Encontrada.
             </div>
-            <NavLink to={links.MAIN} className="NotFoundGoHome">
+            {/* <NavLink to={links.MAIN} className="NotFoundGoHome">
                 Voltar
-            </NavLink>
+            </NavLink> */}
         </div>
     )
 }
