@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
 import Auth from "../Auth/Auth";
 import * as links from '../../../utils/links'
-import signin from "../../../assets/images/signin.png";
+import signin from "../../../assets/images/aluga_maq_login.png";
 import { CANAL, REACT_APP_API_BASE_URL } from "../../../utils/constants";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -165,34 +165,34 @@ const SignIn = (props) => {
                     },
                 ]}
                 authSubmit={"Entrar"}
-                authFooter={[
-                    {
-                        text1: 'Registre-se como um',
-                        text2: 'Canal de Vendas',
-                        link: links.SIGNUP_CANAL
-                    },
-                    {
-                        text1: 'Registrar-se como',
-                        text2: 'Fornecedor',
-                        link: links.SIGNUP_FORNECEDOR
-                    }
-                ]}
+                // authFooter={[
+                //     {
+                //         text1: 'Registre-se como um',
+                //         text2: 'Canal de Vendas',
+                //         link: links.SIGNUP_CANAL
+                //     },
+                //     {
+                //         text1: 'Registrar-se como',
+                //         text2: 'Fornecedor',
+                //         link: links.SIGNUP_FORNECEDOR
+                //     }
+                // ]}
                 authImage={signin}
                 onsubmit={() => {
                     onsubmit()
                 }}
                 successMessage={success ? 'Usuário cadastrado com sucesso!' : ""}
                 errorMessage={error ?? ""}
-                textImage={
-                    <div className="SignIn_textImage1">
-                        <div className="SignIn_textTitle">
-                            ALUGA MÁQ
-                        </div>
-                        <div className="SignIn_textDescription">
-                            Facilitando a vida de Fornecedores e Canais.
-                        </div>
-                    </div>
-                }
+                // textImage={
+                //     <div className="SignIn_textImage1">
+                //         <div className="SignIn_textTitle">
+                //             ALUGA MÁQ
+                //         </div>
+                //         {/* <div className="SignIn_textDescription">
+                //             Facilitando a vida de Fornecedores e Canais.
+                //         </div> */}
+                //     </div>
+                // }
                 isSignIn={true}
             />
         </>

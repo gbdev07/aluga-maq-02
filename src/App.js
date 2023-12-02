@@ -279,26 +279,6 @@ function App() {
                     }
                 /> */}
                 <Route
-                    path={links.SIGNUP_CANAL}
-                    element={
-                        <PublicRoute>
-                            <SignUp
-                                type={CANAL}
-                            />
-                        </PublicRoute>
-                    }
-                />
-                <Route
-                    path={links.SIGNUP_FORNECEDOR}
-                    element={
-                        <PublicRoute>
-                            <SignUp
-                                type={FORNECEDOR}
-                            />
-                        </PublicRoute>
-                    }
-                />
-                <Route
                     path={links.SIGNIN}
                     element={
                         <PublicRoute>
@@ -316,7 +296,7 @@ function App() {
                 {/*        </PublicRoute>*/}
                 {/*    }*/}
                 {/*/>*/}
-                <Route
+                {/* <Route
                     path={links.FORGOTPASSWORD}
                     element={
                         <ForgotPassword />
@@ -335,7 +315,7 @@ function App() {
                     element={
                         <ActiveUser />
                     }
-                />
+                /> */}
                 <Route path='*' element={<NotFound />} />
             </Routes>
         </>

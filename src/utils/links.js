@@ -15,9 +15,9 @@ export const CANAL_BUY_PREMIUM = '/canal-buy-premium';
 export const CANAL_FAVORITES_PREMIUM = '/canal-favorites-premium';
 export const CANAL_MY_FITS = '/canal-my-fits';
 
-export const DASHBOARD_FORNECEDOR = '/dashboard-fornecedor';
+export const DASHBOARD_FORNECEDOR = '/dashboard-maquinas';
 export const FORNECEDOR_EDIT_PROFILE = '/fornecedor-edit-profile';
-export const FORNECEDOR_SEARCH_CANAIS = '/fornecedor-search-canais';
+export const FORNECEDOR_SEARCH_CANAIS = '/pagamentos';
 export const FORNECEDOR_FAVORITES = '/fornecedor-favorites';
 export const FORNECEDOR_SETTINGS = '/fornecedor-settings';
 export const FORNECEDOR_BUY_PREMIUM = '/fornecedor-buy-premium';

@@ -135,7 +135,7 @@ const Auth = (props) => {
                         }}>
                             {authSubmit}
                         </Button>
-                        {
+                        {/* {
                             isSignIn && <div style={{
                                 display: 'flex',
                                 justifyContent: 'flex-end',
@@ -145,7 +145,7 @@ const Auth = (props) => {
                                     Esqueci minha senha
                                 </Link>
                             </div>
-                        }
+                        } */}
                         {
                             Array.isArray(authFooter)
                                 ?

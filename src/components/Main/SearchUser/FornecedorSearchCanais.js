@@ -75,47 +75,6 @@ const FornecedorSearchCanais = (props) => {
         getData(id);
     }, [])
 
-    const onActionFilter = () => {
-        setNotiMessage({
-            type: 'info',
-            message: '"Funcionalidade em desenvolvimento...'
-        })
-    }
-
-    const onChangeSearch = (value) => {
-        setSearchText(value);
-        getData(value);
-    }
-
-    // useEffect(() => {
-    //     axios.post(`${REACT_APP_API_BASE_URL}/search-canais`, {
-    //         description: searchText,
-    //         type : "CANAL",
-    //         email : email
-    //     }, {
-    //         headers: {
-    //             "x-access-token": token,
-    //             "content-type": "application/json"
-    //         }
-    //     })
-    //         .then(res => {
-    //             if (res.status === 200 && Array.isArray(res.data)) {
-    //                 console.log(res.data)
-    //                 setListCanals(res.data);
-    //             }
-    //         })
-    //         .catch(err => {
-    //             if ([401, 403].includes(err.response.status)) {
-    //                 // setNotiMessage('A sua sessão expirou, para continuar faça login novamente.');
-    //                 setNotiMessage({
-    //                     type: 'error',
-    //                     message: 'A sua sessão expirou, para continuar faça login novamente.'
-    //                 })
-    //                 setDataUser(null);
-    //             }
-    //         })
-    // }, [searchText])
-
     const getData = (id) => {
         if (id.trim()!== "") {
             setLoadingTable(true)
@@ -186,12 +145,12 @@ const FornecedorSearchCanais = (props) => {
     return (
         <div className="FornecedorSearchCanais_container">
             {isLoading && <LoadingAction />}
-            <div className="FornecedorSearchCanais_title">
+            {/* <div className="FornecedorSearchCanais_title">
                 {id}
-            </div>
+            </div> */}
 
             <div className="FornecedorSearchCanais_body">
-                        <div className="FornecedorSearchCanais_header">
+                        {/* <div className="FornecedorSearchCanais_header">
                             <div className="FornecedorSearchCanais_search">
                                 <Input
                                     className="FornecedorSearchCanais_inputSearch"
@@ -210,7 +169,7 @@ const FornecedorSearchCanais = (props) => {
                                     onSearch()
                                 }}/>
                             </div>
-                        </div>
+                        </div> */}
                         <div className="FornecedorSearchCanais_content">
                             <div className="FornecedorSearchCanais_titleList">
                                 {/* <div>

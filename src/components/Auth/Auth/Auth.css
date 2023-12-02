@@ -1,5 +1,6 @@
 .Auth_container {
     height: 100%;
+    /* background-color: #002AD1; */
 }
 
 .Auth_rowContainer {
@@ -17,13 +18,12 @@
     display: flex !important;
     align-items: center;
     justify-content: center;
-    background-color: #002AD1;
 }
 
 .Auth_authBlock {
     background: #24221F;
     border-radius: 4px;
-    padding: 20px 50px;
+    padding: 30px 50px;
 }
 
 .Auth_authTitle {
@@ -116,6 +116,7 @@
 }
 
 .Auth_authSubmit {
+    margin-top: 20px;
     background: #4599E1 !important;
     border-radius: 4px !important;
     width: 100%;
@@ -124,7 +125,10 @@
     color: #fff !important;
     font-weight: 600 !important;
     font-size: 18px;
-    text-transform: uppercase;
+}
+
+.Auth_authSubmit:hover {
+    transform: scale(1.05);
 }
 
 .Auth_authFooter {
@@ -178,7 +182,8 @@
 }
 
 .Auth_authImage {
-    width: 100%;
+    width: 75%;
+    margin-left: 240px;
     height: 100%;
 }
 
@@ -186,7 +191,7 @@
     position: relative;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1024px) {
     .Auth_colAuthForm {
         padding: 0;
         background: #292F4A;

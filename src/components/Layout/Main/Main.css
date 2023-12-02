@@ -126,3 +126,21 @@
         display: block;
     }
 }
+
+.icon {
+    color: #4169E1;
+}
+
+.circle-icon {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    width: 60px; /* Largura do círculo */
+    height: 60px; /* Altura do círculo */
+    border-radius: 50%; /* Para criar um círculo */
+    background-color:  #F1F2F7; /* Cor do círculo */
+    color: rgb(89, 105, 207);/* Cor do texto dentro do círculo */
+    font-size: 18px; /* Tamanho do texto */
+  }

@@ -17,7 +17,7 @@ import SearchHeaderIcon from "../../../assets/images/search_icon.png";
 import NotiHeaderIcon from "../../../assets/images/noti.png";
 import NotiHasHeaderIcon from "../../../assets/images/noti_has.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowDown , faCheckCircle, faXmarkCircle, faBars} from '@fortawesome/free-solid-svg-icons';
+import { faHardDrive, faServer } from '@fortawesome/free-solid-svg-icons';
 
 import moment from "moment";
 const Main = (props) => {
@@ -38,7 +38,7 @@ const Main = (props) => {
     console.log(location.pathname)
     const listMenuFornecedor = [
         {
-            icon: DashboardIcon,
+            icon: <FontAwesomeIcon icon={faHardDrive} color={'blue'} className="logout-icon fa-3x"/>,
             text: 'Máquinas',
             link: links.DASHBOARD_FORNECEDOR,
         }
@@ -181,7 +181,8 @@ const Main = (props) => {
                                 return (
                                     <Link to={item.link} className={"Main_menuitemLink" + (location.pathname === item.link ? " Main_menuitemLinkActive" : "")}>
                                         <div className="Main_menuitem">
-                                            <img src={item.icon} alt=""/>
+                                            {/* <img src={item.icon} alt=""/> */}
+                                            <FontAwesomeIcon style={{marginRight: '5px'}} icon={faServer} className="icon fa-2x"/>
                                             <div>{item.text}</div>
                                         </div>
                                     </Link>
@@ -191,17 +192,18 @@ const Main = (props) => {
                     </div>
                     <div className="Main_right">
                         <div className="Main_header">
-                            <div className="Main_header_title">{renderScreenTitle()}</div>
+                            {/* <div className="Main_header_title">{renderScreenTitle()}</div> */}
                             <div className="Main_headerBetween">
 
                             </div>
                             <div className="Main_headerRight">
                                 <div className="Main_headerSearch">
-                                    <Link to={links.FORNECEDOR_SEARCH_CANAIS}>
-                                        <img src={SearchHeaderIcon} alt=""/>
-                                    </Link>
+                                    <span>{dataUser.warningMsg}</span>
                                 </div>
-                                <div className="Main_headerNoti">
+                                <div className="Main_headerSearch">
+                                    <span>{dataUser.name}</span>
+                                </div>
+                                {/* <div className="Main_headerNoti">
                                     {
                                         hasNotification ? <Link to={links.FORNECEDOR_NOTI}>
                                                 <img src={NotiHasHeaderIcon} alt=""/>
@@ -210,10 +212,13 @@ const Main = (props) => {
                                             <img src={NotiHeaderIcon} alt=""/>
                                     }
 
-                                </div>
+                                </div> */}
                                 <Dropdown overlay={menu} placement="bottomRight" arrow>
                                     <div className="Main_menuProfile">
-                                        <img src={(premiumExpiration && moment(premiumExpiration) > moment()) ? UserPremiumIcon : UserIcon} alt=""/>
+                                        {/* <img src={UserIcon} alt=""/> */}
+                                        <div className="circle-icon">
+                                            <span>AM</span>
+                                        </div>
                                         <img className="Main_dropdownIcon" src={DropdownIcon} alt=""/>
                                     </div>
                                 </Dropdown>
