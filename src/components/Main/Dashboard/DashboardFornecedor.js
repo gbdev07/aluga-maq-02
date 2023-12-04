@@ -68,7 +68,6 @@ const DashboardFornecedor = (props) => {
             .then(res => {
                 if (res.status === 200) {
                     setIsLoading(false);
-                    console.log(res.data);
                     setTotalFornecedores(res.data);
                 } else {
                     throw new Error();
@@ -88,8 +87,9 @@ const DashboardFornecedor = (props) => {
     }
 
 
-    const handleMaquinaClick = (id) => {
-        navigate(`${links.FORNECEDOR_SEARCH_CANAIS}/${id}`);
+    const handleMaquinaClick = (id, nome, storeId, pulso) => {
+        const maquinaInfos = {nome, storeId, pulso};
+        navigate(`${links.FORNECEDOR_SEARCH_CANAIS}/${id}`, { state: maquinaInfos });
     }
 
     return (
@@ -109,7 +109,7 @@ const DashboardFornecedor = (props) => {
                 {totalFornecedores.map(post => (
                     <Col xs={24} md={24} lg={8} xl={8} className="Dashboard_col">
 
-                        <div className='maquina' key={post.id} onClick={() => handleMaquinaClick(post.id)}>
+                        <div className='maquina' key={post.id} onClick={() => handleMaquinaClick(post.id, post.nome, post.store_id, post.pulso)}>
                         <div className='maquina-info'>
                             {(() => {
                             switch (post.status) {
