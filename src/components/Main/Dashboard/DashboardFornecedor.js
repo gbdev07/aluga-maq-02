@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import './Dashboard.css'
-import { Col, Modal, Row, Table } from "antd";
+import { Button, Col, Modal, Row, Table } from "antd";
 import block1 from "../../../assets/images/block1.png"
 import block2 from "../../../assets/images/block2.png"
 import block3 from "../../../assets/images/block3.png"
@@ -18,7 +18,7 @@ import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
 import { format } from "date-fns";
 import eoLocale from "date-fns/locale/pt-BR";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowDown , faCheckCircle, faXmarkCircle} from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown , faArrowsRotate, faCheckCircle, faXmarkCircle} from '@fortawesome/free-solid-svg-icons';
 
 const DashboardFornecedor = (props) => {
     const {
@@ -91,6 +91,10 @@ const DashboardFornecedor = (props) => {
                 <div className="Dashboard_staBlockTitle">
                     Monitoramento
                 </div>
+                <Button style={{marginLeft: '15px'}} onClick={dataData}>
+                <FontAwesomeIcon icon={faArrowsRotate} style={{marginRight: '5px'}}/>
+                    Atualizar
+                </Button>
             <Row>
                 {totalFornecedores.map(post => (
                     <Col xs={24} md={24} lg={8} xl={8} className="Dashboard_col">

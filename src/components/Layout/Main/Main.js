@@ -38,7 +38,7 @@ const Main = (props) => {
     console.log(location.pathname)
     const listMenuFornecedor = [
         {
-            icon: <FontAwesomeIcon icon={faHardDrive} color={'blue'} className="logout-icon fa-3x"/>,
+            icon: <FontAwesomeIcon icon={faHardDrive} className="logout-icon fa-3x"/>,
             text: 'Máquinas',
             link: links.DASHBOARD_FORNECEDOR,
         }

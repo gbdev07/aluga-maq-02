@@ -22,7 +22,7 @@
 }
 
 .Main_menuitemLinkActive .Main_menuitem {
-    border-left: 5px solid #4169E1;
+    border-left: 5px solid #5A6ACF;
 }
 
 .Main_menuitem {
@@ -128,7 +128,8 @@
 }
 
 .icon {
-    color: #4169E1;
+    /* color: #4169E1; */
+    color: #5A6ACF;
 }
 
 .circle-icon {
