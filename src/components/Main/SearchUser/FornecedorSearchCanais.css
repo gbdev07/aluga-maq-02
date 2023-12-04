@@ -76,9 +76,11 @@
 .FornecedorSearchCanais_nbList {
     margin-left: 5px;
     background: #E5E7EB;
+    color: #3182CE;
     border-radius: 4px;
     padding: 2px 5px;
     font-size: 16px;
+    font-weight: 600;
 }
 
 
