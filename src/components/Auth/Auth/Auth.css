@@ -20,11 +20,11 @@
     justify-content: center;
 }
 
-.Auth_authBlock {
+/* .Auth_authBlock {
     background: #24221F;
     border-radius: 4px;
-    padding: 30px 50px;
-}
+    padding: 50px 100px;
+} */
 
 .Auth_authTitle {
     display: flex;
@@ -38,16 +38,16 @@
 
 .Auth_authTitleText {
     padding-left: 5px;
-    color: #D4CCB6;
+    color: #2F3367;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 32px;
 }
 
 .Auth_authDescription {
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    color: #AFB6C2;
+    color: #2F3367;
     max-width: 320px;
 }
 
@@ -59,7 +59,7 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    color: #AFB6C2;
+    color: #2F3367;
 
 }
 
@@ -67,8 +67,9 @@
     border: 1px solid #469AE2;
     /*box-shadow: 0px 0px 0px 2px #FFDE88;*/
     border-radius: 4px;
-    background-color: transparent;
-    color: #fff !important;
+    color: bl;
+    /* background-color: transparent; */
+    /* color: #fff !important; */
 }
 
 .Auth_itemField .ant-input-password {
@@ -78,7 +79,7 @@
 }
 
 .Auth_itemField .ant-input-password svg path {
-    fill: #fff
+    /* fill: #fff */
 }
 
 .Auth_itemField .Auth_itemFieldLabelCheckbox {
@@ -110,7 +111,7 @@
 .Auth_itemField select:-webkit-autofill:hover,
 .Auth_itemField select:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px transparent inset;
-    -webkit-text-fill-color: #fff !important;
+    /* -webkit-text-fill-color: #fff !important; */
     transition: background-color 5000s ease-in-out 0s;
     /*color: #fff!important;*/
 }
@@ -194,7 +195,7 @@
 @media only screen and (max-width: 1024px) {
     .Auth_colAuthForm {
         padding: 0;
-        background: #292F4A;
+        /* background: #292F4A; */
     }
 
     .Auth_colAuthImage {

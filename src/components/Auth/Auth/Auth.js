@@ -5,8 +5,10 @@ import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 // import {Link} from "react-router-dom";
 import {FiLogIn} from "react-icons/fi"
 import {Link} from "react-router-dom";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import forgotPassword from "../ForgotPassword/ForgotPassword";
 import * as links from "../../../utils/links"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Auth = (props) => {
     const {
         authTitle,
@@ -83,7 +85,7 @@ const Auth = (props) => {
                                                     <Input.Password
                                                         placeholder={itemField.placeholder ?? ""}
                                                         value={itemField.value}
-                                                        iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                                                        iconRender={visible => (visible ? <FontAwesomeIcon icon={faEyeSlash}></FontAwesomeIcon> : <FontAwesomeIcon icon={faEye}></FontAwesomeIcon> )}
                                                         onChange={(event) => {
                                                             if (typeof itemField.setField === "function") {
                                                                 itemField.setField(event.target.value)

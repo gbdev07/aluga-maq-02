@@ -124,8 +124,8 @@ const SignIn = (props) => {
             <NotificationContainer />
             {isLoading && <LoadingAction />}
             <Auth
-                authTitle={'Faça seu login'}
-                authDescription={"Entre com suas informações de cadastro."}
+                authTitle={'Login'}
+                authDescription={"Preencha com e-mail e senha."}
                 authFields={[
                     {
                         label: 'E-mail',
