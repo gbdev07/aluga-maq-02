@@ -39,7 +39,6 @@ const FornecedorSearchCanais = (props) => {
     // const []
     const [isLiked, setIsLiked] = useState(null);
     const { id } = useParams();
-    console.log(props);
 
     useEffect(() => {
         if (dataCurrentDetail) {
@@ -87,7 +86,6 @@ const FornecedorSearchCanais = (props) => {
             })
                 .then(res => {
                     setLoadingTable(false)
-                    console.log(res.data);
                     setEstornos(res.data.estornos);
                     setTotal(res.data.total);
                     if (res.status === 200 && Array.isArray(res.data.pagamentos)) {

@@ -16,7 +16,6 @@ const ActiveUser = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [checkDone, setCheckDone] = useState(null);
     useEffect(() => {
-        console.log('BBBBBBBBBBBBBBBBBBBBBBBB')
         if (token) {
             axios.put(`${REACT_APP_API_BASE_URL}/activateuser`, {
                 id: token
