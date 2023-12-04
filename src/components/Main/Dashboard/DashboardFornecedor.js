@@ -42,9 +42,20 @@ const DashboardFornecedor = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [dataCurrentDetail, setDataCurrentDetail] = useState(null);
 
+    // useEffect(() => {
+    //     dataData();
+    // }, [])
+
     useEffect(() => {
         dataData();
-    }, [])
+    
+        const intervalId = setInterval(() => {
+            dataData(); 
+        }, 60000);  
+    
+        // Limpar o intervalo quando o componente for desmontado para evitar vazamento de memória
+        return () => clearInterval(intervalId);
+    }, []);
 
     const dataData = () => {
         setIsLoading(true)
@@ -76,7 +87,6 @@ const DashboardFornecedor = (props) => {
             })
     }
 
-    // setInterval(dataData, 30000);
 
     const handleMaquinaClick = (id) => {
         navigate(`${links.FORNECEDOR_SEARCH_CANAIS}/${id}`);
