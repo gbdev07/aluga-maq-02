@@ -52,7 +52,7 @@
 }
 
 .Auth_itemField {
-    padding: 10px 0;
+    padding: 10px 0px;
 }
 
 .Auth_itemFieldLabel {
@@ -67,7 +67,7 @@
     border: 1px solid;
     /*box-shadow: 0px 0px 0px 2px #FFDE88;*/
     border-radius: 4px;
-    color: bl;
+    color: black;
     /* background-color: transparent; */
     /* color: #fff !important; */
 }
@@ -118,7 +118,7 @@
 
 .Auth_authSubmit {
     margin-top: 20px;
-    background: #4599E1 !important;
+    background: #007DFA !important;
     border-radius: 4px !important;
     width: 100%;
     border: none !important;
@@ -130,6 +130,7 @@
 
 .Auth_authSubmit:hover {
     transform: scale(1.05);
+    background-color: rgba(0, 125, 250, 0.761);
 }
 
 .Auth_authFooter {

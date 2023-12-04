@@ -13,6 +13,7 @@ import _, {debounce} from 'lodash';
 import axios from "axios";
 import {REACT_APP_API_BASE_URL} from "../../../utils/constants";
 import { useParams } from 'react-router-dom';
+import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 
 const FornecedorSearchCanais = (props) => {
     const {
@@ -130,11 +131,32 @@ const FornecedorSearchCanais = (props) => {
             dataIndex: 'estornado',
             key: 'estornado',
             width: 100,
-            render: (estornado) => (
-                <span style={{ color: estornado ? 'gray' : 'green'}}>
-                  {estornado ? 'Estornado' : 'Recebido'}
-                </span>
+            render: (estornado, record) => (
+                estornado ? (
+                  <OverlayTrigger
+                    key={record.key}
+                    placement="top"
+                    overlay={
+                      <Tooltip id={`tooltip-top-${record.key}`}>
+                        {record.motivoEstorno ? record.motivoEstorno : "Sem motivo registrado"}
+                      </Tooltip>
+                    }
+                  >
+                    <span
+                      style={{ color: 'gray', cursor: 'pointer' }}
+                    >
+                      {estornado ? 'Estornado' : 'Recebido'}
+                    </span>
+                  </OverlayTrigger>
+                ) : (
+                  <span style={{ color: estornado ? 'gray' : 'green'}}>{estornado ? 'Estornado' : 'Recebido'}</span>
+                )
               ),
+            // render: (estornado) => (
+            //     <span style={{ color: estornado ? 'gray' : 'green'}}>
+            //       {estornado ? 'Estornado' : 'Recebido'}
+            //     </span>
+            //   ),
         }
     ];
 
@@ -145,37 +167,9 @@ const FornecedorSearchCanais = (props) => {
     return (
         <div className="FornecedorSearchCanais_container">
             {isLoading && <LoadingAction />}
-            {/* <div className="FornecedorSearchCanais_title">
-                {id}
-            </div> */}
-
             <div className="FornecedorSearchCanais_body">
-                        {/* <div className="FornecedorSearchCanais_header">
-                            <div className="FornecedorSearchCanais_search">
-                                <Input
-                                    className="FornecedorSearchCanais_inputSearch"
-                                    value={searchText}
-                                    onChange={(event) => {
-                                        setSearchText(event.target.value)
-                                    }}
-                                    onKeyPress={(event) => {
-                                        if(event.key === 'Enter'){
-                                            onSearch();
-                                        }
-                                    }}
-                                    disabled={!hasData}
-                                />
-                                <img src={search2Icon} alt="" onClick={() => {
-                                    onSearch()
-                                }}/>
-                            </div>
-                        </div> */}
                         <div className="FornecedorSearchCanais_content">
                             <div className="FornecedorSearchCanais_titleList">
-                                {/* <div>
-                                    Pagamentos Registrados
-                                </div>
-                                <div className="FornecedorSearchCanais_nbList">{listCanals.length}</div> */}
                                 <div>
                                     Total
                                 </div>
@@ -193,21 +187,6 @@ const FornecedorSearchCanais = (props) => {
                                 locale={{ emptyText: (searchText.trim() !== "") ? <div>Não foram encontrados resultados para sua pesquisa.</div> : <div>Não Informado.</div>}}
                             />
                         </div>
-                        {/* {
-                            !isPremium && <>
-                                <div className="FornecedorSearchCanais_premiumAction">
-                                    <Link to={links.FORNECEDOR_BUY_PREMIUM} className="FornecedorSearchCanais_premiumLink">
-                                        <Button className="FornecedorSearchCanais_premiumBtn">
-                                            <AiOutlinePlus />
-                                            <div>
-                                                Seja Premium e Veja Todos Os Resultados.
-                                            </div>
-                                        </Button>
-                                    </Link>
-                                    <img src={premiumIcon} alt=""/>
-                                </div>
-                            </>
-                        } */}
             </div>
         </div>
     )
