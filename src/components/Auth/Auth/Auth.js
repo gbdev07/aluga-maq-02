@@ -61,7 +61,8 @@ const Auth = (props) => {
                                                         placeholder={itemField.placeholder ?? ""}
                                                         value={itemField.value}
                                                         type="email"
-                                                        autoComplete="username"
+                                                        name="email"
+                                                        autoComplete="email"
                                                         onChange={(event) => {
                                                             if (typeof itemField.setField === "function") {
                                                                 itemField.setField(event.target.value)
@@ -88,6 +89,7 @@ const Auth = (props) => {
                                                         placeholder={itemField.placeholder ?? ""}
                                                         value={itemField.value}
                                                         type="password"
+                                                        name="password"
                                                         autoComplete="current-password"
                                                         iconRender={visible => (visible ? <FontAwesomeIcon icon={faEyeSlash}></FontAwesomeIcon> : <FontAwesomeIcon icon={faEye}></FontAwesomeIcon> )}
                                                         onChange={(event) => {
